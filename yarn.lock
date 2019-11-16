@@ -928,15 +928,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@matthamlin/projects@workspace:.":
+"@hamlim/simple-cache@workspace:packages/simple-cache":
   version: 0.0.0-use.local
-  resolution: "@matthamlin/projects@workspace:."
-  languageName: unknown
-  linkType: soft
-
-"@matthamlin/simple-cache@workspace:packages/simple-cache":
-  version: 0.0.0-use.local
-  resolution: "@matthamlin/simple-cache@workspace:packages/simple-cache"
+  resolution: "@hamlim/simple-cache@workspace:packages/simple-cache"
   dependencies:
     "@babel/cli": "npm:7.4.4"
     "@babel/core": "npm:7.4.4"
@@ -944,6 +938,12 @@ __metadata:
     microbundle: "npm:0.11.0"
   peerDependencies:
     react: "*"
+  languageName: unknown
+  linkType: soft
+
+"@matthamlin/projects@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@matthamlin/projects@workspace:."
   languageName: unknown
   linkType: soft
 

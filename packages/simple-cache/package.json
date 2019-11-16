@@ -1,5 +1,5 @@
 {
-  "name": "@matthamlin/simple-cache",
+  "name": "@hamlim/simple-cache",
   "version": "1.0.0",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
@@ -19,5 +19,14 @@
     "@babel/core": "7.4.4",
     "@babel/preset-env": "7.4.4",
     "microbundle": "0.11.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/hamlim/projects.git",
+    "directory": "packages/simple-cache"
   }
 }
