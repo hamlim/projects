@@ -1,0 +1,23 @@
+{
+  "name": "@matthamlin/simple-cache",
+  "version": "1.0.0",
+  "module": "dist/index.mjs",
+  "main": "dist/index.js",
+  "umd:main": "dist/index.umd.js",
+  "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
+  "license": "MIT",
+  "source": "./src/index.js",
+  "scripts": {
+    "build": "babel src/ --out-dir dist/",
+    "bundle": "microbundle"
+  },
+  "peerDependencies": {
+    "react": "*"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.4.4",
+    "@babel/core": "7.4.4",
+    "@babel/preset-env": "7.4.4",
+    "microbundle": "0.11.0"
+  }
+}
