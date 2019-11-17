@@ -1,0 +1,9 @@
+{
+  "packages": [
+    "packages/simple-cache",
+    "packages/reroute-core",
+    "packages/reroute-browser",
+    "packages/component-library"
+  ],
+  "sandboxes": ["new", "vanilla"]
+}
