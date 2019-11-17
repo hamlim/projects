@@ -1298,9 +1298,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hamlim/components@workspace:packages/components":
+"@hamlim/component-library@workspace:packages/component-library":
   version: 0.0.0-use.local
-  resolution: "@hamlim/components@workspace:packages/components"
+  resolution: "@hamlim/component-library@workspace:packages/component-library"
   dependencies:
     "@babel/cli": "npm:7.5.0"
     "@babel/core": "npm:7.5.0"
