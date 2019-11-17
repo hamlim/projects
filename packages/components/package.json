@@ -1,6 +1,6 @@
 {
   "name": "@hamlim/components",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
   "license": "MIT",
   "main": "dist/index.js",
@@ -9,7 +9,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:hamlim/projects.git",
+    "url": "ssh://git@github.com/hamlim/projects.git",
     "directory": "packages/components"
   },
   "dependencies": {
