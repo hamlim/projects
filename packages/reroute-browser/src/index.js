@@ -16,4 +16,6 @@ export function BrowserRouter({ children, createHistory = createBrowserHistory }
   return <Router createHistory={createHistory}>{children}</Router>
 }
 
+export const hello = 'world'
+
 export { useRoute, useLink }
