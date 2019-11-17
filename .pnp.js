@@ -26,6 +26,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/component-library"
       },
       {
+        "name": "@hamlim/reroute-browser",
+        "reference": "workspace:packages/reroute-browser"
+      },
+      {
         "name": "@hamlim/reroute-core",
         "reference": "workspace:packages/reroute-core"
       },
@@ -41,7 +45,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     ],
     "fallbackExclusionList": [
       ["@hamlim/component-library", ["workspace:packages/component-library"]],
-      ["@hamlim/reroute-core", ["workspace:packages/reroute-core"]],
+      ["@hamlim/reroute-browser", ["workspace:packages/reroute-browser"]],
+      ["@hamlim/reroute-core", ["virtual:f42d44e429e0d382dbe9400b4d3439ae6ed52894b71b0c1fd56d0b96460e888341984e014cdf37bdf59047fe814fc09b6d06784d177991a91d57848cc4205d68#workspace:packages/reroute-core", "workspace:packages/reroute-core"]],
       ["@hamlim/simple-cache", ["workspace:packages/simple-cache"]],
       ["@matthamlin/projects", ["workspace:."]]
     ],
@@ -146,6 +151,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       60,
       58,
       29,
+      27,
       24,
       2
     ],
@@ -1633,7 +1639,55 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT"
         }]
       ]],
+      ["@hamlim/reroute-browser", [
+        ["workspace:packages/reroute-browser", {
+          "packageLocation": "./packages/reroute-browser/",
+          "packageDependencies": [
+            ["@hamlim/reroute-browser", "workspace:packages/reroute-browser"],
+            ["@babel/cli", "virtual:2a1b54626d0db623b7a5c7fce326b176dd0b3eca44b93813244856fa072086b223d321d37b5a11d71e5a6cba1756a93373ed058d7599a69466e059fa76edf09c#npm:7.5.0"],
+            ["@babel/core", "npm:7.5.0"],
+            ["@babel/plugin-proposal-object-rest-spread", "virtual:3b3a58fc9c234b14ab77fe219e580b80949d4e7661f9e9c213d8cbb55415def5c82e7bf25fc2ccdc1debaeef4bddd759bbbb3f4c3381c65ad1350e0412463939#npm:7.6.2"],
+            ["@babel/preset-env", "virtual:2a1b54626d0db623b7a5c7fce326b176dd0b3eca44b93813244856fa072086b223d321d37b5a11d71e5a6cba1756a93373ed058d7599a69466e059fa76edf09c#npm:7.5.0"],
+            ["@babel/preset-react", "virtual:2a1b54626d0db623b7a5c7fce326b176dd0b3eca44b93813244856fa072086b223d321d37b5a11d71e5a6cba1756a93373ed058d7599a69466e059fa76edf09c#npm:7.0.0"],
+            ["@hamlim/reroute-core", "virtual:f42d44e429e0d382dbe9400b4d3439ae6ed52894b71b0c1fd56d0b96460e888341984e014cdf37bdf59047fe814fc09b6d06784d177991a91d57848cc4205d68#workspace:packages/reroute-core"],
+            ["@testing-library/jest-dom", "npm:4.1.0"],
+            ["@testing-library/react", "virtual:2a1b54626d0db623b7a5c7fce326b176dd0b3eca44b93813244856fa072086b223d321d37b5a11d71e5a6cba1756a93373ed058d7599a69466e059fa76edf09c#npm:8.0.4"],
+            ["history", "npm:4.9.0"],
+            ["jest", "npm:24.8.0"],
+            ["microbundle", "npm:0.11.0"],
+            ["react", "npm:16.9.0"],
+            ["react-dom", "virtual:2a1b54626d0db623b7a5c7fce326b176dd0b3eca44b93813244856fa072086b223d321d37b5a11d71e5a6cba1756a93373ed058d7599a69466e059fa76edf09c#npm:16.9.0"]
+          ],
+          "packagePeers": [
+            "reroute-core",
+            "react"
+          ],
+          "linkType": "SOFT"
+        }]
+      ]],
       ["@hamlim/reroute-core", [
+        ["virtual:f42d44e429e0d382dbe9400b4d3439ae6ed52894b71b0c1fd56d0b96460e888341984e014cdf37bdf59047fe814fc09b6d06784d177991a91d57848cc4205d68#workspace:packages/reroute-core", {
+          "packageLocation": "./.yarn/virtual/@hamlim-reroute-core-virtual-76064e5d7f/1/packages/reroute-core/",
+          "packageDependencies": [
+            ["@hamlim/reroute-core", "virtual:f42d44e429e0d382dbe9400b4d3439ae6ed52894b71b0c1fd56d0b96460e888341984e014cdf37bdf59047fe814fc09b6d06784d177991a91d57848cc4205d68#workspace:packages/reroute-core"],
+            ["@babel/cli", "virtual:2a1b54626d0db623b7a5c7fce326b176dd0b3eca44b93813244856fa072086b223d321d37b5a11d71e5a6cba1756a93373ed058d7599a69466e059fa76edf09c#npm:7.5.0"],
+            ["@babel/core", "npm:7.5.0"],
+            ["@babel/plugin-proposal-object-rest-spread", "virtual:3b3a58fc9c234b14ab77fe219e580b80949d4e7661f9e9c213d8cbb55415def5c82e7bf25fc2ccdc1debaeef4bddd759bbbb3f4c3381c65ad1350e0412463939#npm:7.6.2"],
+            ["@babel/preset-env", "virtual:2a1b54626d0db623b7a5c7fce326b176dd0b3eca44b93813244856fa072086b223d321d37b5a11d71e5a6cba1756a93373ed058d7599a69466e059fa76edf09c#npm:7.5.0"],
+            ["@babel/preset-react", "virtual:2a1b54626d0db623b7a5c7fce326b176dd0b3eca44b93813244856fa072086b223d321d37b5a11d71e5a6cba1756a93373ed058d7599a69466e059fa76edf09c#npm:7.0.0"],
+            ["@testing-library/jest-dom", "npm:4.1.0"],
+            ["@testing-library/react", "virtual:2a1b54626d0db623b7a5c7fce326b176dd0b3eca44b93813244856fa072086b223d321d37b5a11d71e5a6cba1756a93373ed058d7599a69466e059fa76edf09c#npm:8.0.4"],
+            ["history", "npm:4.9.0"],
+            ["jest", "npm:24.8.0"],
+            ["microbundle", "npm:0.11.0"],
+            ["react", "npm:16.9.0"],
+            ["react-dom", "virtual:2a1b54626d0db623b7a5c7fce326b176dd0b3eca44b93813244856fa072086b223d321d37b5a11d71e5a6cba1756a93373ed058d7599a69466e059fa76edf09c#npm:16.9.0"]
+          ],
+          "packagePeers": [
+            "react"
+          ],
+          "linkType": "SOFT"
+        }],
         ["workspace:packages/reroute-core", {
           "packageLocation": "./packages/reroute-core/",
           "packageDependencies": [

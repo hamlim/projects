@@ -1241,7 +1241,30 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hamlim/reroute-core@workspace:packages/reroute-core":
+"@hamlim/reroute-browser@workspace:packages/reroute-browser":
+  version: 0.0.0-use.local
+  resolution: "@hamlim/reroute-browser@workspace:packages/reroute-browser"
+  dependencies:
+    "@babel/cli": "npm:7.5.0"
+    "@babel/core": "npm:7.5.0"
+    "@babel/plugin-proposal-object-rest-spread": "npm:^7.5.0"
+    "@babel/preset-env": "npm:7.5.0"
+    "@babel/preset-react": "npm:7.0.0"
+    "@hamlim/reroute-core": "*"
+    "@testing-library/jest-dom": "npm:4.1.0"
+    "@testing-library/react": "npm:8.0.4"
+    history: "npm:4.9.0"
+    jest: "npm:24.8.0"
+    microbundle: "npm:0.11.0"
+    react: "npm:16.9.0"
+    react-dom: "npm:16.9.0"
+  peerDependencies:
+    "@hamlim/reroute-core": "*"
+    react: "*"
+  languageName: unknown
+  linkType: soft
+
+"@hamlim/reroute-core@*, @hamlim/reroute-core@workspace:packages/reroute-core":
   version: 0.0.0-use.local
   resolution: "@hamlim/reroute-core@workspace:packages/reroute-core"
   dependencies:
