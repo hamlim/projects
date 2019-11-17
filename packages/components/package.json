@@ -1,0 +1,50 @@
+{
+  "name": "@hamlim/components",
+  "version": "2.0.0",
+  "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:hamlim/projects.git",
+    "directory": "packages/components"
+  },
+  "dependencies": {
+    "@styled-system/should-forward-prop": "5.0.12",
+    "styled-system": "5.0.12"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.5.0",
+    "@babel/core": "7.5.0",
+    "@babel/preset-env": "7.5.0",
+    "@babel/preset-react": "7.0.0",
+    "@emotion/core": "10.0.14",
+    "@emotion/styled": "10.0.14",
+    "@testing-library/jest-dom": "4.1.0",
+    "@testing-library/react": "8.0.4",
+    "emotion-theming": "10.0.14",
+    "jest": "24.8.0",
+    "react": "16.9.0",
+    "react-dom": "16.9.0"
+  },
+  "peerDependencies": {
+    "@emotion/core": "10.0.14",
+    "@emotion/styled": "10.0.14",
+    "emotion-theming": "10.0.14",
+    "react": "*",
+    "react-dom": "*"
+  },
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watch",
+    "build": "babel src/ --out-dir dist/ --ignore src/__tests__/",
+    "pub": "yarn npm publish --access public"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  }
+}
