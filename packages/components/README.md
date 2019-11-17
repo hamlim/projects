@@ -1,4 +1,4 @@
-# `@matthamlin/components`
+# `@hamlim/components`
 
 A simple component library built on top of React, Emotion, and Styled-System.
 
