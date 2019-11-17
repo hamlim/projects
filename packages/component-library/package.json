@@ -37,6 +37,11 @@
     "react": "*",
     "react-dom": "*"
   },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
   "scripts": {
     "test": "jest",
     "test-watch": "jest --watch",
