@@ -5,7 +5,7 @@
   "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
   "license": "MIT",
   "scripts": {
-    "watch": "todo",
+    "watch": "parcel src/index.js",
     "build": "babel src/ --out-dir dist/",
     "test": "jest",
     "test-watch": "jest --watch"
@@ -32,7 +32,15 @@
     "directory": "packages/kitchen-sink"
   },
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental"
+    "@emotion/core": "^10.0.22",
+    "@emotion/styled": "^10.0.23",
+    "@hamlim/component-library": "*",
+    "@hamlim/property-controls": "*",
+    "@hamlim/reroute-browser": "*",
+    "@hamlim/reroute-core": "*",
+    "@hamlim/simple-cache": "*",
+    "emotion-theming": "^10.0.19",
+    "react": "0.0.0-experimental-0e6839614",
+    "react-dom": "0.0.0-experimental-0e6839614"
   }
 }

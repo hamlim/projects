@@ -1335,7 +1335,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/cache@npm:^10.0.14":
+"@emotion/cache@npm:^10.0.14, @emotion/cache@npm:^10.0.17":
   version: 10.0.19
   resolution: "@emotion/cache@npm:10.0.19"
   dependencies:
@@ -1363,7 +1363,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/css@npm:^10.0.14":
+"@emotion/core@npm:^10.0.22":
+  version: 10.0.22
+  resolution: "@emotion/core@npm:10.0.22"
+  dependencies:
+    "@babel/runtime": "npm:^7.5.5"
+    "@emotion/cache": "npm:^10.0.17"
+    "@emotion/css": "npm:^10.0.22"
+    "@emotion/serialize": "npm:^0.11.12"
+    "@emotion/sheet": "npm:0.9.3"
+    "@emotion/utils": "npm:0.11.2"
+  peerDependencies:
+    react: ">=16.3.0"
+  checksum: 9b08390e19e85efe250211e66c57f4a752297a745787f0f622801ae987fe3b9ae5aa4d43fefc18b1ba72280aae0ab0f5b36aee55c3383c663b5aa7622cb930e2
+  languageName: node
+  linkType: hard
+
+"@emotion/css@npm:^10.0.14, @emotion/css@npm:^10.0.22":
   version: 10.0.22
   resolution: "@emotion/css@npm:10.0.22"
   dependencies:
@@ -1417,7 +1433,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/styled-base@npm:^10.0.14":
+"@emotion/styled-base@npm:^10.0.14, @emotion/styled-base@npm:^10.0.23":
   version: 10.0.24
   resolution: "@emotion/styled-base@npm:10.0.24"
   dependencies:
@@ -1442,6 +1458,19 @@ __metadata:
     "@emotion/core": ^10.0.14
     react: ">=16.3.0"
   checksum: dc27c87669ad919a84ee97fb25039722233390e3fd1beac3c1ff266cc0a855c7224b3526ceb0dabb548bc6ea6b7154fabd6656cc1cc072bc15a4e6143666c4b7
+  languageName: node
+  linkType: hard
+
+"@emotion/styled@npm:^10.0.23":
+  version: 10.0.23
+  resolution: "@emotion/styled@npm:10.0.23"
+  dependencies:
+    "@emotion/styled-base": "npm:^10.0.23"
+    babel-plugin-emotion: "npm:^10.0.23"
+  peerDependencies:
+    "@emotion/core": ^10.0.22
+    react: ">=16.3.0"
+  checksum: cb1ce7b65064feb40abfebb6c55fe28a5185892854e94599f5699a52958dfcab3ed6af3dab8dc0f8516ce37439910232d4b7f4c1a1acd22fe95e2b57e40703c2
   languageName: node
   linkType: hard
 
@@ -1574,7 +1603,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hamlim/component-library@workspace:packages/component-library":
+"@hamlim/component-library@*, @hamlim/component-library@workspace:packages/component-library":
   version: 0.0.0-use.local
   resolution: "@hamlim/component-library@workspace:packages/component-library"
   dependencies:
@@ -1608,14 +1637,22 @@ __metadata:
     "@babel/cli": "npm:7.5.0"
     "@babel/core": "npm:7.5.0"
     "@babel/preset-env": "npm:7.5.0"
+    "@emotion/core": "npm:^10.0.22"
+    "@emotion/styled": "npm:^10.0.23"
+    "@hamlim/component-library": "*"
+    "@hamlim/property-controls": "*"
+    "@hamlim/reroute-browser": "*"
+    "@hamlim/reroute-core": "*"
+    "@hamlim/simple-cache": "*"
+    emotion-theming: "npm:^10.0.19"
     jest: "npm:24.8.0"
     parcel: "npm:next"
-    react: "npm:experimental"
-    react-dom: "npm:experimental"
+    react: "npm:0.0.0-experimental-0e6839614"
+    react-dom: "npm:0.0.0-experimental-0e6839614"
   languageName: unknown
   linkType: soft
 
-"@hamlim/property-controls@workspace:packages/property-controls":
+"@hamlim/property-controls@*, @hamlim/property-controls@workspace:packages/property-controls":
   version: 0.0.0-use.local
   resolution: "@hamlim/property-controls@workspace:packages/property-controls"
   dependencies:
@@ -1631,7 +1668,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hamlim/reroute-browser@workspace:packages/reroute-browser":
+"@hamlim/reroute-browser@*, @hamlim/reroute-browser@workspace:packages/reroute-browser":
   version: 0.0.0-use.local
   resolution: "@hamlim/reroute-browser@workspace:packages/reroute-browser"
   dependencies:
@@ -1675,7 +1712,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hamlim/simple-cache@workspace:packages/simple-cache":
+"@hamlim/simple-cache@*, @hamlim/simple-cache@workspace:packages/simple-cache":
   version: 0.0.0-use.local
   resolution: "@hamlim/simple-cache@workspace:packages/simple-cache"
   dependencies:
@@ -4412,7 +4449,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-emotion@npm:^10.0.14, babel-plugin-emotion@npm:^10.0.22":
+"babel-plugin-emotion@npm:^10.0.14, babel-plugin-emotion@npm:^10.0.22, babel-plugin-emotion@npm:^10.0.23":
   version: 10.0.23
   resolution: "babel-plugin-emotion@npm:10.0.23"
   dependencies:
@@ -6629,6 +6666,20 @@ __metadata:
     "@emotion/core": ^10.0.14
     react: ">=16.3.0"
   checksum: 75f4f7ba572458e9216331afe514de4a50f0271154ef0fb8c126765f145c0be896498c07bb84db84a553c2286538ebe8759a184f7fb1680c4439e79f1dae2c1b
+  languageName: node
+  linkType: hard
+
+"emotion-theming@npm:^10.0.19":
+  version: 10.0.19
+  resolution: "emotion-theming@npm:10.0.19"
+  dependencies:
+    "@babel/runtime": "npm:^7.5.5"
+    "@emotion/weak-memoize": "npm:0.2.4"
+    hoist-non-react-statics: "npm:^3.3.0"
+  peerDependencies:
+    "@emotion/core": ^10.0.17
+    react: ">=16.3.0"
+  checksum: b25f274f307b807b68a610c9da0e7de0a91f40ad85a74546a59f3c1e8847b66b707ab42389f3cada7a9c6aecb221d7d00de67c7a5aaf785e2069596421189a91
   languageName: node
   linkType: hard
 
@@ -12935,6 +12986,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-dom@npm:0.0.0-experimental-0e6839614":
+  version: 0.0.0-experimental-0e6839614
+  resolution: "react-dom@npm:0.0.0-experimental-0e6839614"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+    object-assign: "npm:^4.1.1"
+    prop-types: "npm:^15.6.2"
+    scheduler: "npm:0.0.0-experimental-0e6839614"
+  peerDependencies:
+    react: 0.0.0-experimental-0e6839614
+  checksum: 344cb297978566874d3feb41354f9fed37438a1447363b0931dcceb0f6991f81af9e66c65300f37e09afcb33d1b3ec7f24136969efd94b277a73686877310718
+  languageName: node
+  linkType: hard
+
 "react-dom@npm:16.9.0":
   version: 16.9.0
   resolution: "react-dom@npm:16.9.0"
@@ -12946,20 +13011,6 @@ __metadata:
   peerDependencies:
     react: ^16.0.0
   checksum: bb025e26ae71d71eb69ff6a16839434257e146fdbb82a9503f20020db7a0b69102e0ea05cf2f4a3a2c3fb63124f89aae35ba20044eea7c455329d63058199e99
-  languageName: node
-  linkType: hard
-
-"react-dom@npm:experimental":
-  version: 0.0.0-experimental-b53ea6ca0
-  resolution: "react-dom@npm:0.0.0-experimental-b53ea6ca0"
-  dependencies:
-    loose-envify: "npm:^1.1.0"
-    object-assign: "npm:^4.1.1"
-    prop-types: "npm:^15.6.2"
-    scheduler: "npm:0.0.0-experimental-b53ea6ca0"
-  peerDependencies:
-    react: 0.0.0-experimental-b53ea6ca0
-  checksum: 8583cbeb2df81671e29f40a68365b8625886142339273ac85aee51a19841532e8fa98710ceafce336360f8f787b95bdba668c37001992fab5eec0764b0ca2aca
   languageName: node
   linkType: hard
 
@@ -12991,6 +13042,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react@npm:0.0.0-experimental-0e6839614":
+  version: 0.0.0-experimental-0e6839614
+  resolution: "react@npm:0.0.0-experimental-0e6839614"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+    object-assign: "npm:^4.1.1"
+    prop-types: "npm:^15.6.2"
+  checksum: de7989b04afe10792d318a9052312285c59be54794fd5b216074da87b2377505ddae3091084ac956ec3b4ad6ebeb9de7ab25c12984e340796a1c091a4b6b50e4
+  languageName: node
+  linkType: hard
+
 "react@npm:16.9.0":
   version: 16.9.0
   resolution: "react@npm:16.9.0"
@@ -13010,17 +13072,6 @@ __metadata:
     object-assign: "npm:^4.1.1"
     prop-types: "npm:^15.6.2"
   checksum: b352f012d0f605d93f0c03f8293d1c7704d7a0559b52ef90f40bec181072a40badc877dd60556b3ae3eb57bbfd91ed9a5ff3ecb154525125fbe7d1394067b321
-  languageName: node
-  linkType: hard
-
-"react@npm:experimental":
-  version: 0.0.0-experimental-b53ea6ca0
-  resolution: "react@npm:0.0.0-experimental-b53ea6ca0"
-  dependencies:
-    loose-envify: "npm:^1.1.0"
-    object-assign: "npm:^4.1.1"
-    prop-types: "npm:^15.6.2"
-  checksum: 7b02b262a4584f2a96a0655ee1cfb7a0b767688b3376f8ebe4dfff05427711f9567a859691713d90b3380cd05bb30ab83a1f4c6932207a863c9b3f0effa9e954
   languageName: node
   linkType: hard
 
@@ -13927,13 +13978,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"scheduler@npm:0.0.0-experimental-b53ea6ca0":
-  version: 0.0.0-experimental-b53ea6ca0
-  resolution: "scheduler@npm:0.0.0-experimental-b53ea6ca0"
+"scheduler@npm:0.0.0-experimental-0e6839614":
+  version: 0.0.0-experimental-0e6839614
+  resolution: "scheduler@npm:0.0.0-experimental-0e6839614"
   dependencies:
     loose-envify: "npm:^1.1.0"
     object-assign: "npm:^4.1.1"
-  checksum: b504b24d72d500e7546e1cbd45622427e799c4af04a4a5bb2a96dde305a74e2d689311c87a9820a1698c2fa3bfd96b801ff1d0635a99e95a447126da424ab5c3
+  checksum: a676543a2f71f3d599a3e5be8c5902dcf74319fbf0358c158c4067cc04238513bd70cd52279ee28627bb2fde4de7783fd7e2d79d745fdc0b00f5e01bf87c68f2
   languageName: node
   linkType: hard
 
