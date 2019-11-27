@@ -1,0 +1,10 @@
+📦 Simple Cache:
+  - packages/simple-cache/**/*
+📦 Components:
+  - packages/component-library/**/*
+📦 Reroute Browser:
+  - packages/reroute-browser/**/*
+📦 Reroute Core:
+  - packages/reroute-core/**/*
+🛠️ Repo:
+  - ./*
