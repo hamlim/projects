@@ -30,6 +30,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/component-library"
       },
       {
+        "name": "@hamlim/kitchen-sink",
+        "reference": "workspace:packages/kitchen-sink"
+      },
+      {
         "name": "@hamlim/property-controls",
         "reference": "workspace:packages/property-controls"
       },
@@ -54,6 +58,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "fallbackExclusionList": [
       ["@hamlim/babel-plugin-property-controls", ["workspace:packages/babel-plugin-property-controls"]],
       ["@hamlim/component-library", ["workspace:packages/component-library"]],
+      ["@hamlim/kitchen-sink", ["workspace:packages/kitchen-sink"]],
       ["@hamlim/property-controls", ["workspace:packages/property-controls"]],
       ["@hamlim/reroute-browser", ["workspace:packages/reroute-browser"]],
       ["@hamlim/reroute-core", ["virtual:f42d44e429e0d382dbe9400b4d3439ae6ed52894b71b0c1fd56d0b96460e888341984e014cdf37bdf59047fe814fc09b6d06784d177991a91d57848cc4205d68#workspace:packages/reroute-core", "workspace:packages/reroute-core"]],
@@ -1660,6 +1665,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "emotion-theming",
             "react",
             "react-dom"
+          ],
+          "linkType": "SOFT"
+        }]
+      ]],
+      ["@hamlim/kitchen-sink", [
+        ["workspace:packages/kitchen-sink", {
+          "packageLocation": "./packages/kitchen-sink/",
+          "packageDependencies": [
+            ["@hamlim/kitchen-sink", "workspace:packages/kitchen-sink"],
+            ["@babel/cli", "virtual:8a6747262d94665605a816c6294d7813384efec34131655f684854bcb7a7908aed9a08f95197155468bc342c490f2ec5c986eaac09b124cbe0f3ddfc8910ac94#npm:7.5.0"],
+            ["@babel/core", "npm:7.5.0"],
+            ["@babel/preset-env", "virtual:8a6747262d94665605a816c6294d7813384efec34131655f684854bcb7a7908aed9a08f95197155468bc342c490f2ec5c986eaac09b124cbe0f3ddfc8910ac94#npm:7.5.0"],
+            ["jest", "npm:24.8.0"]
           ],
           "linkType": "SOFT"
         }]

@@ -1253,6 +1253,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@hamlim/kitchen-sink@workspace:packages/kitchen-sink":
+  version: 0.0.0-use.local
+  resolution: "@hamlim/kitchen-sink@workspace:packages/kitchen-sink"
+  dependencies:
+    "@babel/cli": "npm:7.5.0"
+    "@babel/core": "npm:7.5.0"
+    "@babel/preset-env": "npm:7.5.0"
+    jest: "npm:24.8.0"
+  languageName: unknown
+  linkType: soft
+
 "@hamlim/property-controls@workspace:packages/property-controls":
   version: 0.0.0-use.local
   resolution: "@hamlim/property-controls@workspace:packages/property-controls"
