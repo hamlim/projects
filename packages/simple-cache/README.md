@@ -1,11 +1,11 @@
-# `@matthamlin/simple-cache`
+# `@hamlim/simple-cache`
 
 A simple react-cache implementation using hooks.
 
 ### API
 
 ```js
-import { useCache } from '@matthamlin/simple-cache'
+import { useCache } from '@hamlim/simple-cache'
 
 const cache = new Map()
 
