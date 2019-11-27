@@ -839,7 +839,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-modules-commonjs@npm:^7.0.0, @babel/plugin-transform-modules-commonjs@npm:^7.5.0":
+"@babel/plugin-transform-modules-commonjs@npm:^7.5.0":
   version: 7.7.0
   resolution: "@babel/plugin-transform-modules-commonjs@npm:7.7.0"
   dependencies:
@@ -1610,6 +1610,8 @@ __metadata:
     "@babel/preset-env": "npm:7.5.0"
     jest: "npm:24.8.0"
     parcel: "npm:next"
+    react: "npm:experimental"
+    react-dom: "npm:experimental"
   languageName: unknown
   linkType: soft
 
@@ -12947,6 +12949,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-dom@npm:experimental":
+  version: 0.0.0-experimental-b53ea6ca0
+  resolution: "react-dom@npm:0.0.0-experimental-b53ea6ca0"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+    object-assign: "npm:^4.1.1"
+    prop-types: "npm:^15.6.2"
+    scheduler: "npm:0.0.0-experimental-b53ea6ca0"
+  peerDependencies:
+    react: 0.0.0-experimental-b53ea6ca0
+  checksum: 8583cbeb2df81671e29f40a68365b8625886142339273ac85aee51a19841532e8fa98710ceafce336360f8f787b95bdba668c37001992fab5eec0764b0ca2aca
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^16.7.0, react-is@npm:^16.8.1, react-is@npm:^16.8.4":
   version: 16.12.0
   resolution: "react-is@npm:16.12.0"
@@ -12994,6 +13010,17 @@ __metadata:
     object-assign: "npm:^4.1.1"
     prop-types: "npm:^15.6.2"
   checksum: b352f012d0f605d93f0c03f8293d1c7704d7a0559b52ef90f40bec181072a40badc877dd60556b3ae3eb57bbfd91ed9a5ff3ecb154525125fbe7d1394067b321
+  languageName: node
+  linkType: hard
+
+"react@npm:experimental":
+  version: 0.0.0-experimental-b53ea6ca0
+  resolution: "react@npm:0.0.0-experimental-b53ea6ca0"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+    object-assign: "npm:^4.1.1"
+    prop-types: "npm:^15.6.2"
+  checksum: 7b02b262a4584f2a96a0655ee1cfb7a0b767688b3376f8ebe4dfff05427711f9567a859691713d90b3380cd05bb30ab83a1f4c6932207a863c9b3f0effa9e954
   languageName: node
   linkType: hard
 
@@ -13897,6 +13924,16 @@ __metadata:
   dependencies:
     xmlchars: "npm:^2.1.1"
   checksum: 3256c238976fc176c69d2061b73806a49f22f2337b35b3f9e30f1592ecbd4608c244cf4fcf6c4ae75ff6dfa69da2d5ef15b9e1dc58c18c3a8af7b568eb6bdc53
+  languageName: node
+  linkType: hard
+
+"scheduler@npm:0.0.0-experimental-b53ea6ca0":
+  version: 0.0.0-experimental-b53ea6ca0
+  resolution: "scheduler@npm:0.0.0-experimental-b53ea6ca0"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+    object-assign: "npm:^4.1.1"
+  checksum: b504b24d72d500e7546e1cbd45622427e799c4af04a4a5bb2a96dde305a74e2d689311c87a9820a1698c2fa3bfd96b801ff1d0635a99e95a447126da424ab5c3
   languageName: node
   linkType: hard
 

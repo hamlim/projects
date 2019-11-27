@@ -101,6 +101,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       142,
       138,
       137,
+      136,
       135,
       134,
       133,
@@ -3298,7 +3299,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/core", "npm:7.5.0"],
             ["@babel/preset-env", "virtual:8a6747262d94665605a816c6294d7813384efec34131655f684854bcb7a7908aed9a08f95197155468bc342c490f2ec5c986eaac09b124cbe0f3ddfc8910ac94#npm:7.5.0"],
             ["jest", "npm:24.8.0"],
-            ["parcel", "npm:2.0.0-alpha.3.2"]
+            ["parcel", "npm:2.0.0-alpha.3.2"],
+            ["react", "npm:0.0.0-experimental-b53ea6ca0"],
+            ["react-dom", "virtual:46ce0fa6c9322a59a8101727a51e6f6597d140be5454b6d5d96d48742d1b6071004e4d1a028170310a706b1c480cd5b6de0a8e7ed311cb5bad2087b74d9422d3#npm:0.0.0-experimental-b53ea6ca0"]
           ],
           "linkType": "SOFT"
         }]
@@ -15728,6 +15731,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["react", [
+        ["npm:0.0.0-experimental-b53ea6ca0", {
+          "packageLocation": "./.yarn/cache/react-npm-0.0.0-experimental-b53ea6ca0-8d4c053edb-1.zip/node_modules/react/",
+          "packageDependencies": [
+            ["react", "npm:0.0.0-experimental-b53ea6ca0"],
+            ["loose-envify", "npm:1.4.0"],
+            ["object-assign", "npm:4.1.1"],
+            ["prop-types", "npm:15.7.2"]
+          ],
+          "linkType": "HARD"
+        }],
         ["npm:16.12.0", {
           "packageLocation": "./.yarn/cache/react-npm-16.12.0-55f18a7792-1.zip/node_modules/react/",
           "packageDependencies": [
@@ -15759,6 +15772,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["prop-types", "npm:15.7.2"],
             ["react", "npm:16.9.0"],
             ["scheduler", "npm:0.15.0"]
+          ],
+          "packagePeers": [
+            "react"
+          ],
+          "linkType": "HARD"
+        }],
+        ["virtual:46ce0fa6c9322a59a8101727a51e6f6597d140be5454b6d5d96d48742d1b6071004e4d1a028170310a706b1c480cd5b6de0a8e7ed311cb5bad2087b74d9422d3#npm:0.0.0-experimental-b53ea6ca0", {
+          "packageLocation": "./.yarn/virtual/react-dom-virtual-91038c8e3b/0/cache/react-dom-npm-0.0.0-experimental-b53ea6ca0-75b82195e4-1.zip/node_modules/react-dom/",
+          "packageDependencies": [
+            ["react-dom", "virtual:46ce0fa6c9322a59a8101727a51e6f6597d140be5454b6d5d96d48742d1b6071004e4d1a028170310a706b1c480cd5b6de0a8e7ed311cb5bad2087b74d9422d3#npm:0.0.0-experimental-b53ea6ca0"],
+            ["loose-envify", "npm:1.4.0"],
+            ["object-assign", "npm:4.1.1"],
+            ["prop-types", "npm:15.7.2"],
+            ["react", "npm:0.0.0-experimental-b53ea6ca0"],
+            ["scheduler", "npm:0.0.0-experimental-b53ea6ca0"]
           ],
           "packagePeers": [
             "react"
@@ -16821,6 +16849,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["scheduler", [
+        ["npm:0.0.0-experimental-b53ea6ca0", {
+          "packageLocation": "./.yarn/cache/scheduler-npm-0.0.0-experimental-b53ea6ca0-c74e180ae0-1.zip/node_modules/scheduler/",
+          "packageDependencies": [
+            ["scheduler", "npm:0.0.0-experimental-b53ea6ca0"],
+            ["loose-envify", "npm:1.4.0"],
+            ["object-assign", "npm:4.1.1"]
+          ],
+          "linkType": "HARD"
+        }],
         ["npm:0.15.0", {
           "packageLocation": "./.yarn/cache/scheduler-npm-0.15.0-1a95ff71f2-1.zip/node_modules/scheduler/",
           "packageDependencies": [
