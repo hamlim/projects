@@ -9,7 +9,7 @@
   "author": "Matthew Hamlin <hamlim@outlook.com> (https://matthamlin.me/)",
   "license": "MIT",
   "dependencies": {
-    "@native-bundler/core": "*"
+    "@hamlim/native-bundler-core": "*"
   },
   "devDependencies": {
     "@babel/cli": "7.0.0",
