@@ -6,5 +6,11 @@
   - packages/reroute-browser/**/*
 📦 Reroute Core:
   - packages/reroute-core/**/*
+📦 Property Controls:
+  - packages/property-controls/**/*
+📦 Babel Plugin Property Controls:
+  - packages/babel-plugin-property-controls/**/*
 🛠️ Repo:
   - ./*
+🔢 Kitchen Sink:
+  - packages/kitchen-sink/**/*
