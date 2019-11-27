@@ -903,7 +903,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-syntax-object-rest-spread@npm:7.2.0, @babel/plugin-syntax-object-rest-spread@npm:^7.0.0, @babel/plugin-syntax-object-rest-spread@npm:^7.2.0":
+"@babel/plugin-syntax-object-rest-spread@npm:^7.0.0, @babel/plugin-syntax-object-rest-spread@npm:^7.2.0":
   version: 7.2.0
   resolution: "@babel/plugin-syntax-object-rest-spread@npm:7.2.0"
   dependencies:
@@ -2328,13 +2328,52 @@ __metadata:
     "@babel/preset-env": "npm:7.0.0"
     "@babel/preset-react": "npm:7.0.0"
     "@babel/traverse": "npm:7.0.0"
-    "@native-bundler/plugin-css": "npm:*"
-    "@native-bundler/plugin-js": "npm:*"
-    "@native-bundler/plugin-mdx": "npm:*"
+    "@hamlim/native-bundler-plugin-css": "*"
+    "@hamlim/native-bundler-plugin-js": "*"
+    "@hamlim/native-bundler-plugin-mdx": "*"
     babylon: "npm:6.18.0"
     directory-tree: "npm:2.1.0"
     node-fetch: "npm:2.2.0"
     preval.macro: "npm:3.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@hamlim/native-bundler-plugin-css@*, @hamlim/native-bundler-plugin-css@workspace:packages/native-bundler-plugin-css":
+  version: 0.0.0-use.local
+  resolution: "@hamlim/native-bundler-plugin-css@workspace:packages/native-bundler-plugin-css"
+  dependencies:
+    "@babel/cli": "npm:7.0.0"
+    "@babel/preset-env": "npm:7.1.0"
+    autoprefixer: "npm:9.4.2"
+    postcss: "npm:7.0.6"
+  languageName: unknown
+  linkType: soft
+
+"@hamlim/native-bundler-plugin-js@*, @hamlim/native-bundler-plugin-js@workspace:packages/native-bundler-plugin-js":
+  version: 0.0.0-use.local
+  resolution: "@hamlim/native-bundler-plugin-js@workspace:packages/native-bundler-plugin-js"
+  dependencies:
+    "@babel/cli": "npm:7.0.0"
+    "@babel/core": "npm:7.1.2"
+    "@babel/preset-env": "npm:7.1.0"
+    "@babel/preset-react": "npm:7.0.0"
+    babel-plugin-macros: "npm:2.4.3"
+  languageName: unknown
+  linkType: soft
+
+"@hamlim/native-bundler-plugin-mdx@*, @hamlim/native-bundler-plugin-mdx@workspace:packages/native-bundler-plugin-mdx":
+  version: 0.0.0-use.local
+  resolution: "@hamlim/native-bundler-plugin-mdx@workspace:packages/native-bundler-plugin-mdx"
+  dependencies:
+    "@babel/cli": "npm:7.0.0"
+    "@babel/core": "npm:7.1.2"
+    "@babel/plugin-proposal-object-rest-spread": "npm:7.0.0"
+    "@babel/preset-env": "npm:7.1.0"
+    "@babel/preset-react": "npm:7.0.0"
+    "@mdx-js/mdx": "npm:latest"
+  peerDependencies:
+    "@mdx-js/tag": 0.15.0
+    react: 16.5.2
   languageName: unknown
   linkType: soft
 
@@ -3409,43 +3448,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@native-bundler/plugin-css@npm:*":
-  version: 0.0.1
-  resolution: "@native-bundler/plugin-css@npm:0.0.1"
-  dependencies:
-    autoprefixer: "npm:9.4.2"
-    postcss: "npm:7.0.6"
-  checksum: 92a9cc52fed077715b0cb00615553e9c0e64c0b161aecc4d993c68db316355b439856dd82c669e183ada723a9410f208ef3c277dff95771caad60993850f38c6
-  languageName: node
-  linkType: hard
-
-"@native-bundler/plugin-js@npm:*":
-  version: 0.0.3
-  resolution: "@native-bundler/plugin-js@npm:0.0.3"
-  dependencies:
-    "@babel/core": "npm:7.1.2"
-    "@babel/preset-env": "npm:7.1.0"
-    "@babel/preset-react": "npm:7.0.0"
-  checksum: d4163cf33162b09caaec951dd92ee1fdb93daa6e982dbf5fb7216e3bddd560aec4980b2ed160ff1450de5771455d85ad9899b551a5bfaef52354d351ca07f8b1
-  languageName: node
-  linkType: hard
-
-"@native-bundler/plugin-mdx@npm:*":
-  version: 0.0.3
-  resolution: "@native-bundler/plugin-mdx@npm:0.0.3"
-  dependencies:
-    "@babel/core": "npm:7.1.2"
-    "@babel/plugin-proposal-object-rest-spread": "npm:7.0.0"
-    "@babel/preset-env": "npm:7.1.0"
-    "@babel/preset-react": "npm:7.0.0"
-    "@mdx-js/mdx": "npm:latest"
-  peerDependencies:
-    "@mdx-js/tag": 0.15.0
-    react: 16.5.2
-  checksum: 0bbcf57cb44dcd1d9de5d9cbc625048e0cad73ec012e1b26f0efb6b99100e49ca0420794412d250298611765c8213a523e68293294cdcb4d24a38fe05c6d7d93
-  languageName: node
-  linkType: hard
-
 "@nodelib/fs.stat@npm:^1.1.2":
   version: 1.1.3
   resolution: "@nodelib/fs.stat@npm:1.1.3"
@@ -4430,6 +4432,16 @@ __metadata:
   dependencies:
     "@types/babel__traverse": "npm:^7.0.6"
   checksum: 8983ab35b584215279846640c35e8c0cdb160a549a630c154b755eb5c5e49ea7b4d93a3b119b54b5c075e38b18c2ce5e180c29956b4157a6102e6ccfb4858d89
+  languageName: node
+  linkType: hard
+
+"babel-plugin-macros@npm:2.4.3":
+  version: 2.4.3
+  resolution: "babel-plugin-macros@npm:2.4.3"
+  dependencies:
+    cosmiconfig: "npm:^5.0.5"
+    resolve: "npm:^1.8.1"
+  checksum: 5e0121793f81e809cdb83a316479e1cd533d3a5dc71e77523e2a59bf5d7e677d8802a7ba2555d424cb2158809f101389e7dcb9375517c05c58e05338d36c11aa
   languageName: node
   linkType: hard
 
@@ -5516,7 +5528,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cosmiconfig@npm:^5.0.0, cosmiconfig@npm:^5.1.0":
+"cosmiconfig@npm:^5.0.0, cosmiconfig@npm:^5.0.5, cosmiconfig@npm:^5.1.0":
   version: 5.2.1
   resolution: "cosmiconfig@npm:5.2.1"
   dependencies:
@@ -12514,6 +12526,15 @@ __metadata:
   dependencies:
     path-parse: "npm:^1.0.6"
   checksum: 256fdc6a9ccc9aff1b49529663f95ee43d030e985f1c5f01bc0d5a5c7fc34ee303fee53320ab411bb84216aeef407c5b0c1ec8bb29d27e7aa614b639e20dc4f5
+  languageName: node
+  linkType: hard
+
+"resolve@npm:^1.8.1":
+  version: 1.13.1
+  resolution: "resolve@npm:1.13.1"
+  dependencies:
+    path-parse: "npm:^1.0.6"
+  checksum: 3403913540dd0d5f4908513878576ff7bcee81b1b48f6d323ffad5090236100ef50d98ea268273746c98742249bad76cae3b38e15d88fd0c0a95c96d28e49052
   languageName: node
   linkType: hard
 
