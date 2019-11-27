@@ -10,7 +10,7 @@
   "scripts": {
     "build": "babel src/ --out-dir dist/",
     "bundle": "microbundle",
-    "test": "jest"
+    "test": "echo TODO"
   },
   "devDependencies": {
     "@babel/cli": "7.5.0",

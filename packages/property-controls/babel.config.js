@@ -1,6 +1,6 @@
 module.exports = function(api) {
-  api.cache.forever()
+  api.cache.never()
   return {
-    presets: ['@babel/preset-env'],
+    presets: ['@babel/preset-env', '@babel/preset-react'],
   }
 }

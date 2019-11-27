@@ -25,8 +25,10 @@
     "@babel/cli": "7.5.0",
     "@babel/core": "7.5.0",
     "@babel/preset-env": "7.5.0",
+    "@babel/preset-react": "^7.7.4",
     "jest": "24.8.0",
-    "microbundle": "0.11.0"
+    "microbundle": "0.11.0",
+    "react": "^16.12.0"
   },
   "publishConfig": {
     "access": "public",
