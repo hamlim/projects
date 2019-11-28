@@ -2,8 +2,13 @@ let fs = require('fs')
 let path = require('path')
 
 let args = process.argv.slice(2).reduce((acc, arg) => {
-  let [key, val] = arg.split('=')
-  acc[key] = val
+  if (arg.includes('=')) {
+    let [key, val] = arg.split('=')
+    acc[key] = val
+  } else {
+    let [, key] = arg.split('--')
+    acc[key] = true
+  }
   return acc
 }, {})
 
@@ -11,13 +16,32 @@ if (!args.packageName) {
   throw new Error('No packageName provided')
 }
 
+function writeOrConsole(path, contents) {
+  if (args.dry) {
+    console.log('------------')
+    console.log('Creating File: ')
+    console.log(path)
+    console.log('')
+    console.log(contents)
+    console.log('------------')
+    return
+  }
+  fs.writeFileSync(path, contents)
+}
+
 let packagePath = path.join('packages', args.packageName)
 
 // make package folder
-fs.mkdirSync(packagePath)
+if (args.dry) {
+  console.log('Creating Package: ')
+  console.log(packagePath)
+  console.log('')
+} else {
+  fs.mkdirSync(packagePath)
+}
 
 // make readme
-fs.writeFileSync(
+writeOrConsole(
   path.join(packagePath, 'README.md'),
   `# \`@hamlim/${args.packageName}\`
 
@@ -30,7 +54,7 @@ TODO
 )
 
 // make babel.config.js
-fs.writeFileSync(
+writeOrConsole(
   path.join(packagePath, 'babel.config.js'),
   `module.exports = function(api) {
   api.cache.never()
@@ -41,7 +65,7 @@ fs.writeFileSync(
 )
 
 // make package.json
-fs.writeFileSync(
+writeOrConsole(
   path.join(packagePath, 'package.json'),
   `{
   "name": "@hamlim/${args.packageName}",
@@ -88,12 +112,12 @@ let labelerPath = path.join('.github', 'labeler.yml')
 
 let originalLabeler = fs.readFileSync(labelerPath).toString()
 
-let labelName = packageName
+let labelName = args.packageName
   .split('-')
-  .map(s => s.toUpperCase())
+  .map(s => s[0].toUpperCase() + s.slice(1))
   .join(' ')
 
-fs.writeFileSync(
+writeOrConsole(
   labelerPath,
   `${originalLabeler}
 📦 ${labelName}:
