@@ -156,4 +156,7 @@ test('rendering PropertyControls renders the expected inputs', () => {
   expect(
     getByLabelText('The background color of the avatar'),
   ).toBeInTheDocument()
+  // TODO: Maybe a bug in RTL?
+  // expect(getByLabelText('The size of the Avatar')).toBeInTheDocument()
+  expect(getByLabelText('The Avatar initials')).toBeInTheDocument()
 })
