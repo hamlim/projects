@@ -153,7 +153,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.7.4":
+"@babel/core@npm:7.7.4, @babel/core@npm:^7.7.4":
   version: 7.7.4
   resolution: "@babel/core@npm:7.7.4"
   dependencies:
@@ -2499,6 +2499,7 @@ __metadata:
     "@babel/cli": "npm:7.5.0"
     "@babel/core": "npm:7.5.0"
     "@babel/preset-env": "npm:^7.7.4"
+    "@babel/preset-react": "npm:^7.7.4"
     jest: "npm:24.8.0"
   languageName: unknown
   linkType: soft
@@ -2508,6 +2509,7 @@ __metadata:
   resolution: "@hamlim/native-bundler-cli@workspace:packages/native-bundler-cli"
   dependencies:
     "@babel/cli": "npm:7.0.0"
+    "@babel/core": "npm:^7.7.4"
     "@babel/preset-env": "npm:7.0.0"
     "@hamlim/native-bundler-core": "*"
   languageName: unknown
