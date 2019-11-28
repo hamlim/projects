@@ -81,3 +81,21 @@ fs.writeFileSync(
   }
 }`,
 )
+
+// Write to labeler config
+
+let labelerPath = path.join('.github', 'labeler.yml')
+
+let originalLabeler = fs.readFileSync(labelerPath).toString()
+
+let labelName = packageName
+  .split('-')
+  .map(s => s.toUpperCase())
+  .join(' ')
+
+fs.writeFileSync(
+  labelerPath,
+  `${originalLabeler}
+📦 ${labelName}:
+  - packages/${args.packageName}/**/*`,
+)
