@@ -7,7 +7,8 @@
   "scripts": {
     "test": "lerna run test",
     "build": "lerna run build",
-    "clean-dist": "yarn node scripts/clean-dist.js"
+    "clean-dist": "yarn node scripts/clean-dist.js",
+    "create-package": "yarn node scripts/create-package.js"
   },
   "devDependencies": {
     "lerna": "^3.4.0",
