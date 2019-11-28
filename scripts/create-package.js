@@ -130,8 +130,8 @@ function main() {
   writeOrConsole(
     labelerPath,
     `${originalLabeler}
-  📦 ${labelName}:
-    - packages/${args.packageName}/**/*`,
+📦 ${labelName}:
+  - packages/${args.packageName}/**/*`,
   )
 }
 
