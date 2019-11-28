@@ -120,8 +120,8 @@ export function createControls({
   inputs,
   propertyControls: componentPropertyControls,
 } = {}) {
-  if (!propertyControls) {
-    throw new Error(`No \`propertyControls\` found provided.`)
+  if (!componentPropertyControls) {
+    throw new Error(`No \`propertyControls\` provided.`)
   }
 
   let { StringInput, NumberInput, BooleanInput, EnumInput, RangeInput } = inputs
