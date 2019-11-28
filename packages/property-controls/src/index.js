@@ -127,14 +127,10 @@ export function createControls({
   let { StringInput, NumberInput, BooleanInput, EnumInput, RangeInput } = inputs
 
   let propertyControlEntries = Object.entries(componentPropertyControls)
-  let initialState = propertyControlEntries.reduce(
-    (acc,
-    ([name, control]) => {
-      acc[name] = control.default || null
-      return acc
-    }),
-    {},
-  )
+  let initialState = propertyControlEntries.reduce((acc, [name, control]) => {
+    acc[name] = control.default || null
+    return acc
+  }, {})
 
   function PropertyControls({
     dispatch,
