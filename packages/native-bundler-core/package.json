@@ -31,7 +31,7 @@
   "scripts": {
     "test": "node ./test-runner/index.js",
     "test-debug": "node --trace-warnings ./test-runner/index.js",
-    "build": "babel src/ --out-dir dist/"
+    "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'"
   },
   "publishConfig": {
     "access": "public",
