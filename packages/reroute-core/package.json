@@ -8,7 +8,7 @@
   "license": "MIT",
   "source": "./src/index.js",
   "scripts": {
-    "build": "babel src/ --out-dir dist/ --ignore=__tests__",
+    "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'",
     "test": "jest",
     "bundle": "microbundle --jsx React.createElement"
   },
