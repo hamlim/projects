@@ -11,7 +11,7 @@
     "directory": "packages/native-bundler-plugin-mdx"
   },
   "scripts": {
-    "build": "babel src/ --out-dir dist/"
+    "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'"
   },
   "dependencies": {
     "@babel/core": "7.1.2",

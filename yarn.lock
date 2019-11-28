@@ -2119,6 +2119,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.6.0, @babel/runtime@npm:^7.6.2":
+  version: 7.7.4
+  resolution: "@babel/runtime@npm:7.7.4"
+  dependencies:
+    regenerator-runtime: "npm:^0.13.2"
+  checksum: 797f4b4e77f0c2cc13966b1a0d525fce91d43b2d20650b0b1b25429e00baedc72bcbea95dd615c57ff440bf5bfb53c82141a5f78723352acc3faa9d826676cb7
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.0.0, @babel/template@npm:^7.1.2, @babel/template@npm:^7.6.0, @babel/template@npm:^7.7.4":
   version: 7.7.4
   resolution: "@babel/template@npm:7.7.4"
@@ -2583,9 +2592,12 @@ __metadata:
     "@babel/core": "npm:7.5.0"
     "@babel/preset-env": "npm:7.5.0"
     "@babel/preset-react": "npm:^7.7.4"
+    "@testing-library/jest-dom": "npm:^4.2.4"
+    "@testing-library/react": "npm:^9.3.2"
     jest: "npm:24.8.0"
     microbundle: "npm:0.11.0"
     react: "npm:^16.12.0"
+    react-dom: "npm:^16.12.0"
   peerDependencies:
     react: "*"
   languageName: unknown
@@ -3874,6 +3886,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@testing-library/dom@npm:^6.3.0":
+  version: 6.10.1
+  resolution: "@testing-library/dom@npm:6.10.1"
+  dependencies:
+    "@babel/runtime": "npm:^7.6.2"
+    "@sheerun/mutationobserver-shim": "npm:^0.3.2"
+    "@types/testing-library__dom": "npm:^6.0.0"
+    aria-query: "npm:3.0.0"
+    pretty-format: "npm:^24.9.0"
+    wait-for-expect: "npm:^3.0.0"
+  checksum: 0a67552991fd327cc0719b12bb1063389014fc692992f86c3ff3bed8786bc7d17e4a0b7560144e9950b3c232ec7e0712f04252894c0de1d9e48a539897fa32bc
+  languageName: node
+  linkType: hard
+
 "@testing-library/jest-dom@npm:4.1.0":
   version: 4.1.0
   resolution: "@testing-library/jest-dom@npm:4.1.0"
@@ -3891,6 +3917,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@testing-library/jest-dom@npm:^4.2.4":
+  version: 4.2.4
+  resolution: "@testing-library/jest-dom@npm:4.2.4"
+  dependencies:
+    "@babel/runtime": "npm:^7.5.1"
+    chalk: "npm:^2.4.1"
+    css: "npm:^2.2.3"
+    css.escape: "npm:^1.5.1"
+    jest-diff: "npm:^24.0.0"
+    jest-matcher-utils: "npm:^24.0.0"
+    lodash: "npm:^4.17.11"
+    pretty-format: "npm:^24.0.0"
+    redent: "npm:^3.0.0"
+  checksum: 4f404f87353fd153c511f93505ff246f551a5378798c411de18af138c53b904e431cc59516b16b728e00cf6ccfcedfbdec4ff1fb8429e0da7f4d09d1f145e998
+  languageName: node
+  linkType: hard
+
 "@testing-library/react@npm:8.0.4":
   version: 8.0.4
   resolution: "@testing-library/react@npm:8.0.4"
@@ -3901,6 +3944,20 @@ __metadata:
     react: "*"
     react-dom: "*"
   checksum: 90485005987c21163cc1c045d4ede8202f533f8250bbdc79d707f1cb51fa2c512e18fa8e5693ece1c70a28e49c3686c79ca38ddeeeb6a35a9e2322c21fa878da
+  languageName: node
+  linkType: hard
+
+"@testing-library/react@npm:^9.3.2":
+  version: 9.3.2
+  resolution: "@testing-library/react@npm:9.3.2"
+  dependencies:
+    "@babel/runtime": "npm:^7.6.0"
+    "@testing-library/dom": "npm:^6.3.0"
+    "@types/testing-library__react": "npm:^9.1.0"
+  peerDependencies:
+    react: "*"
+    react-dom: "*"
+  checksum: 66256e9c197da81ddffea7a7bc969ff173507d8a7eb717b119f0a6b1949bbc7d95bd3c8fa4bf08dac5341edf473636765447e6c3f4559f91b8678c4faa2c951a
   languageName: node
   linkType: hard
 
@@ -4017,10 +4074,36 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/prop-types@npm:*":
+  version: 15.7.3
+  resolution: "@types/prop-types@npm:15.7.3"
+  checksum: 0499c1b2e22cce87e9e9b80e82692dc1fe4a6782327674162f42a9940275234569aac0c5f6e2f552694a3dd78bb70de5b2701eda74a3df12eb78b6d6b6aac1c2
+  languageName: node
+  linkType: hard
+
 "@types/q@npm:^1.5.1":
   version: 1.5.2
   resolution: "@types/q@npm:1.5.2"
   checksum: 891c8d44635e23ba21191fd23d2ca4cf0e1f64cf898eee09e4baedf153d1da6af18d5395e37b60d22c195ec55d03425fa6e5de3dd445f72a1130c42966161542
+  languageName: node
+  linkType: hard
+
+"@types/react-dom@npm:*":
+  version: 16.9.4
+  resolution: "@types/react-dom@npm:16.9.4"
+  dependencies:
+    "@types/react": "npm:*"
+  checksum: 484064749817685696b380aefd21157fd5d0b631c24ccc66a81d41baaac44bcd15f4b4de5c94c5c902800fadd6bff7767f0c5f8ec04a5ba531d1a73b6c1e2886
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:*":
+  version: 16.9.13
+  resolution: "@types/react@npm:16.9.13"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    csstype: "npm:^2.2.0"
+  checksum: 8f0bdeb3c6e7715493c0c90e31580b8ce8d510f5049f651ba04187739e105c9759d26fe304ecb89d8e6158d7a126ee1637691838bbe8245da0db8f0b55f11d3a
   languageName: node
   linkType: hard
 
@@ -4037,6 +4120,25 @@ __metadata:
   version: 1.0.1
   resolution: "@types/stack-utils@npm:1.0.1"
   checksum: 5dc06076f3ed8dfa61f65584b9fb956079fc45c6b2ae2902e608df3b1494c0c4b35d29e63c51427cce2ec28925076d0f393ec6faf3a003dad24dc1b8a578f96b
+  languageName: node
+  linkType: hard
+
+"@types/testing-library__dom@npm:*, @types/testing-library__dom@npm:^6.0.0":
+  version: 6.10.0
+  resolution: "@types/testing-library__dom@npm:6.10.0"
+  dependencies:
+    pretty-format: "npm:^24.3.0"
+  checksum: de6b2d8835f988fe16d0c5edeec08e5811ddfb28551f56c3d087bfaa8ba0d04f8e4ec71cbac4d28c0f551e443577db30447bca653ca0920f718d737d2b7209ca
+  languageName: node
+  linkType: hard
+
+"@types/testing-library__react@npm:^9.1.0":
+  version: 9.1.2
+  resolution: "@types/testing-library__react@npm:9.1.2"
+  dependencies:
+    "@types/react-dom": "npm:*"
+    "@types/testing-library__dom": "npm:*"
+  checksum: 1f10facc9ed7c6d83761fe34a1fd62c59eb332d74c4bd25ae5cf092c2da6d2d172167d782cfdf29dba24edcd3f9775a78ff0bb4b768c183db89b7fe5907b1d9f
   languageName: node
   linkType: hard
 
@@ -6043,7 +6145,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csstype@npm:^2.5.7":
+"csstype@npm:^2.2.0, csstype@npm:^2.5.7":
   version: 2.6.7
   resolution: "csstype@npm:2.6.7"
   checksum: adece432ca9cd6b12fa98baa335203e3bdd6005d3aa3385e3851ac870e2fa4a05b28435952ae3a62eeb9abaff5eb4ba77205b0f96b2686d0ec7e22fb22b05e98
@@ -11904,7 +12006,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^24.0.0, pretty-format@npm:^24.8.0, pretty-format@npm:^24.9.0":
+"pretty-format@npm:^24.0.0, pretty-format@npm:^24.3.0, pretty-format@npm:^24.8.0, pretty-format@npm:^24.9.0":
   version: 24.9.0
   resolution: "pretty-format@npm:24.9.0"
   dependencies:
@@ -12144,6 +12246,20 @@ __metadata:
   peerDependencies:
     react: ^16.0.0
   checksum: bb025e26ae71d71eb69ff6a16839434257e146fdbb82a9503f20020db7a0b69102e0ea05cf2f4a3a2c3fb63124f89aae35ba20044eea7c455329d63058199e99
+  languageName: node
+  linkType: hard
+
+"react-dom@npm:^16.12.0":
+  version: 16.12.0
+  resolution: "react-dom@npm:16.12.0"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+    object-assign: "npm:^4.1.1"
+    prop-types: "npm:^15.6.2"
+    scheduler: "npm:^0.18.0"
+  peerDependencies:
+    react: ^16.0.0
+  checksum: 672a599501aa1dc41871b48ef8dcd1c3d3581c73be6ed67ce84b6445230df63cddd2b6209fcc17f513af7fecf926c4d5dd25f4afb8bbdf50113a6cfca474fc18
   languageName: node
   linkType: hard
 
@@ -13101,6 +13217,16 @@ __metadata:
     loose-envify: "npm:^1.1.0"
     object-assign: "npm:^4.1.1"
   checksum: 103c8ebd897f52448201a5ce86eb408052f62d0f815fb8f177cdf0004b990875785ddebe7101fbbdd71ae1edb795727864dc7f0ca00ad558321c37d92112e396
+  languageName: node
+  linkType: hard
+
+"scheduler@npm:^0.18.0":
+  version: 0.18.0
+  resolution: "scheduler@npm:0.18.0"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+    object-assign: "npm:^4.1.1"
+  checksum: e9bc5ac0706b1dae6cca847b1f53e14fc06e567062c758e082d13c8dae9c7eadea03abffab90d12936e60fd79c50e681a11c8f4d72b8171c95ca1cafcb1d265b
   languageName: node
   linkType: hard
 
@@ -14650,6 +14776,13 @@ __metadata:
   version: 1.3.0
   resolution: "wait-for-expect@npm:1.3.0"
   checksum: 2b70ad8f81d6f4f2c835076f78b904a9e1c2c2f9a29af02640f70367fd83d974d39ff05314e0e5c42379e4045a4ce77bfb6f3862f57405fae5a40878eb5013eb
+  languageName: node
+  linkType: hard
+
+"wait-for-expect@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "wait-for-expect@npm:3.0.1"
+  checksum: 873518e05133f96fabdf3c91e788fc1b6d5385e4a982bb5a446753892efe926f4705565bc2b6fa45b932fad5dc9c91f4b26a8432f3f8e37965dd42c3d2c282cd
   languageName: node
   linkType: hard
 

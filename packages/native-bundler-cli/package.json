@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "build": "babel src/ --out-dir dist/"
+    "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'"
   },
   "author": "Matthew Hamlin <hamlim@outlook.com> (https://matthamlin.me/)",
   "license": "MIT",
