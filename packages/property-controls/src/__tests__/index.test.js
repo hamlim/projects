@@ -1,5 +1,6 @@
 import React from 'react'
 import { createControls, controlTypes, reducer } from '../index'
+import { render } from '@testing-library/react'
 
 test('throws if not provided a valid component with a propertyControls static', () => {
   function Comp() {
@@ -123,7 +124,7 @@ function EnumInput({ label, value, values, dispatch, name }) {
 }
 
 test('createControls returns a component and an initialState shape', () => {
-  const result = createControls({
+  let result = createControls({
     inputs: {
       StringInput,
       NumberInput,
@@ -136,4 +137,23 @@ test('createControls returns a component and an initialState shape', () => {
 
   expect(result.PropertyControls).toBeDefined()
   expect(result.initialState).toBeDefined()
+})
+
+test('rendering PropertyControls renders the expected inputs', () => {
+  let { PropertyControls, initialState } = createControls({
+    inputs: {
+      StringInput,
+      NumberInput,
+      EnumInput,
+      BooleanInput,
+      RangeInput,
+    },
+    propertyControls: Avatar.propertyControls,
+  })
+
+  let { getByLabelText } = render(<PropertyControls state={initialState} />)
+
+  expect(
+    getByLabelText('The background color of the avatar'),
+  ).toBeInTheDocument()
 })

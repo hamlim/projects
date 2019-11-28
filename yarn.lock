@@ -2596,6 +2596,7 @@ __metadata:
     jest: "npm:24.8.0"
     microbundle: "npm:0.11.0"
     react: "npm:^16.12.0"
+    react-dom: "npm:^16.12.0"
   peerDependencies:
     react: "*"
   languageName: unknown
@@ -12247,6 +12248,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-dom@npm:^16.12.0":
+  version: 16.12.0
+  resolution: "react-dom@npm:16.12.0"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+    object-assign: "npm:^4.1.1"
+    prop-types: "npm:^15.6.2"
+    scheduler: "npm:^0.18.0"
+  peerDependencies:
+    react: ^16.0.0
+  checksum: 672a599501aa1dc41871b48ef8dcd1c3d3581c73be6ed67ce84b6445230df63cddd2b6209fcc17f513af7fecf926c4d5dd25f4afb8bbdf50113a6cfca474fc18
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^16.7.0, react-is@npm:^16.8.1, react-is@npm:^16.8.4":
   version: 16.12.0
   resolution: "react-is@npm:16.12.0"
@@ -13201,6 +13216,16 @@ __metadata:
     loose-envify: "npm:^1.1.0"
     object-assign: "npm:^4.1.1"
   checksum: 103c8ebd897f52448201a5ce86eb408052f62d0f815fb8f177cdf0004b990875785ddebe7101fbbdd71ae1edb795727864dc7f0ca00ad558321c37d92112e396
+  languageName: node
+  linkType: hard
+
+"scheduler@npm:^0.18.0":
+  version: 0.18.0
+  resolution: "scheduler@npm:0.18.0"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+    object-assign: "npm:^4.1.1"
+  checksum: e9bc5ac0706b1dae6cca847b1f53e14fc06e567062c758e082d13c8dae9c7eadea03abffab90d12936e60fd79c50e681a11c8f4d72b8171c95ca1cafcb1d265b
   languageName: node
   linkType: hard
 

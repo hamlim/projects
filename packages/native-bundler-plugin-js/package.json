@@ -21,6 +21,6 @@
     "@babel/preset-react": "7.0.0"
   },
   "scripts": {
-    "build": "babel src/ --out-dir dist/"
+    "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'"
   }
 }
