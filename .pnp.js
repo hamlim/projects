@@ -5286,6 +5286,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@hamlim/native-bundler-plugin-css", "workspace:packages/native-bundler-plugin-css"],
             ["@hamlim/native-bundler-plugin-js", "workspace:packages/native-bundler-plugin-js"],
             ["@hamlim/native-bundler-plugin-mdx", "virtual:68a72838d590bbc84535e87a25fdab79551ba18a731bdea7290c08e8cceefa05bfa88f3e4558b549a4634fc731f8ac8349fb0b29f61d031b0f723b44463481af#workspace:packages/native-bundler-plugin-mdx"],
+            ["babel-plugin-macros", "npm:2.7.1"],
             ["babylon", "npm:6.18.0"],
             ["directory-tree", "npm:2.1.0"],
             ["node-fetch", "npm:2.2.0"],

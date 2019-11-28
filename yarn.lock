@@ -2527,6 +2527,7 @@ __metadata:
     "@hamlim/native-bundler-plugin-css": "*"
     "@hamlim/native-bundler-plugin-js": "*"
     "@hamlim/native-bundler-plugin-mdx": "*"
+    babel-plugin-macros: "npm:^2.7.1"
     babylon: "npm:6.18.0"
     directory-tree: "npm:2.1.0"
     node-fetch: "npm:2.2.0"
@@ -4653,7 +4654,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-macros@npm:^2.2.2":
+"babel-plugin-macros@npm:^2.2.2, babel-plugin-macros@npm:^2.7.1":
   version: 2.7.1
   resolution: "babel-plugin-macros@npm:2.7.1"
   dependencies:
