@@ -7,9 +7,9 @@
 
 import { JS, MDX, CSS, shouldTransformExternals } from './get-asset-type.js'
 
-import { plugin as JSPlugin } from '@native-bundler/plugin-js'
-import { plugin as MDXPlugin } from '@native-bundler/plugin-mdx'
-import { plugin as CSSPlugin } from '@native-bundler/plugin-css'
+import { plugin as JSPlugin } from '@hamlim/native-bundler-plugin-js'
+import { plugin as MDXPlugin } from '@hamlim/native-bundler-plugin-mdx'
+import { plugin as CSSPlugin } from '@hamlim/native-bundler-plugin-css'
 
 export function getAssetTransformer(config = {}) {
   return async function transformAsset({
