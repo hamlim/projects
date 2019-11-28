@@ -1,0 +1,32 @@
+{
+  "name": "@hamlim/native-bundler-plugin-mdx",
+  "version": "1.0.0",
+  "description": "MDX transformer plugin for Native Bundler",
+  "author": "Matthew Hamlin <hamlim@outlook.com> (https://matthamlin.me/)",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/hamlim/projects.git",
+    "directory": "packages/native-bundler-plugin-mdx"
+  },
+  "scripts": {
+    "build": "babel src/ --out-dir dist/"
+  },
+  "dependencies": {
+    "@babel/core": "7.1.2",
+    "@babel/plugin-proposal-object-rest-spread": "7.0.0",
+    "@babel/preset-env": "7.1.0",
+    "@babel/preset-react": "7.0.0",
+    "@mdx-js/mdx": "latest"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.0.0",
+    "@babel/preset-env": "7.1.0",
+    "@babel/preset-react": "7.0.0"
+  },
+  "peerDependencies": {
+    "@mdx-js/tag": "0.15.0",
+    "react": "16.5.2"
+  }
+}
