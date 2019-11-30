@@ -26,3 +26,6 @@ Scripts:
   - scripts/**/*
 🔢 Kitchen Sink:
   - packages/kitchen-sink/**/*
+
+📦 Redocer:
+  - packages/redocer/**/*
