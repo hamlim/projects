@@ -58,6 +58,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/property-controls"
       },
       {
+        "name": "@hamlim/redocer",
+        "reference": "workspace:packages/redocer"
+      },
+      {
         "name": "@hamlim/reroute-browser",
         "reference": "workspace:packages/reroute-browser"
       },
@@ -85,6 +89,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@hamlim/native-bundler-plugin-js", ["workspace:packages/native-bundler-plugin-js"]],
       ["@hamlim/native-bundler-plugin-mdx", ["virtual:68a72838d590bbc84535e87a25fdab79551ba18a731bdea7290c08e8cceefa05bfa88f3e4558b549a4634fc731f8ac8349fb0b29f61d031b0f723b44463481af#workspace:packages/native-bundler-plugin-mdx", "workspace:packages/native-bundler-plugin-mdx"]],
       ["@hamlim/property-controls", ["workspace:packages/property-controls"]],
+      ["@hamlim/redocer", ["workspace:packages/redocer"]],
       ["@hamlim/reroute-browser", ["workspace:packages/reroute-browser"]],
       ["@hamlim/reroute-core", ["virtual:f42d44e429e0d382dbe9400b4d3439ae6ed52894b71b0c1fd56d0b96460e888341984e014cdf37bdf59047fe814fc09b6d06784d177991a91d57848cc4205d68#workspace:packages/reroute-core", "workspace:packages/reroute-core"]],
       ["@hamlim/simple-cache", ["workspace:packages/simple-cache"]],
@@ -204,6 +209,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       29,
       27,
       24,
+      19,
       2
     ],
     "packageRegistryData": [
@@ -5389,6 +5395,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "packagePeers": [
             "react"
+          ],
+          "linkType": "SOFT"
+        }]
+      ]],
+      ["@hamlim/redocer", [
+        ["workspace:packages/redocer", {
+          "packageLocation": "./packages/redocer/",
+          "packageDependencies": [
+            ["@hamlim/redocer", "workspace:packages/redocer"],
+            ["@babel/cli", "virtual:8a6747262d94665605a816c6294d7813384efec34131655f684854bcb7a7908aed9a08f95197155468bc342c490f2ec5c986eaac09b124cbe0f3ddfc8910ac94#npm:7.5.0"],
+            ["@babel/core", "npm:7.5.0"],
+            ["@babel/preset-env", "virtual:8a6747262d94665605a816c6294d7813384efec34131655f684854bcb7a7908aed9a08f95197155468bc342c490f2ec5c986eaac09b124cbe0f3ddfc8910ac94#npm:7.5.0"],
+            ["@babel/preset-react", "virtual:46ce0fa6c9322a59a8101727a51e6f6597d140be5454b6d5d96d48742d1b6071004e4d1a028170310a706b1c480cd5b6de0a8e7ed311cb5bad2087b74d9422d3#npm:7.7.4"],
+            ["@testing-library/jest-dom", "npm:4.2.4"],
+            ["@testing-library/react", "virtual:358d9a5a5c72ba6f33d5959633eac77d52a4fa751b176f19926d73aab4c02b5c652f837300ba891eac8bd948dd3f8e58f3f99eb5efa330689b74202a6f0984db#npm:9.3.2"],
+            ["jest", "npm:24.8.0"],
+            ["react", "npm:16.12.0"],
+            ["react-dom", "virtual:358d9a5a5c72ba6f33d5959633eac77d52a4fa751b176f19926d73aab4c02b5c652f837300ba891eac8bd948dd3f8e58f3f99eb5efa330689b74202a6f0984db#npm:16.12.0"]
           ],
           "linkType": "SOFT"
         }]
