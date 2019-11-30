@@ -10,7 +10,19 @@
   - packages/property-controls/**/*
 📦 Babel Plugin Property Controls:
   - packages/babel-plugin-property-controls/**/*
+📦 Native Bundler Core:
+  - packages/native-bundler-core/**/*
+📦 Native Bundler Cli:
+  - packages/native-bundler-cli/**/*
+📦 Native Bundler Plugin JS:
+  - packages/native-bundler-plugin-js/**/*
+📦 Native Bundler Plugin MDX:
+  - packages/native-bundler-plugin-mdx/**/*
+📦 Native Bundler Plugin CSS:
+  - packages/native-bundler-plugin-css/**/*
 🛠️ Repo:
   - ./*
+Scripts:
+  - scripts/**/*
 🔢 Kitchen Sink:
   - packages/kitchen-sink/**/*
