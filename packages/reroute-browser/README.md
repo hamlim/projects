@@ -13,7 +13,13 @@ npm install @matthamlin/reroute-browser
 ## API
 
 ```jsx
-import { BrowserRouter, Route, Link, useLink, useRoute } from '@matthamlin/reroute-browser'
+import {
+  BrowserRouter,
+  Route,
+  Link,
+  useLink,
+  useRoute,
+} from '@matthamlin/reroute-browser'
 
 // useLink and useRoute are the same exports from '@matthamlin/reroute-core'
 
@@ -55,7 +61,7 @@ testing framework that uses JSDom then you should be all set.
 #### Option 2
 
 If you want more control over the current Router state, for example mounting your application during
-a test at a nested pathname, then you can use the `<Router>` from `hamlim/@-eroute/core` and provide
+a test at a nested pathname, then you can use the `<Router>` from `@matthamlin/reroute-core` and provide
 it a function to it's `createHistory` prop. Here we are using the `createMemoryHistory` function
 from the `history` module on NPM.
 
@@ -84,7 +90,9 @@ render(
       })
     }
   >
-    <Route path="/foo">{({ match }) => match && <>This will render initially</>}</Route>
+    <Route path="/foo">
+      {({ match }) => match && <>This will render initially</>}
+    </Route>
   </Router>,
 )
 ```
