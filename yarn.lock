@@ -2462,220 +2462,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hamlim/babel-plugin-property-controls@workspace:packages/babel-plugin-property-controls":
-  version: 0.0.0-use.local
-  resolution: "@hamlim/babel-plugin-property-controls@workspace:packages/babel-plugin-property-controls"
-  dependencies:
-    "@babel/cli": "npm:7.5.0"
-    "@babel/core": "npm:7.5.0"
-    "@babel/preset-env": "npm:7.5.0"
-    jest: "npm:24.8.0"
-    microbundle: "npm:0.11.0"
-  languageName: unknown
-  linkType: soft
-
-"@hamlim/component-library@workspace:packages/component-library":
-  version: 0.0.0-use.local
-  resolution: "@hamlim/component-library@workspace:packages/component-library"
-  dependencies:
-    "@babel/cli": "npm:7.5.0"
-    "@babel/core": "npm:7.5.0"
-    "@babel/preset-env": "npm:7.5.0"
-    "@babel/preset-react": "npm:7.0.0"
-    "@emotion/core": "npm:10.0.14"
-    "@emotion/styled": "npm:10.0.14"
-    "@styled-system/should-forward-prop": "npm:5.0.12"
-    "@testing-library/jest-dom": "npm:4.1.0"
-    "@testing-library/react": "npm:8.0.4"
-    emotion-theming: "npm:10.0.14"
-    jest: "npm:24.8.0"
-    react: "npm:16.9.0"
-    react-dom: "npm:16.9.0"
-    styled-system: "npm:5.0.12"
-  peerDependencies:
-    "@emotion/core": 10.0.14
-    "@emotion/styled": 10.0.14
-    emotion-theming: 10.0.14
-    react: "*"
-    react-dom: "*"
-  languageName: unknown
-  linkType: soft
-
-"@hamlim/kitchen-sink@workspace:packages/kitchen-sink":
-  version: 0.0.0-use.local
-  resolution: "@hamlim/kitchen-sink@workspace:packages/kitchen-sink"
-  dependencies:
-    "@babel/cli": "npm:7.5.0"
-    "@babel/core": "npm:7.5.0"
-    "@babel/preset-env": "npm:^7.7.4"
-    "@babel/preset-react": "npm:^7.7.4"
-    jest: "npm:24.8.0"
-  languageName: unknown
-  linkType: soft
-
-"@hamlim/native-bundler-cli@workspace:packages/native-bundler-cli":
-  version: 0.0.0-use.local
-  resolution: "@hamlim/native-bundler-cli@workspace:packages/native-bundler-cli"
-  dependencies:
-    "@babel/cli": "npm:7.0.0"
-    "@babel/core": "npm:^7.7.4"
-    "@babel/preset-env": "npm:7.0.0"
-    "@hamlim/native-bundler-core": "*"
-  languageName: unknown
-  linkType: soft
-
-"@hamlim/native-bundler-core@*, @hamlim/native-bundler-core@workspace:packages/native-bundler-core":
-  version: 0.0.0-use.local
-  resolution: "@hamlim/native-bundler-core@workspace:packages/native-bundler-core"
-  dependencies:
-    "@babel/cli": "npm:7.0.0"
-    "@babel/core": "npm:7.0.1"
-    "@babel/preset-env": "npm:7.0.0"
-    "@babel/preset-react": "npm:7.0.0"
-    "@babel/traverse": "npm:7.0.0"
-    "@hamlim/native-bundler-plugin-css": "*"
-    "@hamlim/native-bundler-plugin-js": "*"
-    "@hamlim/native-bundler-plugin-mdx": "*"
-    babel-plugin-macros: "npm:^2.7.1"
-    babylon: "npm:6.18.0"
-    directory-tree: "npm:2.1.0"
-    node-fetch: "npm:2.2.0"
-    preval.macro: "npm:3.0.0"
-  languageName: unknown
-  linkType: soft
-
-"@hamlim/native-bundler-plugin-css@*, @hamlim/native-bundler-plugin-css@workspace:packages/native-bundler-plugin-css":
-  version: 0.0.0-use.local
-  resolution: "@hamlim/native-bundler-plugin-css@workspace:packages/native-bundler-plugin-css"
-  dependencies:
-    "@babel/cli": "npm:7.0.0"
-    "@babel/core": "npm:7.7.4"
-    "@babel/preset-env": "npm:7.1.0"
-    autoprefixer: "npm:9.4.2"
-    postcss: "npm:7.0.6"
-  languageName: unknown
-  linkType: soft
-
-"@hamlim/native-bundler-plugin-js@*, @hamlim/native-bundler-plugin-js@workspace:packages/native-bundler-plugin-js":
-  version: 0.0.0-use.local
-  resolution: "@hamlim/native-bundler-plugin-js@workspace:packages/native-bundler-plugin-js"
-  dependencies:
-    "@babel/cli": "npm:7.0.0"
-    "@babel/core": "npm:7.1.2"
-    "@babel/preset-env": "npm:7.1.0"
-    "@babel/preset-react": "npm:7.0.0"
-    babel-plugin-macros: "npm:2.4.3"
-  languageName: unknown
-  linkType: soft
-
-"@hamlim/native-bundler-plugin-mdx@*, @hamlim/native-bundler-plugin-mdx@workspace:packages/native-bundler-plugin-mdx":
-  version: 0.0.0-use.local
-  resolution: "@hamlim/native-bundler-plugin-mdx@workspace:packages/native-bundler-plugin-mdx"
-  dependencies:
-    "@babel/cli": "npm:7.0.0"
-    "@babel/core": "npm:7.1.2"
-    "@babel/plugin-proposal-object-rest-spread": "npm:7.0.0"
-    "@babel/preset-env": "npm:7.1.0"
-    "@babel/preset-react": "npm:7.0.0"
-    "@mdx-js/mdx": "npm:latest"
-  peerDependencies:
-    "@mdx-js/tag": 0.15.0
-    react: 16.5.2
-  languageName: unknown
-  linkType: soft
-
-"@hamlim/property-controls@workspace:packages/property-controls":
-  version: 0.0.0-use.local
-  resolution: "@hamlim/property-controls@workspace:packages/property-controls"
-  dependencies:
-    "@babel/cli": "npm:7.5.0"
-    "@babel/core": "npm:7.5.0"
-    "@babel/preset-env": "npm:7.5.0"
-    "@babel/preset-react": "npm:^7.7.4"
-    "@testing-library/jest-dom": "npm:^4.2.4"
-    "@testing-library/react": "npm:^9.3.2"
-    jest: "npm:24.8.0"
-    microbundle: "npm:0.11.0"
-    react: "npm:^16.12.0"
-    react-dom: "npm:^16.12.0"
-  peerDependencies:
-    react: "*"
-  languageName: unknown
-  linkType: soft
-
-"@hamlim/redocer@workspace:packages/redocer":
-  version: 0.0.0-use.local
-  resolution: "@hamlim/redocer@workspace:packages/redocer"
-  dependencies:
-    "@babel/cli": "npm:7.5.0"
-    "@babel/core": "npm:7.5.0"
-    "@babel/preset-env": "npm:7.5.0"
-    "@babel/preset-react": "npm:^7.7.4"
-    "@testing-library/jest-dom": "npm:^4.2.4"
-    "@testing-library/react": "npm:^9.3.2"
-    jest: "npm:24.8.0"
-    react: "npm:^16.12.0"
-    react-dom: "npm:^16.12.0"
-  languageName: unknown
-  linkType: soft
-
-"@hamlim/reroute-browser@workspace:packages/reroute-browser":
-  version: 0.0.0-use.local
-  resolution: "@hamlim/reroute-browser@workspace:packages/reroute-browser"
-  dependencies:
-    "@babel/cli": "npm:7.5.0"
-    "@babel/core": "npm:7.5.0"
-    "@babel/plugin-proposal-object-rest-spread": "npm:^7.5.0"
-    "@babel/preset-env": "npm:7.5.0"
-    "@babel/preset-react": "npm:7.0.0"
-    "@hamlim/reroute-core": "*"
-    "@testing-library/jest-dom": "npm:4.1.0"
-    "@testing-library/react": "npm:8.0.4"
-    history: "npm:4.9.0"
-    jest: "npm:24.8.0"
-    microbundle: "npm:0.11.0"
-    react: "npm:16.9.0"
-    react-dom: "npm:16.9.0"
-  peerDependencies:
-    "@hamlim/reroute-core": "*"
-    react: "*"
-  languageName: unknown
-  linkType: soft
-
-"@hamlim/reroute-core@*, @hamlim/reroute-core@workspace:packages/reroute-core":
-  version: 0.0.0-use.local
-  resolution: "@hamlim/reroute-core@workspace:packages/reroute-core"
-  dependencies:
-    "@babel/cli": "npm:7.5.0"
-    "@babel/core": "npm:7.5.0"
-    "@babel/plugin-proposal-object-rest-spread": "npm:^7.5.0"
-    "@babel/preset-env": "npm:7.5.0"
-    "@babel/preset-react": "npm:7.0.0"
-    "@testing-library/jest-dom": "npm:4.1.0"
-    "@testing-library/react": "npm:8.0.4"
-    history: "npm:4.9.0"
-    jest: "npm:24.8.0"
-    microbundle: "npm:0.11.0"
-    react: "npm:16.9.0"
-    react-dom: "npm:16.9.0"
-  peerDependencies:
-    react: "*"
-  languageName: unknown
-  linkType: soft
-
-"@hamlim/simple-cache@workspace:packages/simple-cache":
-  version: 0.0.0-use.local
-  resolution: "@hamlim/simple-cache@workspace:packages/simple-cache"
-  dependencies:
-    "@babel/cli": "npm:7.5.0"
-    "@babel/core": "npm:7.5.0"
-    "@babel/preset-env": "npm:7.5.0"
-    microbundle: "npm:0.11.0"
-  peerDependencies:
-    react: "*"
-  languageName: unknown
-  linkType: soft
-
 "@jest/console@npm:^24.7.1, @jest/console@npm:^24.9.0":
   version: 24.9.0
   resolution: "@jest/console@npm:24.9.0"
@@ -3622,12 +3408,226 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@matthamlin/babel-plugin-property-controls@workspace:packages/babel-plugin-property-controls":
+  version: 0.0.0-use.local
+  resolution: "@matthamlin/babel-plugin-property-controls@workspace:packages/babel-plugin-property-controls"
+  dependencies:
+    "@babel/cli": "npm:7.5.0"
+    "@babel/core": "npm:7.5.0"
+    "@babel/preset-env": "npm:7.5.0"
+    jest: "npm:24.8.0"
+    microbundle: "npm:0.11.0"
+  languageName: unknown
+  linkType: soft
+
+"@matthamlin/component-library@workspace:packages/component-library":
+  version: 0.0.0-use.local
+  resolution: "@matthamlin/component-library@workspace:packages/component-library"
+  dependencies:
+    "@babel/cli": "npm:7.5.0"
+    "@babel/core": "npm:7.5.0"
+    "@babel/preset-env": "npm:7.5.0"
+    "@babel/preset-react": "npm:7.0.0"
+    "@emotion/core": "npm:10.0.14"
+    "@emotion/styled": "npm:10.0.14"
+    "@styled-system/should-forward-prop": "npm:5.0.12"
+    "@testing-library/jest-dom": "npm:4.1.0"
+    "@testing-library/react": "npm:8.0.4"
+    emotion-theming: "npm:10.0.14"
+    jest: "npm:24.8.0"
+    react: "npm:16.9.0"
+    react-dom: "npm:16.9.0"
+    styled-system: "npm:5.0.12"
+  peerDependencies:
+    "@emotion/core": 10.0.14
+    "@emotion/styled": 10.0.14
+    emotion-theming: 10.0.14
+    react: "*"
+    react-dom: "*"
+  languageName: unknown
+  linkType: soft
+
+"@matthamlin/kitchen-sink@workspace:packages/kitchen-sink":
+  version: 0.0.0-use.local
+  resolution: "@matthamlin/kitchen-sink@workspace:packages/kitchen-sink"
+  dependencies:
+    "@babel/cli": "npm:7.5.0"
+    "@babel/core": "npm:7.5.0"
+    "@babel/preset-env": "npm:^7.7.4"
+    "@babel/preset-react": "npm:^7.7.4"
+    jest: "npm:24.8.0"
+  languageName: unknown
+  linkType: soft
+
+"@matthamlin/native-bundler-cli@workspace:packages/native-bundler-cli":
+  version: 0.0.0-use.local
+  resolution: "@matthamlin/native-bundler-cli@workspace:packages/native-bundler-cli"
+  dependencies:
+    "@babel/cli": "npm:7.0.0"
+    "@babel/core": "npm:^7.7.4"
+    "@babel/preset-env": "npm:7.0.0"
+    "@matthamlin/native-bundler-core": "*"
+  languageName: unknown
+  linkType: soft
+
+"@matthamlin/native-bundler-core@*, @matthamlin/native-bundler-core@workspace:packages/native-bundler-core":
+  version: 0.0.0-use.local
+  resolution: "@matthamlin/native-bundler-core@workspace:packages/native-bundler-core"
+  dependencies:
+    "@babel/cli": "npm:7.0.0"
+    "@babel/core": "npm:7.0.1"
+    "@babel/preset-env": "npm:7.0.0"
+    "@babel/preset-react": "npm:7.0.0"
+    "@babel/traverse": "npm:7.0.0"
+    "@matthamlin/native-bundler-plugin-css": "*"
+    "@matthamlin/native-bundler-plugin-js": "*"
+    "@matthamlin/native-bundler-plugin-mdx": "*"
+    babel-plugin-macros: "npm:^2.7.1"
+    babylon: "npm:6.18.0"
+    directory-tree: "npm:2.1.0"
+    node-fetch: "npm:2.2.0"
+    preval.macro: "npm:3.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@matthamlin/native-bundler-plugin-css@*, @matthamlin/native-bundler-plugin-css@workspace:packages/native-bundler-plugin-css":
+  version: 0.0.0-use.local
+  resolution: "@matthamlin/native-bundler-plugin-css@workspace:packages/native-bundler-plugin-css"
+  dependencies:
+    "@babel/cli": "npm:7.0.0"
+    "@babel/core": "npm:7.7.4"
+    "@babel/preset-env": "npm:7.1.0"
+    autoprefixer: "npm:9.4.2"
+    postcss: "npm:7.0.6"
+  languageName: unknown
+  linkType: soft
+
+"@matthamlin/native-bundler-plugin-js@*, @matthamlin/native-bundler-plugin-js@workspace:packages/native-bundler-plugin-js":
+  version: 0.0.0-use.local
+  resolution: "@matthamlin/native-bundler-plugin-js@workspace:packages/native-bundler-plugin-js"
+  dependencies:
+    "@babel/cli": "npm:7.0.0"
+    "@babel/core": "npm:7.1.2"
+    "@babel/preset-env": "npm:7.1.0"
+    "@babel/preset-react": "npm:7.0.0"
+    babel-plugin-macros: "npm:2.4.3"
+  languageName: unknown
+  linkType: soft
+
+"@matthamlin/native-bundler-plugin-mdx@*, @matthamlin/native-bundler-plugin-mdx@workspace:packages/native-bundler-plugin-mdx":
+  version: 0.0.0-use.local
+  resolution: "@matthamlin/native-bundler-plugin-mdx@workspace:packages/native-bundler-plugin-mdx"
+  dependencies:
+    "@babel/cli": "npm:7.0.0"
+    "@babel/core": "npm:7.1.2"
+    "@babel/plugin-proposal-object-rest-spread": "npm:7.0.0"
+    "@babel/preset-env": "npm:7.1.0"
+    "@babel/preset-react": "npm:7.0.0"
+    "@mdx-js/mdx": "npm:latest"
+  peerDependencies:
+    "@mdx-js/tag": 0.15.0
+    react: 16.5.2
+  languageName: unknown
+  linkType: soft
+
 "@matthamlin/projects@workspace:.":
   version: 0.0.0-use.local
   resolution: "@matthamlin/projects@workspace:."
   dependencies:
     lerna: "npm:^3.4.0"
     prettier: "npm:^1.19.1"
+  languageName: unknown
+  linkType: soft
+
+"@matthamlin/property-controls@workspace:packages/property-controls":
+  version: 0.0.0-use.local
+  resolution: "@matthamlin/property-controls@workspace:packages/property-controls"
+  dependencies:
+    "@babel/cli": "npm:7.5.0"
+    "@babel/core": "npm:7.5.0"
+    "@babel/preset-env": "npm:7.5.0"
+    "@babel/preset-react": "npm:^7.7.4"
+    "@testing-library/jest-dom": "npm:^4.2.4"
+    "@testing-library/react": "npm:^9.3.2"
+    jest: "npm:24.8.0"
+    microbundle: "npm:0.11.0"
+    react: "npm:^16.12.0"
+    react-dom: "npm:^16.12.0"
+  peerDependencies:
+    react: "*"
+  languageName: unknown
+  linkType: soft
+
+"@matthamlin/redocer@workspace:packages/redocer":
+  version: 0.0.0-use.local
+  resolution: "@matthamlin/redocer@workspace:packages/redocer"
+  dependencies:
+    "@babel/cli": "npm:7.5.0"
+    "@babel/core": "npm:7.5.0"
+    "@babel/preset-env": "npm:7.5.0"
+    "@babel/preset-react": "npm:^7.7.4"
+    "@testing-library/jest-dom": "npm:^4.2.4"
+    "@testing-library/react": "npm:^9.3.2"
+    jest: "npm:24.8.0"
+    react: "npm:^16.12.0"
+    react-dom: "npm:^16.12.0"
+  languageName: unknown
+  linkType: soft
+
+"@matthamlin/reroute-browser@workspace:packages/reroute-browser":
+  version: 0.0.0-use.local
+  resolution: "@matthamlin/reroute-browser@workspace:packages/reroute-browser"
+  dependencies:
+    "@babel/cli": "npm:7.5.0"
+    "@babel/core": "npm:7.5.0"
+    "@babel/plugin-proposal-object-rest-spread": "npm:^7.5.0"
+    "@babel/preset-env": "npm:7.5.0"
+    "@babel/preset-react": "npm:7.0.0"
+    "@matthamlin/reroute-core": "*"
+    "@testing-library/jest-dom": "npm:4.1.0"
+    "@testing-library/react": "npm:8.0.4"
+    history: "npm:4.9.0"
+    jest: "npm:24.8.0"
+    microbundle: "npm:0.11.0"
+    react: "npm:16.9.0"
+    react-dom: "npm:16.9.0"
+  peerDependencies:
+    "@matthamlin/reroute-core": "*"
+    react: "*"
+  languageName: unknown
+  linkType: soft
+
+"@matthamlin/reroute-core@*, @matthamlin/reroute-core@workspace:packages/reroute-core":
+  version: 0.0.0-use.local
+  resolution: "@matthamlin/reroute-core@workspace:packages/reroute-core"
+  dependencies:
+    "@babel/cli": "npm:7.5.0"
+    "@babel/core": "npm:7.5.0"
+    "@babel/plugin-proposal-object-rest-spread": "npm:^7.5.0"
+    "@babel/preset-env": "npm:7.5.0"
+    "@babel/preset-react": "npm:7.0.0"
+    "@testing-library/jest-dom": "npm:4.1.0"
+    "@testing-library/react": "npm:8.0.4"
+    history: "npm:4.9.0"
+    jest: "npm:24.8.0"
+    microbundle: "npm:0.11.0"
+    react: "npm:16.9.0"
+    react-dom: "npm:16.9.0"
+  peerDependencies:
+    react: "*"
+  languageName: unknown
+  linkType: soft
+
+"@matthamlin/simple-cache@workspace:packages/simple-cache":
+  version: 0.0.0-use.local
+  resolution: "@matthamlin/simple-cache@workspace:packages/simple-cache"
+  dependencies:
+    "@babel/cli": "npm:7.5.0"
+    "@babel/core": "npm:7.5.0"
+    "@babel/preset-env": "npm:7.5.0"
+    microbundle: "npm:0.11.0"
+  peerDependencies:
+    react: "*"
   languageName: unknown
   linkType: soft
 

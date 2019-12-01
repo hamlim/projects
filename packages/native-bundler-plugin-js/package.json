@@ -1,5 +1,5 @@
 {
-  "name": "@hamlim/native-bundler-plugin-js",
+  "name": "@matthamlin/native-bundler-plugin-js",
   "version": "1.0.0",
   "main": "dist/index.js",
   "repository": {
@@ -22,5 +22,9 @@
   },
   "scripts": {
     "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

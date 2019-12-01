@@ -53,7 +53,7 @@ function main() {
   // make readme
   writeOrConsole(
     path.join(packagePath, 'README.md'),
-    `# \`@hamlim/${args.packageName}\`
+    `# \`@matthamlin/${args.packageName}\`
   
   TODO
   
@@ -78,7 +78,7 @@ function main() {
   writeOrConsole(
     path.join(packagePath, 'package.json'),
     `{
-    "name": "@hamlim/${args.packageName}",
+    "name": "@matthamlin/${args.packageName}",
     "version": "0.0.0",
     "main": "dist/index.js",
     "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",

@@ -5,17 +5,17 @@ A collection of routing components and hooks for composing web react application
 ## Install
 
 ```sh
-yarn add @hamlim/reroute-browser
+yarn add @matthamlin/reroute-browser
 # Or
-npm install @hamlim/reroute-browser
+npm install @matthamlin/reroute-browser
 ```
 
 ## API
 
 ```jsx
-import { BrowserRouter, Route, Link, useLink, useRoute } from '@hamlim/reroute-browser'
+import { BrowserRouter, Route, Link, useLink, useRoute } from '@matthamlin/reroute-browser'
 
-// useLink and useRoute are the same exports from '@hamlim/reroute-core'
+// useLink and useRoute are the same exports from '@matthamlin/reroute-core'
 
 render(
   <BrowserRouter>
@@ -44,11 +44,11 @@ If you are testing components that use the Route or Link component, you may need
 component with a test version of the Router. To do this, you can either:
 
 1. Render inside a `<BrowserRouter>` or,
-2. Render within a `<Router>` from `@hamlim/reroute-core`
+2. Render within a `<Router>` from `@matthamlin/reroute-core`
 
 #### Option 1
 
-The default BrowserRouter from `@hamlim/reroute-browser` should work as expected within your test
+The default BrowserRouter from `@matthamlin/reroute-browser` should work as expected within your test
 environment, as long as you define the `window` and `document` APIs. If you are using Jest / a
 testing framework that uses JSDom then you should be all set.
 
@@ -61,7 +61,7 @@ from the `history` module on NPM.
 
 ```jsx
 import { createMemoryHistory } from 'history'
-import { Router } from '@hamlim/reroute-core'
+import { Router } from '@matthamlin/reroute-core'
 
 render(
   <Router createHistory={createMemoryHistory}>
@@ -74,7 +74,7 @@ render(
 
 ```jsx
 import { createMemoryHistory } from 'history'
-import { Router } from '@hamlim/reroute-core'
+import { Router } from '@matthamlin/reroute-core'
 
 render(
   <Router

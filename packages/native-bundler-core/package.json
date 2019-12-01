@@ -1,5 +1,5 @@
 {
-  "name": "@hamlim/native-bundler-core",
+  "name": "@matthamlin/native-bundler-core",
   "version": "1.0.0",
   "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
   "license": "MIT",
@@ -15,9 +15,9 @@
   "dependencies": {
     "@babel/core": "7.0.1",
     "@babel/traverse": "7.0.0",
-    "@hamlim/native-bundler-plugin-css": "*",
-    "@hamlim/native-bundler-plugin-js": "*",
-    "@hamlim/native-bundler-plugin-mdx": "*",
+    "@matthamlin/native-bundler-plugin-css": "*",
+    "@matthamlin/native-bundler-plugin-js": "*",
+    "@matthamlin/native-bundler-plugin-mdx": "*",
     "babylon": "6.18.0",
     "node-fetch": "2.2.0"
   },
@@ -36,6 +36,6 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/"
   }
 }
