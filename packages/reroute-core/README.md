@@ -3,22 +3,22 @@
 This package maintains the core hooks for the Reroute library.
 
 These can be manually consumed within feature applications, or they can be consumed through the
-[`@hamlim/reroute-browser`](https://github.com/hamlim/projects/tree/master/packages/reroute-browser)
+[`@matthamlin/reroute-browser`](https://github.com/hamlim/projects/tree/master/packages/reroute-browser)
 package via common components like `Link` and `Route`.
 
 ## Install
 
 ```sh
-yarn add @hamlim/reroute-core
+yarn add @matthamlin/reroute-core
 # Or
-npm install @hamlim/reroute-core
+npm install @matthamlin/reroute-core
 ```
 
 ## API
 
 ```jsx
 import { createBrowserHistory } from 'history'
-import { Router, useRoute, useLink } from '@hamlim/reroute-core'
+import { Router, useRoute, useLink } from '@matthamlin/reroute-core'
 
 function UserRoute({ userId }) {
   let { match } = useRoute(`/user-${userId}`)
@@ -58,13 +58,13 @@ custom Router component.
 #### Mounting your Component
 
 If you want more control over the current Router state, for example mounting your application during
-a test at a nested pathname, then you can use the `<Router>` from `@hamlim/reroute-core` and provide
+a test at a nested pathname, then you can use the `<Router>` from `@matthamlin/reroute-core` and provide
 it a function to it's `createHistory` prop. Here we are using the `createMemoryHistory` function
 from the `history` module on NPM.
 
 ```jsx
 import { createMemoryHistory } from 'history'
-import { Router } from '@hamlim/reroute-core'
+import { Router } from '@matthamlin/reroute-core'
 
 render(
   <Router createHistory={createMemoryHistory}>

@@ -1,6 +1,6 @@
 import React from 'react'
-import { useRoute } from '@hamlim/reroute-browser'
-import { Box } from '@hamlim/component-library'
+import { useRoute } from '@matthamlin/reroute-browser'
+import { Box } from '@matthamlin/component-library'
 
 export default function Landing() {
   let { match } = useRoute('/')

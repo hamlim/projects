@@ -1,5 +1,5 @@
 {
-  "name": "@hamlim/native-bundler-cli",
+  "name": "@matthamlin/native-bundler-cli",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -9,7 +9,7 @@
   "author": "Matthew Hamlin <hamlim@outlook.com> (https://matthamlin.me/)",
   "license": "MIT",
   "dependencies": {
-    "@hamlim/native-bundler-core": "*"
+    "@matthamlin/native-bundler-core": "*"
   },
   "devDependencies": {
     "@babel/cli": "7.0.0",
@@ -20,5 +20,9 @@
     "type": "git",
     "url": "ssh://git@github.com/hamlim/projects.git",
     "directory": "packages/native-bundler-cli"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

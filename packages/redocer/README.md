@@ -1,4 +1,4 @@
-# `@hamlim/redocer`
+# `@matthamlin/redocer`
 
 _Pronounced: reducer_
 
@@ -8,7 +8,7 @@ actions.
 ### API
 
 ```jsx
-import makeRedocer from '@hamlim/redocer'
+import makeRedocer from '@matthamlin/redocer'
 
 function reducer(state, action) { ... };
 

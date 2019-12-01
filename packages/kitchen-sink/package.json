@@ -1,5 +1,5 @@
 {
-  "name": "@hamlim/kitchen-sink",
+  "name": "@matthamlin/kitchen-sink",
   "private": true,
   "version": "1.0.0",
   "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
@@ -24,7 +24,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
