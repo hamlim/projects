@@ -1,3 +1,3 @@
-# `@hamlim/native-bundler-cli`
+# `@matthamlin/native-bundler-cli`
 
 > TODO: description

@@ -1,11 +1,11 @@
-# `@hamlim/native-bundler-plugin-js`
+# `@matthamlin/native-bundler-plugin-js`
 
 > TODO: description
 
 ## Usage
 
 ```js
-const pluginJs = require('@hamlim/native-bundler-plugin-js')
+const pluginJs = require('@matthamlin/native-bundler-plugin-js')
 
 // TODO: DEMONSTRATE API
 ```

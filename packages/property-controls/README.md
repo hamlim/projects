@@ -1,11 +1,11 @@
-# `@hamlim/property-controls`
+# `@matthamlin/property-controls`
 
 A package that implements FramerX like Property Controls for any React component.
 
 ## Example
 
 ```js
-import { createControls, controlTypes, reducer } from '@hamlim/property-controls'
+import { createControls, controlTypes, reducer } from '@matthamlin/property-controls'
 
 import * as UI from 'your-local-component-library'
 

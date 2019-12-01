@@ -1,11 +1,11 @@
-# `@hamlim/babel-plugin-property-controls`
+# `@matthamlin/babel-plugin-property-controls`
 
 A babel plugin for transforming property controls on React components back to prop types and default
 props.
 
 ## Why use this plugin?
 
-If you want to implement `@hamlim/property-controls` but also document your components using
+If you want to implement `@matthamlin/property-controls` but also document your components using
 `propTypes` and `defaultProps`, this plugin will generate prop-types and default props based on your
 property controls on your components. This way you can author the prop types once and support both
 needs.
