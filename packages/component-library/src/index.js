@@ -9,5 +9,6 @@ export * from './Banner.js'
 export * from './Link.js'
 export * from './UseMedia.js'
 export * from './Tapable.js'
+export { default as useSharedRef } from './useSharedRef.js'
 
 export { default as Theme } from './Theme.js'

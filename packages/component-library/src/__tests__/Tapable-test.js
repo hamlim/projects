@@ -1,10 +1,7 @@
-import { render, fireEvent, cleanup } from '@testing-library/react'
+import { render, fireEvent, cleanup, act } from '@testing-library/react'
 import React from 'react'
 import { Tapable } from '../Tapable.js'
 import { ThemeProvider } from '../ThemeProvider.js'
-import '@testing-library/jest-dom/extend-expect'
-
-afterEach(cleanup)
 
 test('it calls onTap when clicked', () => {
   let handleTap = jest.fn()
@@ -145,4 +142,27 @@ test('it properly communicates that the element is disabled to screen readers', 
   )
 
   expect(container.querySelector('[aria-disabled]')).not.toBe(null)
+})
+
+// @TODO use async/await - change to babel config for tests
+// @TODO re-enable and make sure tests pass
+test.skip('it properly focuses the tapable element after a tap', () => {
+  let onTap = jest.fn()
+  let { getByTestId } = render(
+    <ThemeProvider>
+      <Tapable onTap={onTap} data-testid="tap">
+        Tap Here
+      </Tapable>
+    </ThemeProvider>,
+  )
+
+  fireEvent.click(getByTestId('tap'))
+
+  return new Promise(resolve => {
+    act(() => {
+      resolve()
+    })
+  }).then(() => {
+    expect(document.activeElement).toBe(getByTestId('tap'))
+  })
 })
