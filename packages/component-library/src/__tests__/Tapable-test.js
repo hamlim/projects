@@ -1,4 +1,4 @@
-import { render, fireEvent, cleanup, act } from '@testing-library/react'
+import { render, fireEvent, act, wait } from '@testing-library/react'
 import React from 'react'
 import { Tapable } from '../Tapable.js'
 import { ThemeProvider } from '../ThemeProvider.js'
@@ -144,9 +144,8 @@ test('it properly communicates that the element is disabled to screen readers', 
   expect(container.querySelector('[aria-disabled]')).not.toBe(null)
 })
 
-// @TODO use async/await - change to babel config for tests
-// @TODO re-enable and make sure tests pass
-test.skip('it properly focuses the tapable element after a tap', () => {
+test.only('it properly focuses the tapable element after a tap', async () => {
+  jest.spyOn(window, 'requestAnimationFrame').mockImplementation(cb => cb())
   let onTap = jest.fn()
   let { getByTestId } = render(
     <ThemeProvider>
@@ -156,13 +155,11 @@ test.skip('it properly focuses the tapable element after a tap', () => {
     </ThemeProvider>,
   )
 
-  fireEvent.click(getByTestId('tap'))
-
-  return new Promise(resolve => {
-    act(() => {
-      resolve()
-    })
-  }).then(() => {
+  await act(async () => {
+    fireEvent.click(getByTestId('tap'))
+  })
+  await wait(() => {
     expect(document.activeElement).toBe(getByTestId('tap'))
   })
+  window.requestAnimationFrame.mockRestore()
 })

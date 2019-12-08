@@ -217,8 +217,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
-            ["lerna", "npm:3.19.0"],
-            ["prettier", "npm:1.19.1"]
+            ["lerna", "npm:3.19.0"]
           ],
           "linkType": "SOFT"
         }]
@@ -6397,8 +6396,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["@matthamlin/projects", "workspace:."],
-            ["lerna", "npm:3.19.0"],
-            ["prettier", "npm:1.19.1"]
+            ["lerna", "npm:3.19.0"]
           ],
           "linkType": "SOFT"
         }]
@@ -15719,15 +15717,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/preserve-npm-0.2.0-6217a135d1-1.zip/node_modules/preserve/",
           "packageDependencies": [
             ["preserve", "npm:0.2.0"]
-          ],
-          "linkType": "HARD"
-        }]
-      ]],
-      ["prettier", [
-        ["npm:1.19.1", {
-          "packageLocation": "./.yarn/cache/prettier-npm-1.19.1-e56d246fd2-1.zip/node_modules/prettier/",
-          "packageDependencies": [
-            ["prettier", "npm:1.19.1"]
           ],
           "linkType": "HARD"
         }]

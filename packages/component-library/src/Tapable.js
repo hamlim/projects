@@ -38,7 +38,9 @@ export function useTapable({ onTap, disabled = false, ref }) {
       setDidClick(false)
       if (ref.current && document.activeElement !== ref.current) {
         requestAnimationFrame(() => {
-          ref.current.focus()
+          if (ref.current && typeof ref.current.focus === 'function') {
+            ref.current.focus()
+          }
         })
       }
     }
