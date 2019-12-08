@@ -13,5 +13,6 @@ module.exports = function(api) {
   }
   return {
     presets: [cfg, '@babel/preset-react'],
+    plugins: ['@babel/plugin-transform-runtime'],
   }
 }
