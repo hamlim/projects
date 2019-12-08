@@ -144,7 +144,7 @@ test('it properly communicates that the element is disabled to screen readers', 
   expect(container.querySelector('[aria-disabled]')).not.toBe(null)
 })
 
-test.only('it properly focuses the tapable element after a tap', async () => {
+test('it properly focuses the tapable element after a tap', async () => {
   jest.spyOn(window, 'requestAnimationFrame').mockImplementation(cb => cb())
   let onTap = jest.fn()
   let { getByTestId } = render(
