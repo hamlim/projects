@@ -1709,6 +1709,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/plugin-transform-runtime@npm:^7.7.6":
+  version: 7.7.6
+  resolution: "@babel/plugin-transform-runtime@npm:7.7.6"
+  dependencies:
+    "@babel/helper-module-imports": "npm:^7.7.4"
+    "@babel/helper-plugin-utils": "npm:^7.0.0"
+    resolve: "npm:^1.8.1"
+    semver: "npm:^5.5.1"
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+  checksum: e5245cced71572c8fb0f6d50222e69955d9631e687240850059145fe42bca99ad1edfe6ad13db9fcade684757be79950abe6f8d98d1e6dd5f1b7a8d2534ef00d
+  languageName: node
+  linkType: hard
+
 "@babel/plugin-transform-shorthand-properties@npm:^7.0.0, @babel/plugin-transform-shorthand-properties@npm:^7.7.4":
   version: 7.7.4
   resolution: "@babel/plugin-transform-shorthand-properties@npm:7.7.4"
@@ -2125,6 +2139,15 @@ __metadata:
   dependencies:
     regenerator-runtime: "npm:^0.13.2"
   checksum: 797f4b4e77f0c2cc13966b1a0d525fce91d43b2d20650b0b1b25429e00baedc72bcbea95dd615c57ff440bf5bfb53c82141a5f78723352acc3faa9d826676cb7
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:^7.7.6":
+  version: 7.7.6
+  resolution: "@babel/runtime@npm:7.7.6"
+  dependencies:
+    regenerator-runtime: "npm:^0.13.2"
+  checksum: fdf9e9bda71e430b49313f4b1d833d1045822e68b346e9b3a5d38deea91200b6961a0f88b1ccf262865825e817910b1f201cea1926fb3d9c694ebe12eb62daa4
   languageName: node
   linkType: hard
 
@@ -3426,8 +3449,10 @@ __metadata:
   dependencies:
     "@babel/cli": "npm:7.5.0"
     "@babel/core": "npm:7.5.0"
+    "@babel/plugin-transform-runtime": "npm:^7.7.6"
     "@babel/preset-env": "npm:7.5.0"
     "@babel/preset-react": "npm:7.0.0"
+    "@babel/runtime": "npm:^7.7.6"
     "@emotion/core": "npm:10.0.14"
     "@emotion/styled": "npm:10.0.14"
     "@styled-system/should-forward-prop": "npm:5.0.12"
@@ -3535,7 +3560,6 @@ __metadata:
   resolution: "@matthamlin/projects@workspace:."
   dependencies:
     lerna: "npm:^3.4.0"
-    prettier: "npm:^1.19.1"
   languageName: unknown
   linkType: soft
 
@@ -11994,15 +12018,6 @@ __metadata:
   version: 0.2.0
   resolution: "preserve@npm:0.2.0"
   checksum: 048c6ba85c5da3e23bea5df49a89559bb2ddd92916273edf912e4f49c30278d738d334184d19f76fdefbb71c7085f5425af586d79e88f3538e347ab73178e578
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^1.19.1":
-  version: 1.19.1
-  resolution: "prettier@npm:1.19.1"
-  bin:
-    prettier: ./bin-prettier.js
-  checksum: 0b8665fa22259378feaf46a54a559a09bd2c367e6391015af5068e88c6fb8d96e20afc56a6a6b2bac2eb0ad1ad26302ea634377e6397eca09301f64b01f3021a
   languageName: node
   linkType: hard
 

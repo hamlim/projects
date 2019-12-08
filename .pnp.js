@@ -217,8 +217,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
-            ["lerna", "npm:3.19.0"],
-            ["prettier", "npm:1.19.1"]
+            ["lerna", "npm:3.19.0"]
           ],
           "linkType": "SOFT"
         }]
@@ -3961,6 +3960,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"
         }]
       ]],
+      ["@babel/plugin-transform-runtime", [
+        ["virtual:96d2154ad5fb3c727367cce5c4b84cf9d3fa920214ba350aac958ee241313fa04fab611eac2bb075e626011deb4bfb12d9e86e25db3078716e614f14cd333f14#npm:7.7.6", {
+          "packageLocation": "./.yarn/virtual/@babel-plugin-transform-runtime-virtual-12a56b0b96/0/cache/@babel-plugin-transform-runtime-npm-7.7.6-f2109e3fba-1.zip/node_modules/@babel/plugin-transform-runtime/",
+          "packageDependencies": [
+            ["@babel/plugin-transform-runtime", "virtual:96d2154ad5fb3c727367cce5c4b84cf9d3fa920214ba350aac958ee241313fa04fab611eac2bb075e626011deb4bfb12d9e86e25db3078716e614f14cd333f14#npm:7.7.6"],
+            ["@babel/core", "npm:7.5.0"],
+            ["@babel/helper-module-imports", "npm:7.7.4"],
+            ["@babel/helper-plugin-utils", "npm:7.0.0"],
+            ["resolve", "npm:1.13.1"],
+            ["semver", "npm:5.7.1"]
+          ],
+          "packagePeers": [
+            "core"
+          ],
+          "linkType": "HARD"
+        }]
+      ]],
       ["@babel/plugin-transform-shorthand-properties", [
         ["virtual:074414ff767b8f07a53da96a08cf63be2bb682c791cd8d5fe3351c427fc3827bf76006c2f44b5a5a17123a5b56ec1f9272f81b5fed7e67bf40ee9c9144e0f569#npm:7.7.4", {
           "packageLocation": "./.yarn/virtual/@babel-plugin-transform-shorthand-properties-virtual-9e35786a02/0/cache/@babel-plugin-transform-shorthand-properties-npm-7.7.4-18e6ee374a-1.zip/node_modules/@babel/plugin-transform-shorthand-properties/",
@@ -4846,6 +4862,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@babel-runtime-npm-7.7.4-e084b8b183-1.zip/node_modules/@babel/runtime/",
           "packageDependencies": [
             ["@babel/runtime", "npm:7.7.4"],
+            ["regenerator-runtime", "npm:0.13.3"]
+          ],
+          "linkType": "HARD"
+        }],
+        ["npm:7.7.6", {
+          "packageLocation": "./.yarn/cache/@babel-runtime-npm-7.7.6-9f1c3387f6-1.zip/node_modules/@babel/runtime/",
+          "packageDependencies": [
+            ["@babel/runtime", "npm:7.7.6"],
             ["regenerator-runtime", "npm:0.13.3"]
           ],
           "linkType": "HARD"
@@ -6252,8 +6276,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@matthamlin/component-library", "workspace:packages/component-library"],
             ["@babel/cli", "virtual:37e7bf5449c0a25eed9d4ec082fa72d76acb3a469bf6799d570bb8b40f38f3e69353d06881df9cf414f87c68b410e43474296f7aa70a4793f831eea43b6606e4#npm:7.5.0"],
             ["@babel/core", "npm:7.5.0"],
+            ["@babel/plugin-transform-runtime", "virtual:96d2154ad5fb3c727367cce5c4b84cf9d3fa920214ba350aac958ee241313fa04fab611eac2bb075e626011deb4bfb12d9e86e25db3078716e614f14cd333f14#npm:7.7.6"],
             ["@babel/preset-env", "virtual:37e7bf5449c0a25eed9d4ec082fa72d76acb3a469bf6799d570bb8b40f38f3e69353d06881df9cf414f87c68b410e43474296f7aa70a4793f831eea43b6606e4#npm:7.5.0"],
             ["@babel/preset-react", "virtual:96d2154ad5fb3c727367cce5c4b84cf9d3fa920214ba350aac958ee241313fa04fab611eac2bb075e626011deb4bfb12d9e86e25db3078716e614f14cd333f14#npm:7.0.0"],
+            ["@babel/runtime", "npm:7.7.6"],
             ["@emotion/core", "virtual:96d2154ad5fb3c727367cce5c4b84cf9d3fa920214ba350aac958ee241313fa04fab611eac2bb075e626011deb4bfb12d9e86e25db3078716e614f14cd333f14#npm:10.0.14"],
             ["@emotion/styled", "virtual:96d2154ad5fb3c727367cce5c4b84cf9d3fa920214ba350aac958ee241313fa04fab611eac2bb075e626011deb4bfb12d9e86e25db3078716e614f14cd333f14#npm:10.0.14"],
             ["@styled-system/should-forward-prop", "npm:5.0.12"],
@@ -6397,8 +6423,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["@matthamlin/projects", "workspace:."],
-            ["lerna", "npm:3.19.0"],
-            ["prettier", "npm:1.19.1"]
+            ["lerna", "npm:3.19.0"]
           ],
           "linkType": "SOFT"
         }]
@@ -15719,15 +15744,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/preserve-npm-0.2.0-6217a135d1-1.zip/node_modules/preserve/",
           "packageDependencies": [
             ["preserve", "npm:0.2.0"]
-          ],
-          "linkType": "HARD"
-        }]
-      ]],
-      ["prettier", [
-        ["npm:1.19.1", {
-          "packageLocation": "./.yarn/cache/prettier-npm-1.19.1-e56d246fd2-1.zip/node_modules/prettier/",
-          "packageDependencies": [
-            ["prettier", "npm:1.19.1"]
           ],
           "linkType": "HARD"
         }]
