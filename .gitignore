@@ -3,4 +3,4 @@ dist/
 .yarn/build-state.yml
 .parcel-cache/
 
-pacjages/kitchen-sink/.cache/
+packages/kitchen-sink/.cache/
