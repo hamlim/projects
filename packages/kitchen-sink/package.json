@@ -16,6 +16,7 @@
     }
   },
   "dependencies": {
+    "@emotion/cache": "10.0.19",
     "@emotion/core": "10.0.22",
     "@emotion/styled": "10.0.23",
     "@matthamlin/component-library": "*",
@@ -31,7 +32,9 @@
     "@babel/core": "7.5.0",
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
-    "jest": "24.8.0"
+    "@parcel/resolver-default": "2.0.0-alpha.3",
+    "jest": "24.8.0",
+    "parcel": "2.0.0-alpha.3.2"
   },
   "publishConfig": {
     "access": "public",

@@ -1,9 +1,14 @@
 {
   "name": "@matthamlin/projects",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/@emotion/cache"
+    ]
+  },
   "scripts": {
     "test": "lerna run test",
     "build": "lerna run build",

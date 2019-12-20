@@ -1098,7 +1098,7 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@emotion/cache@^10.0.14", "@emotion/cache@^10.0.17":
+"@emotion/cache@10.0.19", "@emotion/cache@^10.0.14", "@emotion/cache@^10.0.17":
   version "10.0.19"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.19.tgz#d258d94d9c707dcadaf1558def968b86bb87ad71"
   integrity sha512-BoiLlk4vEsGBg2dAqGSJu0vJl/PgVtCYLBFJaEO8RmQzPugXewQCXZJNXTDFaRlfCs0W+quesayav4fvaif5WQ==
@@ -2266,6 +2266,14 @@
     "@parcel/logger" "^2.0.0-alpha.3.1"
     "@parcel/utils" "^2.0.0-alpha.3.1"
 
+"@parcel/codeframe@^2.0.0-alpha.3":
+  version "2.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@parcel/codeframe/-/codeframe-2.0.0-alpha.3.tgz#6a8872a0c5818ed9ca2829c0633432f95a7b96f0"
+  integrity sha512-h2yGsG2HSkjxSwMHhCmFTYm+Xkle/Jk90kVAnjeJhIldo9gM/59oXCXxH7jyUQPm3SOXnUXpXgeNl1sb+0YNPA==
+  dependencies:
+    chalk "^2.4.2"
+    emphasize "^2.1.0"
+
 "@parcel/codeframe@^2.0.0-alpha.3.1":
   version "2.0.0-alpha.3.1"
   resolved "https://registry.yarnpkg.com/@parcel/codeframe/-/codeframe-2.0.0-alpha.3.1.tgz#0dd4b2f6c2f1fdb283c5b407ae7b96ce94cd4418"
@@ -2346,6 +2354,14 @@
     pirates "^4.0.0"
     semver "^5.4.1"
 
+"@parcel/diagnostic@^2.0.0-alpha.3":
+  version "2.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@parcel/diagnostic/-/diagnostic-2.0.0-alpha.3.tgz#f2134ff34026bbae92f3610794d9f3d5147e76c0"
+  integrity sha512-xK06FGUWXVmibtHo7f7Jd/7GhT6GKVealMtQ27Z5gAZvX251SzINclFqtvNqGI8mpKStXfpZBq9BtrMi8xC5zw==
+  dependencies:
+    json-source-map "^0.6.1"
+    nullthrows "^1.1.1"
+
 "@parcel/diagnostic@^2.0.0-alpha.3.1":
   version "2.0.0-alpha.3.1"
   resolved "https://registry.yarnpkg.com/@parcel/diagnostic/-/diagnostic-2.0.0-alpha.3.1.tgz#005376248503ad40e7c84f004e3d2b69e7c17bf7"
@@ -2353,6 +2369,11 @@
   dependencies:
     json-source-map "^0.6.1"
     nullthrows "^1.1.1"
+
+"@parcel/events@^2.0.0-alpha.3":
+  version "2.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@parcel/events/-/events-2.0.0-alpha.3.tgz#54a8595aae668a05f6f69025f6e29468236bb637"
+  integrity sha512-W1WJ/H8E0PhVjXe2nLyMLKJvOWAcQDFG3h1XKAQ8B3a1vWBM6hRlJ7YBt5g6GLomchfCeaAIReOLXQHHjEYIXQ==
 
 "@parcel/events@^2.0.0-alpha.3.1":
   version "2.0.0-alpha.3.1"
@@ -2372,6 +2393,14 @@
     nullthrows "^1.1.1"
     rimraf "^2.6.2"
 
+"@parcel/logger@^2.0.0-alpha.3":
+  version "2.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@parcel/logger/-/logger-2.0.0-alpha.3.tgz#5f4c08d341e03cdae35e8f799bb392e62d194170"
+  integrity sha512-LDGruv2uIFuD4+jlNGr1/7KifEjSLDwNNtZCSG7FV5VxOJzObNXNDAa6m6nlGoefAnQ1dZ32cySu4UOd1ho8pg==
+  dependencies:
+    "@parcel/diagnostic" "^2.0.0-alpha.3"
+    "@parcel/events" "^2.0.0-alpha.3"
+
 "@parcel/logger@^2.0.0-alpha.3.1":
   version "2.0.0-alpha.3.1"
   resolved "https://registry.yarnpkg.com/@parcel/logger/-/logger-2.0.0-alpha.3.1.tgz#f0ea5b912419bc2e2aaf78cbbb8dff53d727cfa0"
@@ -2379,6 +2408,13 @@
   dependencies:
     "@parcel/diagnostic" "^2.0.0-alpha.3.1"
     "@parcel/events" "^2.0.0-alpha.3.1"
+
+"@parcel/markdown-ansi@^2.0.0-alpha.3":
+  version "2.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@parcel/markdown-ansi/-/markdown-ansi-2.0.0-alpha.3.tgz#49dd96035aa46963e6a3283ddd539d542252c963"
+  integrity sha512-DBU52hGOxEoEbcspavt7wmy5hhazWFLpGtRfJ7gFjvxJQfcvTHLr7tfyjtLGLTbBHlT/5FBGe2Bo+FDNqfAFwg==
+  dependencies:
+    chalk "^2.4.2"
 
 "@parcel/markdown-ansi@^2.0.0-alpha.3.1":
   version "2.0.0-alpha.3.1"
@@ -2494,6 +2530,13 @@
   dependencies:
     "@parcel/plugin" "^2.0.0-alpha.3.1"
 
+"@parcel/plugin@^2.0.0-alpha.3":
+  version "2.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@parcel/plugin/-/plugin-2.0.0-alpha.3.tgz#ff9215d0c522ff60692aca7ef6abaa95243f564a"
+  integrity sha512-2nfjd7ujL042gP7ssJ4JRyxEirp5Fuz+Vf4sk4aky3oWVuY9YmUqce0UNUMaIlh911xERo5uagy1jYOSa7gp6g==
+  dependencies:
+    "@parcel/types" "^2.0.0-alpha.3"
+
 "@parcel/plugin@^2.0.0-alpha.3.1":
   version "2.0.0-alpha.3.1"
   resolved "https://registry.yarnpkg.com/@parcel/plugin/-/plugin-2.0.0-alpha.3.1.tgz#cf0aa095ff6831ebfb722eea5395c867cad36928"
@@ -2539,6 +2582,16 @@
     "@parcel/reporter-cli" "^2.0.0-alpha.3.1"
     "@parcel/utils" "^2.0.0-alpha.3.1"
     ws "^6.2.0"
+
+"@parcel/resolver-default@2.0.0-alpha.3":
+  version "2.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@parcel/resolver-default/-/resolver-default-2.0.0-alpha.3.tgz#0fc3aff2fb8e0e92260cf57e7db602644e7d2bda"
+  integrity sha512-4Klb8x7a9c78/zqQ5TcNMxUxasw0yV/ZorbwT+B0++9fiAq1TWPhIIYUgI9DmkO2UyO6OspxRpXiTHb/UroaGA==
+  dependencies:
+    "@parcel/plugin" "^2.0.0-alpha.3"
+    "@parcel/utils" "^2.0.0-alpha.3"
+    micromatch "^3.0.4"
+    node-libs-browser "^2.1.0"
 
 "@parcel/resolver-default@^2.0.0-alpha.3.1":
   version "2.0.0-alpha.3.1"
@@ -2822,10 +2875,40 @@
   dependencies:
     nullthrows "^1.1.1"
 
+"@parcel/types@^2.0.0-alpha.3":
+  version "2.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@parcel/types/-/types-2.0.0-alpha.3.tgz#b2911c0e3b7756b70cbfc79a432b464b41d214c1"
+  integrity sha512-n4c346lpwhEUFJ3Xv4DUAATLnAqdKkNfEqFW+bfnS8WFBl3bUlaJW4JqHYQ63enoEvMKoD5Rs9/WrhqZ71X8Dg==
+
 "@parcel/types@^2.0.0-alpha.3.1":
   version "2.0.0-alpha.3.1"
   resolved "https://registry.yarnpkg.com/@parcel/types/-/types-2.0.0-alpha.3.1.tgz#f73a8a242b6cd820f7c8aa6a0629c505314b5bc0"
   integrity sha512-+RrfckMkA9BQtR/O987gwD/1fXWeMd5v8k4pBBsmSHtLh7ASnoViRkg9drIQJs6uU17uKgvYNsSYwUNxJzf+0Q==
+
+"@parcel/utils@^2.0.0-alpha.3":
+  version "2.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@parcel/utils/-/utils-2.0.0-alpha.3.tgz#7ae1e4decfb5e9466daf53995a595930eafcefa6"
+  integrity sha512-fovscp/gO4uGNf33XD7Ui1m/bD54BGKvbvn6pF9fw25kAv5v3U45ewE56FoVd1vNAQWV1G4zvt2KHIGe+HkEgw==
+  dependencies:
+    "@iarna/toml" "^2.2.0"
+    "@parcel/codeframe" "^2.0.0-alpha.3"
+    "@parcel/diagnostic" "^2.0.0-alpha.3"
+    "@parcel/logger" "^2.0.0-alpha.3"
+    "@parcel/markdown-ansi" "^2.0.0-alpha.3"
+    ansi-html "^0.0.7"
+    clone "^2.1.1"
+    deasync "^0.1.14"
+    fast-glob "^3.0.4"
+    is-glob "^4.0.0"
+    is-url "^1.2.2"
+    js-levenshtein "^1.1.6"
+    json5 "^1.0.1"
+    micromatch "^4.0.2"
+    node-forge "^0.8.1"
+    nullthrows "^1.1.1"
+    resolve "^1.12.0"
+    serialize-to-js "^1.1.1"
+    terser "^3.7.3"
 
 "@parcel/utils@^2.0.0-alpha.3.1":
   version "2.0.0-alpha.3.1"
