@@ -28,6 +28,10 @@
     "react": "0.0.0-experimental-f42431abe",
     "react-dom": "0.0.0-experimental-f42431abe"
   },
+  "alias": {
+    "react": "./node_modules/react",
+    "react-dom": "./node_modules/react-dom"
+  },
   "devDependencies": {
     "@babel/cli": "7.5.0",
     "@babel/core": "7.5.0",
@@ -35,7 +39,7 @@
     "@babel/preset-react": "^7.7.4",
     "@parcel/resolver-default": "2.0.0-alpha.3",
     "jest": "24.8.0",
-    "parcel": "2.0.0-alpha.3.2"
+    "parcel": "latest"
   },
   "publishConfig": {
     "access": "public",
