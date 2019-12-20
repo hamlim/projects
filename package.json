@@ -6,7 +6,7 @@
       "packages/*"
     ],
     "nohoist": [
-      "**/@emotion/cache"
+      "**@matthamlin/kitchen-sink/**"
     ]
   },
   "scripts": {
@@ -16,7 +16,6 @@
     "create-package": "yarn node scripts/create-package.js"
   },
   "devDependencies": {
-    "lerna": "^3.4.0",
-    "parcel": "2.0.0-alpha.3.2"
+    "lerna": "^3.4.0"
   }
 }
