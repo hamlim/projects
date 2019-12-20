@@ -1,5 +1,5 @@
 {
-  "name": "@hamlim/reroute-core",
+  "name": "@matthamlin/reroute-core",
   "version": "1.0.1",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
@@ -8,7 +8,7 @@
   "license": "MIT",
   "source": "./src/index.js",
   "scripts": {
-    "build": "babel src/ --out-dir dist/ --ignore=__tests__",
+    "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'",
     "test": "jest",
     "bundle": "microbundle --jsx React.createElement"
   },
@@ -36,7 +36,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,31 @@
+{
+  "name": "@matthamlin/babel-plugin-property-controls",
+  "version": "1.0.0",
+  "module": "dist/index.mjs",
+  "main": "dist/index.js",
+  "umd:main": "dist/index.umd.js",
+  "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
+  "license": "MIT",
+  "source": "./src/index.js",
+  "scripts": {
+    "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'",
+    "bundle": "microbundle",
+    "test": "echo TODO"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.5.0",
+    "@babel/core": "7.5.0",
+    "@babel/preset-env": "7.5.0",
+    "jest": "24.8.0",
+    "microbundle": "0.11.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/hamlim/projects.git",
+    "directory": "packages/babel-plugin-property-controls"
+  }
+}

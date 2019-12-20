@@ -1,0 +1,29 @@
+{
+  "name": "@matthamlin/native-bundler-plugin-css",
+  "version": "1.0.0",
+  "description": "CSS transformer plugin for Native Bundler",
+  "author": "Matthew Hamlin <hamlim@outlook.com> (https://matthamlin.me/)",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/hamlim/projects.git",
+    "directory": "packages/native-bundler-plugin-css"
+  },
+  "scripts": {
+    "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'"
+  },
+  "dependencies": {
+    "@babel/core": "7.7.4",
+    "autoprefixer": "9.4.2",
+    "postcss": "7.0.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.0.0",
+    "@babel/preset-env": "7.1.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

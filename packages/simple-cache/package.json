@@ -1,5 +1,5 @@
 {
-  "name": "@hamlim/simple-cache",
+  "name": "@matthamlin/simple-cache",
   "version": "1.0.0",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
@@ -8,7 +8,7 @@
   "license": "MIT",
   "source": "./src/index.js",
   "scripts": {
-    "build": "babel src/ --out-dir dist/",
+    "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'",
     "bundle": "microbundle"
   },
   "peerDependencies": {
@@ -22,7 +22,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",

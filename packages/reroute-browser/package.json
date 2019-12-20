@@ -1,5 +1,5 @@
 {
-  "name": "@hamlim/reroute-browser",
+  "name": "@matthamlin/reroute-browser",
   "version": "1.0.0",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
@@ -8,12 +8,12 @@
   "license": "MIT",
   "source": "./src/index.js",
   "scripts": {
-    "build": "babel src/ --out-dir dist/ --ignore=__tests__",
+    "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'",
     "test": "jest",
     "bundle": "microbundle --jsx React.createElement"
   },
   "peerDependencies": {
-    "@hamlim/reroute-core": "*",
+    "@matthamlin/reroute-core": "*",
     "react": "*"
   },
   "devDependencies": {
@@ -22,7 +22,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@babel/preset-env": "7.5.0",
     "@babel/preset-react": "7.0.0",
-    "@hamlim/reroute-core": "*",
+    "@matthamlin/reroute-core": "*",
     "@testing-library/jest-dom": "4.1.0",
     "@testing-library/react": "8.0.4",
     "history": "4.9.0",
@@ -38,7 +38,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
