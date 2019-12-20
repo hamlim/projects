@@ -5,7 +5,7 @@
   "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
   "license": "MIT",
   "scripts": {
-    "watch": "todo",
+    "watch": "parcel src/index.html",
     "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'",
     "test": "jest",
     "test-watch": "jest --watch"
@@ -14,6 +14,17 @@
     "transform": {
       "^.+\\.js$": "babel-jest"
     }
+  },
+  "dependencies": {
+    "@emotion/core": "10.0.22",
+    "@emotion/styled": "10.0.23",
+    "@matthamlin/component-library": "*",
+    "@matthamlin/reroute-browser": "*",
+    "@matthamlin/reroute-core": "*",
+    "@matthamlin/simple-cache": "*",
+    "emotion-theming": "10.0.19",
+    "react": "0.0.0-experimental-f42431abe",
+    "react-dom": "0.0.0-experimental-f42431abe"
   },
   "devDependencies": {
     "@babel/cli": "7.5.0",
