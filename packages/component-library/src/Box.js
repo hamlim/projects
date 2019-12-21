@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled from 'styled-components'
 import shouldForwardProp from '@styled-system/should-forward-prop'
 import {
   space,

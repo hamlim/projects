@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@styled-system/should-forward-prop": "5.0.12",
+    "styled-components": "5.0.0-rc.2",
     "styled-system": "5.0.12"
   },
   "devDependencies": {
@@ -23,19 +24,14 @@
     "@babel/preset-env": "7.5.0",
     "@babel/preset-react": "7.0.0",
     "@babel/runtime": "^7.7.6",
-    "@emotion/core": "10.0.14",
-    "@emotion/styled": "10.0.14",
     "@testing-library/jest-dom": "4.1.0",
     "@testing-library/react": "8.0.4",
-    "emotion-theming": "10.0.14",
+    "babel-plugin-styled-components": "1.10.6",
     "jest": "24.8.0",
     "react": "16.9.0",
     "react-dom": "16.9.0"
   },
   "peerDependencies": {
-    "@emotion/core": "10.0.14",
-    "@emotion/styled": "10.0.14",
-    "emotion-theming": "10.0.14",
     "react": "*",
     "react-dom": "*"
   },

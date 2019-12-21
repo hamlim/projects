@@ -1,9 +1,10 @@
-/** @jsx jsx */
-import { useState, useCallback } from 'react'
-import { jsx, css } from '@emotion/core'
+import React, { useState, useCallback } from 'react'
+import { css } from 'styled-components'
 import { Box } from './Box'
+import { useTheme } from './ThemeProvider'
 
 export function Input({ unstable_Focused = false, onChange, ...props }) {
+  let theme = useTheme()
   let handleChange = useCallback(
     function handleChange(event) {
       onChange(event.target.value)
@@ -14,28 +15,26 @@ export function Input({ unstable_Focused = false, onChange, ...props }) {
     <Box
       as="input"
       borderRadius={0}
-      css={theme =>
-        css({
-          backgroundColor: theme.colors.gray[2],
-          border: 'none',
-          height: 50,
-          fontSize: theme.fontSizes[1],
-          display: 'block',
-          minWidth: '100%',
-          padding: '0 .5em',
-          ':focus': {
-            outline: `dashed 1px ${theme.colors.secondary}`,
-          },
-          ':disabled': {
-            backgroundColor: theme.colors.gray[4],
-          },
-          ...(unstable_Focused
-            ? {
-                outline: `dashed 1px ${theme.colors.secondary}`,
-              }
-            : {}),
-        })
-      }
+      css={css({
+        backgroundColor: theme.colors.gray[2],
+        border: 'none',
+        height: 50,
+        fontSize: theme.fontSizes[1],
+        display: 'block',
+        minWidth: '100%',
+        padding: '0 .5em',
+        ':focus': {
+          outline: `dashed 1px ${theme.colors.secondary}`,
+        },
+        ':disabled': {
+          backgroundColor: theme.colors.gray[4],
+        },
+        ...(unstable_Focused
+          ? {
+              outline: `dashed 1px ${theme.colors.secondary}`,
+            }
+          : {}),
+      })}
       onChange={handleChange}
       {...props}
     />
