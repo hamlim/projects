@@ -15,15 +15,11 @@
     }
   },
   "dependencies": {
-    "@emotion/core": "^10.0.22",
-    "@emotion/styled": "^10.0.23",
     "@matthamlin/property-controls": "*",
-    "@emotion/cache": "10.0.19",
     "@matthamlin/component-library": "*",
     "@matthamlin/reroute-browser": "*",
     "@matthamlin/reroute-core": "*",
     "@matthamlin/simple-cache": "*",
-    "emotion-theming": "10.0.14",
     "react": "experimental",
     "react-dom": "experimental"
   },
