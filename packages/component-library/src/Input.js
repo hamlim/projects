@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import React, { useState, useCallback } from 'react'
 import { css } from 'styled-components'
 import { Box } from './Box'
 import { useTheme } from './ThemeProvider'
