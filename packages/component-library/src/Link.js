@@ -1,11 +1,13 @@
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core'
+import React from 'react'
+import { css } from 'styled-components'
 import { Box } from './Box.js'
+import { useTheme } from './ThemeProvider'
 
 export function Link(props) {
+  let theme = useTheme()
   return (
     <Box
-      css={theme => css`
+      css={css`
         color: ${theme.colors.primary};
         text-decoration: underline;
         display: inline;

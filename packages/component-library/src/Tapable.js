@@ -1,7 +1,6 @@
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core'
+import React, { useState, useRef, useEffect, forwardRef } from 'react'
+import { css } from 'styled-components'
 import { Box } from './Box.js'
-import { useState, useRef, useEffect, forwardRef } from 'react'
 import useSharedRef from './useSharedRef'
 
 function _Tapable({ onTap, disabled, innerRef, ...props }) {
