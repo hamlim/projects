@@ -29,3 +29,5 @@ Scripts:
 
 📦 Redocer:
   - packages/redocer/**/*
+📦 Tasks:
+  - packages/tasks/**/*

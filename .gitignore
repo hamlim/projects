@@ -4,3 +4,4 @@ dist/
 .parcel-cache/
 
 packages/kitchen-sink/.cache/
+packages/tasks/.cache/
