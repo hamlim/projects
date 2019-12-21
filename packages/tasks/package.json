@@ -23,7 +23,7 @@
     "@matthamlin/reroute-browser": "*",
     "@matthamlin/reroute-core": "*",
     "@matthamlin/simple-cache": "*",
-    "emotion-theming": "10.0.19",
+    "emotion-theming": "10.0.14",
     "react": "experimental",
     "react-dom": "experimental"
   },
