@@ -1,5 +1,5 @@
 import { variant } from 'styled-system'
-import styled from '@emotion/styled'
+import styled from 'styled-components'
 import { Box } from './Box.js'
 
 let bannerVariant = variant({
