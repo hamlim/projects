@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core'
+import { css } from 'styled-components'
 import { Box } from './Box.js'
 import { useState, useRef, useEffect, forwardRef } from 'react'
 import useSharedRef from './useSharedRef'
