@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx, css, Global } from '@emotion/core'
+import { createGlobalStyle } from 'styled-components'
 import { useTheme } from './ThemeProvider'
 
 export let GlobalStyles = createGlobalStyle(() => {
