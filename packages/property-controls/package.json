@@ -8,7 +8,7 @@
   "license": "MIT",
   "source": "./src/index.js",
   "scripts": {
-    "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'",
+    "build": "babel src/ --out-dir dist/ --ignore **/*.test.js",
     "bundle": "microbundle",
     "test": "jest",
     "test-watch": "jest --watch"
