@@ -74,13 +74,171 @@ render(<App />)
 The Property Controls package exports the following:
 
 - `controlTypes` - An object of support property controls
-- `createControls` - A function that accepts an object of `inputs` and `propertyControls` and returns an object of `PropertyControls` (a React component) and `initialState`
+- `getInitialState` - A function that takes in the property controls and returns an object with the initial state
 - `reducer` - A reducer function that accepts `state` and an `action` that looks like `{ name, value }`
 
-The `PropertyControls` component accepts the following props:
+#### Suggested Rendering patterns:
 
-- `state` - Should match the same shape as the `initialState` object returned from `createControls`
-- `dispatch` - A function that will be called with the an object with the shape of `{ name, value }`. Note that for `shape` types, name may be `.` separated.
+Rendering property control inputs is left up to the implementer to customize the rendering inputs and rendering context.
+
+Here is a snippet of an example rendering pattern:
+
+```jsx
+function PropertyControls({
+  // A `useReducer` dispatch function
+  dispatch,
+  // The current state of the property controls
+  state,
+  // Property Controls passed to the component
+  propertyControls = componentPropertyControls,
+  // A name property
+  name = null,
+  // A value property
+  value = null,
+}) {
+  // Use this as a flag to determine if we have recursed within the PropertyControls component
+  let isNested = name !== null
+  let propertyControlEntries = Object.entries(propertyControls)
+  return propertyControlEntries.map(([propName, control]) => {
+    switch (control.type) {
+      case controlTypes.string: {
+        if (isNested) {
+          return (
+            <StringInput
+              key={propName}
+              {...control}
+              name={`${name}.${propName}`}
+              value={value[propName]}
+              dispatch={dispatch}
+            />
+          )
+        }
+        return (
+          <StringInput
+            key={propName}
+            {...control}
+            name={propName}
+            value={state[name]}
+            dispatch={dispatch}
+          />
+        )
+      }
+      case controlTypes.number: {
+        if (isNested) {
+          return (
+            <NumberInput
+              key={propName}
+              {...control}
+              name={`${name}.${propName}`}
+              value={value[propName]}
+              dispatch={dispatch}
+            />
+          )
+        }
+        return (
+          <NumberInput
+            key={propName}
+            {...control}
+            name={propName}
+            value={state[name]}
+            dispatch={dispatch}
+          />
+        )
+      }
+      case controlTypes.boolean: {
+        if (isNested) {
+          return (
+            <BooleanInput
+              key={propName}
+              {...control}
+              name={`${name}.${propName}`}
+              value={value[name]}
+              dispatch={dispatch}
+            />
+          )
+        }
+        return (
+          <BooleanInput
+            key={propName}
+            {...control}
+            name={propName}
+            value={state[name]}
+            dispatch={dispatch}
+          />
+        )
+      }
+      case controlTypes.range: {
+        if (isNested) {
+          return (
+            <RangeInput
+              key={propName}
+              {...control}
+              name={`${name}.${propName}`}
+              value={value[name]}
+              dispatch={dispatch}
+            />
+          )
+        }
+        return (
+          <RangeInput
+            key={propName}
+            {...control}
+            name={propName}
+            value={state[propName]}
+            dispatch={dispatch}
+          />
+        )
+      }
+      case controlTypes.enum: {
+        if (isNested) {
+          return (
+            <EnumInput
+              key={propName}
+              {...control}
+              name={`${name}.${propName}`}
+              value={value[name]}
+              dispatch={dispatch}
+            />
+          )
+        }
+        return (
+          <EnumInput
+            key={propName}
+            {...control}
+            value={state[propName]}
+            name={propName}
+            dispatch={dispatch}
+          />
+        )
+      }
+      case controlTypes.shape: {
+        if (isNested) {
+          return (
+            <PropertyControls
+              key={propName}
+              {...control}
+              name={`${name}.${propName}`}
+              propertyControls={control.types}
+              value={value[name]}
+              dispatch={dispatch}
+            />
+          )
+        }
+        return (
+          <PropertyControls
+            key={propName}
+            {...control}
+            propertyControls={control.types}
+            name={propName}
+            value={state[propName]}
+            dispatch={dispatch}
+          />
+        )
+      }
+    }
+  })
+}
+```
 
 #### Example Input Components:
 
