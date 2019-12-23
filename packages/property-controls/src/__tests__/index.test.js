@@ -1,25 +1,7 @@
 import React from 'react'
 import { types, getInitialState } from '../index'
 
-function Avatar({ backgroundColor, initials, size }) {
-  return (
-    <div
-      style={{
-        backgroundColor,
-        height: size,
-        width: size,
-        borderRadius: '50%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <span>{initials}</span>
-    </div>
-  )
-}
-
-Avatar.propertyControls = {
+let propertyControls = {
   backgroundColor: {
     type: types.string,
     label: 'The background color of the avatar',
