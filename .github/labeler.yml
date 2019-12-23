@@ -29,3 +29,5 @@ Scripts:
 
 📦 Redocer:
   - packages/redocer/**/*
+📦 React Code Editor:
+  - packages/react-code-editor/**/*
