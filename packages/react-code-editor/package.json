@@ -28,12 +28,12 @@
     "react-simple-code-editor": "0.9.1"
   },
   "peerDependencies": {
-    "react-simple-code-editor": "0.9.1",
-    "react": "*"
+    "react": "*",
+    "react-simple-code-editor": "0.9.1"
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
