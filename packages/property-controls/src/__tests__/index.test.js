@@ -20,7 +20,7 @@ let propertyControls = {
 }
 
 test('getInitialState returns the expected state shape', () => {
-  expect(getInitialState(Avatar.propertyControls)).toMatchInlineSnapshot(`
+  expect(getInitialState(propertyControls)).toMatchInlineSnapshot(`
     Object {
       "backgroundColor": null,
       "initials": null,
