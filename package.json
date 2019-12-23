@@ -13,6 +13,7 @@
     "create-package": "yarn node scripts/create-package.js"
   },
   "devDependencies": {
-    "lerna": "^3.4.0"
+    "lerna": "^3.4.0",
+    "prettier": "1.19.1"
   }
 }
