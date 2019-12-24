@@ -106,7 +106,7 @@ function main() {
     },
     "publishConfig": {
       "access": "public",
-      "registry": "https://npm.pkg.github.com"
+      "registry": "https://registry.npmjs.org/"
     },
     "repository": {
       "type": "git",

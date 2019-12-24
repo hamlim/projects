@@ -14,6 +14,7 @@
     "create-site": "yarn node scripts/create-site.js"
   },
   "devDependencies": {
-    "lerna": "^3.4.0"
+    "lerna": "^3.4.0",
+    "prettier": "1.19.1"
   }
 }

@@ -31,3 +31,5 @@ Scripts:
   - packages/redocer/**/*
 📦 Tasks:
   - packages/tasks/**/*
+📦 React Code Editor:
+  - packages/react-code-editor/**/*
