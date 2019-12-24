@@ -25,6 +25,14 @@ Text is a wrapper on top Box, that defaults to rendering as a `p` element
 <Text>Some content here</Text>
 ```
 
+#### `VisuallyHidden`
+
+VissuallyHidden is an element for rendering visually hidden content. It extends from Box.
+
+```jsx
+<VisuallyHidden>Some content here</VisuallyHidden>
+```
+
 #### `H1, H2, H3, H4, H5, H6`
 
 The Heading components are composed of Box components, defaulting to rendering the relative html
@@ -84,6 +92,12 @@ let matches = useMedia({
   defaultMatches: false,
   matchMedia: query => ({ matches, addListener, removeListener }),
 })
+```
+
+#### `useId`
+
+```jsx
+let id = useId(providedId)
 ```
 
 #### `GlobalStyles`
