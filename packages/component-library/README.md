@@ -25,6 +25,14 @@ Text is a wrapper on top Box, that defaults to rendering as a `p` element
 <Text>Some content here</Text>
 ```
 
+#### `VisuallyHidden`
+
+VissuallyHidden is an element for rendering visually hidden content. It extends from Box.
+
+```jsx
+<VisuallyHidden>Some content here</VisuallyHidden>
+```
+
 #### `H1, H2, H3, H4, H5, H6`
 
 The Heading components are composed of Box components, defaulting to rendering the relative html
@@ -47,6 +55,18 @@ The Button component is a wrapper around an html `button` element, with a few op
 The Input component is a wrapper around the `input` html element. The `ControlledInput` component is
 a wrapper around the Input primitive that stores its own state for the value and accepts a
 `defaultValue` and an `onChange`.
+
+```jsx
+<Input onChange={handleChange} value={value} />
+
+<ControlledInput defaultValue="foo" onChange={setValue} />
+```
+
+#### `HiddenCheckbox` and `ControlledHiddenCheckbox`
+
+The HiddenCheckbox component renders a visually hidden checkbox element. It must be provided with `checked` and `onChange` props.
+
+The ControlledHiddenCheckbox component does the same but supports an optional `defaultChecked` prop and does not support the checked prop.
 
 ```jsx
 <Input onChange={handleChange} value={value} />
@@ -84,6 +104,12 @@ let matches = useMedia({
   defaultMatches: false,
   matchMedia: query => ({ matches, addListener, removeListener }),
 })
+```
+
+#### `useId`
+
+```jsx
+let id = useId(providedId)
 ```
 
 #### `GlobalStyles`

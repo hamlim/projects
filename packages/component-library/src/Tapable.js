@@ -2,10 +2,11 @@ import React, { useState, useRef, useEffect, forwardRef } from 'react'
 import { css } from 'styled-components'
 import { Box } from './Box.js'
 import useSharedRef from './useSharedRef'
+import { handleKeyDown } from './handleKeyDown'
 
-function _Tapable({ onTap, disabled, innerRef, ...props }) {
+function _Tapable({ onTap, disabled, innerRef, role = 'button', ...props }) {
   let ref = useSharedRef(innerRef)
-  let tapableProps = useTapable({ onTap, disabled, ref })
+  let tapableProps = useTapable({ onTap, disabled, ref, role })
   return <Box {...tapableProps} {...props} />
 }
 
@@ -13,18 +14,7 @@ export let Tapable = forwardRef((props, ref) => (
   <_Tapable {...props} innerRef={ref} />
 ))
 
-function handleKeyDown(cb) {
-  return function(event) {
-    if (event.key === 'Enter' || event.key === ' ') {
-      if (event.key === ' ') {
-        event.preventDefault()
-      }
-      cb(event)
-    }
-  }
-}
-
-export function useTapable({ onTap, disabled = false, ref }) {
+export function useTapable({ onTap, disabled = false, ref, role }) {
   let [didClick, setDidClick] = useState(false)
 
   function handleTap(event) {
@@ -48,7 +38,7 @@ export function useTapable({ onTap, disabled = false, ref }) {
   return {
     onClick: disabled ? null : handleTap,
     onKeyDown: disabled ? null : handleKeyDown(handleTap),
-    role: disabled ? null : 'button',
+    role: disabled ? null : role,
     tabIndex: disabled ? null : '0',
     'aria-disabled': disabled || null,
     ref,
