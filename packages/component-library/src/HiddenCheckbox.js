@@ -5,7 +5,7 @@ import { useId } from './useId'
 import { VisuallyHidden } from './VisuallyHidden'
 
 function _HiddenCheckbox({
-  checked: providedChecked,
+  checked,
   id: providedId,
   onChange,
   innerRef,
