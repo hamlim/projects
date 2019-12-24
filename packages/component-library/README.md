@@ -1,6 +1,6 @@
 # `@matthamlin/components`
 
-A simple component library built on top of React, Emotion, and Styled-System.
+A simple component library built on top of React, Styled Components, and Styled-System.
 
 ### Available Components
 
