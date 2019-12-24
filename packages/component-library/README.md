@@ -62,6 +62,18 @@ a wrapper around the Input primitive that stores its own state for the value and
 <ControlledInput defaultValue="foo" onChange={setValue} />
 ```
 
+#### `HiddenCheckbox` and `ControlledHiddenCheckbox`
+
+The HiddenCheckbox component renders a visually hidden checkbox element. It must be provided with `checked` and `onChange` props.
+
+The ControlledHiddenCheckbox component does the same but supports an optional `defaultChecked` prop and does not support the checked prop.
+
+```jsx
+<Input onChange={handleChange} value={value} />
+
+<ControlledInput defaultValue="foo" onChange={setValue} />
+```
+
 #### `Banner`
 
 The Banner component supports 4 variants:
