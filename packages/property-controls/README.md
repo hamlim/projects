@@ -49,8 +49,9 @@ Ensure that this image has a high enough contrast for the color of the initials 
   }
 }
 
+const initialState = getInitialState(Avatar.propertyControls);
+
 function App() {
-  const initialState = getInitialState(Avatar.propertyControls);
   let [state, dispatch] = useReducer(initialState, reducer);
   return (
     <PropertyControls
