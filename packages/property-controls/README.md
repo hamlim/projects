@@ -71,6 +71,7 @@ The Property Controls package exports the following:
 - `types` - An object of support property controls
 - `getInitialState` - A function that takes in the property controls and returns an object with the initial state
 - `reducer` - A reducer function that accepts `state` and an `action` that looks like `{ name, value }`
+- `updateState` - A function that takes in the current state, namePath, value and index and returns the new state with the name and value.
 
 #### Suggested Rendering patterns:
 
