@@ -7,8 +7,6 @@ A package that implements FramerX like Property Controls for any React component
 ```js
 import { getInitialState, types, reducer } from '@matthamlin/property-controls'
 
-import * as UI from 'your-local-component-library'
-
 function Avatar({
   initials,
   backgroundImage,
@@ -51,10 +49,7 @@ Ensure that this image has a high enough contrast for the color of the initials 
   }
 }
 
-const {PropertyControls, initialState} = getInitialState({
-  inputs: UI,
-  propertyControls: Avatar.propertyControls,
-})
+const PropertyControls = getInitialState(Avatar.propertyControls)
 
 function App() {
   let [state, dispatch] = useReducer(initialState, reducer);
