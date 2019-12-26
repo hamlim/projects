@@ -5,9 +5,7 @@ A package that implements FramerX like Property Controls for any React component
 ## Example
 
 ```js
-import { createControls, controlTypes, reducer } from '@matthamlin/property-controls'
-
-import * as UI from 'your-local-component-library'
+import { getInitialState, types, reducer } from '@matthamlin/property-controls'
 
 function Avatar({
   initials,
@@ -33,28 +31,25 @@ function Avatar({
 
 Avatar.propertyControls = {
   initials: {
-    type: controlTypes.string,
+    type: types.string,
     label: 'The users initials to display over the background image'
   },
   backgroundImage: {
-    type: controlTypes.string,
+    type: types.string,
     label: `The background image on the avatar.
 
 Ensure that this image has a high enough contrast for the color of the initials provided.`
     default: null
   },
   size: {
-    type: controlTypes.enum,
+    type: types.enum,
     values: [ 20, 40, 80 ],
     label: `The dimensions of the avatar component`,
     default: 40
   }
 }
 
-const {PropertyControls, initialState} = createControls({
-  inputs: UI,
-  propertyControls: Avatar.propertyControls,
-})
+const initialState = getInitialState(Avatar.propertyControls);
 
 function App() {
   let [state, dispatch] = useReducer(initialState, reducer);
@@ -73,9 +68,10 @@ render(<App />)
 
 The Property Controls package exports the following:
 
-- `controlTypes` - An object of support property controls
+- `types` - An object of support property controls
 - `getInitialState` - A function that takes in the property controls and returns an object with the initial state
 - `reducer` - A reducer function that accepts `state` and an `action` that looks like `{ name, value }`
+- `updateState` - A function that takes in the current state, namePath, value and index and returns the new state with the name and value
 
 #### Suggested Rendering patterns:
 
@@ -101,7 +97,7 @@ function PropertyControls({
   let propertyControlEntries = Object.entries(propertyControls)
   return propertyControlEntries.map(([propName, control]) => {
     switch (control.type) {
-      case controlTypes.string: {
+      case types.string: {
         if (isNested) {
           return (
             <StringInput
@@ -123,7 +119,7 @@ function PropertyControls({
           />
         )
       }
-      case controlTypes.number: {
+      case types.number: {
         if (isNested) {
           return (
             <NumberInput
@@ -145,7 +141,7 @@ function PropertyControls({
           />
         )
       }
-      case controlTypes.boolean: {
+      case types.boolean: {
         if (isNested) {
           return (
             <BooleanInput
@@ -167,7 +163,7 @@ function PropertyControls({
           />
         )
       }
-      case controlTypes.range: {
+      case types.range: {
         if (isNested) {
           return (
             <RangeInput
@@ -189,7 +185,7 @@ function PropertyControls({
           />
         )
       }
-      case controlTypes.enum: {
+      case types.enum: {
         if (isNested) {
           return (
             <EnumInput
@@ -211,7 +207,7 @@ function PropertyControls({
           />
         )
       }
-      case controlTypes.shape: {
+      case types.shape: {
         if (isNested) {
           return (
             <PropertyControls
