@@ -228,7 +228,7 @@ export default {
       paddingLeft: 0,
       paddingRight: 0,
       paddingBottom: 0,
-      paddingTop: 0
+      paddingTop: 0,
     },
     ordered: {
       marginLeft: 0,
@@ -238,7 +238,7 @@ export default {
       paddingLeft: 0,
       paddingRight: 0,
       paddingBottom: 0,
-      paddingTop: 0
+      paddingTop: 0,
     },
     unordered: {
       marginLeft: 0,
@@ -248,9 +248,9 @@ export default {
       paddingLeft: 0,
       paddingRight: 0,
       paddingBottom: 0,
-      paddingTop: 0
-    }
-  }
+      paddingTop: 0,
+    },
+  },
   banners: {
     success: {
       color: colors.black,
