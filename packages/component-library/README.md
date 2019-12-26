@@ -85,6 +85,29 @@ The Banner component supports 4 variants:
 <Banner variant="error">Error</Banner>
 ```
 
+#### `List` and `ListItem
+
+The List component supports 3 `variant` prop values:
+
+- `base` - removes list styling
+- `orderd`
+- `unordered`
+
+```jsx
+<List variant="base" as="ul">
+  <ListItem>Content</ListItem>
+  <ListItem>Content</ListItem>
+</List>
+<List variant="ordered" as="ol">
+  <ListItem>1</ListItem>
+  <ListItem>2</ListItem>
+</List>
+<List variant="unordered" as="ul">
+  <ListItem>content</ListItem>
+  <ListItem>content</ListItem>
+</List>
+```
+
 #### `Link`
 
 The Link component renders as a text link, it requires an `as` prop to render as an appropriate
