@@ -8,6 +8,8 @@ export function OrderedList(props) {
       as="ol"
       css={css`
         list-style: none;
+        margin: 0;
+        padding: 0;
       `}
       {...props}
     />
@@ -20,6 +22,8 @@ export function UnorderedList(props) {
       as="ul"
       css={css`
         list-style: none;
+        margin: 0;
+        padding: 0;
       `}
       {...props}
     />
