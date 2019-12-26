@@ -11,7 +11,8 @@
     "build": "lerna run build",
     "clean-dist": "yarn node scripts/clean-dist.js",
     "create-package": "yarn node scripts/create-package.js",
-    "create-site": "yarn node scripts/create-site.js"
+    "create-site": "yarn node scripts/create-site.js",
+    "update-posts": "yarn node scripts/update-posts.js"
   },
   "devDependencies": {
     "lerna": "^3.4.0",
