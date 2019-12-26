@@ -220,7 +220,7 @@ export default {
   colors,
   lists: {
     base: {
-      listStyle: 'none',
+      listStyleType: 'none',
       marginLeft: 0,
       marginRight: 0,
       marginTop: 0,
@@ -231,6 +231,8 @@ export default {
       paddingTop: 0,
     },
     ordered: {
+      listStyleType: 'decimal',
+      listStylePosition: 'outside',
       marginLeft: 0,
       marginRight: 0,
       marginTop: 0,
@@ -241,6 +243,8 @@ export default {
       paddingTop: 0,
     },
     unordered: {
+      listStyleType: 'circle',
+      listStylePosition: 'outside',
       marginLeft: 0,
       marginRight: 0,
       marginTop: 0,
