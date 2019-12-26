@@ -1,0 +1,92 @@
+---
+title: Migrating to Hooks (Draft)
+date: 2019-02-10
+---
+
+Lets start with a component that is using classes 😱, then convert to `useState` and finally converting it to `useReducer` to see
+the benefits in each stage. As an example component, lets take a product grid, that loads in more products on demand, and
+has filters for the products showing, and supports searching the grid as well.
+
+So lets take a look at what the state shape would look like using a class based component:
+
+```jsx
+state = {
+  // An array of all our products
+  products: [],
+  // Using paginated product results, this is the current page of products
+  currentPage: this.props.initialPage,
+  // Any errors occured when fetching products
+  productError: null,
+  // Current applied filters to the products
+  filters: [],
+  // Current search term to filter the grid of products
+  searchTerm: '',
+```
+
+```jsx collapsible title=See-full-code
+class ProductGrid extends React.Component {
+  state = {
+    products: [],
+    currentPage: this.props.initialPage,
+    productError: null,
+    loadingMoreProducts: false,
+    filters: [],
+    searchTerm: '',
+  }
+  componentDidMount() {
+    fetchProducts(this.props.category, this.state.currentPage)
+      .then(products => {
+        this.setState({ products })
+      })
+      .catch(error => {
+        this.setState({ productError: error })
+      })
+  }
+  componentDidUpdate(props) {
+    if (props.category !== this.props.category) {
+      fetchProducts(this.props.category, this.state.currentPage)
+        .then(products => {
+          this.setState({ products })
+        })
+        .catch(error => {
+          this.setState({ productError: error })
+        })
+    }
+  }
+
+  handleSearchInputChange = event => {
+    this.setState({ searchTerm: event.target.value })
+  }
+
+  handleFilterSelection = filter => {
+    this.setState(previousState => {
+      return {
+        filters: previousState.filters.includes(filter)
+          ? previousState.filters.filter(
+              existingFilter => existingFilter !== filter
+            )
+          : [...previousState.filters, filter],
+      }
+    })
+  }
+
+  fetchMoreProducts = () => {
+    fetchProducts(this.props.category, this.state.currentPage + 1)
+      .then(products => {
+        this.setState(previousState => ({
+          products,
+          currentPage: previousState.currentPage + 1,
+        }))
+      })
+      .catch(error => {
+        this.setState({
+          productError: error,
+        })
+      })
+  }
+
+  render() {
+    /* implementation details */
+  }
+}
+```

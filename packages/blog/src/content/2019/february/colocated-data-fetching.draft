@@ -1,0 +1,163 @@
+---
+title: Colocated Data Fetching
+date: 2019-02-03
+---
+
+A few months ago I got to thinking a lot more about how we (frontend developers) think about components within
+a user interface and the dependencies for a component, specifically their data dependencies. This thinking was
+ignited due to my recent interest in learning about GraphQL, which has completely changed how I think about data
+fetching for components, and fundamentally changes how we build component-drive UI.
+
+The more I think about what the future of component-driven development within the frontend space, the more I see
+colocated data "fetchers" becoming the next big pattern that developers will adopt.
+
+## What even is colocated data fetching?
+
+Before I start going too deep into the reasoning behind this new pattern, I should probably share a bit about what
+it would look like for a component. Essentially the pattern is simply to export a GraphQL query fragment
+from the same file as the component, that collects the necessary data for a particular component and can be used by
+the parent component to fetch that data.
+
+```jsx
+// Comments.js
+\export default function Comment({ data }) {
+  return (
+    <>
+      <h4>
+        {data.title} - <a href={data.postedBy.url}>{data.postedBy.name}</a>
+      </h4>
+      <p>{data.message}</p>
+    </>
+  )
+}
+
+\export const queryFragment = gql`
+  fragment CommentContent on Comment {
+    title
+    message
+    postedBy {
+      url
+      name
+    }
+  }
+`
+```
+
+<!--
+Now, when the parent component imports the Comments component, it can also import the fragment necessary to fetch all
+the data that is necessary for the Comments component to render.
+
+Current Day Resolved Data Fetching
+The current day pattern to get over the need for showing a lot of spinners for each component that needs to fetch data is to export the data requirement from each component as a GraphQL fragment that a parent can import and resolve in a large query.
+
+This pattern would look something like this:
+
+```
+// Leaf Component
+export default ({ data }) => ( ... )
+
+export const queryFragment = gql`
+  fragment CommentsPageComment on Comment {
+    id
+    postedBy {
+      login
+      html_url
+    }
+    createdAt
+    content
+  }
+`
+
+// Parent component
+import Leaf, { queryFragment as leafFragment } from './leaf.js'
+
+const appQuery = gql`query Comment($repoName: String!) { entry(repoFullName: $repoName) { comments { ...CommentsPageComment } } } ${leafFragment}`;
+
+export default function App({repoName}) {
+  return (
+    <Query query={appQuery} variables={{ repoName }}>
+      {() => ( ... )}
+    </Query>
+  )
+}
+```
+
+In this case each leaf component with some data dependencies exports the component as the default and then exports a named export of the query fragment that any parent can then either resolve in its own query, or forward on back up to a grandparent via another export.
+This is still a manual process of exporting the query as a fragment from each component, but it makes the data contract of the component more explicit, and allows the consumer of the component to determine how it wants to handle data loading for the component.
+Some of the flaws of this mechanism include:
+
+Manual query composition in the parent
+Needing to pass down the props correctly to the leaf node
+Future State Resolved Data Fetching
+Now that we have looked at what the current patterns are for handling colocated data requirements for components, lets take a peak at the potential future for data loading with components. In this section we are going to talk about some unstable API's that are part of the React library, and the related unstable React Cache library so some of this might change in the future.
+
+So lets look at the above example and how it could be simplified using Suspense:
+
+```
+// Leaf component
+import { createQueryResource } from 'future-graphql-library';
+
+export const query = createQueryResource(() => gql`
+  query Comment($repoName: String!) {
+    entry(repoFullName: $repoName) {
+      comments {
+        id
+        postedBy {
+          login
+          html_url
+        }
+        createdAt
+        content
+      }
+    }
+  }`,
+  (props) => ({ repoName: props.repoName })
+);
+
+export const Fallback = () => ( ... );
+
+export const duration = 500;
+
+export default function Comments(props) {
+  const data = query.read(props);
+  return (
+    ...
+  );
+}
+// Parent component
+import Comments, {
+query as commentsQuery,
+Fallback as CommentsFallback,
+duration as CommentsDuration
+} from './leaf.js';
+
+export default function App(props) {
+  commentsQuery.preload(props);
+  return (
+    <>
+      <Main/>
+        <Suspense
+          maxDuration={commentsDuration}
+          fallback={<CommentsFallback />}
+        >
+          <Comments {...props} />
+        <Suspense>
+    </>
+  )
+}
+```
+
+In this example the comments component (leaf component) exports the following:
+A query resources
+A fallback component
+A duration
+and the component itself
+These four things allow the parent consumer to preload the data requirement for the component, as well as use opinionated fallbacks and loading durations for the component. The parent component can decide to use local values for some parts of the Suspense API wrapped around the leaf component if it chooses to do so.
+The future state ideal presented here might look like a bit more work than the current day state, however it allows both the parent and the leaf components to be more opinionated about their fallback states, as well as the loading requirements.
+
+No longer does the parent component need to know where to compose the data fetching fragment exported from the leaf component, and it also doesn't need to worry about what values the leaf components query relies upon, it can forward all props down to the resource from the leaf.
+
+This API enables a tighter coupling between a component and the data it requests, and also allows parent components to decide when and if they will preload the data requirements for a leaf component or if it doesn't need to preload those data requirements.
+
+Ultimately the new Suspense and Concurrent React APIs in conjunction with GraphQL will offer more unique ways to allow developers to fetch data requirements while also taking the pain out of managing loading states for those data requirements.
+-->

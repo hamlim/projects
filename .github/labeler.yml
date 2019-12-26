@@ -33,3 +33,8 @@ Scripts:
   - packages/tasks/**/*
 📦 React Code Editor:
   - packages/react-code-editor/**/*
+
+📦 Blog:
+  - packages/blog/**/*
+📦 Blog:
+  - packages/blog/**/*

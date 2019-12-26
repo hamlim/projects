@@ -205,7 +205,7 @@ function main() {
     gitIgnorePath,
     `${originalGitIgnore}
 
-packages/${argv.name}/.cache/`,
+packages/${args.name}/.cache/`,
   )
 }
 
