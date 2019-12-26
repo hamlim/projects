@@ -232,7 +232,7 @@ export default {
     },
     ordered: {
       listStyleType: 'decimal',
-      listStylePosition: 'outside',
+      listStylePosition: 'inside',
       marginLeft: 0,
       marginRight: 0,
       marginTop: 0,
@@ -243,8 +243,8 @@ export default {
       paddingTop: 0,
     },
     unordered: {
-      listStyleType: 'circle',
-      listStylePosition: 'outside',
+      listStyleType: 'disc',
+      listStylePosition: 'inside',
       marginLeft: 0,
       marginRight: 0,
       marginTop: 0,
