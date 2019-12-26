@@ -22,8 +22,7 @@ import {
   useMedia,
   useSharedRef,
   VisuallyHidden,
-  OrderedList,
-  UnorderedList,
+  List,
   ListItem,
 } from '../index.js'
 
@@ -119,12 +118,8 @@ test('VisuallyHidden is exported', () => {
   expect(VisuallyHidden).toBeDefined()
 })
 
-test('OrderedList is exported', () => {
-  expect(OrderedList).toBeDefined()
-})
-
-test('UnorderedList is exported', () => {
-  expect(UnorderedList).toBeDefined()
+test('List is exported', () => {
+  expect(List).toBeDefined()
 })
 
 test('ListItem is exported', () => {

@@ -1,32 +1,17 @@
 import React from 'react'
-import { css } from 'styled-components'
-import { Box } from './Box'
+import { variant } from 'styled-system'
+import styled from 'styled-components'
+import { Box } from './Box.js'
 
-function Abstract(props) {
-  return (
-    <Box
-      mb={0}
-      ml={0}
-      mt={0}
-      mr={0}
-      pl={0}
-      pr={0}
-      pt={0}
-      pb={0}
-      css={css`
-        list-style: none;
-      `}
-      {...props}
-    />
-  )
-}
+let listVariant = variant({
+  scale: 'lists',
+  prop: 'variant',
+})
 
-export function OrderedList(props) {
-  return <Abstract as="ol" {...props} />
-}
+export let List = styled(Box)(listVariant)
 
-export function UnorderedList(props) {
-  return <Abstract as="ul" {...props} />
+List.defaultProps = {
+  variant: 'base',
 }
 
 export function ListItem(props) {
