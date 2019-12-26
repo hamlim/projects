@@ -27,7 +27,7 @@ Text is a wrapper on top Box, that defaults to rendering as a `p` element
 
 #### `VisuallyHidden`
 
-VissuallyHidden is an element for rendering visually hidden content. It extends from Box.
+VisuallyHidden is an element for rendering visually hidden content. It extends from Box.
 
 ```jsx
 <VisuallyHidden>Some content here</VisuallyHidden>
