@@ -5,16 +5,16 @@ import { Box } from './Box'
 function Abstract(props) {
   return (
     <Box
+      mb={0}
+      ml={0}
+      mt={0}
+      mr={0}
+      pl={0}
+      pr={0}
+      pt={0}
+      pb={0}
       css={css`
         list-style: none;
-        margin-bottom: 0;
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
       `}
       {...props}
     />
