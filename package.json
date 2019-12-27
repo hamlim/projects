@@ -17,8 +17,5 @@
   "devDependencies": {
     "lerna": "^3.4.0",
     "prettier": "1.19.1"
-  },
-  "engines": {
-    "node": "12.x"
   }
 }
