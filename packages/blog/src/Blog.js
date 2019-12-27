@@ -9,36 +9,25 @@ import {
   ListItem,
 } from '@matthamlin/component-library'
 import posts from './posts'
-
-function Breadcrumbs() {
-  return (
-    <Box as="nav">
-      <List variant="base" as="ul" display="inline-flex">
-        <ListItem>
-          <Link fontSize={2} as={RouterLink} to="/">
-            Home
-          </Link>
-        </ListItem>
-      </List>
-    </Box>
-  )
-}
+import { Breadcrumbs, Crumb } from './Breadcrumbs'
 
 export default function Blog() {
   return (
-    <Box
-      display="flex"
-      minHeight="100vh"
-      justifyContent="center"
-      alignItems="center"
-    >
-      <Box maxWidth="60ch">
-        <Breadcrumbs />
-        <H1>Blog</H1>
-        <Text>Welcome to my Blog!</Text>
+    <>
+      <Breadcrumbs>
+        <Crumb to="/">Home</Crumb>
+      </Breadcrumbs>
+      <H1>Blog</H1>
+      <Text fontSize={2} mb={2}>
+        Welcome to my Blog!
+      </Text>
+      <Box pt={6}>
+        <Text fontSize={2} pb={7}>
+          All Posts:
+        </Text>
         <List variant="base" as="ol">
-          {posts.map(post => (
-            <ListItem key={post.title}>
+          {posts.map((post, i) => (
+            <ListItem key={post.title} mt={i !== 0 ? 6 : null}>
               <Link as={RouterLink} to={`/blog/${post.to}`}>
                 {post.title}
               </Link>
@@ -46,6 +35,6 @@ export default function Blog() {
           ))}
         </List>
       </Box>
-    </Box>
+    </>
   )
 }
