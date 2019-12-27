@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "watch": "parcel src/index.html",
-    "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'"
+    "build": "parcel build src/index.html --out-dir public"
   },
   "dependencies": {
     "@emotion/cache": "10.0.19",
