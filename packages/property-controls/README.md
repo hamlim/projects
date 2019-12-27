@@ -49,6 +49,7 @@ Ensure that this image has a high enough contrast for the color of the initials 
   }
 }
 
+// For the initial state, should this be repeated for each individual component, for example if I have 3 Text Inputs and 3 Select components?
 const initialState = getInitialState(Avatar.propertyControls);
 
 function App() {
@@ -77,6 +78,7 @@ The Property Controls package exports the following:
 
 Rendering property control inputs is left up to the implementer to customize the rendering inputs and rendering context.
 
+Does this rendering pattern need to be seperate/repeated for each component, for example if I have a TextInput and a Select.
 Here is a snippet of an example rendering pattern:
 
 ```jsx
@@ -210,6 +212,7 @@ function PropertyControls({
       case types.shape: {
         if (isNested) {
           return (
+            // where does this PropertyControls component come from, since this function is also named Property controls (line 83)?
             <PropertyControls
               key={propName}
               {...control}
