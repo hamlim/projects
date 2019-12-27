@@ -23,6 +23,19 @@ let components = {
   ...comps,
   p: props => <comps.Text fontSize={2} mt={6} {...props} />,
   h2: props => <comps.H2 mt={6} {...props} />,
+  h3: props => <comps.H3 mt={6} {...props} />,
+  h4: props => <comps.H4 mt={6} {...props} />,
+  ul: props => (
+    <Box mt={6}>
+      <comps.List variant="unordered" as="ul" {...props} />
+    </Box>
+  ),
+  li: props => <comps.ListItem {...props} />,
+  ol: props => (
+    <Box mt={6}>
+      <comps.List variant="ordered" as="ol" {...props} />
+    </Box>
+  ),
 }
 
 createRoot(document.querySelector('#root')).render(
