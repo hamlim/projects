@@ -5,14 +5,7 @@
   "license": "MIT",
   "scripts": {
     "watch": "parcel src/index.html",
-    "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'",
-    "test": "jest",
-    "test-watch": "jest --watch"
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.js$": "babel-jest"
-    }
+    "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'"
   },
   "dependencies": {
     "@emotion/cache": "10.0.19",
