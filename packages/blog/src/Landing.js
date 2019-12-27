@@ -21,7 +21,7 @@ export default function Landing() {
           </Link>
           , and somehow find time to write some blog posts as well.
         </Text>
-        <Link as={RouterLink} to="/blog">
+        <Link fontSize={2} as={RouterLink} to="/blog">
           Go to Blog Posts
         </Link>
       </Box>
