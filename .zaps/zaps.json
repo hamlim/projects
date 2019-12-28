@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "workspaces": ["packages/*"],
+  "packages": [
+    "packages/babel-plugin-property-controls",
+    "packages/blog",
+    "packages/component-library",
+    "packages/kitchen-sink",
+    "packages/native-bundler-cli",
+    "packages/native-bundler-core",
+    "packages/native-bundler-plugin-css",
+    "packages/native-bundler-plugin-js",
+    "packages/native-bundler-plugin-mdx",
+    "packages/property-controls",
+    "packages/react-code-editor",
+    "packages/redocer",
+    "packages/reroute-browser",
+    "packages/reroute-core",
+    "packages/simple-cache",
+    "packages/tasks",
+    "packages/zaps"
+  ]
+}
