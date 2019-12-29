@@ -11,6 +11,9 @@ try {
     case 'init': {
       return require('./init.js')(argv)
     }
+    case 'build': {
+      log(`Not implemented yet.`)
+    }
     default: {
       console.log('No command provided')
     }
