@@ -60,4 +60,11 @@ module.exports = function(argv, { requireImpl = require } = {}) {
     path.join(configDir, 'zaps.json'),
     prettier.format(JSON.stringify(zapsJson), { parser: 'json' }),
   )
+
+  log(`Created Zaps config file. Next steps:
+
+* Ensure the \`.zaps\` 📂  directory is checked into git
+
+* Run \`yarn zaps link\` to link dependencies
+* Run \`yarn zaps build\` to build packages in the project`)
 }
