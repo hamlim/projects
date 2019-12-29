@@ -1,0 +1,30 @@
+{
+  "name": "@matthamlin/zaps",
+  "version": "0.0.1",
+  "bin": "src/index.js",
+  "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
+  "license": "MIT",
+  "files": [
+    "src"
+  ],
+  "scripts": {},
+  "dependencies": {
+    "chalk": "3.0.0",
+    "glob": "7.1.6",
+    "minimist": "1.2.0",
+    "mkdirp": "0.5.1",
+    "prettier": "1.19.1"
+  },
+  "devDependencies": {
+    "jest": "24.8.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/hamlim/projects.git",
+    "directory": "packages/zaps"
+  }
+}

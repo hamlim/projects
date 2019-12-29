@@ -36,3 +36,6 @@ Scripts:
 
 📦 Blog:
   - packages/blog/**/*
+
+📦 Zaps:
+  - packages/zaps/**/*
