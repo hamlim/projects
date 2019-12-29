@@ -69,9 +69,12 @@ The HiddenCheckbox component renders a visually hidden checkbox element. It must
 The ControlledHiddenCheckbox component does the same but supports an optional `defaultChecked` prop and does not support the checked prop.
 
 ```jsx
-<Input onChange={handleChange} value={value} />
+<HiddenCheckbox onChange={handleChange} checked={checked} />
 
-<ControlledInput defaultValue="foo" onChange={setValue} />
+<ControlledInput
+  defaultChecked={defaultChecked}
+  onChange={handleChange}
+/>
 ```
 
 #### `Banner`
