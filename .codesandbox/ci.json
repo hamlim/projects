@@ -3,7 +3,11 @@
     "packages/simple-cache",
     "packages/reroute-core",
     "packages/reroute-browser",
-    "packages/component-library"
+    "packages/component-library",
+    "packages/revector",
+    "packages/property-controls",
+    "packages/react-code-editor",
+    "packages/redocer"
   ],
-  "sandboxes": ["new", "vanilla"]
+  "sandboxes": ["new"]
 }
