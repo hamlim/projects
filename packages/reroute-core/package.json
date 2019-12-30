@@ -1,6 +1,6 @@
 {
   "name": "@matthamlin/reroute-core",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",
