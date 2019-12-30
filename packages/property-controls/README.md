@@ -104,7 +104,7 @@ function PropertyControls({
               key={propName}
               {...control}
               name={`${name}.${propName}`}
-              value={value[propName]}
+              value={value[name]}
               dispatch={dispatch}
             />
           )
@@ -114,7 +114,7 @@ function PropertyControls({
             key={propName}
             {...control}
             name={propName}
-            value={state[name]}
+            value={state[propName]}
             dispatch={dispatch}
           />
         )
@@ -126,7 +126,7 @@ function PropertyControls({
               key={propName}
               {...control}
               name={`${name}.${propName}`}
-              value={value[propName]}
+              value={value[name]}
               dispatch={dispatch}
             />
           )
@@ -136,7 +136,7 @@ function PropertyControls({
             key={propName}
             {...control}
             name={propName}
-            value={state[name]}
+            value={state[propName]}
             dispatch={dispatch}
           />
         )
@@ -158,7 +158,7 @@ function PropertyControls({
             key={propName}
             {...control}
             name={propName}
-            value={state[name]}
+            value={state[propName]}
             dispatch={dispatch}
           />
         )
