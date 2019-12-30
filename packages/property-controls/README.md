@@ -53,6 +53,8 @@ Ensure that this image has a high enough contrast for the color of the initials 
 const initialState = getInitialState(Avatar.propertyControls);
 
 function App() {
+  // is this backwards? should this be
+  // let [state, dispatch] = useReducer(reducer, initialState);
   let [state, dispatch] = useReducer(initialState, reducer);
   return (
     <PropertyControls
