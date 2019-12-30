@@ -39,3 +39,5 @@ Scripts:
 
 📦 Zaps:
   - packages/zaps/**/*
+📦 Revector:
+  - packages/revector/**/*
