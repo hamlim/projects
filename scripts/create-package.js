@@ -1,5 +1,6 @@
 let fs = require('fs')
 let path = require('path')
+let prettier = require('prettier')
 
 let args = process.argv.slice(2).reduce((acc, arg) => {
   if (arg.includes('=')) {
@@ -36,7 +37,7 @@ function main() {
       console.log('------------')
       return
     }
-    fs.writeFileSync(path, contents)
+    fs.writeFileSync(path, prettier.format(contents))
   }
 
   let packagePath = path.join('packages', args.packageName)
