@@ -27,7 +27,7 @@ function main() {
     throw new Error('No packageName provided')
   }
 
-  function writeOrConsole(path, contents) {
+  function writeOrConsole(path, contents, parser = 'babel') {
     if (args.dry) {
       console.log('------------')
       console.log('Creating File: ')
@@ -37,7 +37,7 @@ function main() {
       console.log('------------')
       return
     }
-    fs.writeFileSync(path, prettier.format(contents))
+    fs.writeFileSync(path, prettier.format(contents, { parser }))
   }
 
   let packagePath = path.join('packages', args.packageName)
@@ -62,6 +62,7 @@ function main() {
   
   TODO
   `,
+    'markdown',
   )
 
   // make babel.config.js
@@ -115,6 +116,7 @@ function main() {
       "directory": "packages/${args.packageName}"
     }
   }`,
+    'json',
   )
 
   // Write to labeler config
@@ -133,6 +135,7 @@ function main() {
     `${originalLabeler}
 📦 ${labelName}:
   - packages/${args.packageName}/**/*`,
+    'yaml',
   )
 }
 

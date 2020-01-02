@@ -41,3 +41,6 @@ Scripts:
   - packages/zaps/**/*
 📦 Revector:
   - packages/revector/**/*
+
+📦 Hub:
+  - packages/hub/**/*

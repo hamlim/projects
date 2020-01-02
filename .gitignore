@@ -7,3 +7,5 @@ packages/kitchen-sink/.cache/
 packages/tasks/.cache/
 
 packages/blog/.cache/
+
+packages/hub/.cache/
