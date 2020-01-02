@@ -5,6 +5,7 @@
     "packages/babel-plugin-property-controls",
     "packages/blog",
     "packages/component-library",
+    "packages/hub",
     "packages/kitchen-sink",
     "packages/native-bundler-cli",
     "packages/native-bundler-core",
@@ -16,6 +17,7 @@
     "packages/redocer",
     "packages/reroute-browser",
     "packages/reroute-core",
+    "packages/revector",
     "packages/simple-cache",
     "packages/tasks",
     "packages/zaps"
