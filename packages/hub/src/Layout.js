@@ -31,12 +31,11 @@ function SkipNavLink() {
 
   return (
     <Wrapper
-      ref={wrapperRef}
+      key="SkipNavLink"
       p={4}
       display="flex"
       justifyContent="center"
       alignItems="center"
-      as={AnchorLink}
       onFocus={() => setFocus(true)}
       onBlur={() => setFocus(false)}
       onClick={() => setFocus(false)}
@@ -45,16 +44,16 @@ function SkipNavLink() {
           setFocus(false)
         }
       }}
-      as="a"
-      href="#main"
     >
-      Skip to main content
+      <AnchorLink ref={wrapperRef} href="#main">
+        Skip to main content
+      </AnchorLink>
     </Wrapper>
   )
 }
 
 function RouteLink(props) {
-  return <Link as={RouterLink} {...props} />
+  return <Link forwardedAs={RouterLink} {...props} />
 }
 
 export function Nav() {
@@ -71,11 +70,11 @@ export function Nav() {
   return (
     <>
       <SkipNavLink />
-      <Box as="nav" backgroundColor={theme.colors.gray[1]} p={4}>
+      <Box forwardedAs="nav" backgroundColor={theme.colors.gray[1]} p={4}>
         <LayoutWrapper>
           <List
             variant="base"
-            as="ul"
+            forwardedAs="ul"
             display="inline-flex"
             alignItems="center"
           >

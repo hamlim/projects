@@ -12,15 +12,12 @@ import {
   shadow,
   compose,
 } from 'styled-system'
+import { omit } from '@styled-system/props'
 
 import Base from '@matthamlin/strip-styled'
+import React, { forwardRef } from 'react'
 
-let Comp = props => {
-  throw new Error('Here?????')
-  return <Base {...props} />
-}
-
-export let Box = styled('foo')(
+export let Box = styled(Base)(
   compose(
     space,
     layout,
@@ -34,7 +31,3 @@ export let Box = styled('foo')(
     shadow,
   ),
 )
-
-Box.defaultProps = {
-  as: 'div',
-}

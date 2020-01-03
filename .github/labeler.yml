@@ -26,24 +26,19 @@ Scripts:
   - scripts/**/*
 🔢 Kitchen Sink:
   - packages/kitchen-sink/**/*
-
 📦 Redocer:
   - packages/redocer/**/*
 📦 Tasks:
   - packages/tasks/**/*
 📦 React Code Editor:
   - packages/react-code-editor/**/*
-
 📦 Blog:
   - packages/blog/**/*
-
 📦 Zaps:
   - packages/zaps/**/*
 📦 Revector:
   - packages/revector/**/*
-
 📦 Hub:
   - packages/hub/**/*
-
-📦 Strip Styled:
-  - packages/strip-styled/**/*
+📦 Base Styled:
+  - packages/base-styled/**/*

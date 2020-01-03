@@ -14,9 +14,10 @@
     "directory": "packages/component-library"
   },
   "dependencies": {
-    "styled-components": "5.0.0-rc.2",
-    "styled-system": "5.0.12",
-    "@matthamlin/strip-styled": "1.0.0"
+    "@matthamlin/strip-styled": "1.0.0",
+    "@styled-system/props": "5.1.4",
+    "styled-components": "5.0.0-rc.3",
+    "styled-system": "5.0.12"
   },
   "devDependencies": {
     "@babel/cli": "7.5.0",
