@@ -5,8 +5,11 @@ import {
   List,
   Link,
   VisuallyHidden,
+  useTheme,
+  Text,
 } from '@matthamlin/component-library'
 import { useRoute, Link as RouterLink } from '@matthamlin/reroute-browser'
+import Theme from '@matthamlin/component-library/dist/Theme'
 
 let AnchorLink = forwardRef((props, ref) => (
   <Link as="a" ref={ref} {...props} />
@@ -50,41 +53,70 @@ function SkipNavLink() {
   )
 }
 
+function RouteLink(props) {
+  return <Link as={RouterLink} {...props} />
+}
+
 export function Nav() {
   let homeProps = useRoute('/')
-  let cashProps = useRoute('/cash')
+  let moneyProps = useRoute('/money')
   let taskProps = useRoute('/tasks')
+
+  let HomeLink = homeProps.match ? Text : RouteLink
+  let MoneyLink = moneyProps.match ? Text : RouteLink
+  let TaskLink = taskProps.match ? Text : RouteLink
+
+  let theme = useTheme()
 
   return (
     <>
       <SkipNavLink />
-      <Box as="nav">
-        <List variant="base" as="ul" display="inline-flex">
-          <ListItem mr={4}>
-            <Link as={RouterLink} to="/" isActive={homeProps.match}>
-              Home
-            </Link>
-          </ListItem>
-          <ListItem mr={4}>
-            <Link as={RouterLink} to="/cash" isActive={cashProps.match}>
-              Money
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link as={RouterLink} to="/tasks" isActive={taskProps.match}>
-              Tasks
-            </Link>
-          </ListItem>
-        </List>
+      <Box as="nav" backgroundColor={theme.colors.gray[1]} p={4}>
+        <LayoutWrapper>
+          <List
+            variant="base"
+            as="ul"
+            display="inline-flex"
+            alignItems="center"
+          >
+            <ListItem mr={4}>
+              <HomeLink to="/" fontSize={2}>
+                Hub
+              </HomeLink>
+            </ListItem>
+            <ListItem mr={4}>
+              <MoneyLink to="/money" fontSize={2}>
+                Money
+              </MoneyLink>
+            </ListItem>
+            <ListItem>
+              <TaskLink to="/tasks" fontSize={2}>
+                Tasks
+              </TaskLink>
+            </ListItem>
+          </List>
+        </LayoutWrapper>
       </Box>
     </>
   )
 }
 
-export function Layout({ children }) {
+function LayoutWrapper({ children, ...props }) {
   return (
-    <Box as="main" id="main">
+    <Box
+      {...props}
+      maxWidth={['98vw', '90vw', '80vw', '80ch']}
+      marginX={['1vw', '5vw', '10vw', 'auto']}
+    >
       {children}
     </Box>
+  )
+}
+
+export function Layout({ children }) {
+  return (
+    <LayoutWrapper as="main" id="main">
+      {children}
+    </LayoutWrapper>
   )
 }
