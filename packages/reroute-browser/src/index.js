@@ -1,5 +1,5 @@
 import { createBrowserHistory } from 'history'
-import { Router, useRoute, useLink } from '@matthamlin/reroute-core'
+import { Router, useRoute, useLink, Switch } from '@matthamlin/reroute-core'
 import React from 'react'
 
 export function Link({ to, children, ...rest }) {
@@ -19,4 +19,4 @@ export function BrowserRouter({
   return <Router createHistory={createHistory}>{children}</Router>
 }
 
-export { useRoute, useLink }
+export { useRoute, useLink, Switch }
