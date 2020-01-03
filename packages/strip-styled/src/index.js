@@ -120,6 +120,7 @@ let styleProps = {
 }
 
 export function removeStyledProps(props) {
+  debugger
   return Object.keys(props).reduce((acc, pName) => {
     if (!styleProps[pName]) {
       acc[pName] = props[pName]
@@ -130,5 +131,7 @@ export function removeStyledProps(props) {
 
 export default forwardRef(({ as: Element, ...passedProps }, ref) => {
   let props = removeStyledProps(passedProps)
+  console.log(props)
+  throw new Error('Catch Here!!!!')
   return <Element ref={ref} {...props} />
 })

@@ -15,7 +15,12 @@ import {
 
 import Base from '@matthamlin/strip-styled'
 
-export let Box = styled(Base)(
+let Comp = props => {
+  throw new Error('Here?????')
+  return <Base {...props} />
+}
+
+export let Box = styled('foo')(
   compose(
     space,
     layout,

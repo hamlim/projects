@@ -135,7 +135,7 @@ function main() {
     "license": "MIT",
     "scripts": {
       "watch": "parcel src/index.html",
-      "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'",
+      "build": "parcel build src/index.html --out-dir public",
       "test": "jest",
       "test-watch": "jest --watch"
     },
@@ -212,8 +212,8 @@ function main() {
   writeOrConsole(
     gitIgnorePath,
     `${originalGitIgnore}
-
-packages/${args.name}/.cache/`,
+packages/${args.name}/.cache/
+packages/${args.name}/public/`,
     false,
   )
 }
