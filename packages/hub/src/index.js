@@ -1,13 +1,25 @@
 import React from 'react'
-import { BrowserRouter } from '@matthamlin/reroute-browser'
+import { BrowserRouter, Switch } from '@matthamlin/reroute-browser'
 import { ThemeProvider, GlobalStyles } from '@matthamlin/component-library'
 import { createRoot } from 'react-dom'
+
+import Landing from './Landing.js'
+import Money from './cash/Money.js'
+import Tasks from './tasks/Tasks.js'
+import { Layout, Nav } from './Layout.js'
 
 createRoot(document.querySelector('#root')).render(
   <ThemeProvider>
     <GlobalStyles />
     <BrowserRouter>
-      <div>TODO</div>
+      <Nav />
+      <Layout>
+        <Switch>
+          <Landing path="/" />
+          <Money path="/money" />
+          <Tasks path="/tasks" />
+        </Switch>
+      </Layout>
     </BrowserRouter>
   </ThemeProvider>,
 )
