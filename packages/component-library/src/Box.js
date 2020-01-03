@@ -14,7 +14,7 @@ import {
 } from 'styled-system'
 import { omit } from '@styled-system/props'
 
-import Base from '@matthamlin/strip-styled'
+import Base from '@matthamlin/base-styled'
 import React, { forwardRef } from 'react'
 
 export let Box = styled(Base)(

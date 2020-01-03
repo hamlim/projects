@@ -14,7 +14,7 @@
     "directory": "packages/component-library"
   },
   "dependencies": {
-    "@matthamlin/strip-styled": "1.0.0",
+    "@matthamlin/base-styled": "1.0.0",
     "@styled-system/props": "5.1.4",
     "styled-components": "5.0.0-rc.3",
     "styled-system": "5.0.12"
