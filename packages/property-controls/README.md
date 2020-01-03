@@ -52,7 +52,7 @@ Ensure that this image has a high enough contrast for the color of the initials 
 const initialState = getInitialState(Avatar.propertyControls);
 
 function App() {
-  let [state, dispatch] = useReducer(initialState, reducer);
+  let [state, dispatch] = useReducer(reducer, initialState);
   return (
     <PropertyControls
       state={state}
@@ -73,7 +73,7 @@ The Property Controls package exports the following:
 - `reducer` - A reducer function that accepts `state` and an `action` that looks like `{ name, value }`
 - `updateState` - A function that takes in the current state, namePath, value and index and returns the new state with the name and value
 
-#### Suggested Rendering patterns:
+### Suggested Rendering patterns:
 
 Rendering property control inputs is left up to the implementer to customize the rendering inputs and rendering context.
 
