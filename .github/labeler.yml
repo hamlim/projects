@@ -44,3 +44,6 @@ Scripts:
 
 📦 Hub:
   - packages/hub/**/*
+
+📦 Strip Styled:
+  - packages/strip-styled/**/*

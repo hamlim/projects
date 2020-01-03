@@ -1,0 +1,37 @@
+{
+  "name": "@matthamlin/strip-styled",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'",
+    "test": "jest",
+    "test-watch": "jest --watch"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
+  "devDependencies": {
+    "@babel/cli": "7.5.0",
+    "@babel/core": "7.5.0",
+    "@babel/preset-env": "7.5.0",
+    "@babel/preset-react": "^7.7.4",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "jest": "24.8.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/hamlim/projects.git",
+    "directory": "packages/strip-styled"
+  }
+}

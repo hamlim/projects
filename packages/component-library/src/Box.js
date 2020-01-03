@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import shouldForwardProp from '@styled-system/should-forward-prop'
 import {
   space,
   layout,
@@ -11,19 +10,26 @@ import {
   border,
   position,
   shadow,
+  compose,
 } from 'styled-system'
 
-export let Box = styled('div', {
-  shouldForwardProp,
-})(
-  space,
-  layout,
-  flexbox,
-  typography,
-  color,
-  grid,
-  background,
-  border,
-  position,
-  shadow,
+import Base from '@matthamlin/strip-styled'
+
+export let Box = styled(Base)(
+  compose(
+    space,
+    layout,
+    flexbox,
+    typography,
+    color,
+    grid,
+    background,
+    border,
+    position,
+    shadow,
+  ),
 )
+
+Box.defaultProps = {
+  as: 'div',
+}

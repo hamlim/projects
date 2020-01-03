@@ -160,3 +160,8 @@ The components library also exposes the Theme object, allowing you to extend the
 
 This theme object follows the theme spec from styled-system, see
 [here](https://styled-system.com/theme-specification) for more information.
+
+### Ideas:
+
+- Theme visualizer
+- Font Sizes by role `theme.fontSizes.h1`
