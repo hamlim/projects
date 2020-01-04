@@ -2,7 +2,7 @@ import React from 'react'
 import { H1, Box, Link } from '@matthamlin/component-library'
 import { Link as RouterLink, useRoute } from '@matthamlin/reroute-browser'
 
-import View from './View'
+import View from './view/View'
 import Create from './Create'
 
 function Route({ children, path }) {

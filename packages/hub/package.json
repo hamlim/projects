@@ -15,8 +15,8 @@
     }
   },
   "dependencies": {
-    "@matthamlin/property-controls": "*",
     "@matthamlin/component-library": "*",
+    "@matthamlin/property-controls": "*",
     "@matthamlin/reroute-browser": "*",
     "@matthamlin/reroute-core": "*",
     "@matthamlin/simple-cache": "*",
@@ -30,6 +30,7 @@
   "devDependencies": {
     "@babel/cli": "7.5.0",
     "@babel/core": "7.5.0",
+    "@babel/plugin-proposal-class-properties": "7.7.4",
     "@babel/preset-env": "7.5.0",
     "@babel/preset-react": "^7.7.4",
     "@testing-library/jest-dom": "^4.2.4",
