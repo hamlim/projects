@@ -14,7 +14,13 @@ createRoot(document.querySelector('#root')).render(
     <BrowserRouter>
       <Nav />
       <Layout>
-        <Switch>
+        <Switch
+          matcher={(path, location) =>
+            path !== '/'
+              ? location.pathname.startsWith(path)
+              : path === location.pathname
+          }
+        >
           <Landing path="/" />
           <Money path="/money" />
           <Tasks path="/tasks" />
