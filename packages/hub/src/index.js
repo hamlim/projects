@@ -6,6 +6,7 @@ import { createRoot } from 'react-dom'
 import Landing from './Landing.js'
 import Money from './cash/Money.js'
 import Tasks from './tasks/Tasks.js'
+import Health from './health/Health.js'
 import { Layout, Nav } from './Layout.js'
 
 createRoot(document.querySelector('#root')).render(
@@ -24,6 +25,7 @@ createRoot(document.querySelector('#root')).render(
           <Landing path="/" />
           <Money path="/money" />
           <Tasks path="/tasks" />
+          <Health path="/health" />
         </Switch>
       </Layout>
     </BrowserRouter>
