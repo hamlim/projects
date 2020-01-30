@@ -1,5 +1,5 @@
 import React from 'react'
-import { useMedia } from '../UseMedia.js'
+import { useMedia } from '../useMedia.js'
 import { render, cleanup } from '@testing-library/react'
 
 afterEach(cleanup)

@@ -1,5 +1,4 @@
 import React, { useState, forwardRef } from 'react'
-import { css } from 'styled-components'
 import { useId } from './useId'
 import { VisuallyHidden } from './VisuallyHidden'
 

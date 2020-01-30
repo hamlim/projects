@@ -15,26 +15,30 @@ export function Input({ unstable_Focused = false, onChange, ...props }) {
     <Box
       as="input"
       borderRadius={0}
-      css={css({
-        backgroundColor: theme.colors.gray[2],
-        border: 'none',
-        height: 50,
-        fontSize: theme.fontSizes[1],
-        display: 'block',
-        minWidth: '100%',
-        padding: '0 .5em',
-        ':focus': {
-          outline: `dashed 1px ${theme.colors.secondary}`,
+      bg={theme.colors.gray[2]}
+      border="none"
+      height={50}
+      fontSize={1}
+      display="block"
+      minWidth="100%"
+      px="0.5em"
+      py={0}
+      unstable_Focused={unstable_Focused}
+      css={({ theme, unstable_Focused }) => `
+        &:focus {
+          outline: dashed 1px ${theme.colors.secondary};
         },
-        ':disabled': {
-          backgroundColor: theme.colors.gray[4],
-        },
-        ...(unstable_Focused
-          ? {
-              outline: `dashed 1px ${theme.colors.secondary}`,
-            }
-          : {}),
-      })}
+        &:disabled {
+          background-color: ${theme.colors.gray[4]};
+        }
+        ${
+          unstable_Focused
+            ? `
+              outline: dashed 1px ${theme.colors.secondary};
+            `
+            : ''
+        }
+      `}
       onChange={handleChange}
       {...props}
     />
