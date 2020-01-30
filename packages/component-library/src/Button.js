@@ -22,12 +22,16 @@ export function Button({
       px={8}
       borderRadius={0}
       width={isFullWidth ? '100%' : null}
+      color={theme.colors.white}
+      bg={theme.colors.primary}
+      height={50}
+      border="none"
       unstable_Focused={unstable_Focused}
       css={({ theme, unstable_Focused }) => `
-        color: ${theme.colors.white};
-        background-color: ${theme.colors.primary};
-        height: 50;
-        border: none;
+        // color: ${theme.colors.white};
+        // background-color: ${theme.colors.primary};
+        // height: 50;
+        // border: none;
         &:disabled {
           background-color: ${theme.colors.gray[5]};
           color: ${theme.colors.black};
