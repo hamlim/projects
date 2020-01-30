@@ -1,28 +1,18 @@
-import React from 'react'
-import { css } from 'styled-components'
+import styled from 'styled-components'
 import { Box } from './Box.js'
-import { useTheme } from './ThemeProvider'
 
-export function Link(props) {
-  let theme = useTheme()
-  return (
-    <Box
-      css={css`
-        color: ${theme.colors.primary};
-        text-decoration: underline;
-        display: inline;
+export let Link = styled(Box)`
+  color: ${props => props.theme.colors.primary};
+  text-decoration: underline;
+  display: inline;
 
-        &:hover,
-        &:focus {
-          color: ${theme.colors.secondary};
-          text-decoration: none;
-        }
+  &:hover,
+  &:focus {
+    color: ${props => props.theme.colors.secondary};
+    text-decoration: none;
+  }
 
-        &:focus {
-          outline: dashed 1px ${theme.colors.secondary};
-        }
-      `}
-      {...props}
-    />
-  )
-}
+  &:focus {
+    outline: dashed 1px ${props => props.theme.colors.secondary};
+  }
+`

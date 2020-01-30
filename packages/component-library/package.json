@@ -4,6 +4,7 @@
   "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
   "license": "MIT",
   "main": "dist/index.js",
+  "source": "src/index.js",
   "files": [
     "dist"
   ],
@@ -13,8 +14,9 @@
     "directory": "packages/component-library"
   },
   "dependencies": {
-    "@styled-system/should-forward-prop": "5.0.12",
-    "styled-components": "5.0.0-rc.2",
+    "@matthamlin/base-styled": "1.0.0",
+    "@styled-system/props": "5.1.4",
+    "styled-components": "5.0.0-rc.3",
     "styled-system": "5.0.12"
   },
   "devDependencies": {

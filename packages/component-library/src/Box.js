@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import shouldForwardProp from '@styled-system/should-forward-prop'
 import {
   space,
   layout,
@@ -11,19 +10,24 @@ import {
   border,
   position,
   shadow,
+  compose,
 } from 'styled-system'
+import { omit } from '@styled-system/props'
 
-export let Box = styled('div', {
-  shouldForwardProp,
-})(
-  space,
-  layout,
-  flexbox,
-  typography,
-  color,
-  grid,
-  background,
-  border,
-  position,
-  shadow,
+import Base from '@matthamlin/base-styled'
+import React, { forwardRef } from 'react'
+
+export let Box = styled(Base)(
+  compose(
+    space,
+    layout,
+    flexbox,
+    typography,
+    color,
+    grid,
+    background,
+    border,
+    position,
+    shadow,
+  ),
 )

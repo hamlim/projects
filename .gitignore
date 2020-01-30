@@ -7,3 +7,8 @@ packages/kitchen-sink/.cache/
 packages/tasks/.cache/
 
 packages/blog/.cache/
+packages/blog/public/
+packages/hub/.cache/
+packages/hub/public/
+
+.env

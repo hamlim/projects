@@ -27,7 +27,7 @@ function main() {
     throw new Error('No name provided')
   }
 
-  function writeOrConsole(path, contents) {
+  function writeOrConsole(path, contents, parser = 'babel') {
     if (args.dry) {
       console.log('------------')
       console.log('Creating File: ')
@@ -37,7 +37,10 @@ function main() {
       console.log('------------')
       return
     }
-    fs.writeFileSync(path, prettier.format(contents))
+    fs.writeFileSync(
+      path,
+      parser ? prettier.format(contents, { parser }) : contents,
+    )
   }
 
   let packagePath = path.join('packages', args.name)
@@ -76,6 +79,7 @@ function main() {
       </body>
     </html>
     `,
+    'html',
   )
 
   writeOrConsole(
@@ -107,6 +111,7 @@ function main() {
   
   * yw watch
   `,
+    'markdown',
   )
 
   // make babel.config.js
@@ -130,7 +135,7 @@ function main() {
     "license": "MIT",
     "scripts": {
       "watch": "parcel src/index.html",
-      "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'",
+      "build": "parcel build src/index.html --out-dir public",
       "test": "jest",
       "test-watch": "jest --watch"
     },
@@ -176,6 +181,7 @@ function main() {
       "directory": "packages/${args.name}"
     }
   }`,
+    'json',
   )
 
   // Write to labeler config
@@ -194,6 +200,7 @@ function main() {
     `${originalLabeler}
 📦 ${labelName}:
   - packages/${args.name}/**/*`,
+    'yaml',
   )
 
   // Write to .gitconfig
@@ -205,8 +212,9 @@ function main() {
   writeOrConsole(
     gitIgnorePath,
     `${originalGitIgnore}
-
-packages/${args.name}/.cache/`,
+packages/${args.name}/.cache/
+packages/${args.name}/public/`,
+    false,
   )
 }
 
