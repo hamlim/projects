@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-
+// whitespace
 export function useMedia({
   query,
   defaultMatches = false,
