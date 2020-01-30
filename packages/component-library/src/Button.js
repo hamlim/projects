@@ -28,10 +28,6 @@ export function Button({
       border="none"
       unstable_Focused={unstable_Focused}
       css={({ theme, unstable_Focused }) => `
-        // color: ${theme.colors.white};
-        // background-color: ${theme.colors.primary};
-        // height: 50;
-        // border: none;
         &:disabled {
           background-color: ${theme.colors.gray[5]};
           color: ${theme.colors.black};
