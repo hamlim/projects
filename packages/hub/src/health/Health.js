@@ -1,23 +1,40 @@
-import React, { Suspense } from 'react'
-import { H1, Box, Link, Text } from '@matthamlin/component-library'
+import React, { Suspense, useState } from 'react'
+import {
+  H1,
+  Box,
+  Link,
+  Text,
+  Input,
+  Button,
+} from '@matthamlin/component-library'
 import { Link as RouterLink } from '@matthamlin/reroute-browser'
 
 import { useCache } from '@matthamlin/simple-cache'
 
 let cache = new Map()
 
-function BloodSugar() {
-  let { records } = useCache(cache, 'bloodSugar', () =>
-    fetch(
-      'https://api.airtable.com/v0/appnK0ZDhsqs1XEcv/Blood%20Sugar%20Ratings?maxRecords=1&view=Grid%20view&sort%5B0%5D%5Bfield%5D=Time&sort%5B0%5D%5Bdirection%5D=desc',
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.API_KEY}`,
-        },
+function useAirtable({ base, table }) {
+  return useCache(cache, base + table, () =>
+    fetch(`https://api.airtable.com/v0/${base}/${table}`, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY}`,
       },
-    ).then(res => res.json()),
+    }).then(res => res.json()),
   )
-  let bloodSugar = records[0].fields['Blood Sugar Level']
+}
+
+function BloodSugar() {
+  let {
+    records: [
+      {
+        fields: { ['Blood Sugar Level']: bloodSugar },
+      },
+    ],
+  } = useAirtable({
+    base: 'appnK0ZDhsqs1XEcv',
+    table:
+      'Blood%20Sugar%20Ratings?maxRecords=1&view=Grid%20view&sort%5B0%5D%5Bfield%5D=Time&sort%5B0%5D%5Bdirection%5D=desc',
+  })
   return (
     <>
       <Text fontSize={3}>Blood Sugar:</Text> <Text>{bloodSugar}</Text>
@@ -26,17 +43,18 @@ function BloodSugar() {
 }
 
 function Weight() {
-  let { records } = useCache(cache, 'weight', () =>
-    fetch(
-      'https://api.airtable.com/v0/appnK0ZDhsqs1XEcv/Weight?maxRecords=1&view=Grid%20view&sort%5B0%5D%5Bfield%5D=Time&sort%5B0%5D%5Bdirection%5D=desc',
+  let {
+    records: [
       {
-        headers: {
-          Authorization: `Bearer ${process.env.API_KEY}`,
-        },
+        fields: { Weight: weight },
       },
-    ).then(res => res.json()),
-  )
-  let weight = records[0].fields.Weight
+    ],
+  } = useAirtable({
+    base: 'appnK0ZDhsqs1XEcv',
+    table:
+      'Weight?maxRecords=1&view=Grid%20view&sort%5B0%5D%5Bfield%5D=Time&sort%5B0%5D%5Bdirection%5D=desc',
+  })
+
   return (
     <>
       <Text fontSize={3}>Weight:</Text> <Text>{weight}Lb</Text>
@@ -61,6 +79,19 @@ function Dashboard() {
   )
 }
 
+function Form() {
+  let [value, setValue] = useState('')
+  return (
+    <Box>
+      <Box forwardedAs="label">
+        Enter Blood Sugar:
+        <Input value={value} onChange={setValue} />
+      </Box>
+      <Button>Click Here!</Button>
+    </Box>
+  )
+}
+
 export default function Tasks() {
   return (
     <Box>
@@ -71,6 +102,7 @@ export default function Tasks() {
         </Link>
       </Box>
       <Dashboard />
+      <Form />
     </Box>
   )
 }
