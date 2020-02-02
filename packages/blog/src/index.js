@@ -8,6 +8,7 @@ import { Breadcrumbs, Crumb, Spacer } from './Breadcrumbs'
 
 let Landing = lazy(() => import('./Landing.js'))
 let Blog = lazy(() => import('./Blog.js'))
+let Code = lazy(() => import('./Code.js'))
 
 function Route({ path, children }) {
   return (
@@ -36,6 +37,10 @@ let components = {
       <comps.List variant="ordered" as="ol" {...props} />
     </Box>
   ),
+  pre({ children }) {
+    return <>{children}</>
+  },
+  code: Code,
 }
 
 createRoot(document.querySelector('#root')).render(
