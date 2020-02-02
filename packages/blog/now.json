@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "alias": ["matthamlin.me"],
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "github": {
+    "enabled": true
+  },
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}

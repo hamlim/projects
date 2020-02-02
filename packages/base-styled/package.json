@@ -28,6 +28,6 @@
   },
   "dependencies": {
     "@styled-system/props": "5.1.4",
-    "styled-components": "5.0.0-rc.3"
+    "styled-components": "5.0.0"
   }
 }

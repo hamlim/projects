@@ -8,15 +8,12 @@
     "build": "parcel build src/index.html --out-dir public"
   },
   "dependencies": {
-    "@emotion/cache": "10.0.19",
-    "@emotion/core": "^10.0.22",
-    "@emotion/styled": "^10.0.23",
     "@matthamlin/component-library": "*",
     "@matthamlin/property-controls": "*",
     "@matthamlin/reroute-browser": "*",
     "@matthamlin/reroute-core": "*",
     "@matthamlin/simple-cache": "*",
-    "emotion-theming": "10.0.19",
+    "prism-react-renderer": "1.0.2",
     "react": "experimental",
     "react-dom": "experimental"
   },
