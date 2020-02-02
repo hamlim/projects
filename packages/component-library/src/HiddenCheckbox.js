@@ -19,7 +19,7 @@ function _HiddenCheckbox({
 
   return (
     <VisuallyHidden
-      as="input"
+      forwardedAs="input"
       disabled={disabled}
       ref={innerRef}
       id={id}

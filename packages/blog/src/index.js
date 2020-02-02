@@ -47,9 +47,9 @@ createRoot(document.querySelector('#root')).render(
   <ThemeProvider>
     <GlobalStyles />
     <Box display="flex" justifyContent="center" alignItems="center">
-      <Box maxWidth="80ch" minWidth={['auto', '80ch']} p={10}>
+      <Box maxWidth={['94vw', '80vw', '70ch']} p={[3, , 7, 10]}>
         <BrowserRouter>
-          <Suspense fallback={<div>🤔🤔🤔</div>}>
+          <Suspense fallback={<div>🤔🤔🤔 Loading Page...</div>}>
             <Route path="/">
               <Landing />
             </Route>

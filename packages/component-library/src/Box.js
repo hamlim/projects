@@ -12,10 +12,8 @@ import {
   shadow,
   compose,
 } from 'styled-system'
-import { omit } from '@styled-system/props'
 
 import Base from '@matthamlin/base-styled'
-import React, { forwardRef } from 'react'
 
 export let Box = styled(Base)(
   compose(
