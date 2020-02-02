@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "watch": "parcel src/index.html",
-    "build": "parcel build src/index.html --out-dir public"
+    "build": "parcel build src/index.html --out-dir public",
+    "deploy": "now public/"
   },
   "dependencies": {
     "@matthamlin/component-library": "*",
