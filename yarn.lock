@@ -2113,6 +2113,12 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
+"@matthamlin/base-styled@1.0.0":
+  version "1.1.0"
+  dependencies:
+    "@styled-system/props" "5.1.4"
+    styled-components "5.0.0"
+
 "@mdx-js/mdx@^1.5.3", "@mdx-js/mdx@latest":
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/@mdx-js/mdx/-/mdx-1.5.3.tgz#d0092d4e177331d4eaa65d60fa1f37e42fb251ea"
