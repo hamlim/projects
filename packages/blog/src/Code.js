@@ -4,7 +4,7 @@ import nightOwlLight from 'prism-react-renderer/themes/nightOwlLight'
 import { useTheme } from '@matthamlin/component-library'
 
 export default function Code({ children, className }) {
-  let lang = className.split('-')[1]
+  let lang = className.split('-')[1] || 'jsx'
   let theme = useTheme()
   return (
     <Highlight
