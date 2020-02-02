@@ -1,6 +1,6 @@
 {
   "name": "@matthamlin/component-library",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
   "license": "MIT",
   "main": "dist/index.js",
@@ -14,7 +14,7 @@
     "directory": "packages/component-library"
   },
   "dependencies": {
-    "@matthamlin/base-styled": "1.0.0",
+    "@matthamlin/base-styled": "1.1.0",
     "@styled-system/props": "5.1.4",
     "styled-components": "5.0.0",
     "styled-system": "5.0.12"
@@ -46,7 +46,7 @@
     "test": "jest",
     "test-watch": "jest --watch",
     "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'",
-    "pub": "yarn npm publish --access public --no-git-tag-version"
+    "pub": "yarn publish --access public --no-git-tag-version"
   },
   "publishConfig": {
     "access": "public",
