@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 let Base = styled('div')``
 
-let filter = /(fontSize|font-size)/
+let filter = /(fontSize)/
 
 function enhancedOmit(props) {
   let next = {}
