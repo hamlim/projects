@@ -66,12 +66,12 @@ function Dashboard() {
   return (
     <Box display="grid" gridTemplateColumns="1fr 1fr">
       <Box>
-        <Suspense fallback={<Text>Loading latest weight...</Text>}>
+        <Suspense fallback={<Text fontSize={3}>Loading latest weight...</Text>}>
           <Weight />
         </Suspense>
       </Box>
       <Box>
-        <Suspense fallback={<Text>Loading latest blood sugar...</Text>}>
+        <Suspense fallback={<Text fontSize={3}>Loading latest blood sugar...</Text>}>
           <BloodSugar />
         </Suspense>
       </Box>
