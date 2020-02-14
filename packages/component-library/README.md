@@ -165,3 +165,7 @@ This theme object follows the theme spec from styled-system, see
 
 - Theme visualizer
 - Font Sizes by role `theme.fontSizes.h1`
+- Dropdown Component
+- Radio Button component
+- Fieldset component
+- Chip component
