@@ -24,6 +24,9 @@ import {
   VisuallyHidden,
   List,
   ListItem,
+  Fieldset,
+  ControlledFieldset,
+  fieldsetContext,
 } from '../index.js'
 
 test('Banner is exported', () => {
@@ -124,4 +127,13 @@ test('List is exported', () => {
 
 test('ListItem is exported', () => {
   expect(ListItem).toBeDefined()
+})
+test('Fieldset is exported', () => {
+  expect(Fieldset).toBeDefined()
+})
+test('ControlledFieldset is exported', () => {
+  expect(ControlledFieldset).toBeDefined()
+})
+test('fieldsetContext is exported', () => {
+  expect(fieldsetContext).toBeDefined()
 })

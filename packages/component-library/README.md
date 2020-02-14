@@ -161,6 +161,16 @@ The components library also exposes the Theme object, allowing you to extend the
 This theme object follows the theme spec from styled-system, see
 [here](https://styled-system.com/theme-specification) for more information.
 
+#### `Fieldset`
+
+The `Fieldset` and `ControlledFieldset` components offer a context provider for a tuple of `[value, setValue]` values, and renders a `fieldset` html element. It is meant to wrap a set of options.
+
+```jsx
+<Fieldset value={} onChange={}>
+  ...
+</Fieldset>
+```
+
 ### Ideas:
 
 - Theme visualizer
