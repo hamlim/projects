@@ -21,5 +21,377 @@
     "packages/revector",
     "packages/simple-cache",
     "packages/zaps"
-  ]
+  ],
+  "graph": {
+    "packages/babel-plugin-property-controls": {
+      "dependencies": {},
+      "devDependencies": {
+        "@babel/cli": "7.5.0",
+        "@babel/core": "7.5.0",
+        "@babel/preset-env": "7.5.0",
+        "jest": "24.8.0",
+        "microbundle": "0.11.0"
+      },
+      "peerDependencies": {},
+      "localDependencies": [],
+      "name": "@matthamlin/babel-plugin-property-controls"
+    },
+    "packages/base-styled": {
+      "dependencies": {
+        "@styled-system/props": "5.1.4",
+        "styled-components": "5.0.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "7.5.0",
+        "@babel/core": "7.5.0",
+        "@babel/preset-env": "7.5.0",
+        "@babel/preset-react": "^7.7.4",
+        "jest": "24.8.0",
+        "react": "^16.12.0",
+        "react-dom": "^16.12.0"
+      },
+      "peerDependencies": {},
+      "localDependencies": [],
+      "name": "@matthamlin/base-styled"
+    },
+    "packages/blog": {
+      "dependencies": {
+        "@matthamlin/component-library": "*",
+        "@matthamlin/property-controls": "*",
+        "@matthamlin/reroute-browser": "*",
+        "@matthamlin/reroute-core": "*",
+        "@matthamlin/simple-cache": "*",
+        "prism-react-renderer": "1.0.2",
+        "react": "experimental",
+        "react-dom": "experimental"
+      },
+      "devDependencies": {
+        "@babel/cli": "7.5.0",
+        "@babel/core": "7.5.0",
+        "@babel/preset-env": "7.5.0",
+        "@babel/preset-react": "^7.7.4",
+        "@mdx-js/parcel-plugin-mdx": "1.5.3",
+        "@mdx-js/react": "1.0.0-rc.5",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "jest": "24.8.0",
+        "parcel": "latest"
+      },
+      "peerDependencies": {},
+      "localDependencies": [
+        ["@matthamlin/component-library", "*"],
+        ["@matthamlin/property-controls", "*"],
+        ["@matthamlin/reroute-browser", "*"],
+        ["@matthamlin/reroute-core", "*"],
+        ["@matthamlin/simple-cache", "*"]
+      ],
+      "name": "@matthamlin/blog"
+    },
+    "packages/component-library": {
+      "dependencies": {
+        "@matthamlin/base-styled": "1.1.0",
+        "@styled-system/props": "5.1.4",
+        "styled-components": "5.0.0",
+        "styled-system": "5.0.12"
+      },
+      "devDependencies": {
+        "@babel/cli": "7.5.0",
+        "@babel/core": "7.5.0",
+        "@babel/plugin-transform-runtime": "^7.7.6",
+        "@babel/preset-env": "7.5.0",
+        "@babel/preset-react": "7.0.0",
+        "@babel/runtime": "^7.7.6",
+        "@testing-library/jest-dom": "4.1.0",
+        "@testing-library/react": "8.0.4",
+        "babel-plugin-styled-components": "1.10.7",
+        "jest": "24.8.0",
+        "react": "16.12.0",
+        "react-dom": "16.12.0"
+      },
+      "peerDependencies": { "react": "*", "react-dom": "*" },
+      "localDependencies": [["@matthamlin/base-styled", "1.1.0"]],
+      "name": "@matthamlin/component-library"
+    },
+    "packages/hub": {
+      "dependencies": {
+        "@matthamlin/component-library": "*",
+        "@matthamlin/property-controls": "*",
+        "@matthamlin/reroute-browser": "*",
+        "@matthamlin/reroute-core": "*",
+        "@matthamlin/simple-cache": "*",
+        "react": "experimental",
+        "react-dom": "experimental"
+      },
+      "devDependencies": {
+        "@babel/cli": "7.5.0",
+        "@babel/core": "7.5.0",
+        "@babel/plugin-proposal-class-properties": "7.7.4",
+        "@babel/preset-env": "7.5.0",
+        "@babel/preset-react": "^7.7.4",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "jest": "24.8.0",
+        "parcel": "latest"
+      },
+      "peerDependencies": {},
+      "localDependencies": [
+        ["@matthamlin/component-library", "*"],
+        ["@matthamlin/property-controls", "*"],
+        ["@matthamlin/reroute-browser", "*"],
+        ["@matthamlin/reroute-core", "*"],
+        ["@matthamlin/simple-cache", "*"]
+      ],
+      "name": "@matthamlin/hub"
+    },
+    "packages/kitchen-sink": {
+      "dependencies": {
+        "@emotion/core": "^10.0.22",
+        "@emotion/styled": "^10.0.23",
+        "@matthamlin/property-controls": "*",
+        "@emotion/cache": "10.0.19",
+        "@matthamlin/component-library": "*",
+        "@matthamlin/reroute-browser": "*",
+        "@matthamlin/reroute-core": "*",
+        "@matthamlin/simple-cache": "*",
+        "emotion-theming": "10.0.19",
+        "react": "0.0.0-experimental-f42431abe",
+        "react-dom": "0.0.0-experimental-f42431abe"
+      },
+      "devDependencies": {
+        "@babel/cli": "7.5.0",
+        "@babel/core": "7.5.0",
+        "@babel/preset-env": "^7.7.4",
+        "@babel/preset-react": "^7.7.4",
+        "@parcel/resolver-default": "2.0.0-alpha.3",
+        "jest": "24.8.0",
+        "parcel": "latest"
+      },
+      "peerDependencies": {},
+      "localDependencies": [
+        ["@matthamlin/property-controls", "*"],
+        ["@matthamlin/component-library", "*"],
+        ["@matthamlin/reroute-browser", "*"],
+        ["@matthamlin/reroute-core", "*"],
+        ["@matthamlin/simple-cache", "*"]
+      ],
+      "name": "@matthamlin/kitchen-sink"
+    },
+    "packages/native-bundler-cli": {
+      "dependencies": { "@matthamlin/native-bundler-core": "*" },
+      "devDependencies": {
+        "@babel/cli": "7.0.0",
+        "@babel/core": "^7.7.4",
+        "@babel/preset-env": "7.0.0"
+      },
+      "peerDependencies": {},
+      "localDependencies": [["@matthamlin/native-bundler-core", "*"]],
+      "name": "@matthamlin/native-bundler-cli"
+    },
+    "packages/native-bundler-core": {
+      "dependencies": {
+        "@babel/core": "7.0.1",
+        "@babel/traverse": "7.0.0",
+        "@matthamlin/native-bundler-plugin-css": "*",
+        "@matthamlin/native-bundler-plugin-js": "*",
+        "@matthamlin/native-bundler-plugin-mdx": "*",
+        "babylon": "6.18.0",
+        "node-fetch": "2.2.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "7.0.0",
+        "@babel/preset-env": "7.0.0",
+        "@babel/preset-react": "7.0.0",
+        "babel-plugin-macros": "^2.7.1",
+        "directory-tree": "2.1.0",
+        "preval.macro": "3.0.0"
+      },
+      "peerDependencies": {},
+      "localDependencies": [
+        ["@matthamlin/native-bundler-plugin-css", "*"],
+        ["@matthamlin/native-bundler-plugin-js", "*"],
+        ["@matthamlin/native-bundler-plugin-mdx", "*"]
+      ],
+      "name": "@matthamlin/native-bundler-core"
+    },
+    "packages/native-bundler-plugin-css": {
+      "dependencies": {
+        "@babel/core": "7.7.4",
+        "autoprefixer": "9.4.2",
+        "postcss": "7.0.6"
+      },
+      "devDependencies": {
+        "@babel/cli": "7.0.0",
+        "@babel/preset-env": "7.1.0"
+      },
+      "peerDependencies": {},
+      "localDependencies": [],
+      "name": "@matthamlin/native-bundler-plugin-css"
+    },
+    "packages/native-bundler-plugin-js": {
+      "dependencies": {
+        "@babel/core": "7.1.2",
+        "@babel/preset-env": "7.1.0",
+        "@babel/preset-react": "7.0.0",
+        "babel-plugin-macros": "2.4.3"
+      },
+      "devDependencies": {
+        "@babel/cli": "7.0.0",
+        "@babel/preset-env": "7.1.0",
+        "@babel/preset-react": "7.0.0"
+      },
+      "peerDependencies": {},
+      "localDependencies": [],
+      "name": "@matthamlin/native-bundler-plugin-js"
+    },
+    "packages/native-bundler-plugin-mdx": {
+      "dependencies": {
+        "@babel/core": "7.1.2",
+        "@babel/plugin-proposal-object-rest-spread": "7.0.0",
+        "@babel/preset-env": "7.1.0",
+        "@babel/preset-react": "7.0.0",
+        "@mdx-js/mdx": "latest"
+      },
+      "devDependencies": {
+        "@babel/cli": "7.0.0",
+        "@babel/preset-env": "7.1.0",
+        "@babel/preset-react": "7.0.0"
+      },
+      "peerDependencies": { "@mdx-js/tag": "0.15.0", "react": "16.5.2" },
+      "localDependencies": [],
+      "name": "@matthamlin/native-bundler-plugin-mdx"
+    },
+    "packages/property-controls": {
+      "dependencies": {},
+      "devDependencies": {
+        "@babel/cli": "7.5.0",
+        "@babel/core": "7.5.0",
+        "@babel/preset-env": "7.5.0",
+        "jest": "24.8.0",
+        "microbundle": "0.11.0",
+        "react": "*",
+        "react-dom": "*"
+      },
+      "peerDependencies": { "react": "*" },
+      "localDependencies": [],
+      "name": "@matthamlin/property-controls"
+    },
+    "packages/react-code-editor": {
+      "dependencies": {},
+      "devDependencies": {
+        "@babel/cli": "7.5.0",
+        "@babel/core": "7.5.0",
+        "@babel/preset-env": "7.5.0",
+        "@babel/preset-react": "^7.7.4",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "jest": "24.8.0",
+        "react": "*",
+        "react-dom": "*",
+        "react-simple-code-editor": "0.9.1"
+      },
+      "peerDependencies": { "react": "*", "react-simple-code-editor": "0.9.1" },
+      "localDependencies": [],
+      "name": "@matthamlin/react-code-editor"
+    },
+    "packages/redocer": {
+      "dependencies": {},
+      "devDependencies": {
+        "@babel/cli": "7.5.0",
+        "@babel/core": "7.5.0",
+        "@babel/preset-env": "7.5.0",
+        "@babel/preset-react": "^7.7.4",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "jest": "24.8.0",
+        "react": "*",
+        "react-dom": "*"
+      },
+      "peerDependencies": {},
+      "localDependencies": [],
+      "name": "@matthamlin/redocer"
+    },
+    "packages/reroute-browser": {
+      "dependencies": {},
+      "devDependencies": {
+        "@babel/cli": "7.5.0",
+        "@babel/core": "7.5.0",
+        "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+        "@babel/preset-env": "7.5.0",
+        "@babel/preset-react": "7.0.0",
+        "@matthamlin/reroute-core": "*",
+        "@testing-library/jest-dom": "4.1.0",
+        "@testing-library/react": "8.0.4",
+        "history": "4.9.0",
+        "jest": "24.8.0",
+        "microbundle": "0.11.0",
+        "react": "16.12.0",
+        "react-dom": "16.12.0"
+      },
+      "peerDependencies": { "@matthamlin/reroute-core": "*", "react": "*" },
+      "localDependencies": [["@matthamlin/reroute-core", "*"]],
+      "name": "@matthamlin/reroute-browser"
+    },
+    "packages/reroute-core": {
+      "dependencies": {},
+      "devDependencies": {
+        "@babel/cli": "7.5.0",
+        "@babel/core": "7.5.0",
+        "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+        "@babel/preset-env": "7.5.0",
+        "@babel/preset-react": "7.0.0",
+        "@testing-library/jest-dom": "4.1.0",
+        "@testing-library/react": "8.0.4",
+        "history": "4.9.0",
+        "jest": "24.8.0",
+        "microbundle": "0.11.0",
+        "react": "16.12.0",
+        "react-dom": "16.12.0"
+      },
+      "peerDependencies": { "react": "*" },
+      "localDependencies": [],
+      "name": "@matthamlin/reroute-core"
+    },
+    "packages/revector": {
+      "dependencies": {},
+      "devDependencies": {
+        "@babel/cli": "7.5.0",
+        "@babel/core": "7.5.0",
+        "@babel/preset-env": "7.5.0",
+        "@babel/preset-react": "^7.7.4",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "jest": "24.8.0",
+        "react": "^16.12.0",
+        "react-dom": "^16.12.0"
+      },
+      "peerDependencies": {},
+      "localDependencies": [],
+      "name": "@matthamlin/revector"
+    },
+    "packages/simple-cache": {
+      "dependencies": {},
+      "devDependencies": {
+        "@babel/cli": "7.5.0",
+        "@babel/core": "7.5.0",
+        "@babel/preset-env": "7.5.0",
+        "microbundle": "0.11.0"
+      },
+      "peerDependencies": { "react": "*" },
+      "localDependencies": [],
+      "name": "@matthamlin/simple-cache"
+    },
+    "packages/zaps": {
+      "dependencies": {
+        "chalk": "3.0.0",
+        "glob": "7.1.6",
+        "minimist": "1.2.0",
+        "mkdirp": "0.5.1",
+        "prettier": "1.19.1"
+      },
+      "devDependencies": { "jest": "24.8.0" },
+      "peerDependencies": {},
+      "localDependencies": [],
+      "name": "@matthamlin/zaps"
+    }
+  }
 }

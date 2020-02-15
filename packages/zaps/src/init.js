@@ -55,6 +55,42 @@ module.exports = function(argv, { requireImpl = require } = {}) {
 
   zapsJson.packages = packages
 
+  const pjsons = packages.map(package => {
+    return require(`${process.cwd()}/${package}/package.json`)
+  })
+
+  const packageNames = pjsons.map(p => p.name)
+
+  // Create Graph of dependencies
+  let graph = {}
+  for (let packageDir of packages) {
+    graph[packageDir] = {}
+    try {
+      let pjson = require(`${process.cwd()}/${packageDir}/package.json`)
+      let {
+        dependencies = {},
+        devDependencies = {},
+        peerDependencies = {},
+      } = pjson
+      const allDeps = {
+        ...dependencies,
+        ...devDependencies,
+        ...peerDependencies,
+      }
+      graph[packageDir].dependencies = dependencies
+      graph[packageDir].devDependencies = devDependencies
+      graph[packageDir].peerDependencies = peerDependencies
+      graph[packageDir].localDependencies = Object.entries(
+        allDeps,
+      ).filter(([dep]) => packageNames.includes(dep))
+      graph[packageDir].name = pjson.name
+    } catch (err) {
+      log(`Failed to read package.json file for the ${packageDir} package.`)
+    }
+  }
+
+  zapsJson.graph = graph
+
   // Write to the zaps.json file
   fs.writeFileSync(
     path.join(configDir, 'zaps.json'),
@@ -65,6 +101,5 @@ module.exports = function(argv, { requireImpl = require } = {}) {
 
 * Ensure the \`.zaps\` 📂  directory is checked into git
 
-* Run \`yarn zaps link\` to link dependencies
 * Run \`yarn zaps build\` to build packages in the project`)
 }
