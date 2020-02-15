@@ -171,12 +171,35 @@ The `Fieldset` and `ControlledFieldset` components offer a context provider for 
 </Fieldset>
 ```
 
+#### `RadioButton`
+
+The `RadioButton` and `ControlledRadioButton` components offer visually hidden inputs that act like radio selects.
+
+They are built to be used within the `Fieldset` and `ControlledFieldset` components.
+
+```jsx
+<ControlledFieldset defaultValue="a" name="foo">
+  <label>
+    <ControlledRadioButton value="a">
+    A
+  </label>
+  <label>
+    <ControlledRadioButton value="b">
+    B
+  </label>
+  <label>
+    <ControlledRadioButton value="c">
+    C
+  </label>
+</ControlledFieldset>
+
+
 ### Ideas:
 
 - Theme visualizer
 - Font Sizes by role `theme.fontSizes.h1`
 - Dropdown Component
-- Radio Button component
 - Chip component
 - Tabs
 - Accordion
+```
