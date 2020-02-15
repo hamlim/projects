@@ -19,7 +19,7 @@ export let Fieldset = forwardRef((props, ref) => (
 ))
 
 function _ControlledFieldset({
-  onChange = noop,
+  onChange = () => {},
   defaultValue = null,
   innerRef,
   name,
