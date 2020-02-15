@@ -27,6 +27,8 @@ import {
   Fieldset,
   ControlledFieldset,
   fieldsetContext,
+  RadioButton,
+  ControlledRadioButton,
 } from '../index.js'
 
 test('Banner is exported', () => {
@@ -136,4 +138,11 @@ test('ControlledFieldset is exported', () => {
 })
 test('fieldsetContext is exported', () => {
   expect(fieldsetContext).toBeDefined()
+})
+
+test('RadioButton is exported', () => {
+  expect(RadioButton).toBeDefined()
+})
+test('ControlledRadioButton is exported', () => {
+  expect(ControlledRadioButton).toBeDefined()
 })
