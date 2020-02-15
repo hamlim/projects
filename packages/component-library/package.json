@@ -1,6 +1,6 @@
 {
   "name": "@matthamlin/component-library",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
   "license": "MIT",
   "main": "dist/index.js",

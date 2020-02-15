@@ -18,3 +18,11 @@ Workspaces are defined by a `workspaces` key in the project root package.json fi
   "workspaces": ["packages/*"]
 }
 ```
+
+## TODO:
+
+- `zaps release`
+  - Asks for a workspace
+  - Runs build
+  - Runs tests
+  - Publishes
