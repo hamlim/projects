@@ -177,5 +177,6 @@ The `Fieldset` and `ControlledFieldset` components offer a context provider for 
 - Font Sizes by role `theme.fontSizes.h1`
 - Dropdown Component
 - Radio Button component
-- Fieldset component
 - Chip component
+- Tabs
+- Accordion

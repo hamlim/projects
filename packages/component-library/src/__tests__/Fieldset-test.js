@@ -15,7 +15,7 @@ test('Fieldset provides the right context', () => {
   }
   let { container } = render(
     <ThemeProvider>
-      <Fieldset value={5} onChange={handleChange}>
+      <Fieldset value={5} onChange={handleChange} name="foo">
         <Test />
       </Fieldset>
     </ThemeProvider>,
@@ -23,6 +23,11 @@ test('Fieldset provides the right context', () => {
 
   expect(context[0]).toBe(5)
   expect(context[1]).toBe(handleChange)
+  expect(context[2]).toMatchInlineSnapshot(`
+    Object {
+      "name": "foo",
+    }
+  `)
 })
 
 test('ControlledFieldset provides the right context, defaulting to defaultValue', () => {

@@ -2,12 +2,12 @@ import React, { forwardRef, createContext, useState, useCallback } from 'react'
 import { Box } from './Box.js'
 import { useTheme } from './ThemeProvider.js'
 
-export let fieldsetContext = createContext([null, () => {}])
+export let fieldsetContext = createContext(null)
 
-function _Fieldset({ children, value, onChange, innerRef }) {
+function _Fieldset({ children, value, onChange, name, innerRef, ...props }) {
   return (
-    <fieldsetContext.Provider value={[value, onChange]}>
-      <Box ref={innerRef} is="fieldset">
+    <fieldsetContext.Provider value={[value, onChange, { name }]}>
+      <Box ref={innerRef} is="fieldset" {...props}>
         {children}
       </Box>
     </fieldsetContext.Provider>
@@ -22,6 +22,7 @@ function _ControlledFieldset({
   onChange = noop,
   defaultValue = null,
   innerRef,
+  name,
   ...props
 }) {
   let [value, setValue] = useState(defaultValue)
@@ -34,7 +35,13 @@ function _ControlledFieldset({
     [onChange],
   )
   return (
-    <Fieldset {...props} ref={innerRef} value={value} onChange={handleChange} />
+    <Fieldset
+      {...props}
+      name={name}
+      ref={innerRef}
+      value={value}
+      onChange={handleChange}
+    />
   )
 }
 
