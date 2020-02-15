@@ -3,6 +3,7 @@
   "workspaces": ["packages/*"],
   "packages": [
     "packages/babel-plugin-property-controls",
+    "packages/base-styled",
     "packages/blog",
     "packages/component-library",
     "packages/hub",
@@ -19,7 +20,6 @@
     "packages/reroute-core",
     "packages/revector",
     "packages/simple-cache",
-    "packages/tasks",
     "packages/zaps"
   ]
 }
