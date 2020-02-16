@@ -9,5 +9,5 @@
     "packages/react-code-editor",
     "packages/redocer"
   ],
-  "sandboxes": ["new"]
+  "sandboxes": ["new", "/sandbox"]
 }
