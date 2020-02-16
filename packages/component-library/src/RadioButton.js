@@ -16,7 +16,7 @@ function _RadioButton({
   let id = useId(providedId)
   function handleChange() {
     if (!disabled) {
-      onChange(!checked)
+      onChange(value)
     }
   }
   return (
@@ -56,9 +56,9 @@ function _ControlledRadioButton({
   let [selectedValue, onValueSelect, additionalProps] = context
 
   let handleChange = useCallback(
-    function handleChange(event) {
-      onChange(event.target.value)
-      onValueSelect(event.target.value)
+    function handleChange(value) {
+      onChange(value)
+      onValueSelect(value)
     },
     [onChange],
   )
