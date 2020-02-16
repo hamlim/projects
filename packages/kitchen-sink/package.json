@@ -38,7 +38,7 @@
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
     "@parcel/resolver-default": "2.0.0-alpha.3",
-    "jest": "24.8.0",
+    "jest": "24.9.0",
     "parcel": "latest"
   },
   "publishConfig": {

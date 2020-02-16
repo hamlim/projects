@@ -30,3 +30,26 @@ test('ControlledRadioButton throws when rendered outside of a Fieldset', () => {
     )
   })
 })
+
+test('ControlledRadioButton calls back with the selected value', () => {
+  let handleChange = jest.fn()
+  let { getByLabelText } = render(
+    <ThemeProvider>
+      <ControlledFieldset name="foo" defaultValue="a" onChange={handleChange}>
+        <label>
+          <ControlledRadioButton value="a" />A
+        </label>
+        <label>
+          <ControlledRadioButton value="b" />B
+        </label>
+        <label>
+          <ControlledRadioButton value="c" />C
+        </label>
+      </ControlledFieldset>
+    </ThemeProvider>,
+  )
+
+  fireEvent.click(getByLabelText('B'))
+
+  expect(handleChange).toHaveBeenCalledWith('b')
+})

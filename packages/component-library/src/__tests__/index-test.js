@@ -17,6 +17,7 @@ import {
   Tapable,
   Text,
   ThemeProvider,
+  BareThemeProvider,
   useTheme,
   useId,
   useMedia,
@@ -101,6 +102,10 @@ test('Text is exported', () => {
 
 test('ThemeProvider is exported', () => {
   expect(ThemeProvider).toBeDefined()
+})
+
+test('BareThemeProvider is exported', () => {
+  expect(BareThemeProvider).toBeDefined()
 })
 
 test('useTheme is exported', () => {
