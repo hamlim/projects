@@ -14,9 +14,11 @@
     "@matthamlin/reroute-browser": "*",
     "@matthamlin/reroute-core": "*",
     "@matthamlin/simple-cache": "*",
+    "babel-plugin-styled-components": "1.10.7",
     "prism-react-renderer": "1.0.2",
     "react": "experimental",
-    "react-dom": "experimental"
+    "react-dom": "experimental",
+    "styled-components": "5.0.1"
   },
   "alias": {
     "react": "./node_modules/react",
