@@ -5,6 +5,7 @@ import { createRoot } from 'react-dom'
 import posts from './posts'
 import { MDXProvider } from '@mdx-js/react'
 import { Breadcrumbs, Crumb, Spacer } from './Breadcrumbs'
+import styled from 'styled-components'
 
 let Landing = lazy(() => import('./Landing.js'))
 let Blog = lazy(() => import('./Blog.js'))
@@ -19,6 +20,11 @@ function Route({ path, children }) {
 }
 
 let { ThemeProvider, GlobalStyles, Box, H1, ListItem } = comps
+
+let Img = styled('img')`
+  max-width: 100%;
+  height: auto;
+`
 
 let components = {
   ...comps,
@@ -41,6 +47,8 @@ let components = {
     return <>{children}</>
   },
   code: Code,
+  img: Img,
+  Spacer: props => <Box mb={6} {...props} />,
 }
 
 createRoot(document.querySelector('#root')).render(

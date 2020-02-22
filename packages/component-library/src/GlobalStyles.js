@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components'
-import { useTheme } from './ThemeProvider'
 
 export let GlobalStyles = createGlobalStyle(({ theme }) => {
   return `

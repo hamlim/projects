@@ -6,6 +6,7 @@
   "scripts": {
     "watch": "parcel src/index.html",
     "build": "parcel build src/index.html --out-dir public",
+    "predeploy": "parcel build src/index.html --out-dir public",
     "deploy": "now public/"
   },
   "dependencies": {
@@ -14,9 +15,11 @@
     "@matthamlin/reroute-browser": "*",
     "@matthamlin/reroute-core": "*",
     "@matthamlin/simple-cache": "*",
+    "babel-plugin-styled-components": "1.10.7",
     "prism-react-renderer": "1.0.2",
     "react": "experimental",
-    "react-dom": "experimental"
+    "react-dom": "experimental",
+    "styled-components": "5.0.1"
   },
   "alias": {
     "react": "./node_modules/react",
@@ -31,7 +34,7 @@
     "@mdx-js/react": "1.0.0-rc.5",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
-    "jest": "24.8.0",
+    "jest": "24.9.0",
     "parcel": "latest"
   },
   "publishConfig": {

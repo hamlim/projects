@@ -161,7 +161,45 @@ The components library also exposes the Theme object, allowing you to extend the
 This theme object follows the theme spec from styled-system, see
 [here](https://styled-system.com/theme-specification) for more information.
 
+#### `Fieldset`
+
+The `Fieldset` and `ControlledFieldset` components offer a context provider for a tuple of `[value, setValue]` values, and renders a `fieldset` html element. It is meant to wrap a set of options.
+
+```jsx
+<Fieldset value={} onChange={}>
+  ...
+</Fieldset>
+```
+
+#### `RadioButton`
+
+The `RadioButton` and `ControlledRadioButton` components offer visually hidden inputs that act like radio selects.
+
+They are built to be used within the `Fieldset` and `ControlledFieldset` components.
+
+```jsx
+<ControlledFieldset defaultValue="a" name="foo">
+  <label>
+    <ControlledRadioButton value="a">
+    A
+  </label>
+  <label>
+    <ControlledRadioButton value="b">
+    B
+  </label>
+  <label>
+    <ControlledRadioButton value="c">
+    C
+  </label>
+</ControlledFieldset>
+
+
 ### Ideas:
 
 - Theme visualizer
 - Font Sizes by role `theme.fontSizes.h1`
+- Dropdown Component
+- Chip component
+- Tabs
+- Accordion
+```

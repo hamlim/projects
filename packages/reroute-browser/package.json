@@ -26,7 +26,7 @@
     "@testing-library/jest-dom": "4.1.0",
     "@testing-library/react": "8.0.4",
     "history": "4.9.0",
-    "jest": "24.8.0",
+    "jest": "24.9.0",
     "microbundle": "0.11.0",
     "react": "16.12.0",
     "react-dom": "16.12.0"

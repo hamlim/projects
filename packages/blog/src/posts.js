@@ -2,6 +2,11 @@ import { lazy } from 'react'
 
 export default [
   {
+    to: 'february-20-2020',
+    title: 'February 20, 2020',
+    component: lazy(() => import('./posts/2020/february/back-bay-fens.mdx')),
+  },
+  {
     to: 'bend-2019',
     title: 'Summer 2019 - Bend Oregon',
     component: lazy(() => import('./posts/2019/july/bend.mdx')),

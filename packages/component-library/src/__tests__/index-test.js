@@ -17,6 +17,7 @@ import {
   Tapable,
   Text,
   ThemeProvider,
+  BareThemeProvider,
   useTheme,
   useId,
   useMedia,
@@ -24,6 +25,11 @@ import {
   VisuallyHidden,
   List,
   ListItem,
+  Fieldset,
+  ControlledFieldset,
+  fieldsetContext,
+  RadioButton,
+  ControlledRadioButton,
 } from '../index.js'
 
 test('Banner is exported', () => {
@@ -98,6 +104,10 @@ test('ThemeProvider is exported', () => {
   expect(ThemeProvider).toBeDefined()
 })
 
+test('BareThemeProvider is exported', () => {
+  expect(BareThemeProvider).toBeDefined()
+})
+
 test('useTheme is exported', () => {
   expect(useTheme).toBeDefined()
 })
@@ -124,4 +134,20 @@ test('List is exported', () => {
 
 test('ListItem is exported', () => {
   expect(ListItem).toBeDefined()
+})
+test('Fieldset is exported', () => {
+  expect(Fieldset).toBeDefined()
+})
+test('ControlledFieldset is exported', () => {
+  expect(ControlledFieldset).toBeDefined()
+})
+test('fieldsetContext is exported', () => {
+  expect(fieldsetContext).toBeDefined()
+})
+
+test('RadioButton is exported', () => {
+  expect(RadioButton).toBeDefined()
+})
+test('ControlledRadioButton is exported', () => {
+  expect(ControlledRadioButton).toBeDefined()
 })
