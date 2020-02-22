@@ -4,7 +4,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "github": {
-    "enabled": true
+    "enabled": false
   },
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
