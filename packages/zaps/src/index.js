@@ -14,6 +14,9 @@ try {
     case 'build': {
       return require('./build.js')(argv)
     }
+    case 'run': {
+      return require('./run.js')(argv)
+    }
     default: {
       console.log('No command provided')
     }
