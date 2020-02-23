@@ -29,7 +29,7 @@ module.exports = function(argv, { requireImpl = require } = {}) {
   // Checking to see if we are running in the Project
   readRootPackageJson()
 
-  let { graph: zapsGraph } = readZapsConfig()
+  let { graph: zapsGraph } = readZapsConfig({ command: 'build' })
 
   // We have the zaps config file and the zaps graph file
   // we want to construct an array of tuples, each tuple will
