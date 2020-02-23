@@ -121,7 +121,7 @@ function LayoutWrapper({ children, ...props }) {
 
 export function Layout({ children }) {
   return (
-    <LayoutWrapper as="main" id="main">
+    <LayoutWrapper as="main" id="main" flexGrow="1">
       {children}
     </LayoutWrapper>
   )

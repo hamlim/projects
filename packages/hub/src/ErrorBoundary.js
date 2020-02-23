@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
+import { useHistory } from '@matthamlin/reroute-core'
 
-export default class ErrorBoundary extends Component {
+class _ErrorBoundary extends Component {
   state = {
     err: null,
   }
 
   static getDerivedStateFromError(err) {
     return { err }
+  }
+
+  componentDidCatch(err) {
+    ;(this.props.onError || (() => {}))(err)
   }
 
   render() {
@@ -17,4 +22,12 @@ export default class ErrorBoundary extends Component {
     }
     return children
   }
+}
+
+export default function ErrorBoundary(props) {
+  let {
+    location: { pathname },
+  } = useHistory()
+
+  return <_ErrorBoundary {...props} key={pathname} />
 }

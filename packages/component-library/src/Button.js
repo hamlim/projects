@@ -22,15 +22,16 @@ export function Button({
       px={8}
       borderRadius={0}
       width={isFullWidth ? '100%' : null}
-      color={theme.colors.white}
-      bg={theme.colors.primary}
+      color={!disabled ? theme.colors.white : theme.colors.black}
+      bg={!disabled ? theme.colors.primary : theme.colors.gray[5]}
       height={50}
       border="none"
       unstable_Focused={unstable_Focused}
       css={({ theme, unstable_Focused }) => `
+        cursor: pointer;
+        user-select: none;
         &:disabled {
-          background-color: ${theme.colors.gray[5]};
-          color: ${theme.colors.black};
+          cursor: not-allowed;
         }
         &:hover:not(:disabled), &:focus:not(:disabled) {
           background-color: ${theme.colors.primaryDark};

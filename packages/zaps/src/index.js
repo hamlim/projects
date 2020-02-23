@@ -17,6 +17,9 @@ try {
     case 'run': {
       return require('./run.js')(argv)
     }
+    case 'exec': {
+      return require('./exec.js')(argv)
+    }
     default: {
       console.log('No command provided')
     }
