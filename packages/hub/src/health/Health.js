@@ -8,20 +8,7 @@ import {
   Button,
 } from '@matthamlin/component-library'
 import { Link as RouterLink } from '@matthamlin/reroute-browser'
-
-import { useCache } from '@matthamlin/simple-cache'
-
-let cache = new Map()
-
-function useAirtable({ base, table }) {
-  return useCache(cache, base + table, () =>
-    fetch(`https://api.airtable.com/v0/${base}/${table}`, {
-      headers: {
-        Authorization: `Bearer ${process.env.API_KEY}`,
-      },
-    }).then(res => res.json()),
-  )
-}
+import useAirtable from '../useAirtable'
 
 function BloodSugar() {
   let {
@@ -71,7 +58,9 @@ function Dashboard() {
         </Suspense>
       </Box>
       <Box>
-        <Suspense fallback={<Text fontSize={3}>Loading latest blood sugar...</Text>}>
+        <Suspense
+          fallback={<Text fontSize={3}>Loading latest blood sugar...</Text>}
+        >
           <BloodSugar />
         </Suspense>
       </Box>
