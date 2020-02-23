@@ -1,6 +1,6 @@
 {
   "version": "0.0.1",
-  "workspaces": ["packages/*"],
+  "workspaces": ["packages/*", "sandbox"],
   "packages": [
     "packages/babel-plugin-property-controls",
     "packages/base-styled",
@@ -20,7 +20,8 @@
     "packages/reroute-core",
     "packages/revector",
     "packages/simple-cache",
-    "packages/zaps"
+    "packages/zaps",
+    "sandbox"
   ],
   "graph": {
     "packages/babel-plugin-property-controls": {
@@ -29,7 +30,7 @@
         "@babel/cli": "7.5.0",
         "@babel/core": "7.5.0",
         "@babel/preset-env": "7.5.0",
-        "jest": "24.8.0",
+        "jest": "24.9.0",
         "microbundle": "0.11.0"
       },
       "peerDependencies": {},
@@ -46,7 +47,7 @@
         "@babel/core": "7.5.0",
         "@babel/preset-env": "7.5.0",
         "@babel/preset-react": "^7.7.4",
-        "jest": "24.8.0",
+        "jest": "24.9.0",
         "react": "^16.12.0",
         "react-dom": "^16.12.0"
       },
@@ -61,9 +62,11 @@
         "@matthamlin/reroute-browser": "*",
         "@matthamlin/reroute-core": "*",
         "@matthamlin/simple-cache": "*",
+        "babel-plugin-styled-components": "1.10.7",
         "prism-react-renderer": "1.0.2",
         "react": "experimental",
-        "react-dom": "experimental"
+        "react-dom": "experimental",
+        "styled-components": "5.0.1"
       },
       "devDependencies": {
         "@babel/cli": "7.5.0",
@@ -74,7 +77,7 @@
         "@mdx-js/react": "1.0.0-rc.5",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
-        "jest": "24.8.0",
+        "jest": "24.9.0",
         "parcel": "latest"
       },
       "peerDependencies": {},
@@ -104,7 +107,7 @@
         "@testing-library/jest-dom": "4.1.0",
         "@testing-library/react": "8.0.4",
         "babel-plugin-styled-components": "1.10.7",
-        "jest": "24.8.0",
+        "jest": "24.9.0",
         "react": "16.12.0",
         "react-dom": "16.12.0"
       },
@@ -130,7 +133,7 @@
         "@babel/preset-react": "^7.7.4",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
-        "jest": "24.8.0",
+        "jest": "24.9.0",
         "parcel": "latest"
       },
       "peerDependencies": {},
@@ -163,7 +166,7 @@
         "@babel/preset-env": "^7.7.4",
         "@babel/preset-react": "^7.7.4",
         "@parcel/resolver-default": "2.0.0-alpha.3",
-        "jest": "24.8.0",
+        "jest": "24.9.0",
         "parcel": "latest"
       },
       "peerDependencies": {},
@@ -266,7 +269,7 @@
         "@babel/cli": "7.5.0",
         "@babel/core": "7.5.0",
         "@babel/preset-env": "7.5.0",
-        "jest": "24.8.0",
+        "jest": "24.9.0",
         "microbundle": "0.11.0",
         "react": "*",
         "react-dom": "*"
@@ -284,7 +287,7 @@
         "@babel/preset-react": "^7.7.4",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
-        "jest": "24.8.0",
+        "jest": "24.9.0",
         "react": "*",
         "react-dom": "*",
         "react-simple-code-editor": "0.9.1"
@@ -302,7 +305,7 @@
         "@babel/preset-react": "^7.7.4",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
-        "jest": "24.8.0",
+        "jest": "24.9.0",
         "react": "*",
         "react-dom": "*"
       },
@@ -322,7 +325,7 @@
         "@testing-library/jest-dom": "4.1.0",
         "@testing-library/react": "8.0.4",
         "history": "4.9.0",
-        "jest": "24.8.0",
+        "jest": "24.9.0",
         "microbundle": "0.11.0",
         "react": "16.12.0",
         "react-dom": "16.12.0"
@@ -342,7 +345,7 @@
         "@testing-library/jest-dom": "4.1.0",
         "@testing-library/react": "8.0.4",
         "history": "4.9.0",
-        "jest": "24.8.0",
+        "jest": "24.9.0",
         "microbundle": "0.11.0",
         "react": "16.12.0",
         "react-dom": "16.12.0"
@@ -360,7 +363,7 @@
         "@babel/preset-react": "^7.7.4",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
-        "jest": "24.8.0",
+        "jest": "24.9.0",
         "react": "^16.12.0",
         "react-dom": "^16.12.0"
       },
@@ -388,10 +391,35 @@
         "mkdirp": "0.5.1",
         "prettier": "1.19.1"
       },
-      "devDependencies": { "jest": "24.8.0" },
+      "devDependencies": { "jest": "24.9.0" },
       "peerDependencies": {},
       "localDependencies": [],
       "name": "@matthamlin/zaps"
+    },
+    "sandbox": {
+      "dependencies": {
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "@testing-library/user-event": "^7.1.2",
+        "react": "*",
+        "react-dom": "*",
+        "react-scripts": "3.4.0",
+        "@matthamlin/property-controls": "*",
+        "@matthamlin/component-library": "*",
+        "@matthamlin/reroute-browser": "*",
+        "@matthamlin/reroute-core": "*",
+        "@matthamlin/simple-cache": "*"
+      },
+      "devDependencies": {},
+      "peerDependencies": {},
+      "localDependencies": [
+        ["@matthamlin/property-controls", "*"],
+        ["@matthamlin/component-library", "*"],
+        ["@matthamlin/reroute-browser", "*"],
+        ["@matthamlin/reroute-core", "*"],
+        ["@matthamlin/simple-cache", "*"]
+      ],
+      "name": "sandbox"
     }
   }
 }

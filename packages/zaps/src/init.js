@@ -1,6 +1,11 @@
 let fs = require('fs')
 let path = require('path')
-let { log, makeDiagnostic, VERSION } = require('./utils.js')
+let {
+  log,
+  makeDiagnostic,
+  VERSION,
+  readRootPackageJson,
+} = require('./utils.js')
 let mkdirp = require('mkdirp')
 let glob = require('glob')
 let prettier = require('prettier')
@@ -9,17 +14,7 @@ module.exports = function(argv, { requireImpl = require } = {}) {
   log('Starting Zaps...')
 
   // Checking to see if we are running in the Project
-  let projectPackageJson
-  try {
-    projectPackageJson = requireImpl(path.join(process.cwd(), 'package.json'))
-  } catch (err) {
-    throw makeDiagnostic({
-      message: 'Failed to find or read Project package.json file.',
-      error: err,
-      suggestion:
-        'Ensure Zaps is being run at the root of your project / monorepo.',
-    })
-  }
+  let projectPackageJson = readRootPackageJson()
 
   if (!Array.isArray(projectPackageJson.workspaces)) {
     throw makeDiagnostic({

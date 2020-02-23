@@ -12,7 +12,7 @@ try {
       return require('./init.js')(argv)
     }
     case 'build': {
-      log(`Not implemented yet.`)
+      return require('./build.js')(argv)
     }
     default: {
       console.log('No command provided')
