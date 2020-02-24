@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useHistory } from '@matthamlin/reroute-core'
 
-let { createContext, useState } = React
+let { createContext, useState, useEffect } = React
 
 let initialUser = {
   isLoggedIn: false,
@@ -15,7 +15,14 @@ export let userContext = createContext({
 })
 
 export function Provider({ children }) {
-  let [user, originalSetUser] = useState(initialUser)
+  let [user, originalSetUser] = useState(() => {
+    try {
+      let user = JSON.parse(window.localStorage.getItem('hub-user'))
+      return user
+    } catch (err) {
+      return initialUser
+    }
+  })
   let history = useHistory()
 
   function setUser(user) {
@@ -24,6 +31,10 @@ export function Provider({ children }) {
       isLoggedIn: true,
     })
   }
+
+  useEffect(() => {
+    window.localStorage.setItem('hub-user', JSON.stringify(user))
+  }, [user])
 
   function logout() {
     originalSetUser(initialUser)
