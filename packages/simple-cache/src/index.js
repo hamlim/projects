@@ -9,6 +9,8 @@ export function useCache(
   key,
   // A function that returns a promise to resolve the data
   miss,
+  // If the cache should be evicted when set
+  { shouldEvictCache = () => true } = {},
 ) {
   // Cache the current value locally, with use state.
   let [value, setValue] = useState(null)
@@ -24,8 +26,10 @@ export function useCache(
 
   // Once this value successfully commits, immediately evict it from the cache.
   useEffect(() => {
-    evictCache(cache, key)
-  }, [cache, key])
+    if (shouldEvictCache({ cache, key })) {
+      evictCache(cache, key)
+    }
+  }, [cache, key, shouldEvictCache])
 
   return value
 }
