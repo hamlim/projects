@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useRef, forwardRef } from 'react'
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  forwardRef,
+  useContext,
+} from 'react'
 import {
   Box,
   ListItem,
@@ -7,9 +13,10 @@ import {
   VisuallyHidden,
   useTheme,
   Text,
+  Theme,
 } from '@matthamlin/component-library'
 import { useRoute, Link as RouterLink } from '@matthamlin/reroute-browser'
-import Theme from '@matthamlin/component-library/dist/Theme'
+import { userContext } from './userContext'
 
 let AnchorLink = forwardRef((props, ref) => (
   <Link as="a" ref={ref} {...props} />
@@ -57,6 +64,7 @@ function RouteLink(props) {
 }
 
 export function Nav() {
+  let [user] = useContext(userContext)
   let homeProps = useRoute('/')
   let moneyProps = useRoute('/money')
   let taskProps = useRoute('/tasks')
@@ -77,29 +85,43 @@ export function Nav() {
           <List
             variant="base"
             forwardedAs="ul"
-            display="inline-flex"
+            display="flex"
             alignItems="center"
+            justifyContent="space-between"
           >
             <ListItem mr={4}>
               <HomeLink to="/" fontSize={2}>
                 Hub
               </HomeLink>
             </ListItem>
-            <ListItem mr={4}>
-              <MoneyLink to="/money" fontSize={2}>
-                Money
-              </MoneyLink>
-            </ListItem>
-            <ListItem mr={4}>
-              <TaskLink to="/tasks" fontSize={2}>
-                Tasks
-              </TaskLink>
-            </ListItem>
-            <ListItem>
-              <HealthLink to="/health" fontSize={2}>
-                Health
-              </HealthLink>
-            </ListItem>
+            {user.isLoggedIn ? (
+              <>
+                <Box display="inline-flex">
+                  <ListItem mr={4}>
+                    <MoneyLink to="/money" fontSize={2}>
+                      Money
+                    </MoneyLink>
+                  </ListItem>
+                  <ListItem mr={4}>
+                    <TaskLink to="/tasks" fontSize={2}>
+                      Tasks
+                    </TaskLink>
+                  </ListItem>
+                  <ListItem>
+                    <HealthLink to="/health" fontSize={2}>
+                      Health
+                    </HealthLink>
+                  </ListItem>
+                </Box>
+                <ListItem>{user.username}</ListItem>
+              </>
+            ) : (
+              <ListItem>
+                <RouteLink to="/login" fontSize={2}>
+                  Login
+                </RouteLink>
+              </ListItem>
+            )}
           </List>
         </LayoutWrapper>
       </Box>
@@ -112,6 +134,7 @@ function LayoutWrapper({ children, ...props }) {
     <Box
       {...props}
       maxWidth={['98vw', '90vw', '80vw', '80ch']}
+      minWidth={['98vw', '90vw', '80vw', '80ch']}
       marginX={['1vw', '5vw', '10vw', 'auto']}
     >
       {children}

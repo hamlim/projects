@@ -91,11 +91,11 @@ export default function Login() {
             onTap={() => setAttemptedLogin(true)}
             disabled={attemptedLogin}
           >
-            Login
+            {!attemptedLogin ? 'Login' : 'Logging in...'}
           </Button>
         </Box>
         {!!attemptedLogin && (
-          <Suspense fallback={<Text>Logging in...</Text>}>
+          <Suspense fallback={null}>
             <ErrorBoundary
               onError={() => setAttemptedLogin(2)}
               FallbackComponent={() => (
