@@ -4,6 +4,8 @@
 
 - Transactions
 - Searchable
+- tagged
+- location data for maps
 
 ### Data Structure:
 
