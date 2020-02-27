@@ -10,7 +10,7 @@ import {
 import { Link as RouterLink } from '@matthamlin/reroute-browser'
 import useAirtable from '../useAirtable'
 
-function BloodSugar() {
+function LatestBloodSugar() {
   let {
     records: [
       {
@@ -22,6 +22,23 @@ function BloodSugar() {
     table:
       'Blood%20Sugar%20Ratings?maxRecords=1&view=Grid%20view&sort%5B0%5D%5Bfield%5D=Time&sort%5B0%5D%5Bdirection%5D=desc',
   })
+  return (
+    <>
+      <Text fontSize={3}>Blood Sugar:</Text> <Text>{bloodSugar}</Text>
+    </>
+  )
+}
+
+function AllBloodSugars() {
+  let { records: bloodSugars, offset } = useAirtable({
+    base: 'appnK0ZDhsqs1XEcv',
+    table:
+      'Blood%20Sugar%20Ratings?maxRecords=500&view=Grid%20view&sort%5B0%5D%5Bfield%5D=Time&sort%5B0%5D%5Bdirection%5D=desc',
+  })
+
+  console.log(bloodSugars, offset)
+
+  return null
   return (
     <>
       <Text fontSize={3}>Blood Sugar:</Text> <Text>{bloodSugar}</Text>
@@ -61,7 +78,7 @@ function Dashboard() {
         <Suspense
           fallback={<Text fontSize={3}>Loading latest blood sugar...</Text>}
         >
-          <BloodSugar />
+          <LatestBloodSugar />
         </Suspense>
       </Box>
     </Box>
@@ -91,6 +108,9 @@ export default function Tasks() {
         </Link>
       </Box>
       <Dashboard />
+      <Suspense fallback={null}>
+        <AllBloodSugars />
+      </Suspense>
       <Form />
     </Box>
   )
