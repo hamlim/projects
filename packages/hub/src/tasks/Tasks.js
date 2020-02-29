@@ -86,9 +86,10 @@ export default function Tasks() {
   return (
     <Box>
       <H1>Tasks</H1>
-      <Suspense fallback={<Text>Loading tasks...</Text>}>
+      <Text>Coming Soon</Text>
+      {/* <Suspense fallback={<Text>Loading tasks...</Text>}>
         <View />
-      </Suspense>
+      </Suspense> */}
     </Box>
   )
 }

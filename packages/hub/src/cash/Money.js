@@ -1,5 +1,5 @@
 import React from 'react'
-import { H1, Box, Link } from '@matthamlin/component-library'
+import { H1, Box, Link, Text } from '@matthamlin/component-library'
 import { Link as RouterLink, useRoute } from '@matthamlin/reroute-browser'
 
 import View from './view/View'
@@ -18,7 +18,9 @@ export default function Money() {
     <Box pt={5}>
       <H1>Money</H1>
 
-      <Link as={RouterLink} to="/money/view">
+      <Text>Coming Soon</Text>
+
+      {/* <Link as={RouterLink} to="/money/view">
         View
       </Link>
       <Link as={RouterLink} to="/money/create">
@@ -30,7 +32,7 @@ export default function Money() {
       </Route>
       <Route path="/money/create">
         <Create />
-      </Route>
+      </Route> */}
     </Box>
   )
 }
