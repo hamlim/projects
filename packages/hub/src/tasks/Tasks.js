@@ -17,8 +17,7 @@ let table = 'tasks'
 
 let today = new Date().getDate()
 
-function todaysTasks(data) {
-  let { records } = data
+function todaysTasks(records) {
   return records.filter(record => {
     return new Date(record.fields.dueDate).getDate() === today
   })
@@ -41,19 +40,38 @@ function Daily({ tasks }) {
       <Text>Todays Tasks: </Text>
       <List>
         {tasksForToday.map(task => (
-          <ListItem key={task.id}>{task.text}</ListItem>
+          <ListItem key={task.fields.id}>{task.fields.text}</ListItem>
         ))}
       </List>
     </>
   )
 }
 
+function sortTasks(taskA, taskB) {
+  if (Date(taskA.fields.dateCreated) < Date(taskB.fields.dateCreated)) {
+    return -1
+  } else if (Date(taskA.fields.dateCreated) > Date(taskB.fields.dateCreated)) {
+    return 1
+  }
+  return 0
+}
+
 function All({ tasks }) {
-  return <Text>All Tasks: </Text>
+  console.log(tasks)
+  return (
+    <>
+      <Text>All Tasks: </Text>
+      <List variant="ordered">
+        {tasks.sort(sortTasks).map(task => (
+          <ListItem key={task.fields.id}>{task.fields.text}</ListItem>
+        ))}
+      </List>
+    </>
+  )
 }
 
 function View() {
-  let tasks = useAirtable({ base, table })
+  let { records: tasks } = useAirtable({ base, table })
   return (
     <>
       <Box mb={4}>
