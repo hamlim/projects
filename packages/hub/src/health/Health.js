@@ -6,6 +6,8 @@ import {
   Text,
   Input,
   Button,
+  List,
+  ListItem,
 } from '@matthamlin/component-library'
 import { Link as RouterLink } from '@matthamlin/reroute-browser'
 import useAirtable from '../useAirtable'
@@ -29,20 +31,58 @@ function LatestBloodSugar() {
   )
 }
 
+function chunk(perChunk, arr) {
+  return arr.reduce((chunked, one) => {
+    let lastItem = chunked[chunked.length - 1]
+    if (Array.isArray(lastItem)) {
+      let reversedChunked = [...chunked].reverse()
+      let [last, ...first] = reversedChunked
+
+      let [lastEl, ...restOfLast] = last.reverse()
+
+      if (lastEl.fields.Day === one.fields.Day) {
+        return [...first.reverse(), [...last, one]]
+      }
+    }
+    return [...chunked, [one]]
+  }, [])
+}
+
 function AllBloodSugars() {
-  let { records: bloodSugars, offset } = useAirtable({
+  let { records: bloodSugars } = useAirtable({
     base: 'appnK0ZDhsqs1XEcv',
     table:
-      'Blood%20Sugar%20Ratings?maxRecords=500&view=Grid%20view&sort%5B0%5D%5Bfield%5D=Time&sort%5B0%5D%5Bdirection%5D=desc',
+      'Blood%20Sugar%20Ratings?maxRecords=24&view=Grid%20view&sort%5B0%5D%5Bfield%5D=Time&sort%5B0%5D%5Bdirection%5D=desc',
   })
 
-  console.log(bloodSugars, offset)
+  bloodSugars = chunk(4, bloodSugars)
 
-  return null
   return (
-    <>
-      <Text fontSize={3}>Blood Sugar:</Text> <Text>{bloodSugar}</Text>
-    </>
+    <List as="ol" p={6}>
+      {bloodSugars.map((dayOfResults, i) => (
+        <ListItem
+          key={dayOfResults[0].fields.Day}
+          bg="gray.1"
+          borderRadius="1"
+          p={4}
+          mb={i !== bloodSugars.length - 1 ? 4 : null}
+        >
+          <Text>{dayOfResults[0].fields.Day}</Text>
+          <List as="ol">
+            {dayOfResults.map(sugar => (
+              <ListItem key={sugar.id}>
+                <Text>
+                  Blood Sugar Value:{' '}
+                  <Text forwardedAs="span" color="green.7">
+                    {sugar.fields['Blood Sugar Level']}
+                  </Text>
+                </Text>
+              </ListItem>
+            ))}
+          </List>
+        </ListItem>
+      ))}
+    </List>
   )
 }
 
@@ -85,19 +125,6 @@ function Dashboard() {
   )
 }
 
-function Form() {
-  let [value, setValue] = useState('')
-  return (
-    <Box>
-      <Box forwardedAs="label">
-        Enter Blood Sugar:
-        <Input value={value} onChange={setValue} />
-      </Box>
-      <Button>Click Here!</Button>
-    </Box>
-  )
-}
-
 export default function Tasks() {
   return (
     <Box>
@@ -109,9 +136,10 @@ export default function Tasks() {
       </Box>
       <Dashboard />
       <Suspense fallback={null}>
-        <AllBloodSugars />
+        <Box p={6}>
+          <AllBloodSugars />
+        </Box>
       </Suspense>
-      <Form />
     </Box>
   )
 }
