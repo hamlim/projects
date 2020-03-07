@@ -69,11 +69,13 @@ export function Nav() {
   let moneyProps = useRoute('/money')
   let taskProps = useRoute('/tasks')
   let healthProps = useRoute('/health')
+  let habitProps = useRoute('/habits')
 
   let HomeLink = homeProps.match ? Text : RouteLink
   let MoneyLink = moneyProps.match ? Text : RouteLink
   let TaskLink = taskProps.match ? Text : RouteLink
   let HealthLink = healthProps.match ? Text : RouteLink
+  let HabitsLink = habitProps.match ? Text : RouteLink
 
   let theme = useTheme()
 
@@ -107,10 +109,15 @@ export function Nav() {
                       Tasks
                     </TaskLink>
                   </ListItem>
-                  <ListItem>
+                  <ListItem mr={4}>
                     <HealthLink to="/health" fontSize={2}>
                       Health
                     </HealthLink>
+                  </ListItem>
+                  <ListItem>
+                    <HabitsLink to="/habits" fontSize={2}>
+                      Habits
+                    </HabitsLink>
                   </ListItem>
                 </Box>
                 <ListItem>{user.username}</ListItem>

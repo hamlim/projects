@@ -7,8 +7,9 @@ import {
   List,
   ListItem,
 } from '@matthamlin/component-library'
-import { Link as RouterLink } from '@matthamlin/reroute-browser'
+import { Link as RouterLink, useRoute } from '@matthamlin/reroute-browser'
 import useAirtable from '../useAirtable'
+import { useHistory } from '@matthamlin/reroute-core'
 
 let { Suspense, useMemo } = React
 
@@ -16,6 +17,14 @@ let base = 'appFuzjMaJJLBSf0V'
 let table = 'tasks'
 
 let today = new Date().getDate()
+
+function Route({ children, path }) {
+  let { match } = useRoute(path)
+  if (match) {
+    return children
+  }
+  return null
+}
 
 function todaysTasks(records) {
   return records.filter(record => {
@@ -47,6 +56,35 @@ function Daily({ tasks }) {
   )
 }
 
+function Task({ fields }) {
+  let {
+    text,
+    dateCreated,
+    dateDue,
+    status,
+    notes = '',
+    tasks = '[]',
+    tags = '[]',
+  } = fields
+
+  tags = JSON.parse(tags)
+  tasks = JSON.parse(tasks)
+  console.log(fields)
+  let { history } = useHistory()
+  return (
+    <Box position="relative">
+      <Text maxWidth="70%">
+        {text} - {new Date(dateCreated).toLocaleDateString()}
+      </Text>
+      <Text>Due Date: {new Date(dateDue).toLocaleDateString()}</Text>
+      <Text>{notes}</Text>
+      <Link position="absolute" top={0} right={0} as={RouterLink} to="/tasks">
+        Close
+      </Link>
+    </Box>
+  )
+}
+
 function sortTasks(taskA, taskB) {
   if (Date(taskA.fields.dateCreated) < Date(taskB.fields.dateCreated)) {
     return -1
@@ -57,15 +95,26 @@ function sortTasks(taskA, taskB) {
 }
 
 function All({ tasks }) {
-  console.log(tasks)
+  let sortedTasks = tasks.sort(sortTasks).filter(task => !!task.fields.text)
   return (
     <>
       <Text>All Tasks: </Text>
-      <List variant="ordered">
-        {tasks.sort(sortTasks).map(task => (
-          <ListItem key={task.fields.id}>{task.fields.text}</ListItem>
+      <List as="ul">
+        {sortedTasks.map(task => (
+          <ListItem key={task.fields.id}>
+            <Link as={RouterLink} to={`/tasks/${task.id}`}>
+              {task.fields.text}
+            </Link>
+          </ListItem>
         ))}
       </List>
+      <Box mt={6}>
+        {sortedTasks.map(task => (
+          <Route key={task.id} path={`/tasks/${task.id}`}>
+            <Task {...task} />
+          </Route>
+        ))}
+      </Box>
     </>
   )
 }
@@ -86,10 +135,9 @@ export default function Tasks() {
   return (
     <Box>
       <H1>Tasks</H1>
-      <Text>Coming Soon</Text>
-      {/* <Suspense fallback={<Text>Loading tasks...</Text>}>
+      <Suspense fallback={<Text>Loading tasks...</Text>}>
         <View />
-      </Suspense> */}
+      </Suspense>
     </Box>
   )
 }

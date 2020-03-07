@@ -52,7 +52,7 @@ function AllBloodSugars() {
   let { records: bloodSugars } = useAirtable({
     base: 'appnK0ZDhsqs1XEcv',
     table:
-      'Blood%20Sugar%20Ratings?maxRecords=24&view=Grid%20view&sort%5B0%5D%5Bfield%5D=Time&sort%5B0%5D%5Bdirection%5D=desc',
+      'Blood%20Sugar%20Ratings?maxRecords=8&view=Grid%20view&sort%5B0%5D%5Bfield%5D=Time&sort%5B0%5D%5Bdirection%5D=desc',
   })
 
   bloodSugars = chunk(4, bloodSugars)
@@ -140,6 +140,7 @@ export default function Tasks() {
           <AllBloodSugars />
         </Box>
       </Suspense>
+      <Box p={6}></Box>
     </Box>
   )
 }

@@ -18,9 +18,7 @@ export default function Money() {
     <Box pt={5}>
       <H1>Money</H1>
 
-      <Text>Coming Soon</Text>
-
-      {/* <Link as={RouterLink} to="/money/view">
+      <Link as={RouterLink} to="/money/view">
         View
       </Link>
       <Link as={RouterLink} to="/money/create">
@@ -32,7 +30,7 @@ export default function Money() {
       </Route>
       <Route path="/money/create">
         <Create />
-      </Route> */}
+      </Route>
     </Box>
   )
 }
