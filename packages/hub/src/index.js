@@ -8,6 +8,7 @@ import Money from './cash/Money.js'
 import Tasks from './tasks/Tasks.js'
 import Health from './health/Health.js'
 import Habits from './habits/Habits.js'
+import Calendar from './calendar/Calendar.js'
 import Login from './auth/Login.js'
 import { Layout, Nav } from './Layout.js'
 import { Provider as UserProvider, userContext } from './userContext.js'
@@ -37,6 +38,7 @@ function Routes() {
         <Tasks path="/tasks" key="tasks" />,
         <Health path="/health" key="health" />,
         <Habits path="/habits" key="habits" />,
+        <Calendar path="/calendar" key="calendar" />,
       ]}
       <Landing path="/" />
     </Switch>

@@ -10,7 +10,10 @@ export default function Landing() {
   return (
     <Box>
       <H1>Hub</H1>
-      <Text>A centralized hub for tracking tasks, cash flow, health, etc.</Text>
+      <Text>
+        A centralized hub for tracking tasks, cash flow, health, habits, and
+        events.
+      </Text>
       {!user.isLoggedIn ? (
         <Box>
           <Link as={RouterLink} to="/login">
