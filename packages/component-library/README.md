@@ -1,6 +1,18 @@
 # `@matthamlin/components`
 
+Version: `2.0.0`
+
 A simple component library built on top of React, Styled Components, and Styled-System.
+
+### Patterns
+
+#### Controlled and Uncontrolled Components
+
+All of the input-style components within this component library come with both a default (e.g. `Input`) and an Uncontrolled (e.g. `UncontrolledInput`) variants. Both components support the same underlying API, however the Uncontrolled variant can't be controlled using `value`.
+
+#### Customizing the Rendered Element
+
+All components support the `as` and `forwardedAs` props, however unless you know what you are doing you **should always** use the `forwardedAs` prop. This will ensure the styled-system short-hand props continue to work as expected.
 
 ### Available Components
 
@@ -50,28 +62,28 @@ The Button component is a wrapper around an html `button` element, with a few op
 <Button onClick={doSomething}>Click Here</Button>
 ```
 
-#### `Input` and `ControlledInput`
+#### `Input` and `UncontrolledInput`
 
-The Input component is a wrapper around the `input` html element. The `ControlledInput` component is
+The Input component is a wrapper around the `input` html element. The `UncontrolledInput` component is
 a wrapper around the Input primitive that stores its own state for the value and accepts a
 `defaultValue` and an `onChange`.
 
 ```jsx
 <Input onChange={handleChange} value={value} />
 
-<ControlledInput defaultValue="foo" onChange={setValue} />
+<UncontrolledInput defaultValue="foo" onChange={setValue} />
 ```
 
-#### `HiddenCheckbox` and `ControlledHiddenCheckbox`
+#### `HiddenCheckbox` and `UncontrolledHiddenCheckbox`
 
 The HiddenCheckbox component renders a visually hidden checkbox element. It must be provided with `checked` and `onChange` props.
 
-The ControlledHiddenCheckbox component does the same but supports an optional `defaultChecked` prop and does not support the checked prop.
+The UncontrolledHiddenCheckbox component does the same but supports an optional `defaultChecked` prop and does not support the checked prop.
 
 ```jsx
 <HiddenCheckbox onChange={handleChange} checked={checked} />
 
-<ControlledInput
+<UncontrolledInput
   defaultChecked={defaultChecked}
   onChange={handleChange}
 />
@@ -97,15 +109,15 @@ The List component supports 3 `variant` prop values:
 - `unordered`
 
 ```jsx
-<List variant="base" as="ul">
+<List variant="base" forwardedAs="ul">
   <ListItem>Content</ListItem>
   <ListItem>Content</ListItem>
 </List>
-<List variant="ordered" as="ol">
+<List variant="ordered" forwardedAs="ol">
   <ListItem>1</ListItem>
   <ListItem>2</ListItem>
 </List>
-<List variant="unordered" as="ul">
+<List variant="unordered" forwardedAs="ul">
   <ListItem>content</ListItem>
   <ListItem>content</ListItem>
 </List>
@@ -113,11 +125,11 @@ The List component supports 3 `variant` prop values:
 
 #### `Link`
 
-The Link component renders as a text link, it requires an `as` prop to render as an appropriate
+The Link component renders as a text link, it requires a `forwardedAs` prop to render as an appropriate
 element (e.g. Link, 'a', etc).
 
 ```jsx
-<Link as="a" href="#">
+<Link forwardedAs="a" href="#">
   Link
 </Link>
 ```
@@ -127,7 +139,9 @@ element (e.g. Link, 'a', etc).
 ```jsx
 let matches = useMedia({
   query: '(min-width: 1000px)',
+  // Optional, useful for server-side rendering
   defaultMatches: false,
+  // Optional
   matchMedia: query => ({ matches, addListener, removeListener }),
 })
 ```
@@ -163,7 +177,7 @@ This theme object follows the theme spec from styled-system, see
 
 #### `Fieldset`
 
-The `Fieldset` and `ControlledFieldset` components offer a context provider for a tuple of `[value, setValue]` values, and renders a `fieldset` html element. It is meant to wrap a set of options.
+The `Fieldset` and `UncontrolledFieldset` components offer a context provider for a tuple of `[value, setValue]` values, and renders a `fieldset` html element. It is meant to wrap a set of options.
 
 ```jsx
 <Fieldset value={} onChange={}>
@@ -173,26 +187,48 @@ The `Fieldset` and `ControlledFieldset` components offer a context provider for 
 
 #### `RadioButton`
 
-The `RadioButton` and `ControlledRadioButton` components offer visually hidden inputs that act like radio selects.
+The `RadioButton` and `UncontrolledRadioButton` components offer visually hidden inputs that act like radio selects.
 
-They are built to be used within the `Fieldset` and `ControlledFieldset` components.
+They are built to be used within the `Fieldset` and `UncontrolledFieldset` components.
 
 ```jsx
-<ControlledFieldset defaultValue="a" name="foo">
-  <label>
-    <ControlledRadioButton value="a">
+<UncontrolledFieldset defaultValue="a" name="foo">
+  <Label>
+    <UncontrolledRadioButton value="a">
     A
-  </label>
-  <label>
-    <ControlledRadioButton value="b">
+  </Label>
+  <Label>
+    <UncontrolledRadioButton value="b">
     B
-  </label>
-  <label>
-    <ControlledRadioButton value="c">
+  </Label>
+  <Label>
+    <UncontrolledRadioButton value="c">
     C
-  </label>
-</ControlledFieldset>
+  </Label>
+</UncontrolledFieldset>
+```
 
+#### `Label`
+
+The `Label` component is meant for wrapping input-style components with some label text. By default it renders as an HTML label element.
+
+```jsx
+<Label>
+  Descriptive label here:
+  <Input />
+</Label>
+```
+
+#### `Textarea`
+
+The `Textarea` component renders as an HTML `textarea` element and is resizable by default.
+
+```jsx
+<Label>
+  Label text here:
+  <Textarea defaultValue="Some long text here..." />
+</Label>
+```
 
 ### Ideas:
 
@@ -202,4 +238,7 @@ They are built to be used within the `Fieldset` and `ControlledFieldset` compone
 - Chip component
 - Tabs
 - Accordion
+
+```
+
 ```

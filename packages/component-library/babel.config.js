@@ -17,5 +17,6 @@ module.exports = function(api) {
       '@babel/plugin-transform-runtime',
       'babel-plugin-styled-components',
     ],
+    ignore: ['src/__tests__/*'],
   }
 }

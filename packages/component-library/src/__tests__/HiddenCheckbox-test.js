@@ -1,6 +1,6 @@
 import { render, fireEvent, cleanup } from '@testing-library/react'
 import React from 'react'
-import { HiddenCheckbox, ControlledHiddenCheckbox } from '../HiddenCheckbox'
+import { HiddenCheckbox, UncontrolledHiddenCheckbox } from '../HiddenCheckbox'
 import { ThemeProvider } from '../ThemeProvider.js'
 import '@testing-library/jest-dom/extend-expect'
 
@@ -40,12 +40,12 @@ test("it doesn't call onChange when clicked and disabled", () => {
   expect(handleChange).not.toHaveBeenCalled()
 })
 
-test('ControlledHiddenCheckbox defaults to defaultChecked', () => {
+test('UncontrolledHiddenCheckbox defaults to defaultChecked', () => {
   let { getByLabelText } = render(
     <ThemeProvider>
       <label>
         Subscribe to thing?
-        <ControlledHiddenCheckbox defaultChecked />
+        <UncontrolledHiddenCheckbox defaultChecked />
       </label>
     </ThemeProvider>,
   )

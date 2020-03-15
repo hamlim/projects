@@ -39,7 +39,7 @@ export let RadioButton = forwardRef((props, ref) => (
   <_RadioButton innerRef={ref} {...props} />
 ))
 
-function _ControlledRadioButton({
+function _UncontrolledRadioButton({
   onChange = () => {},
   value,
   innerRef,
@@ -49,7 +49,7 @@ function _ControlledRadioButton({
 
   if (!context) {
     throw new Error(
-      'ControlledRadioButton rendered outside of a Fieldset. Either wrap the ControlledRadioButton in a Fieldset, or use the default RadioButton component.',
+      'UncontrolledRadioButton rendered outside of a Fieldset. Either wrap the UncontrolledRadioButton in a Fieldset, or use the default RadioButton component.',
     )
   }
 
@@ -75,6 +75,6 @@ function _ControlledRadioButton({
   )
 }
 
-export let ControlledRadioButton = forwardRef((props, ref) => (
-  <_ControlledRadioButton {...props} innerRef={ref} />
+export let UncontrolledRadioButton = forwardRef((props, ref) => (
+  <_UncontrolledRadioButton {...props} innerRef={ref} />
 ))

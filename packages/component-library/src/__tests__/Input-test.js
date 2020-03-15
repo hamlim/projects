@@ -1,6 +1,6 @@
 import { render, fireEvent, cleanup } from '@testing-library/react'
 import React from 'react'
-import { Input, ControlledInput } from '../Input.js'
+import { Input, UncontrolledInput } from '../Input.js'
 import { ThemeProvider } from '../ThemeProvider.js'
 import '@testing-library/jest-dom/extend-expect'
 
@@ -21,11 +21,11 @@ test('Input calls onChange with the value only', () => {
   expect(handleChange).toHaveBeenCalledWith('value')
 })
 
-test('ControlledInput calls onChange', () => {
+test('UncontrolledInput calls onChange', () => {
   let handleChange = jest.fn()
   let { container } = render(
     <ThemeProvider>
-      <ControlledInput onChange={handleChange} />
+      <UncontrolledInput onChange={handleChange} />
     </ThemeProvider>,
   )
 

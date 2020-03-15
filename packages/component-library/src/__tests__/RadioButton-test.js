@@ -2,8 +2,8 @@ import { render, fireEvent, cleanup } from '@testing-library/react'
 import React, { useContext } from 'react'
 import { ThemeProvider } from '../ThemeProvider.js'
 import '@testing-library/jest-dom/extend-expect'
-import { fieldsetContext, Fieldset, ControlledFieldset } from '../Fieldset'
-import { RadioButton, ControlledRadioButton } from '../RadioButton.js'
+import { fieldsetContext, Fieldset, UncontrolledFieldset } from '../Fieldset'
+import { RadioButton, UncontrolledRadioButton } from '../RadioButton.js'
 
 afterEach(cleanup)
 
@@ -17,35 +17,35 @@ const pauseErrorLogging = codeToRun => {
   console.error = logger
 }
 
-test('ControlledRadioButton throws when rendered outside of a Fieldset', () => {
+test('UncontrolledRadioButton throws when rendered outside of a Fieldset', () => {
   pauseErrorLogging(() => {
     expect(() =>
       render(
         <ThemeProvider>
-          <ControlledRadioButton />
+          <UncontrolledRadioButton />
         </ThemeProvider>,
       ),
     ).toThrowErrorMatchingInlineSnapshot(
-      `"ControlledRadioButton rendered outside of a Fieldset. Either wrap the ControlledRadioButton in a Fieldset, or use the default RadioButton component."`,
+      `"UncontrolledRadioButton rendered outside of a Fieldset. Either wrap the UncontrolledRadioButton in a Fieldset, or use the default RadioButton component."`,
     )
   })
 })
 
-test('ControlledRadioButton calls back with the selected value', () => {
+test('UncontrolledRadioButton calls back with the selected value', () => {
   let handleChange = jest.fn()
   let { getByLabelText } = render(
     <ThemeProvider>
-      <ControlledFieldset name="foo" defaultValue="a" onChange={handleChange}>
+      <UncontrolledFieldset name="foo" defaultValue="a" onChange={handleChange}>
         <label>
-          <ControlledRadioButton value="a" />A
+          <UncontrolledRadioButton value="a" />A
         </label>
         <label>
-          <ControlledRadioButton value="b" />B
+          <UncontrolledRadioButton value="b" />B
         </label>
         <label>
-          <ControlledRadioButton value="c" />C
+          <UncontrolledRadioButton value="c" />C
         </label>
-      </ControlledFieldset>
+      </UncontrolledFieldset>
     </ThemeProvider>,
   )
 

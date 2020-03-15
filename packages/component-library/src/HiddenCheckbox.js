@@ -35,7 +35,7 @@ export let HiddenCheckbox = forwardRef((props, ref) => {
   return <_HiddenCheckbox innerRef={ref} {...props} />
 })
 
-function _ControlledHiddenCheckbox({
+function _UncontrolledHiddenCheckbox({
   defaultChecked = false,
   onChange = () => {},
   ...props
@@ -52,6 +52,6 @@ function _ControlledHiddenCheckbox({
   )
 }
 
-export let ControlledHiddenCheckbox = forwardRef((props, ref) => (
-  <_ControlledHiddenCheckbox innerRef={ref} {...props} />
+export let UncontrolledHiddenCheckbox = forwardRef((props, ref) => (
+  <_UncontrolledHiddenCheckbox innerRef={ref} {...props} />
 ))

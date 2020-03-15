@@ -3,10 +3,13 @@ import {
   ThemeProvider,
   Button,
   Banner,
-  ControlledFieldset,
-  ControlledRadioButton,
+  UncontrolledFieldset,
+  UncontrolledRadioButton,
   fieldsetContext,
+  UncontrolledTextarea,
+  UncontrolledInput,
   Box,
+  Label,
 } from '@matthamlin/component-library'
 
 function handleChange(val) {
@@ -17,16 +20,16 @@ function Radio({ value, disabled }) {
   let [selectedValue] = useContext(fieldsetContext)
 
   return (
-    <label
+    <Label
       style={{
         display: 'block',
         outline: selectedValue === value ? 'solid 1px mediumseagreen' : 'none',
         padding: 20,
       }}
     >
-      <ControlledRadioButton disabled={disabled} value={value} />{' '}
+      <UncontrolledRadioButton disabled={disabled} value={value} />{' '}
       {value.toUpperCase()}
-    </label>
+    </Label>
   )
 }
 
@@ -36,13 +39,25 @@ function App() {
       <div className="App">
         <Button onTap={() => console.log('Tap')}>Click Me</Button>
         <Banner variant="success">Banner</Banner>
-        <ControlledFieldset name="foo" defaultValue="a" onChange={handleChange}>
+        <UncontrolledFieldset
+          name="foo"
+          defaultValue="a"
+          onChange={handleChange}
+        >
           <Box m={4}>
             <Radio value="a" />
             <Radio value="b" />
             <Radio value="c" />
           </Box>
-        </ControlledFieldset>
+        </UncontrolledFieldset>
+        <Label m={6}>
+          Textarea:
+          <UncontrolledTextarea defaultValue="Type something else here ..." />
+        </Label>
+        <Label m={6}>
+          Input:
+          <UncontrolledInput />
+        </Label>
       </div>
     </ThemeProvider>
   )

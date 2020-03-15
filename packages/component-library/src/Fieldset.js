@@ -7,7 +7,7 @@ export let fieldsetContext = createContext(null)
 function _Fieldset({ children, value, onChange, name, innerRef, ...props }) {
   return (
     <fieldsetContext.Provider value={[value, onChange, { name }]}>
-      <Box ref={innerRef} is="fieldset" {...props}>
+      <Box ref={innerRef} forwardedAs="fieldset" border="none" {...props}>
         {children}
       </Box>
     </fieldsetContext.Provider>
@@ -18,7 +18,7 @@ export let Fieldset = forwardRef((props, ref) => (
   <_Fieldset {...props} innerRef={ref} />
 ))
 
-function _ControlledFieldset({
+function _UncontrolledFieldset({
   onChange = () => {},
   defaultValue = null,
   innerRef,
@@ -45,6 +45,6 @@ function _ControlledFieldset({
   )
 }
 
-export let ControlledFieldset = forwardRef((props, ref) => (
-  <_ControlledFieldset innerRef={ref} {...props} />
+export let UncontrolledFieldset = forwardRef((props, ref) => (
+  <_UncontrolledFieldset innerRef={ref} {...props} />
 ))

@@ -2,7 +2,7 @@ import { render, fireEvent, cleanup } from '@testing-library/react'
 import React, { useContext } from 'react'
 import { ThemeProvider } from '../ThemeProvider.js'
 import '@testing-library/jest-dom/extend-expect'
-import { fieldsetContext, Fieldset, ControlledFieldset } from '../Fieldset'
+import { fieldsetContext, Fieldset, UncontrolledFieldset } from '../Fieldset'
 
 afterEach(cleanup)
 
@@ -30,7 +30,7 @@ test('Fieldset provides the right context', () => {
   `)
 })
 
-test('ControlledFieldset provides the right context, defaulting to defaultValue', () => {
+test('UncontrolledFieldset provides the right context, defaulting to defaultValue', () => {
   let handleChange = () => {}
   let context
   function Test() {
@@ -39,9 +39,9 @@ test('ControlledFieldset provides the right context, defaulting to defaultValue'
   }
   let { container } = render(
     <ThemeProvider>
-      <ControlledFieldset defaultValue={3} onChange={handleChange}>
+      <UncontrolledFieldset defaultValue={3} onChange={handleChange}>
         <Test />
-      </ControlledFieldset>
+      </UncontrolledFieldset>
     </ThemeProvider>,
   )
 

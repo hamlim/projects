@@ -10,9 +10,9 @@ import {
   H5,
   H6,
   HiddenCheckbox,
-  ControlledHiddenCheckbox,
+  UncontrolledHiddenCheckbox,
   Input,
-  ControlledInput,
+  UncontrolledInput,
   Link,
   Tapable,
   Text,
@@ -26,10 +26,13 @@ import {
   List,
   ListItem,
   Fieldset,
-  ControlledFieldset,
+  UncontrolledFieldset,
   fieldsetContext,
   RadioButton,
-  ControlledRadioButton,
+  UncontrolledRadioButton,
+  Textarea,
+  UncontrolledTextarea,
+  Label,
 } from '../index.js'
 
 test('Banner is exported', () => {
@@ -76,16 +79,16 @@ test('HiddenCheckbox is exported', () => {
   expect(HiddenCheckbox).toBeDefined()
 })
 
-test('ControlledHiddenCheckbox is exported', () => {
-  expect(ControlledHiddenCheckbox).toBeDefined()
+test('UncontrolledHiddenCheckbox is exported', () => {
+  expect(UncontrolledHiddenCheckbox).toBeDefined()
 })
 
 test('Input is exported', () => {
   expect(Input).toBeDefined()
 })
 
-test('ControlledInput is exported', () => {
-  expect(ControlledInput).toBeDefined()
+test('UncontrolledInput is exported', () => {
+  expect(UncontrolledInput).toBeDefined()
 })
 
 test('Link is exported', () => {
@@ -138,8 +141,8 @@ test('ListItem is exported', () => {
 test('Fieldset is exported', () => {
   expect(Fieldset).toBeDefined()
 })
-test('ControlledFieldset is exported', () => {
-  expect(ControlledFieldset).toBeDefined()
+test('UncontrolledFieldset is exported', () => {
+  expect(UncontrolledFieldset).toBeDefined()
 })
 test('fieldsetContext is exported', () => {
   expect(fieldsetContext).toBeDefined()
@@ -148,6 +151,18 @@ test('fieldsetContext is exported', () => {
 test('RadioButton is exported', () => {
   expect(RadioButton).toBeDefined()
 })
-test('ControlledRadioButton is exported', () => {
-  expect(ControlledRadioButton).toBeDefined()
+test('UncontrolledRadioButton is exported', () => {
+  expect(UncontrolledRadioButton).toBeDefined()
+})
+
+test('Textarea is exported', () => {
+  expect(Textarea).toBeDefined()
+})
+
+test('UncontrolledTextarea is exported', () => {
+  expect(UncontrolledTextarea).toBeDefined()
+})
+
+test('Label is exported', () => {
+  expect(Label).toBeDefined()
 })

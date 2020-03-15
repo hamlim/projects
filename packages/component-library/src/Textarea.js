@@ -3,7 +3,7 @@ import { css } from 'styled-components'
 import { Box } from './Box'
 import { useTheme } from './ThemeProvider'
 
-export function Input({ unstable_Focused = false, onChange, ...props }) {
+export function Textarea({ unstable_Focused = false, onChange, ...props }) {
   let theme = useTheme()
   let handleChange = useCallback(
     function handleChange(event) {
@@ -13,17 +13,18 @@ export function Input({ unstable_Focused = false, onChange, ...props }) {
   )
   return (
     <Box
-      forwardedAs="input"
+      forwardedAs="textarea"
       borderRadius={0}
       bg={theme.colors.gray[2]}
       border="none"
-      height={50}
+      minHeight={100}
+      resizable="both"
       fontSize={1}
       fontFamily="base"
       display="block"
       minWidth="100%"
       px="0.5em"
-      py={0}
+      py="0.5em"
       unstable_Focused={unstable_Focused}
       css={({ theme, unstable_Focused }) => `
         &:focus {
@@ -48,7 +49,7 @@ export function Input({ unstable_Focused = false, onChange, ...props }) {
 
 function noop() {}
 
-export function UncontrolledInput({
+export function UncontrolledTextarea({
   onChange = noop,
   defaultValue = '',
   ...props
@@ -61,5 +62,5 @@ export function UncontrolledInput({
     },
     [onChange],
   )
-  return <Input {...props} value={value} onChange={handleChange} />
+  return <Textarea {...props} value={value} onChange={handleChange} />
 }

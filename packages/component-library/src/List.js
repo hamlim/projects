@@ -15,5 +15,5 @@ List.defaultProps = {
 }
 
 export function ListItem(props) {
-  return <Box as="li" {...props} />
+  return <Box forwardedAs="li" {...props} />
 }
