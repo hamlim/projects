@@ -6,12 +6,15 @@ import {
   Text,
   List,
   ListItem,
+  ControlledInput,
+  useTheme,
+  Button,
 } from '@matthamlin/component-library'
 import { Link as RouterLink, useRoute } from '@matthamlin/reroute-browser'
 import useAirtable from '../useAirtable'
 import { useHistory } from '@matthamlin/reroute-core'
 
-let { Suspense, useMemo } = React
+let { Suspense, useMemo, useReducer, useState } = React
 
 let base = 'appFuzjMaJJLBSf0V'
 let table = 'tasks'
@@ -47,7 +50,7 @@ function Daily({ tasks }) {
   return (
     <>
       <Text>Todays Tasks: </Text>
-      <List>
+      <List forwardedAs="ul">
         {tasksForToday.map(task => (
           <ListItem key={task.fields.id}>{task.fields.text}</ListItem>
         ))}
@@ -69,8 +72,6 @@ function Task({ fields }) {
 
   tags = JSON.parse(tags)
   tasks = JSON.parse(tasks)
-  console.log(fields)
-  let { history } = useHistory()
   return (
     <Box position="relative">
       <Text maxWidth="70%">
@@ -99,7 +100,7 @@ function All({ tasks }) {
   return (
     <>
       <Text>All Tasks: </Text>
-      <List as="ul">
+      <List forwardedAs="ul">
         {sortedTasks.map(task => (
           <ListItem key={task.fields.id}>
             <Link as={RouterLink} to={`/tasks/${task.id}`}>
@@ -119,6 +120,88 @@ function All({ tasks }) {
   )
 }
 
+function addReducer(state, action) {
+  return {
+    ...state,
+    [action.type]: action.value,
+  }
+}
+
+function noop() {}
+
+function Row({ gridTemplateColumns = '1fr 1fr', ...props }) {
+  let theme = useTheme()
+  return (
+    <Box
+      display="grid"
+      gridTemplateColumns={gridTemplateColumns}
+      gridGap={`${theme.space[4]}px`}
+      {...props}
+    />
+  )
+}
+
+function Add() {
+  let [state, dispatch] = useReducer(addReducer, {
+    text: '',
+    dateDue: '',
+    status: 'pending',
+    notes: '',
+    tasks: '[]',
+    tags: '[]',
+  })
+
+  let [showMore, setShowMore] = useState(false)
+
+  let theme = useTheme()
+
+  function dispatcher(type) {
+    return function(value) {
+      dispatch({ type, value })
+    }
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    let upload = {
+      ...state,
+      dateCreated: new Date(),
+    }
+
+    // @TODO
+  }
+
+  function toggleShowMore() {
+    setShowMore(showMore => !showMore)
+  }
+
+  return (
+    <Row forwardedAs="form" onSubmit={handleSubmit} mb={4}>
+      <Box forwardedAs="label">
+        Add a new task:
+        <ControlledInput
+          placeholder="Get groceries..."
+          value={state.text}
+          onChange={dispatcher('text')}
+        />
+      </Box>
+      <Row alignSelf="flex-end">
+        <Button onTap={toggleShowMore}>More</Button>
+        <Button onTap={noop}>Create</Button>
+      </Row>
+      <div
+        style={{
+          height: showMore ? 'auto' : 0,
+          transition: 'height 250ms ease-in-out',
+          overflow: showMore ? 'visible' : 'hidden',
+        }}
+      >
+        <Button>Test</Button>
+      </div>
+    </Row>
+  )
+}
+
 function View() {
   let { records: tasks } = useAirtable({ base, table })
   return (
@@ -126,6 +209,7 @@ function View() {
       <Box mb={4}>
         <Daily tasks={tasks} />
       </Box>
+      <Add />
       <All tasks={tasks} />
     </>
   )
