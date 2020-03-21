@@ -1,6 +1,7 @@
 let fs = require('fs')
 let path = require('path')
 let prettier = require('prettier')
+let { exec } = require('child_process')
 
 let args = process.argv.slice(2).reduce((acc, arg) => {
   if (arg.includes('=')) {
@@ -137,6 +138,9 @@ function main() {
   - packages/${args.packageName}/**/*`,
     'yaml',
   )
+
+  // Run zaps init after making the package
+  exec(`yarn zaps init`, { stdio: 'inherit' })
 }
 
 main()
