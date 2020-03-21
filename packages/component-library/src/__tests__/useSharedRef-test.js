@@ -51,3 +51,16 @@ test('it sets the passed in ref for function refs', () => {
 
   expect(refArg).toHaveBeenCalledTimes(1)
 })
+
+test('it supports multipe different target refs', () => {
+  let refOne = { current: null }
+  let refTwo = { current: null }
+  function Comp() {
+    let ref = useSharedRef(refOne, refTwo)
+    return <div ref={ref} data-testid="foo" />
+  }
+  let { getByTestId } = render(<Comp />)
+
+  expect(refOne.current).toBe(getByTestId('foo'))
+  expect(refTwo.current).toBe(getByTestId('foo'))
+})

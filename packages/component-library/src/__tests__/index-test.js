@@ -33,6 +33,8 @@ import {
   Textarea,
   UncontrolledTextarea,
   Label,
+  useForm,
+  Form,
 } from '../index.js'
 
 test('Banner is exported', () => {
@@ -165,4 +167,12 @@ test('UncontrolledTextarea is exported', () => {
 
 test('Label is exported', () => {
   expect(Label).toBeDefined()
+})
+
+test('useForm is defined', () => {
+  expect(useForm).toBeDefined()
+})
+
+test('Form is defined', () => {
+  expect(Form).toBeDefined()
 })

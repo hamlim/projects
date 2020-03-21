@@ -63,14 +63,20 @@ function RouteLink(props) {
   return <Link forwardedAs={RouterLink} {...props} />
 }
 
+let routeConfig = {
+  matcher(path, location) {
+    return location.pathname.startsWith(path)
+  },
+}
+
 export function Nav() {
   let [user] = useContext(userContext)
   let homeProps = useRoute('/')
-  let moneyProps = useRoute('/money')
-  let taskProps = useRoute('/tasks')
-  let healthProps = useRoute('/health')
-  let habitProps = useRoute('/habits')
-  let calendarProps = useRoute('/calendar')
+  let moneyProps = useRoute('/money', routeConfig)
+  let taskProps = useRoute('/tasks', routeConfig)
+  let healthProps = useRoute('/health', routeConfig)
+  let habitProps = useRoute('/habits', routeConfig)
+  let calendarProps = useRoute('/calendar', routeConfig)
 
   let HomeLink = homeProps.match ? Text : RouteLink
   let MoneyLink = moneyProps.match ? Text : RouteLink

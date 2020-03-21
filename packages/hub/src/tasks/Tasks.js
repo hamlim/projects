@@ -6,9 +6,12 @@ import {
   Text,
   List,
   ListItem,
-  ControlledInput,
+  Input,
+  Label,
   useTheme,
   Button,
+  Form,
+  useForm,
 } from '@matthamlin/component-library'
 import { Link as RouterLink, useRoute } from '@matthamlin/reroute-browser'
 import useAirtable from '../useAirtable'
@@ -141,6 +144,11 @@ function Row({ gridTemplateColumns = '1fr 1fr', ...props }) {
   )
 }
 
+function SubmitButton(props) {
+  let submit = useForm()
+  return <Button onTap={submit} {...props} />
+}
+
 function Add() {
   let [state, dispatch] = useReducer(addReducer, {
     text: '',
@@ -168,6 +176,8 @@ function Add() {
       dateCreated: new Date(),
     }
 
+    console.log(upload)
+
     // @TODO
   }
 
@@ -176,29 +186,30 @@ function Add() {
   }
 
   return (
-    <Row forwardedAs="form" onSubmit={handleSubmit} mb={4}>
-      <Box forwardedAs="label">
+    <Form forwardedAs={Row} onSubmit={handleSubmit} mb={4}>
+      <Label>
         Add a new task:
-        <ControlledInput
+        <Input
           placeholder="Get groceries..."
           value={state.text}
           onChange={dispatcher('text')}
         />
-      </Box>
+      </Label>
       <Row alignSelf="flex-end">
         <Button onTap={toggleShowMore}>More</Button>
-        <Button onTap={noop}>Create</Button>
+        <SubmitButton>Create</SubmitButton>
       </Row>
       <div
         style={{
           height: showMore ? 'auto' : 0,
           transition: 'height 250ms ease-in-out',
+          transitionDelay: '10ms',
           overflow: showMore ? 'visible' : 'hidden',
         }}
       >
         <Button>Test</Button>
       </div>
-    </Row>
+    </Form>
   )
 }
 
