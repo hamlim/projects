@@ -6,6 +6,7 @@ import {
   Text,
   List,
   ListItem,
+  Banner,
   Input,
   Label,
   useTheme,
@@ -17,10 +18,19 @@ import { Link as RouterLink, useRoute } from '@matthamlin/reroute-browser'
 import useAirtable from '../useAirtable'
 import { useHistory } from '@matthamlin/reroute-core'
 
-let { Suspense, useMemo, useReducer, useState } = React
+let {
+  Suspense,
+  useMemo,
+  useReducer,
+  useState,
+  useTransition,
+  useEffect,
+} = React
 
 let base = 'appFuzjMaJJLBSf0V'
 let table = 'tasks'
+
+let ENDPOINT = `https://api.airtable.com/v0/${base}/${table}`
 
 let today = new Date().getDate()
 
@@ -152,16 +162,54 @@ function SubmitButton(props) {
 function Add() {
   let [state, dispatch] = useReducer(addReducer, {
     text: '',
-    dateDue: '',
+    dateDue: null,
     status: 'pending',
     notes: '',
     tasks: '[]',
     tags: '[]',
   })
 
+  let [pendingUpload, setUpload] = useState(null)
+  let [uploadStatus, setUploadStatus] = useState(null)
+
   let [showMore, setShowMore] = useState(false)
 
   let theme = useTheme()
+
+  let [startTransition, pending] = useTransition()
+
+  useEffect(() => {
+    if (pendingUpload) {
+      let isActive = true
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${process.env.API_KEY}`,
+        },
+        body: JSON.stringify({
+          records: [
+            {
+              fields: pendingUpload,
+            },
+          ],
+        }),
+      })
+        .then(res => res.json())
+        .then(res => {
+          if (isActive) {
+            setUploadStatus('success')
+          }
+        })
+        .catch(e => {
+          console.warn(e)
+          if (isActive) {
+            setUploadStatus('failed')
+          }
+        })
+      return () => (isActive = false)
+    }
+  }, [pendingUpload])
 
   function dispatcher(type) {
     return function(value) {
@@ -175,14 +223,18 @@ function Add() {
       ...state,
       dateCreated: new Date(),
     }
-
-    console.log(upload)
-
-    // @TODO
+    setUploadStatus('pending')
+    startTransition(() => {
+      setUpload(upload)
+    })
   }
 
   function toggleShowMore() {
     setShowMore(showMore => !showMore)
+  }
+
+  function clearUpload() {
+    setUploadStatus(null)
   }
 
   return (
@@ -197,7 +249,9 @@ function Add() {
       </Label>
       <Row alignSelf="flex-end">
         <Button onTap={toggleShowMore}>More</Button>
-        <SubmitButton>Create</SubmitButton>
+        <SubmitButton disabled={uploadStatus === 'pending'}>
+          Create
+        </SubmitButton>
       </Row>
       <div
         style={{
@@ -209,6 +263,20 @@ function Add() {
       >
         <Button>Test</Button>
       </div>
+      {uploadStatus === 'success' && (
+        <Banner
+          variant="success"
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <Text forwardedAs="span">Added todo ✅</Text>
+          <Button onTap={clearUpload}>Dismiss</Button>
+        </Banner>
+      )}
+      {uploadStatus === 'failed' && (
+        <Banner variant="error">Unable to add todo</Banner>
+      )}
     </Form>
   )
 }

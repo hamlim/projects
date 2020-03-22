@@ -7,21 +7,10 @@ import {
   Text,
   useTheme,
 } from '@matthamlin/component-library'
+import useAirtable from '../../useAirtable'
 
-let cache = new Map()
-
-function useTransactions() {
-  return useCache(cache, 'transactions', () =>
-    fetch(
-      'https://api.airtable.com/v0/applYClUOdBXhRzGf/Dollars?maxRecords=10&view=Main%20View',
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.API_KEY}`,
-        },
-      },
-    ).then(res => res.json()),
-  )
-}
+let base = `app2FaIaQeVAWkNTF`
+let table = `transactions`
 
 function Log({ children }) {
   console.log(children)
@@ -49,7 +38,10 @@ function Chip({ children }) {
 }
 
 export function Transactions() {
-  let transactions = useTransactions()
+  let transactions = useAirtable({
+    base,
+    table,
+  })
 
   if (!transactions.records) {
     let err = new Error('Unable to fetch transactions.')
@@ -64,16 +56,15 @@ export function Transactions() {
           <Log>{record.fields}</Log>
           <Stack>
             <Box forwardedAs="time">
-              {new Date(record.fields.d_time).toLocaleDateString()} -{' '}
-              {new Date(record.fields.d_time).toLocaleTimeString()}
+              {new Date(record.fields.createdDate).toLocaleDateString()} -{' '}
+              {new Date(record.fields.createdDate).toLocaleTimeString()}
             </Box>
-            <Text>${record.fields.d_amount}</Text>
-            <Chip>{record.fields.d_category}</Chip>
-            <Text>{record.fields.d_location}</Text>
+            <Text>${record.fields.amount}</Text>
+            <Chip>{record.fields.tags}</Chip>
+            <Text>{record.fields.location}</Text>
             <Text forwardedAs="pre" fontFamily="base">
-              {record.fields.d_notes}
+              {record.fields.notes}
             </Text>
-            <Chip>{record.fields.d_tag}</Chip>
           </Stack>
         </ListItem>
       ))}
