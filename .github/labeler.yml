@@ -42,3 +42,6 @@ Scripts:
   - packages/hub/**/*
 📦 Base Styled:
   - packages/base-styled/**/*
+
+📦 Use Error:
+  - packages/use-error/**/*
