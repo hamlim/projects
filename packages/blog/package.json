@@ -7,7 +7,7 @@
     "watch": "parcel src/index.html",
     "build": "parcel build src/index.html --out-dir public",
     "predeploy": "parcel build src/index.html --out-dir public",
-    "deploy": "now public/"
+    "deploy": "now ./public/ --regions all"
   },
   "dependencies": {
     "@matthamlin/component-library": "*",
