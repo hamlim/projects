@@ -49,6 +49,16 @@ let components = {
   code: Code,
   img: Img,
   Spacer: props => <Box mb={6} {...props} />,
+  blockquote: props => (
+    <Box
+      borderLeft="solid 2px"
+      color="gray.8"
+      pl={6}
+      mx={3}
+      forwardedAs="blockquote"
+      {...props}
+    />
+  ),
 }
 
 createRoot(document.querySelector('#root')).render(

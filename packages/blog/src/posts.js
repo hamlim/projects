@@ -2,6 +2,11 @@ import { lazy } from 'react'
 
 export default [
   {
+    to: 'draft-pull-requests',
+    title: 'Draft Pull Requests',
+    component: lazy(() => import('./posts/2020/march/draft-pull-requests.mdx')),
+  },
+  {
     to: 'february-20-2020',
     title: 'February 20, 2020',
     component: lazy(() => import('./posts/2020/february/back-bay-fens.mdx')),
