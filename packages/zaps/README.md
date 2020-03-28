@@ -1,5 +1,7 @@
 # `@matthamlin/zaps`
 
+> 🚨 This package is a work in progress, it may not work yet
+
 A monorepo toolchain.
 
 ## Architecture
@@ -18,6 +20,15 @@ Workspaces are defined by a `workspaces` key in the project root package.json fi
   "workspaces": ["packages/*"]
 }
 ```
+
+## Commands:
+
+- `zaps init`
+  - Generates the zaps graph and zaps config file for the repo
+- `zaps run`
+  - Runs commands within a specified workspace
+- `zaps exec`
+  - Runs a command across all workspaces
 
 ## TODO:
 

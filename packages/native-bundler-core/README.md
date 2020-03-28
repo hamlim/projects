@@ -1,5 +1,7 @@
 # Native Bundler
 
+> 🚨 This project is a Work in Progress and may not work yet
+
 This is an attempt at making a javascript-based asset bundler that follows the following constraints/features:
 
 1. Imports must be from absolute locations (`import React from 'https://unpkg.com/react@16.4.2/umd/react.production.min.js';`) or relative assets (i.e. no node_modules)

@@ -1,4 +1,4 @@
-# Reroute Browser
+# `@matthamlin/reroute-browser`
 
 A collection of routing components and hooks for composing web react applications.
 

@@ -1,13 +1,17 @@
 # `@matthamlin/blog`
 
-TODO
+A personal site and blog
 
 ## Running
 
-- yw watch
+- `yarn zaps run watch`
 
 ## Adding a Post
 
 - Create mdx file in the `src/posts/` directory
 - Run `yarn update-posts`
 - Deploy
+
+## Deploying:
+
+- `yarn zaps run deploy`

@@ -1,6 +1,6 @@
 # `@matthamlin/property-controls`
 
-A package that implements FramerX like Property Controls for any React component.
+A package for interacting with FramerX like Property Controls for any React component.
 
 ## Example
 

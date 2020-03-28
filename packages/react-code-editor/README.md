@@ -1,13 +1,12 @@
-# React Code Editor
+# `@matthamlin/react-code-editor`
 
-`@matthamlin/react-code-editor` is an opinionated package built on top of React Hooks and react-simple-code-editor.
+This package provides an opinionated package built on top of React Hooks and `react-simple-code-editor`.
 
 It implements a lightweight code editor component that supports the following enhancements:
 
 - Line commenting via `Cmd + /` or `Ctrl + /`
 - Format on Save via `Cmd + s` or `Ctrl + s` - with `formatOnSave` prop
 - Format code via `Cmd + f` or `Ctrl + f`
-- maybe more soon???
 
 ## Usage
 

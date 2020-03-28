@@ -56,10 +56,10 @@ heading element, and defaulting the fontSize to the scale of fontSizes within th
 
 #### `Button`
 
-The Button component is a wrapper around an html `button` element, with a few opinionated styles.
+The Button component is a wrapper around an accessible interactive html element, with a few opinionated styles.
 
 ```jsx
-<Button onClick={doSomething}>Click Here</Button>
+<Button onTap={doSomething}>Click Here</Button>
 ```
 
 #### `Input` and `UncontrolledInput`
@@ -78,7 +78,7 @@ a wrapper around the Input primitive that stores its own state for the value and
 
 The HiddenCheckbox component renders a visually hidden checkbox element. It must be provided with `checked` and `onChange` props.
 
-The UncontrolledHiddenCheckbox component does the same but supports an optional `defaultChecked` prop and does not support the checked prop.
+The UncontrolledHiddenCheckbox component does the same but supports an optional `defaultChecked` prop and does not support the `checked` prop.
 
 ```jsx
 <HiddenCheckbox onChange={handleChange} checked={checked} />
@@ -88,6 +88,8 @@ The UncontrolledHiddenCheckbox component does the same but supports an optional 
   onChange={handleChange}
 />
 ```
+
+These intentionally render no default UI to let you compose selectable experiences on top of them.
 
 #### `Banner`
 
@@ -156,6 +158,8 @@ let id = useId(providedId)
 
 The GlobalStyles component simply adds a basic css reset to the page to ensure style consistency.
 
+If you are using the default `ThemeProvider` component this is not needed.
+
 ```jsx
 <GlobalStyles />
 ```
@@ -168,12 +172,29 @@ the default theme.
 
 Additionally, you can use `useTheme` to read the theme within a function component.
 
+```jsx
+<ThemeProvider theme={overrideTheme}>
+  <App />
+</ThemeProvider>
+...
+let theme = useTheme()
+```
+
 #### `Theme`
 
-The components library also exposes the Theme object, allowing you to extend the system.
+The component library also exposes the theme object, allowing you to extend the system.
 
 This theme object follows the theme spec from styled-system, see
 [here](https://styled-system.com/theme-specification) for more information.
+
+```js
+import { theme } from '@matthamlin/component-library'
+
+export default {
+  ...theme,
+  // overrides
+}
+```
 
 #### `Fieldset`
 
@@ -238,7 +259,3 @@ The `Textarea` component renders as an HTML `textarea` element and is resizable 
 - Chip component
 - Tabs
 - Accordion
-
-```
-
-```

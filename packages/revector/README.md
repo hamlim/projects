@@ -1,5 +1,7 @@
 # `@matthamlin/revector`
 
+> 🚨 This package is a work in progress, it may not work yet
+
 React components for constructing SVGs.
 
 ## API

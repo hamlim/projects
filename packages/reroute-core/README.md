@@ -1,4 +1,4 @@
-# Reroute Core
+# `@matthamlin/reroute-core`
 
 This package maintains the core hooks for the Reroute library.
 
@@ -87,7 +87,9 @@ render(
       })
     }
   >
-    <Route path="/foo">{({ match }) => match && <>This will render initially</>}</Route>
+    <Route path="/foo">
+      {({ match }) => match && <>This will render initially</>}
+    </Route>
   </Router>,
 )
 ```

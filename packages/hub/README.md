@@ -1,7 +1,7 @@
 # `@matthamlin/hub`
 
-TODO
+A univeral hub for tracking personal information.
 
 ## Running
 
-- yw watch
+- `yarn zaps run watch`

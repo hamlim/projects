@@ -1,5 +1,7 @@
 # `@matthamlin/babel-plugin-property-controls`
 
+> 🚨 This project is a Work in Progress and may not work yet
+
 A babel plugin for transforming property controls on React components back to prop types and default
 props.
 
