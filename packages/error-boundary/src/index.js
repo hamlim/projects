@@ -13,10 +13,10 @@ export default class ErrorBoundary extends React.Component {
   }
 
   render() {
-    let { FallbackComponent, children } = this.props
+    let { Fallback, children } = this.props
 
     if (this.state.error) {
-      return React.createElement(FallbackComponent, { error: this.state.error })
+      return React.createElement(Fallback, { error: this.state.error })
     }
     return children
   }

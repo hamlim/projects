@@ -7,7 +7,7 @@
   "scripts": {
     "build": "babel src/ --out-dir dist/",
     "prepub": "yarn build",
-    "pub": "yarn publish --access public"
+    "pub": "yarn publish --access public --no-git-tag-version"
   },
   "devDependencies": {
     "@babel/cli": "7.5.0",
