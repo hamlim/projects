@@ -1,8 +1,10 @@
 # Projects
 
-This is meant to be a monorepo of several projects that I work on in my free time.
+This is meant to be a monorepo of several projects that I work on in my free
+time.
 
-This repo is using Yarn and Lerna for workspaces, and is using a local `zaps` package to manage running scripts throughout the repo.
+This repo is using Yarn and Lerna for workspaces, and is using a local `zaps`
+package to manage running scripts throughout the repo.
 
 ## Projects:
 
@@ -10,6 +12,7 @@ This repo is using Yarn and Lerna for workspaces, and is using a local `zaps` pa
 - [`@matthamlin/base-styled`](./packages/base-styled/README.md)
 - [`@matthamlin/blog`](./packages/blog/README.md)
 - [`@matthamlin/component-library`](./packages/component-library/README.md)
+- [`@matthamlin/error-boundary`](./packages/error-boundary/README.md)
 - [`@matthamlin/hub`](./packages/hub/README.md)
 - [`@matthamlin/kitchen-sink`](./packages/kitchen-sink/README.md)
 - [`@matthamlin/native-bundler-cli`](./packages/native-bundler-cli/README.md)

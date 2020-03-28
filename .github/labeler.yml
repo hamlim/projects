@@ -45,3 +45,6 @@ Scripts:
 
 📦 Use Error:
   - packages/use-error/**/*
+
+📦 Error Boundary:
+  - packages/error-boundary/**/*
