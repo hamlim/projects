@@ -9,8 +9,8 @@ A personal site and blog
 ## Adding a Post
 
 - Create mdx file in the `src/posts/` directory
-- Run `yarn update-posts`
-- Deploy
+- Add route object to `src/posts.js`
+- Done
 
 ## Deploying:
 

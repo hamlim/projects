@@ -4,4 +4,5 @@ module.exports = {
   semi: false,
   bracketSpacing: true,
   tabWidth: 2,
+  proseWrap: 'always'
 }

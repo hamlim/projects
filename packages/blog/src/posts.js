@@ -2,6 +2,11 @@ import { lazy } from 'react'
 
 export default [
   {
+    to: 'stateful-providers',
+    title: 'Stateful Providers',
+    component: lazy(() => import('./posts/2020/march/stateful-providers.mdx')),
+  },
+  {
     to: 'draft-pull-requests',
     title: 'Draft Pull Requests',
     component: lazy(() => import('./posts/2020/march/draft-pull-requests.mdx')),
