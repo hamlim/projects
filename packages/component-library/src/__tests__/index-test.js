@@ -35,6 +35,7 @@ import {
   Label,
   useForm,
   Form,
+  Checkbox,
 } from '../index.js'
 
 test('Banner is exported', () => {
@@ -175,4 +176,12 @@ test('useForm is defined', () => {
 
 test('Form is defined', () => {
   expect(Form).toBeDefined()
+})
+
+test('Checkbox is defined', () => {
+  expect(Checkbox).toBeDefined()
+})
+
+test('UncontrolledCheckbox is defined', () => {
+  expect(UncontrolledCheckbox).toBeDefined()
 })

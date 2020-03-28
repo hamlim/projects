@@ -1,4 +1,4 @@
-import React, { useContext, createContext } from 'react'
+import React, { useContext, useState } from 'react'
 import {
   ThemeProvider,
   Button,
@@ -10,6 +10,8 @@ import {
   UncontrolledInput,
   Box,
   Label,
+  Checkbox,
+  UncontrolledCheckbox,
 } from '@matthamlin/component-library'
 
 function handleChange(val) {
@@ -34,9 +36,10 @@ function Radio({ value, disabled }) {
 }
 
 function App() {
+  let [checked, setChecked] = useState(true)
   return (
     <ThemeProvider>
-      <div className="App">
+      <Box m={4}>
         <Button onTap={() => console.log('Tap')}>Click Me</Button>
         <Banner variant="success">Banner</Banner>
         <UncontrolledFieldset
@@ -50,15 +53,31 @@ function App() {
             <Radio value="c" />
           </Box>
         </UncontrolledFieldset>
-        <Label m={6}>
-          Textarea:
+        <Label m={6} flexWrap="wrap">
+          <Box>Textarea:</Box>
           <UncontrolledTextarea defaultValue="Type something else here ..." />
         </Label>
-        <Label m={6}>
-          Input:
+        <Label m={6} flexWrap="wrap">
+          <Box>Input:</Box>
           <UncontrolledInput />
         </Label>
-      </div>
+        <Box m={6}>
+          <Label>
+            <Checkbox mr={2} checked={checked} disabled onChange={setChecked} />{' '}
+            Check this
+          </Label>
+        </Box>
+        <Box m={6}>
+          <Label>
+            <UncontrolledCheckbox
+              mr={2}
+              defaultChecked={checked}
+              onChange={setChecked}
+            />{' '}
+            Check this
+          </Label>
+        </Box>
+      </Box>
     </ThemeProvider>
   )
 }
