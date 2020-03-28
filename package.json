@@ -6,8 +6,8 @@
     "sandbox"
   ],
   "scripts": {
-    "test": "lerna run test",
-    "build": "lerna run build",
+    "test": "zaps lerna test",
+    "build": "zaps lerna build",
     "clean-dist": "yarn node scripts/clean-dist.js",
     "create-package": "yarn node scripts/create-package.js",
     "create-site": "yarn node scripts/create-site.js",

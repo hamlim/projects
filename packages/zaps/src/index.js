@@ -20,6 +20,9 @@ try {
     case 'exec': {
       return require('./exec.js')(argv)
     }
+    case 'run-all': {
+      return require('./run-all.js')(argv)
+    }
     default: {
       console.log('No command provided')
     }

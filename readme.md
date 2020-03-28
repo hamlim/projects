@@ -2,7 +2,7 @@
 
 This is meant to be a monorepo of several projects that I work on in my free time.
 
-This repo is using Yarn and Lerna for workspaces, and is using Yarn 2 to install dependencies.
+This repo is using Yarn and Lerna for workspaces, and is using a local `zaps` package to manage running scripts throughout the repo.
 
 ## Projects:
 
@@ -26,3 +26,13 @@ This repo is using Yarn and Lerna for workspaces, and is using Yarn 2 to install
 - [`@matthamlin/simple-cache`](./packages/simple-cache/README.md)
 - [`@matthamlin/use-error`](./packages/use-error/README.md)
 - [`@matthamlin/zaps`](./packages/zaps/README.md)
+
+## Scripts
+
+### Creating a Package:
+
+`yarn create-package packageName=something`
+
+### Create a Site:
+
+`yarn create-site name=something`
