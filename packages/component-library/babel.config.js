@@ -16,6 +16,7 @@ module.exports = function(api) {
     plugins: [
       '@babel/plugin-transform-runtime',
       'babel-plugin-styled-components',
+      '@babel/plugin-proposal-class-properties',
     ],
     ignore: process.env.NODE_ENV !== 'test' ? ['src/__tests__/*'] : [],
   }

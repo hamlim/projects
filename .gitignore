@@ -12,3 +12,5 @@ packages/hub/.cache/
 packages/hub/public/
 
 .env
+
+/coverage/

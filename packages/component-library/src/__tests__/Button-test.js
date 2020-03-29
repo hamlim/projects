@@ -1,4 +1,4 @@
-import { render, fireEvent, cleanup } from '@testing-library/react'
+import { render, fireEvent, cleanup, wait } from '@testing-library/react'
 import React from 'react'
 import { Button } from '../Button.js'
 import { ThemeProvider } from '../ThemeProvider.js'
@@ -6,11 +6,11 @@ import '@testing-library/jest-dom/extend-expect'
 
 afterEach(cleanup)
 
-test('it calls onClick when clicked', () => {
+test('it calls onTap when clicked', () => {
   let handleClick = jest.fn()
   let { getByText } = render(
     <ThemeProvider>
-      <Button onClick={handleClick}>Foo</Button>
+      <Button onTap={handleClick}>Foo</Button>
     </ThemeProvider>,
   )
 
@@ -19,11 +19,11 @@ test('it calls onClick when clicked', () => {
   expect(handleClick).toHaveBeenCalled()
 })
 
-test("it doesn't call onClick when clicked and disabled", () => {
+test("it doesn't call onTap when clicked and disabled", () => {
   let handleClick = jest.fn()
   let { getByText } = render(
     <ThemeProvider>
-      <Button onClick={handleClick} disabled>
+      <Button onTap={handleClick} disabled>
         Foo
       </Button>
     </ThemeProvider>,

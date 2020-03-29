@@ -15,14 +15,14 @@ function asyncExec(...args) {
   })
 }
 
-module.exports = async function runAll({ _: [, command] }) {
+module.exports = async function runAll(commands) {
   let zapsConfig = readZapsConfig({ command: 'run-all' })
 
   let workspaces = zapsConfig.packages
 
   Promise.all(
     workspaces.map(workspace => {
-      return asyncExec(`yarn ${command}`, {
+      return asyncExec(`yarn ${commands.join(' ')}`, {
         cwd: path.join(process.cwd(), workspace),
         stdio: 'inherit',
       }).then(
