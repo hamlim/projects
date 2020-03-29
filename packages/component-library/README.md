@@ -1,6 +1,6 @@
 # `@matthamlin/components`
 
-Version: `2.1.0`
+Version: `3.0.0`
 
 A simple component library built on top of React, Styled Components, and
 Styled-System.
