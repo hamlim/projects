@@ -297,4 +297,5 @@ export default {
       alignItems: 'center',
     },
   },
+  outline: `dashed 1px ${colors.secondary}`,
 }

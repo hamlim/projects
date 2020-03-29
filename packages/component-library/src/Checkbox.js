@@ -2,12 +2,19 @@ import React, { useState, forwardRef } from 'react'
 import { HiddenCheckbox, UncontrolledHiddenCheckbox } from './HiddenCheckbox.js'
 import { useTheme } from './ThemeProvider.js'
 import { Box } from './Box.js'
+import styled from 'styled-components'
 
 function call(fn) {
   if (typeof fn === 'function') {
     fn()
   }
 }
+
+let BaseCheckbox = styled(Box)(
+  ({ showFocusOutline, theme }) => `
+  outline: ${showFocusOutline ? theme.outline : null};
+`,
+)
 
 function _Checkbox({
   onChange,
@@ -49,7 +56,7 @@ function _Checkbox({
   }
 
   return (
-    <Box
+    <BaseCheckbox
       border={border}
       bg={bg}
       height="20px"
@@ -57,11 +64,7 @@ function _Checkbox({
       borderRadius={0}
       display="inline-flex"
       alignSelf="center"
-      css={`
-        outline: ${showFocusOutline
-          ? `dashed 1px ${theme.colors.secondary}`
-          : null};
-      `}
+      showFocusOutline={showFocusOutline}
       {...props}
     >
       <HiddenCheckbox
@@ -72,7 +75,7 @@ function _Checkbox({
         onChange={onChange}
         disabled={disabled}
       />
-    </Box>
+    </BaseCheckbox>
   )
 }
 

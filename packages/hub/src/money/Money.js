@@ -1,13 +1,15 @@
 import React from 'react'
-import { useCache } from '@matthamlin/simple-cache'
 import {
+  H1,
   Box,
+  Link,
   List,
   ListItem,
   Text,
   useTheme,
 } from '@matthamlin/component-library'
-import useAirtable from '../../useAirtable'
+import { Link as RouterLink, useRoute } from '@matthamlin/reroute-browser'
+import useAirtable from '../useAirtable'
 
 let base = `app2FaIaQeVAWkNTF`
 let table = `transactions`
@@ -37,7 +39,7 @@ function Chip({ children }) {
   )
 }
 
-export function Transactions() {
+function Transactions() {
   let transactions = useAirtable({
     base,
     table,
@@ -72,7 +74,55 @@ export function Transactions() {
   )
 }
 
-export function TransactionsFallback({ error }) {
+function TransactionsFallback({ error }) {
   console.log(error.original)
   return <Box forwardedAs="pre">{error.message}</Box>
+}
+
+function View() {
+  return (
+    <Box>
+      <Text fontSize={3}>View</Text>
+
+      <ErrorBoundary FallbackComponent={TransactionsFallback}>
+        <Suspense fallback={<Text>Loading Transactions...</Text>}>
+          <Transactions />
+        </Suspense>
+      </ErrorBoundary>
+    </Box>
+  )
+}
+
+function Create() {
+  return <Box>Create Form</Box>
+}
+
+function Route({ children, path }) {
+  let { match } = useRoute(path)
+  if (match) {
+    return children
+  }
+  return null
+}
+
+export default function Money() {
+  return (
+    <Box pt={5}>
+      <H1>Money</H1>
+
+      <Link as={RouterLink} to="/money/view">
+        View
+      </Link>
+      <Link as={RouterLink} to="/money/create">
+        Create
+      </Link>
+
+      <Route path="/money/view">
+        <View />
+      </Route>
+      <Route path="/money/create">
+        <Create />
+      </Route>
+    </Box>
+  )
 }

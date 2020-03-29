@@ -13,7 +13,7 @@ import {
   Button,
   Form,
   useForm,
-  Checkbox,
+  UncontrolledCheckbox,
   VisuallyHidden,
 } from '@matthamlin/component-library'
 import { Link as RouterLink, useRoute } from '@matthamlin/reroute-browser'
@@ -94,7 +94,14 @@ function Task({ fields }) {
       </Text>
       <Text>Due Date: {new Date(dateDue).toLocaleDateString()}</Text>
       <Text>{notes}</Text>
-      <Link position="absolute" top={0} right={0} as={RouterLink} to="/tasks">
+      <Link
+        position="absolute"
+        top={0}
+        right={0}
+        as={RouterLink}
+        to="/tasks"
+        autoFocus
+      >
         Close
       </Link>
     </Box>
@@ -119,11 +126,13 @@ function All({ tasks, completeTask }) {
         {sortedTasks.map(task => (
           <ListItem key={task.fields.id}>
             <Label>
-              <Checkbox
+              <UncontrolledCheckbox
+                mr={3}
+                disabled={task.fields.status === 'done'}
                 checked={task.fields.status === 'done'}
                 onChange={completeTask(task)}
               />
-              <VisuallyHidden>Complete task</VisuallyHidden>
+              <VisuallyHidden>Mark task as completed</VisuallyHidden>
               <Link as={RouterLink} to={`/tasks/${task.id}`}>
                 {task.fields.text}
               </Link>
@@ -256,22 +265,11 @@ function Add() {
           onChange={dispatcher('text')}
         />
       </Label>
-      <Row alignSelf="flex-end">
-        <Button onTap={toggleShowMore}>More</Button>
-        <SubmitButton disabled={uploadStatus === 'pending'}>
+      <Box display="flex" alignSelf="flex-end">
+        <SubmitButton isFullWidth disabled={uploadStatus === 'pending'}>
           Create
         </SubmitButton>
-      </Row>
-      <div
-        style={{
-          height: showMore ? 'auto' : 0,
-          transition: 'height 250ms ease-in-out',
-          transitionDelay: '10ms',
-          overflow: showMore ? 'visible' : 'hidden',
-        }}
-      >
-        <Button>Test</Button>
-      </div>
+      </Box>
       {uploadStatus === 'success' && (
         <Banner
           variant="success"

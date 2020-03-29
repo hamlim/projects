@@ -1,10 +1,20 @@
-import React, { useState, useCallback } from 'react'
-import { css } from 'styled-components'
+import React, { useState, useCallback, forwardRef } from 'react'
 import { Box } from './Box'
-import { useTheme } from './ThemeProvider'
+import styled from 'styled-components'
 
-export function Input({ unstable_Focused = false, onChange, ...props }) {
-  let theme = useTheme()
+let BaseInput = styled(Box)(
+  ({ unstable_Focused, theme }) => `
+    &:focus {
+      outline: ${theme.outline};
+    }
+    &:disabled {
+      background-color: ${theme.colors.gray[4]};
+    }
+    outline: ${unstable_Focused ? theme.outline : null};
+`,
+)
+
+function _Input({ unstable_Focused = false, innerRef, onChange, ...props }) {
   let handleChange = useCallback(
     function handleChange(event) {
       onChange(event.target.value)
@@ -12,10 +22,11 @@ export function Input({ unstable_Focused = false, onChange, ...props }) {
     [onChange],
   )
   return (
-    <Box
+    <BaseInput
+      ref={innerRef}
       forwardedAs="input"
       borderRadius={0}
-      bg={theme.colors.gray[2]}
+      bg="gray.2"
       border="none"
       height={50}
       fontSize={1}
@@ -25,34 +36,19 @@ export function Input({ unstable_Focused = false, onChange, ...props }) {
       px="0.5em"
       py={0}
       unstable_Focused={unstable_Focused}
-      css={({ theme, unstable_Focused }) => `
-        &:focus {
-          outline: dashed 1px ${theme.colors.secondary};
-        }
-        &:disabled {
-          background-color: ${theme.colors.gray[4]};
-        }
-        ${
-          unstable_Focused
-            ? `
-              outline: dashed 1px ${theme.colors.secondary};
-            `
-            : ''
-        }
-      `}
       onChange={handleChange}
       {...props}
     />
   )
 }
 
+export let Input = forwardRef((props, ref) => (
+  <_Input innerRef={ref} {...props} />
+))
+
 function noop() {}
 
-export function UncontrolledInput({
-  onChange = noop,
-  defaultValue = '',
-  ...props
-}) {
+function _UncontrolledInput({ onChange = noop, defaultValue = '', ...props }) {
   let [value, setValue] = useState(defaultValue)
   let handleChange = useCallback(
     function handleChange(value) {
@@ -63,3 +59,7 @@ export function UncontrolledInput({
   )
   return <Input {...props} value={value} onChange={handleChange} />
 }
+
+export let UncontrolledInput = forwardRef((props, ref) => (
+  <_UncontrolledInput innerRef={ref} {...props} />
+))

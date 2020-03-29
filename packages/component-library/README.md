@@ -224,10 +224,10 @@ element. It is meant to wrap a set of options.
 </Fieldset>
 ```
 
-#### `RadioButton`
+#### `HiddenRadioButton`
 
-The `RadioButton` and `UncontrolledRadioButton` components offer visually hidden
-inputs that act like radio selects.
+The `HiddenRadioButton` and `UncontrolledHiddenRadioButton` components offer
+visually hidden inputs that act like radio selects.
 
 They are built to be used within the `Fieldset` and `UncontrolledFieldset`
 components.
@@ -235,15 +235,15 @@ components.
 ```jsx
 <UncontrolledFieldset defaultValue="a" name="foo">
   <Label>
-    <UncontrolledRadioButton value="a">
+    <UncontrolledHiddenRadioButton value="a">
     A
   </Label>
   <Label>
-    <UncontrolledRadioButton value="b">
+    <UncontrolledHiddenRadioButton value="b">
     B
   </Label>
   <Label>
-    <UncontrolledRadioButton value="c">
+    <UncontrolledHiddenRadioButton value="c">
     C
   </Label>
 </UncontrolledFieldset>

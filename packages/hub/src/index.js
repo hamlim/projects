@@ -4,7 +4,7 @@ import { ThemeProvider, GlobalStyles, Box } from '@matthamlin/component-library'
 import { createRoot } from 'react-dom'
 
 import Landing from './Landing.js'
-import Money from './cash/Money.js'
+import Money from './money/Money.js'
 import Tasks from './tasks/Tasks.js'
 import Health from './health/Health.js'
 import Habits from './habits/Habits.js'

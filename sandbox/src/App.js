@@ -4,7 +4,7 @@ import {
   Button,
   Banner,
   UncontrolledFieldset,
-  UncontrolledRadioButton,
+  UncontrolledHiddenRadioButton,
   fieldsetContext,
   UncontrolledTextarea,
   UncontrolledInput,
@@ -23,13 +23,13 @@ function Radio({ value, disabled }) {
 
   return (
     <Label
+      display="block"
+      p="20px"
       style={{
-        display: 'block',
         outline: selectedValue === value ? 'solid 1px mediumseagreen' : 'none',
-        padding: 20,
       }}
     >
-      <UncontrolledRadioButton disabled={disabled} value={value} />{' '}
+      <UncontrolledHiddenRadioButton disabled={disabled} value={value} />{' '}
       {value.toUpperCase()}
     </Label>
   )

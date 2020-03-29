@@ -3,7 +3,7 @@ import { useId } from './useId'
 import { VisuallyHidden } from './VisuallyHidden'
 import { fieldsetContext } from './Fieldset'
 
-function _RadioButton({
+function _HiddenRadioButton({
   onChange,
   id: providedId,
   checked,
@@ -35,11 +35,11 @@ function _RadioButton({
   )
 }
 
-export let RadioButton = forwardRef((props, ref) => (
-  <_RadioButton innerRef={ref} {...props} />
+export let HiddenRadioButton = forwardRef((props, ref) => (
+  <_HiddenRadioButton innerRef={ref} {...props} />
 ))
 
-function _UncontrolledRadioButton({
+function _UncontrolledHiddenRadioButton({
   onChange = () => {},
   value,
   innerRef,
@@ -49,7 +49,7 @@ function _UncontrolledRadioButton({
 
   if (!context) {
     throw new Error(
-      'UncontrolledRadioButton rendered outside of a Fieldset. Either wrap the UncontrolledRadioButton in a Fieldset, or use the default RadioButton component.',
+      'UncontrolledHiddenRadioButton rendered outside of a Fieldset. Either wrap the UncontrolledHiddenRadioButton in a Fieldset, or use the default HiddenRadioButton component.',
     )
   }
 
@@ -75,6 +75,6 @@ function _UncontrolledRadioButton({
   )
 }
 
-export let UncontrolledRadioButton = forwardRef((props, ref) => (
-  <_UncontrolledRadioButton {...props} innerRef={ref} />
+export let UncontrolledHiddenRadioButton = forwardRef((props, ref) => (
+  <_UncontrolledHiddenRadioButton {...props} innerRef={ref} />
 ))

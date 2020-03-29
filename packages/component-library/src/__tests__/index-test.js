@@ -28,8 +28,8 @@ import {
   Fieldset,
   UncontrolledFieldset,
   fieldsetContext,
-  RadioButton,
-  UncontrolledRadioButton,
+  HiddenRadioButton,
+  UncontrolledHiddenRadioButton,
   Textarea,
   UncontrolledTextarea,
   Label,
@@ -151,11 +151,11 @@ test('fieldsetContext is exported', () => {
   expect(fieldsetContext).toBeDefined()
 })
 
-test('RadioButton is exported', () => {
-  expect(RadioButton).toBeDefined()
+test('HiddenRadioButton is exported', () => {
+  expect(HiddenRadioButton).toBeDefined()
 })
-test('UncontrolledRadioButton is exported', () => {
-  expect(UncontrolledRadioButton).toBeDefined()
+test('UncontrolledHiddenRadioButton is exported', () => {
+  expect(UncontrolledHiddenRadioButton).toBeDefined()
 })
 
 test('Textarea is exported', () => {
