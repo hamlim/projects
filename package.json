@@ -16,5 +16,9 @@
   "devDependencies": {
     "lerna": "^3.4.0",
     "prettier": "1.19.1"
+  },
+  "resolutions": {
+    "react": "experimental",
+    "react-dom": "experimental"
   }
 }

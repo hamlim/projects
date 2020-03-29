@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@matthamlin/component-library": "*",
+    "@matthamlin/error-boundary": "*",
     "@matthamlin/property-controls": "*",
     "@matthamlin/reroute-browser": "*",
     "@matthamlin/reroute-core": "*",

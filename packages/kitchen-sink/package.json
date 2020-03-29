@@ -21,8 +21,8 @@
     "@matthamlin/reroute-browser": "*",
     "@matthamlin/reroute-core": "*",
     "@matthamlin/simple-cache": "*",
-    "react": "0.0.0-experimental-f42431abe",
-    "react-dom": "0.0.0-experimental-f42431abe"
+    "react": "experimental",
+    "react-dom": "experimentale"
   },
   "alias": {
     "react": "./node_modules/react",

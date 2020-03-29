@@ -13,6 +13,8 @@ import {
   Button,
   Form,
   useForm,
+  Checkbox,
+  VisuallyHidden,
 } from '@matthamlin/component-library'
 import { Link as RouterLink, useRoute } from '@matthamlin/reroute-browser'
 import useAirtable from '../useAirtable'
@@ -108,7 +110,7 @@ function sortTasks(taskA, taskB) {
   return 0
 }
 
-function All({ tasks }) {
+function All({ tasks, completeTask }) {
   let sortedTasks = tasks.sort(sortTasks).filter(task => !!task.fields.text)
   return (
     <>
@@ -116,9 +118,16 @@ function All({ tasks }) {
       <List forwardedAs="ul">
         {sortedTasks.map(task => (
           <ListItem key={task.fields.id}>
-            <Link as={RouterLink} to={`/tasks/${task.id}`}>
-              {task.fields.text}
-            </Link>
+            <Label>
+              <Checkbox
+                checked={task.fields.status === 'done'}
+                onChange={completeTask(task)}
+              />
+              <VisuallyHidden>Complete task</VisuallyHidden>
+              <Link as={RouterLink} to={`/tasks/${task.id}`}>
+                {task.fields.text}
+              </Link>
+            </Label>
           </ListItem>
         ))}
       </List>
@@ -239,8 +248,8 @@ function Add() {
 
   return (
     <Form forwardedAs={Row} onSubmit={handleSubmit} mb={4}>
-      <Label>
-        Add a new task:
+      <Label flexWrap="wrap">
+        <Box>Add a new task:</Box>
         <Input
           placeholder="Get groceries..."
           value={state.text}
@@ -283,13 +292,21 @@ function Add() {
 
 function View() {
   let { records: tasks } = useAirtable({ base, table })
+  function completeTask(task) {
+    return function(checked) {
+      // task.fields.status = 'done';
+      // TODO
+    }
+  }
   return (
     <>
       <Box mb={4}>
         <Daily tasks={tasks} />
       </Box>
-      <Add />
-      <All tasks={tasks} />
+      <Box mb={4}>
+        <Add />
+      </Box>
+      <All completeTask={completeTask} tasks={tasks} />
     </>
   )
 }

@@ -53,7 +53,7 @@ createRoot(document.querySelector('#root')).render(
         <Box display="flex" flexDirection="column" flexGrow="1">
           <Nav />
           <Layout>
-            <ErrorBoundary FallbackComponent={OhNo}>
+            <ErrorBoundary Fallback={OhNo}>
               <Routes />
             </ErrorBoundary>
           </Layout>

@@ -27,7 +27,7 @@
   },
   "peerDependencies": {
     "@mdx-js/tag": "0.15.0",
-    "react": "16.5.2"
+    "react": "*"
   },
   "publishConfig": {
     "access": "public",
