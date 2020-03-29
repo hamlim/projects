@@ -71,7 +71,7 @@ with a few opinionated styles.
 <Button onTap={doSomething}>Click Here</Button>
 ```
 
-#### `Input` and `UncontrolledInput`
+#### `Input`
 
 The Input component is a wrapper around the `input` html element. The
 `UncontrolledInput` component is a wrapper around the Input primitive that
@@ -84,7 +84,7 @@ stores its own state for the value and accepts a `defaultValue` and an
 <UncontrolledInput defaultValue="foo" onChange={setValue} />
 ```
 
-#### `HiddenCheckbox` and `UncontrolledHiddenCheckbox`
+#### `HiddenCheckbox`
 
 The HiddenCheckbox component renders a visually hidden checkbox element. It must
 be provided with `checked` and `onChange` props.
@@ -115,7 +115,7 @@ The Banner component supports 4 variants:
 <Banner variant="error">Error</Banner>
 ```
 
-#### `List` and `ListItem
+#### `List` and `ListItem`
 
 The List component supports 3 `variant` prop values:
 
@@ -296,7 +296,3 @@ an opinionated checkbox UI.
 - Chip component
 - Tabs
 - Accordion
-
-```
-
-```
