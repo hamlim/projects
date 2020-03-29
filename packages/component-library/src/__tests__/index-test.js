@@ -36,6 +36,7 @@ import {
   useForm,
   Form,
   Checkbox,
+  UncontrolledCheckbox,
 } from '../index.js'
 
 test('Banner is exported', () => {

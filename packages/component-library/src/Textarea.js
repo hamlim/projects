@@ -1,10 +1,20 @@
 import React, { useState, useCallback } from 'react'
-import { css } from 'styled-components'
 import { Box } from './Box'
-import { useTheme } from './ThemeProvider'
+import styled from 'styled-components'
+
+let BaseTextarea = styled(Box)(
+  ({ theme, unstable_Focused }) => `
+    &:focus {
+      outline: ${theme.outline};
+    }
+    &:disabled {
+      background-color: ${theme.colors.gray[4]};
+    }
+    outline: ${unstable_Focused ? theme.outline : null};
+`,
+)
 
 export function Textarea({ unstable_Focused = false, onChange, ...props }) {
-  let theme = useTheme()
   let handleChange = useCallback(
     function handleChange(event) {
       onChange(event.target.value)
@@ -12,10 +22,10 @@ export function Textarea({ unstable_Focused = false, onChange, ...props }) {
     [onChange],
   )
   return (
-    <Box
+    <BaseTextarea
       forwardedAs="textarea"
       borderRadius={0}
-      bg={theme.colors.gray[2]}
+      bg="gray.2"
       border="none"
       minHeight={100}
       resizable="both"
@@ -26,21 +36,6 @@ export function Textarea({ unstable_Focused = false, onChange, ...props }) {
       px="0.5em"
       py="0.5em"
       unstable_Focused={unstable_Focused}
-      css={({ theme, unstable_Focused }) => `
-        &:focus {
-          outline: dashed 1px ${theme.colors.secondary};
-        }
-        &:disabled {
-          background-color: ${theme.colors.gray[4]};
-        }
-        ${
-          unstable_Focused
-            ? `
-              outline: dashed 1px ${theme.colors.secondary};
-            `
-            : ''
-        }
-      `}
       onChange={handleChange}
       {...props}
     />

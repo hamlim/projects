@@ -64,7 +64,7 @@ function _UncontrolledHiddenRadioButton({
   )
 
   return (
-    <RadioButton
+    <HiddenRadioButton
       ref={innerRef}
       value={value}
       checked={selectedValue === value}

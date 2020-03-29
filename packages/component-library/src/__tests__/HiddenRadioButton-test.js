@@ -3,7 +3,10 @@ import React, { useContext } from 'react'
 import { ThemeProvider } from '../ThemeProvider.js'
 import '@testing-library/jest-dom/extend-expect'
 import { fieldsetContext, Fieldset, UncontrolledFieldset } from '../Fieldset'
-import { RadioButton, UncontrolledRadioButton } from '../RadioButton.js'
+import {
+  HiddenRadioButton,
+  UncontrolledHiddenRadioButton,
+} from '../HiddenRadioButton.js'
 
 afterEach(cleanup)
 
@@ -17,33 +20,33 @@ const pauseErrorLogging = codeToRun => {
   console.error = logger
 }
 
-test('UncontrolledRadioButton throws when rendered outside of a Fieldset', () => {
+test('UncontrolledHiddenRadioButton throws when rendered outside of a Fieldset', () => {
   pauseErrorLogging(() => {
     expect(() =>
       render(
         <ThemeProvider>
-          <UncontrolledRadioButton />
+          <UncontrolledHiddenRadioButton />
         </ThemeProvider>,
       ),
     ).toThrowErrorMatchingInlineSnapshot(
-      `"UncontrolledRadioButton rendered outside of a Fieldset. Either wrap the UncontrolledRadioButton in a Fieldset, or use the default RadioButton component."`,
+      `"UncontrolledHiddenRadioButton rendered outside of a Fieldset. Either wrap the UncontrolledHiddenRadioButton in a Fieldset, or use the default HiddenRadioButton component."`,
     )
   })
 })
 
-test('UncontrolledRadioButton calls back with the selected value', () => {
+test('UncontrolledHiddenRadioButton calls back with the selected value', () => {
   let handleChange = jest.fn()
   let { getByLabelText } = render(
     <ThemeProvider>
       <UncontrolledFieldset name="foo" defaultValue="a" onChange={handleChange}>
         <label>
-          <UncontrolledRadioButton value="a" />A
+          <UncontrolledHiddenRadioButton value="a" />A
         </label>
         <label>
-          <UncontrolledRadioButton value="b" />B
+          <UncontrolledHiddenRadioButton value="b" />B
         </label>
         <label>
-          <UncontrolledRadioButton value="c" />C
+          <UncontrolledHiddenRadioButton value="c" />C
         </label>
       </UncontrolledFieldset>
     </ThemeProvider>,
