@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import {
   H1,
   Box,
@@ -10,6 +10,7 @@ import {
 } from '@matthamlin/component-library'
 import { Link as RouterLink, useRoute } from '@matthamlin/reroute-browser'
 import useAirtable from '../useAirtable'
+import ErrorBoundary from '../ErrorBoundary'
 
 let base = `app2FaIaQeVAWkNTF`
 let table = `transactions`
@@ -23,16 +24,25 @@ function Stack({ children }) {
   return React.Children.map(children, child => <Box my={4}>{child}</Box>)
 }
 
+function InlineStack({ children }) {
+  return (
+    <Box display="flex" flexWrap="wrap">
+      {React.Children.map(children, child => (
+        <Box mx={4}>{child}</Box>
+      ))}
+    </Box>
+  )
+}
+
 function Chip({ children }) {
-  let theme = useTheme()
   return (
     <Box
       forwardedAs="span"
       p={3}
       display="inline-flex"
       borderRadius={1}
-      bg={theme.colors.primary}
-      color={theme.colors.white}
+      bg="primary"
+      color="white"
     >
       {children}
     </Box>
@@ -53,23 +63,32 @@ function Transactions() {
 
   return (
     <List variant="base" forwardedAs="ul">
-      {transactions.records.map((record, index) => (
-        <ListItem key={record.id} mt={index > 0 ? 5 : null}>
-          <Log>{record.fields}</Log>
-          <Stack>
-            <Box forwardedAs="time">
-              {new Date(record.fields.createdDate).toLocaleDateString()} -{' '}
-              {new Date(record.fields.createdDate).toLocaleTimeString()}
-            </Box>
-            <Text>${record.fields.amount}</Text>
-            <Chip>{record.fields.tags}</Chip>
-            <Text>{record.fields.location}</Text>
-            <Text forwardedAs="pre" fontFamily="base">
-              {record.fields.notes}
-            </Text>
-          </Stack>
-        </ListItem>
-      ))}
+      {transactions.records.map((record, index) => {
+        let tags = JSON.parse(record.fields.tags.replace(/'/g, '"')).map(tag =>
+          tag.replace(/"/g, "'"),
+        )
+        return (
+          <ListItem key={record.id} mt={index > 0 ? 5 : null}>
+            <Log>{record.fields}</Log>
+            <Stack>
+              <Box forwardedAs="time">
+                {new Date(record.fields.createdDate).toLocaleDateString()} -{' '}
+                {new Date(record.fields.createdDate).toLocaleTimeString()}
+              </Box>
+              <Text>${record.fields.amount}</Text>
+              <InlineStack>
+                {tags.map(tag => (
+                  <Chip key={tag}>{tag}</Chip>
+                ))}
+              </InlineStack>
+              <Text>{record.fields.location}</Text>
+              <Text forwardedAs="pre" fontFamily="base">
+                {record.fields.notes}
+              </Text>
+            </Stack>
+          </ListItem>
+        )
+      })}
     </List>
   )
 }
