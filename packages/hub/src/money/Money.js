@@ -68,7 +68,13 @@ function Transactions() {
           tag.replace(/"/g, "'"),
         )
         return (
-          <ListItem key={record.id} mt={index > 0 ? 5 : null}>
+          <ListItem
+            key={record.id}
+            mt={index > 0 ? 5 : null}
+            boxShadow="0 0 4px 1px #ccc"
+            borderRadius={1}
+            p={4}
+          >
             <Log>{record.fields}</Log>
             <Stack>
               <Box forwardedAs="time">
