@@ -8,6 +8,7 @@ package to manage running scripts throughout the repo.
 
 ## Projects:
 
+- [`@matthamlin/babel-plugin-metadata`](./packages/babel-plugin-metadata/README.md)
 - [`@matthamlin/babel-plugin-property-controls`](./packages/babel-plugin-property-controls/README.md)
 - [`@matthamlin/base-styled`](./packages/base-styled/README.md)
 - [`@matthamlin/blog`](./packages/blog/README.md)
