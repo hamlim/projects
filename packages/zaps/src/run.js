@@ -12,8 +12,6 @@ module.exports = async function run(commands) {
     selected: { value: selectedWorkspace },
   } = await nfzf(workspaces)
 
-  console.log(commands.join(' '))
-
   execSync(`yarn ${commands.join(' ')}`, {
     cwd: path.join(process.cwd(), selectedWorkspace),
     stdio: 'inherit',

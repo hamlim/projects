@@ -48,3 +48,6 @@ Scripts:
 
 📦 Error Boundary:
   - packages/error-boundary/**/*
+
+📦 Babel Plugin Metadata:
+  - packages/babel-plugin-metadata/**/*

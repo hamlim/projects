@@ -1,0 +1,35 @@
+{
+  "name": "@matthamlin/babel-plugin-metadata",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'",
+    "prepub": "yarn build",
+    "pub": "yarn publish --access public --no-git-tag-version",
+    "test": "jest",
+    "test-watch": "jest --watch"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.5.0",
+    "@babel/core": "7.5.0",
+    "@babel/plugin-syntax-jsx": "7.8.3",
+    "@babel/preset-env": "7.5.0",
+    "babel-plugin-tester": "9.0.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/hamlim/projects.git",
+    "directory": "packages/babel-plugin-metadata"
+  }
+}
