@@ -294,12 +294,18 @@ The `Stack` component is a useful utility for wrapping some elements and
 providing the same spacing to all of them.
 
 ```jsx
-<Stack child={{ m: 4 }}>
+<Stack props={{ m: 4 }}>
   <Text>1</Text>
   <Text>2</Text>
   <Text>3</Text>
 </Stack>
 ```
+
+**Props**:
+
+- `props` - An object of props spread down to the wrapping `Box` component
+  around each child. (yes you read that correctly, the prop name is `props`)
+- `inline` - A helper prop for applying `display="inline-flex"`
 
 ### Ideas:
 
