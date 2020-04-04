@@ -7,6 +7,7 @@ import {
   ListItem,
   Text,
   useTheme,
+  Stack,
 } from '@matthamlin/component-library'
 import { Link as RouterLink, useRoute } from '@matthamlin/reroute-browser'
 import useAirtable from '../useAirtable'
@@ -18,20 +19,6 @@ let table = `transactions`
 function Log({ children }) {
   console.log(children)
   return null
-}
-
-function Stack({ children }) {
-  return React.Children.map(children, child => <Box my={4}>{child}</Box>)
-}
-
-function InlineStack({ children }) {
-  return (
-    <Box display="flex" flexWrap="wrap">
-      {React.Children.map(children, child => (
-        <Box mx={4}>{child}</Box>
-      ))}
-    </Box>
-  )
 }
 
 function Chip({ children }) {
@@ -49,11 +36,32 @@ function Chip({ children }) {
   )
 }
 
+function transformDate(dateString) {
+  return new Date(dateString.split('T')[0])
+}
+
+function compareTransactions(transactionA, transactionB) {
+  if (
+    transformDate(transactionA.fields.createdDate) <
+    transformDate(transactionB.fields.createdDate)
+  ) {
+    return -1
+  } else if (
+    transformDate(transactionA.fields.createdDate) >
+    transformDate(transactionB.fields.createdDate)
+  ) {
+    return 1
+  }
+  return 0
+}
+
 function Transactions() {
   let transactions = useAirtable({
     base,
     table,
   })
+
+  let theme = useTheme()
 
   if (!transactions.records) {
     let err = new Error('Unable to fetch transactions.')
@@ -63,7 +71,7 @@ function Transactions() {
 
   return (
     <List variant="base" forwardedAs="ul">
-      {transactions.records.map((record, index) => {
+      {transactions.records.sort(compareTransactions).map((record, index) => {
         let tags = JSON.parse(record.fields.tags.replace(/'/g, '"')).map(tag =>
           tag.replace(/"/g, "'"),
         )
@@ -71,22 +79,22 @@ function Transactions() {
           <ListItem
             key={record.id}
             mt={index > 0 ? 5 : null}
-            boxShadow="0 0 4px 1px #ccc"
+            boxShadow={`0 0 4px 1px ${theme.colors.gray[3]}`}
             borderRadius={1}
             p={4}
           >
-            <Log>{record.fields}</Log>
-            <Stack>
+            {/* <Log>{record.fields}</Log> */}
+            <Stack props={{ my: 4 }} display="block">
               <Box forwardedAs="time">
                 {new Date(record.fields.createdDate).toLocaleDateString()} -{' '}
                 {new Date(record.fields.createdDate).toLocaleTimeString()}
               </Box>
               <Text>${record.fields.amount}</Text>
-              <InlineStack>
+              <Stack props={{ mx: 4 }} flexWrap="wrap">
                 {tags.map(tag => (
                   <Chip key={tag}>{tag}</Chip>
                 ))}
-              </InlineStack>
+              </Stack>
               <Text>{record.fields.location}</Text>
               <Text forwardedAs="pre" fontFamily="base">
                 {record.fields.notes}
