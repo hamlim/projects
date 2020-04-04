@@ -1,10 +1,13 @@
 import path from 'path'
 import fs from 'fs'
 
+import createPropTypesVisitor from './prop-types/visitor.js'
+
 export default function babelPluginMetadata({ types: t }) {
   return {
     name: 'babel-plugin-metadata',
     inherits: require('babel-plugin-syntax-jsx'),
+    data: {},
     pre(state) {
       this.data = {
         initialRawCode: state.code,
@@ -12,7 +15,8 @@ export default function babelPluginMetadata({ types: t }) {
       }
     },
     visitor: {
-      // @TODO
+      // PropType visitor
+      ...createPropTypesVisitor({ data: this.data, types: t }),
     },
     post(state) {
       if (state.opts.skipWriteFile) {
