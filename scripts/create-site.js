@@ -1,6 +1,7 @@
 let fs = require('fs')
 let path = require('path')
 let prettier = require('prettier')
+let prettierConfig = require('../.prettierrc.js')
 
 let args = process.argv.slice(2).reduce((acc, arg) => {
   if (arg.includes('=')) {
@@ -14,7 +15,7 @@ let args = process.argv.slice(2).reduce((acc, arg) => {
 }, {})
 
 function main() {
-  if (args.help) {
+  if (args.help || Object.keys(args).length === 0) {
     console.log(`Running create-site...
   
   Usage: create-site name=some-string
@@ -39,7 +40,9 @@ function main() {
     }
     fs.writeFileSync(
       path,
-      parser ? prettier.format(contents, { parser }) : contents,
+      parser
+        ? prettier.format(contents, { ...prettierConfig, parser })
+        : contents,
     )
   }
 

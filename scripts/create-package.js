@@ -2,6 +2,7 @@ let fs = require('fs')
 let path = require('path')
 let prettier = require('prettier')
 let { exec } = require('child_process')
+let prettierConfig = require('../.prettierrc.js')
 
 let args = process.argv.slice(2).reduce((acc, arg) => {
   if (arg.includes('=')) {
@@ -15,7 +16,7 @@ let args = process.argv.slice(2).reduce((acc, arg) => {
 }, {})
 
 function main() {
-  if (args.help) {
+  if (args.help || Object.keys(args).length === 0) {
     console.log(`Running create-package...
   
   Usage: create-package packageName=some-string
@@ -38,7 +39,10 @@ function main() {
       console.log('------------')
       return
     }
-    fs.writeFileSync(path, prettier.format(contents, { parser }))
+    fs.writeFileSync(
+      path,
+      prettier.format(contents, { ...prettierConfig, parser }),
+    )
   }
 
   let packagePath = path.join('packages', args.packageName)

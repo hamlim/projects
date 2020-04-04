@@ -37,6 +37,7 @@ import {
   Form,
   Checkbox,
   UncontrolledCheckbox,
+  Stack,
 } from '../index.js'
 
 test('Banner is exported', () => {
@@ -185,4 +186,8 @@ test('Checkbox is defined', () => {
 
 test('UncontrolledCheckbox is defined', () => {
   expect(UncontrolledCheckbox).toBeDefined()
+})
+
+test('Stack is defined', () => {
+  expect(Stack).toBeDefined()
 })

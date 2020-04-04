@@ -288,6 +288,19 @@ an opinionated checkbox UI.
 </Label>
 ```
 
+#### `Stack`
+
+The `Stack` component is a useful utility for wrapping some elements and
+providing the same spacing to all of them.
+
+```jsx
+<Stack child={{ m: 4 }}>
+  <Text>1</Text>
+  <Text>2</Text>
+  <Text>3</Text>
+</Stack>
+```
+
 ### Ideas:
 
 - Theme visualizer

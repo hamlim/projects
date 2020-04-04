@@ -2,6 +2,7 @@ let fs = require('fs')
 let path = require('path')
 let prettier = require('prettier')
 let { exec } = require('child_process')
+let prettierConfig = require('../.prettierrc.js')
 
 let args = process.argv.slice(2).reduce((acc, arg) => {
   if (arg.includes('=')) {
@@ -40,7 +41,9 @@ function main() {
     }
     fs.writeFileSync(
       path,
-      parser ? prettier.format(contents, { parser }) : contents,
+      parser
+        ? prettier.format(contents, { ...prettierConfig, parser })
+        : contents,
     )
   }
 
