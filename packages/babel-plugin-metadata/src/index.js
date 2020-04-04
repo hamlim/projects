@@ -4,19 +4,20 @@ import fs from 'fs'
 import createPropTypesVisitor from './prop-types/visitor.js'
 
 export default function babelPluginMetadata({ types: t }) {
+  let data = {}
   return {
     name: 'babel-plugin-metadata',
     inherits: require('babel-plugin-syntax-jsx'),
-    data: {},
     pre(state) {
-      this.data = {
+      data = {
+        ...data,
         initialRawCode: state.code,
         filename: state.opts.filename,
       }
     },
     visitor: {
       // PropType visitor
-      ...createPropTypesVisitor({ data: this.data, types: t }),
+      ...createPropTypesVisitor({ data, types: t }),
     },
     post(state) {
       if (state.opts.skipWriteFile) {
@@ -26,7 +27,7 @@ export default function babelPluginMetadata({ types: t }) {
       let filename = path.basename(state.opts.filename).split('.')[0]
       fs.writeFileSync(
         path.join(dir, `${filename}.metadata.js`),
-        `module.exports = ${JSON.stringify(this.data, null, 2)}`,
+        `module.exports = ${JSON.stringify(data, null, 2)}`,
       )
     },
   }
