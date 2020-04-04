@@ -22,6 +22,9 @@ let result = query(
   gql`
     AssignmentExpression {
       left {
+        object {
+          name
+        }
         property(name: 'propTypes') {
           parent {
             right {
@@ -43,11 +46,22 @@ let result = query(
 // result
 {
   data: {
-    AssignmentExpression: {
-      right: {
-        properties: ['size', 'bordered']
-      }
-    }
+    AssignmentExpression: [
+      {
+        left: {
+          object: {
+            name: 'Avatar',
+          },
+          property: {
+            parent: {
+              right: {
+                properties: ['size', 'bordered'],
+              },
+            },
+          },
+        },
+      },
+    ]
   }
 }
 ```
