@@ -6,6 +6,7 @@
     "sandbox"
   ],
   "scripts": {
+    "start": "echo \"no\"",
     "test": "zaps lerna test",
     "build": "zaps lerna build",
     "clean-dist": "yarn node scripts/clean-dist.js",
