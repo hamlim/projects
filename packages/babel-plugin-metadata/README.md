@@ -1,5 +1,7 @@
 # `@matthamlin/babel-plugin-metadata`
 
+> 🚨 This project is a Work in Progress and may not work yet
+
 A babel plugin for extracting metadata from parsed files.
 
 ## API

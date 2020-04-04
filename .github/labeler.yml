@@ -51,3 +51,6 @@ Scripts:
 
 📦 Babel Plugin Metadata:
   - packages/babel-plugin-metadata/**/*
+
+📦 Ast Gql:
+  - packages/ast-gql/**/*

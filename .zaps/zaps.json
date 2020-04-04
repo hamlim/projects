@@ -2,6 +2,7 @@
   "version": "0.0.1",
   "workspaces": ["packages/*", "sandbox"],
   "packages": [
+    "packages/ast-gql",
     "packages/babel-plugin-metadata",
     "packages/babel-plugin-property-controls",
     "packages/base-styled",
@@ -27,7 +28,7 @@
     "sandbox"
   ],
   "graph": {
-    "packages/babel-plugin-metadata": {
+    "packages/ast-gql": {
       "dependencies": {},
       "devDependencies": {
         "@babel/cli": "7.5.0",
@@ -39,6 +40,19 @@
         "jest": "24.9.0",
         "react": "^16.12.0",
         "react-dom": "^16.12.0"
+      },
+      "peerDependencies": {},
+      "localDependencies": [],
+      "name": "@matthamlin/ast-gql"
+    },
+    "packages/babel-plugin-metadata": {
+      "dependencies": {},
+      "devDependencies": {
+        "@babel/cli": "7.5.0",
+        "@babel/core": "7.5.0",
+        "@babel/plugin-syntax-jsx": "7.8.3",
+        "@babel/preset-env": "7.5.0",
+        "babel-plugin-tester": "9.0.0"
       },
       "peerDependencies": {},
       "localDependencies": [],
