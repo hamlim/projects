@@ -108,8 +108,8 @@ function main() {
       "@testing-library/jest-dom": "^4.2.4",
       "@testing-library/react": "^9.3.2",
       "jest": "24.9.0",
-      "react": "^16.12.0",
-      "react-dom": "^16.12.0"
+      "react": "*",
+      "react-dom": "*"
     },
     "publishConfig": {
       "access": "public",
