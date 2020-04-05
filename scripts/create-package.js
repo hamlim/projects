@@ -93,7 +93,9 @@ function main() {
     "scripts": {
       "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'",
       "test": "jest",
-      "test-watch": "jest --watch"
+      "test-watch": "jest --watch",
+      "prepub": "yarn build",
+      "pub": "yarn publish --access public --no-git-tag-version"
     },
     "jest": {
       "transform": {
