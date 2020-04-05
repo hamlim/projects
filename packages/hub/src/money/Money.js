@@ -16,11 +16,6 @@ import ErrorBoundary from '../ErrorBoundary'
 let base = `app2FaIaQeVAWkNTF`
 let table = `transactions`
 
-function Log({ children }) {
-  console.log(children)
-  return null
-}
-
 function Chip({ children }) {
   return (
     <Box
@@ -83,19 +78,38 @@ function Transactions() {
             borderRadius={1}
             p={4}
           >
-            {/* <Log>{record.fields}</Log> */}
             <Stack props={{ my: 4 }} display="block">
-              <Box forwardedAs="time">
-                {new Date(record.fields.createdDate).toLocaleDateString()} -{' '}
-                {new Date(record.fields.createdDate).toLocaleTimeString()}
+              <Text>
+                <Text forwardedAs="span" fontWeight="bold">
+                  Time:
+                </Text>
+                <Box forwardedAs="time">
+                  {new Date(record.fields.createdDate).toLocaleDateString()} -{' '}
+                  {new Date(record.fields.createdDate).toLocaleTimeString()}
+                </Box>
+              </Text>
+              <Text>
+                <Text forwardedAs="span" fontWeight="bold">
+                  Amount:
+                </Text>
+                <Text forwardedAs="span">${record.fields.amount}</Text>
+              </Text>
+              <Box>
+                <Text forwardedAs="span" fontWeight="bold">
+                  Tags:
+                </Text>
+                <Stack props={{ mx: 4 }} flexWrap="wrap">
+                  {tags.map(tag => (
+                    <Chip key={tag}>{tag}</Chip>
+                  ))}
+                </Stack>
               </Box>
-              <Text>${record.fields.amount}</Text>
-              <Stack props={{ mx: 4 }} flexWrap="wrap">
-                {tags.map(tag => (
-                  <Chip key={tag}>{tag}</Chip>
-                ))}
-              </Stack>
-              <Text>{record.fields.location}</Text>
+              <Text>
+                <Text forwardedAs="span" fontWeight="bold">
+                  Location:
+                </Text>
+                {record.fields.location}
+              </Text>
               <Text forwardedAs="pre" fontFamily="base">
                 {record.fields.notes}
               </Text>
