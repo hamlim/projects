@@ -1,13 +1,15 @@
 {
   "name": "@matthamlin/zaps",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "bin": "src/index.js",
   "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
   "license": "MIT",
   "files": [
     "src"
   ],
-  "scripts": {},
+  "scripts": {
+    "pub": "yarn publish --access public --no-git-tag-version"
+  },
   "dependencies": {
     "chalk": "3.0.0",
     "glob": "7.1.6",
