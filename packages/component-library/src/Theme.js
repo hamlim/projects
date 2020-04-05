@@ -195,7 +195,7 @@ let colors = {
 }
 
 export default {
-  space: [0, 2, 4, 6, 8, 10, 20, 40, 60, 80, 100],
+  space: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40],
   fontSizes,
   fonts: {
     base: 'system-ui, sans-serif',
