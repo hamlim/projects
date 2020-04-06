@@ -1,5 +1,6 @@
 import path from 'path'
 import fs from 'fs'
+import generate from '@babel/generator'
 
 export function defaultFormatComments(comments) {
   return comments
@@ -54,10 +55,15 @@ export default function babelPluginMetadata({ types: t }) {
               // This is a bit weird, but if the prop is like PropTypes.string.isRequired
               // its nested another layer
               if (t.isMemberExpression(prop.value)) {
-                console.log('first', prop.value.object)
                 let propType = prop.value.object.name
                 if (t.isMemberExpression(prop.value.object)) {
-                  console.log('second', prop.value.object)
+                  propObj.type = {
+                    raw: generate(prop.value).code,
+                  }
+                } else {
+                  propObj.type = {
+                    raw: generate(prop.value).code,
+                  }
                 }
               }
               propData.push(propObj)

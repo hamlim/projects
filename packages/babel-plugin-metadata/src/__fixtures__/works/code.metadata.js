@@ -7,7 +7,10 @@ module.exports = {
       "props": [
         {
           "name": "bar",
-          "comments": "some comment here"
+          "comments": "some comment here",
+          "type": {
+            "raw": "PropTypes.string.isRequired"
+          }
         }
       ]
     }

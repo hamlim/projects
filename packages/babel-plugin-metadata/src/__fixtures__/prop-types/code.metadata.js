@@ -7,11 +7,17 @@ module.exports = {
       "props": [
         {
           "name": "bar",
-          "comments": "some comment here"
+          "comments": "some comment here",
+          "type": {
+            "raw": "PropTypes.string.isRequired"
+          }
         },
         {
           "name": "foo",
-          "comments": "another comment here\nmulti-line this time"
+          "comments": "another comment here\nmulti-line this time",
+          "type": {
+            "raw": "PropTypes.bool"
+          }
         },
         {
           "name": "test",

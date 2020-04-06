@@ -31,5 +31,8 @@
     "type": "git",
     "url": "ssh://git@github.com/hamlim/projects.git",
     "directory": "packages/babel-plugin-metadata"
+  },
+  "dependencies": {
+    "@babel/generator": "7.9.4"
   }
 }
