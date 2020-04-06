@@ -47,11 +47,10 @@ export default function babelPluginMetadata({ types: t }) {
               // grab the prop name
               // @TODO test for expressions here: {[foo]: PropTypes.string}
               let propName = prop.key.name
-              // Assign the comments before the prop
-              propData.push({
+              let propObj = {
                 name: propName,
                 comments: formatComments(prop.leadingComments),
-              })
+              }
               // This is a bit weird, but if the prop is like PropTypes.string.isRequired
               // its nested another layer
               if (t.isMemberExpression(prop.value)) {
@@ -61,6 +60,7 @@ export default function babelPluginMetadata({ types: t }) {
                   console.log('second', prop.value.object)
                 }
               }
+              propData.push(propObj)
             }
           })
           component.props = propData
