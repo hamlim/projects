@@ -1,26 +1,22 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
-export default function Avatar({
-  initials,
-  backgroundImage,
-  size
-}) {
+export default function Avatar({ initials, backgroundImage, size }) {
   return (
     <div
       style={{
         backgroundImage: `url(${backgroundImage})`,
         width: size,
         height: size,
-				borderRadius: '50%',
+        borderRadius: '50%',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
       }}
     >
       <span>{initials}</span>
     </div>
-  );
+  )
 }
 
 Avatar.propTypes = {
@@ -32,29 +28,29 @@ Avatar.propTypes = {
    */
   backgroundImage: PropTypes.string,
   /* The dimensions of the avatar component */
-  size: PropTypes.oneOf([ 20, 40, 80 ])
+  size: PropTypes.oneOf([20, 40, 80]),
 }
 
 Avatar.defaultProps = {
   backgroundImage: null,
-  size: 40
+  size: 40,
 }
 
 Avatar.propertyControls = {
   initials: {
     type: PropTypes.node.isRequired,
-    label: 'The users initials to display over the background image'
+    label: 'The users initials to display over the background image',
   },
   backgroundImage: {
     type: PropTypes.string,
     label: `The background image on the avatar.
 
-Ensure that this image has a high enough contrast for the color of the initials provided.`
-    default: null
+Ensure that this image has a high enough contrast for the color of the initials provided.`,
+    default: null,
   },
   size: {
-    type: PropTypes.oneOf([ 20, 40, 80 ]),
+    type: PropTypes.oneOf([20, 40, 80]),
     label: `The dimensions of the avatar component`,
-    default: 40
-  }
+    default: 40,
+  },
 }

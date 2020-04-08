@@ -1,23 +1,23 @@
 {
   "name": "@matthamlin/babel-plugin-property-controls",
   "version": "1.0.0",
-  "module": "dist/index.mjs",
   "main": "dist/index.js",
-  "umd:main": "dist/index.umd.js",
   "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
   "license": "MIT",
-  "source": "./src/index.js",
   "scripts": {
     "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'",
-    "bundle": "microbundle",
-    "test": "echo TODO"
+    "prepub": "yarn build",
+    "pub": "yarn publish --access public --no-git-tag-version",
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "devDependencies": {
     "@babel/cli": "7.5.0",
     "@babel/core": "7.5.0",
     "@babel/preset-env": "7.5.0",
+    "@babel/preset-react": "7.9.4",
     "jest": "24.9.0",
-    "microbundle": "0.11.0"
+    "babel-plugin-tester": "9.0.0"
   },
   "publishConfig": {
     "access": "public",

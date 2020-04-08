@@ -1,0 +1,36 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+export default function Avatar({ initials, backgroundImage, size }) {
+  return (
+    <div
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        width: size,
+        height: size,
+        borderRadius: '50%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <span>{initials}</span>
+    </div>
+  )
+}
+Avatar.propTypes = {
+  /* The users initials to display over the background image */
+  initials: PropTypes.node.isRequired,
+
+  /**
+   * The background image on the avatar.
+   * Ensure that this image has a high enough contrast for the color of the initials provided.
+   */
+  backgroundImage: PropTypes.string,
+
+  /* The dimensions of the avatar component */
+  size: PropTypes.oneOf([20, 40, 80]),
+}
+Avatar.defaultProps = {
+  backgroundImage: null,
+  size: 40,
+}
