@@ -21,9 +21,13 @@ module.exports = {
         },
         {
           "name": "test",
-          "comments": "Block comment here\n      With multiple lines"
+          "comments": "Block comment here\n      With multiple lines",
+          "type": {
+            "raw": "test"
+          }
         }
       ]
     }
-  ]
+  ],
+  "imports": []
 }

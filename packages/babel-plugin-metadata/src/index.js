@@ -8,6 +8,10 @@ export function defaultFormatComments(comments) {
     .join('\n')
 }
 
+// Flag to determine if an import is a nameespace import
+// We probably don't need this if we just collect the raw import declarations
+let namespaceImportSigil = {}
+
 export default function babelPluginMetadata({ types: t }) {
   return {
     name: 'babel-plugin-metadata',
@@ -17,9 +21,28 @@ export default function babelPluginMetadata({ types: t }) {
         initialRawCode: state.code,
         filename: state.opts.filename,
         components: [],
+        imports: [],
       }
     },
     visitor: {
+      ImportDeclaration(path, state) {
+        this.data.imports.push({
+          specifiers: path.node.specifiers.map(specifier => {
+            return {
+              type: t.isImportDefaultSpecifier(specifier) ? 'default' : 'named',
+              value: {
+                local: specifier.local.name,
+                imported: specifier.imported
+                  ? specifier.imported.name
+                  : t.isImportNamespaceSpecifier(specifier)
+                  ? namespaceImportSigil
+                  : specifier.local.name,
+              },
+            }
+          }),
+          source: path.node.source.value,
+        })
+      },
       // PropType visitor
       AssignmentExpression(path, state) {
         let {
@@ -64,6 +87,10 @@ export default function babelPluginMetadata({ types: t }) {
                   propObj.type = {
                     raw: generate(prop.value).code,
                   }
+                }
+              } else {
+                propObj.type = {
+                  raw: generate(prop.value).code,
                 }
               }
               propData.push(propObj)
