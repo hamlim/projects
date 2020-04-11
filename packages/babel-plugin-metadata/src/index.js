@@ -74,10 +74,13 @@ export default function babelPluginMetadata({ types: t }) {
         let { opts: { propTypesSource = 'prop-types' } = {} } = state
         if (path.node.source.value === propTypesSource) {
           for (let specifier of path.node.specifiers) {
+            // import * as propTypes from 'prop-types'
             if (t.isImportNamespaceSpecifier(specifier)) {
               this.propTypesImport = specifier.local.name
+              // import PropTypes from 'prop-types'
             } else if (t.isImportDefaultSpecifier(specifier)) {
               this.propTypesImport = specifier.local.name
+              // import {string, bool} from 'prop-types'
             } else if (t.isImportSpecifier(specifier)) {
               this.propTypesNamedImports.push({
                 type: specifier.imported.name,
