@@ -33,6 +33,8 @@ module.exports = {
   super class (defaults to `'Component'`)
 - `formatComments` - A function called with the leadingComments ast node to be
   formatted and returned as a string (defaults to `defaultFormatComments`)
+- `propTypesSource` - the source module that should be treated like `prop-types`
+  (defaults to `'prop-types'`)
 
 ## TODO:
 

@@ -39,6 +39,10 @@ export default function babelPluginMetadata({ types: t }) {
         components: [],
         imports: [],
       }
+      // Array of named imports from prop-types package
+      this.propTypesNamedImports = []
+      // imported specifier for the default/namespace prop-types import
+      this.propTypesImport = ''
     },
     visitor: {
       ImportDeclaration(path, state) {
@@ -65,6 +69,24 @@ export default function babelPluginMetadata({ types: t }) {
             }
           }
         }
+
+        // Collect PropTypes import
+        let { opts: { propTypesSource = 'prop-types' } = {} } = state
+        if (path.node.source.value === propTypesSource) {
+          for (let specifier of path.node.specifiers) {
+            if (t.isImportNamespaceSpecifier(specifier)) {
+              this.propTypesImport = specifier.local.name
+            } else if (t.isImportDefaultSpecifier(specifier)) {
+              this.propTypesImport = specifier.local.name
+            } else if (t.isImportSpecifier(specifier)) {
+              this.propTypesNamedImports.push({
+                type: specifier.imported.name,
+                value: specifier.local.name,
+              })
+            }
+          }
+        }
+
         // Push all imports into the imports metadata
         this.data.imports.push({
           specifiers: path.node.specifiers.map(specifier => {
