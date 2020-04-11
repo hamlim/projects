@@ -25,6 +25,9 @@ try {
     case 'run-all': {
       return require('./run-all.js')(originalArgs)
     }
+    case 'add': {
+      return require('./add.js')(originalArgs)
+    }
     default: {
       console.log('No command provided')
     }

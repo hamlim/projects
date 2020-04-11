@@ -39,3 +39,4 @@ module.exports = {
 - [ ] Handle `defaultProps`
 - [ ] Finish parsing propTypes for both assignments and statics
 - [ ] Implement external file tracking for imported values
+- [ ] Handle accessing Component from React import later in the file

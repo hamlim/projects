@@ -171,7 +171,7 @@ export default function babelPluginMetadata({ types: t }) {
           } = state
           let { data } = this
           // Foo
-          let componentName = path.node.left.object.name
+          let componentName = path.node.id.name
           // Setup the data we will return
           let component = {
             name: componentName,
@@ -179,7 +179,7 @@ export default function babelPluginMetadata({ types: t }) {
           let propData = []
           // Iterate through the prop-types
           // @TODO assumes an object expression definition
-          let props = path.node.right.properties
+          let props = staticPropTypes.value.properties
           props.forEach(prop => {
             // grab the prop name
             // @TODO test for expressions here: {[foo]: PropTypes.string}

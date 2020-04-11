@@ -1,0 +1,14 @@
+import React from 'react'
+
+export default class Foo extends React.Component {
+  static propTypes = {
+    // Some comment here
+    bar: PropTypes.string,
+  }
+
+  static _propTypes = 'something internal'
+
+  render() {
+    return null
+  }
+}

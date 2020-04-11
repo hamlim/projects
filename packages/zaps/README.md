@@ -13,7 +13,8 @@ A monorepo toolchain.
 
 ### Configuration
 
-Workspaces are defined by a `workspaces` key in the project root package.json file (similar to yarn workspaces).
+Workspaces are defined by a `workspaces` key in the project root package.json
+file (similar to yarn workspaces).
 
 ```json
 {
@@ -29,6 +30,8 @@ Workspaces are defined by a `workspaces` key in the project root package.json fi
   - Runs commands within a specified workspace
 - `zaps exec`
   - Runs a command across all workspaces
+- `zaps add`
+  - Adds dependencies to a particular workspace
 
 ## TODO:
 
