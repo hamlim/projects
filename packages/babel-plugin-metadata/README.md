@@ -4,6 +4,23 @@
 
 A babel plugin for extracting metadata from parsed files.
 
+## Usage:
+
+```js
+// in babelrc.js, babel.config.js, .babelrc, etc
+module.exports = {
+  plugins: [
+    [
+      '@matthamlin/babel-plugin-metadata',
+      {
+        // options here
+        // see API section for more details
+      },
+    ],
+  ],
+}
+```
+
 ## API
 
 ### Options:
@@ -16,22 +33,6 @@ A babel plugin for extracting metadata from parsed files.
   super class (defaults to `'Component'`)
 - `formatComments` - A function called with the leadingComments ast node to be
   formatted and returned as a string (defaults to `defaultFormatComments`)
-
-## Usage:
-
-```js
-// in babelrc.js, babel.config.js, .babelrc, etc
-module.exports = {
-  plugins: [
-    [
-      '@matthamlin/babel-plugin-metadata',
-      {
-        // options here
-      },
-    ],
-  ],
-}
-```
 
 ## TODO:
 
