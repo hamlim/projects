@@ -154,57 +154,66 @@ export default function babelPluginMetadata({ types: t }) {
           })
         ) {
           // We know we are in a `class Foo extrends React.Component` here
-          // static propTypes
-          if (path.node.static && path.node.key.name === 'propTypes') {
-            let {
-              opts: { formatComments = defaultFormatComments },
-            } = state
-            let { data } = this
-            // Foo
-            let componentName = path.node.left.object.name
-            // Setup the data we will return
-            let component = {
-              name: componentName,
+          // find any static values in the class that are `propTypes`
+          let staticPropTypes = path.node.body.body.find(bodyStatement => {
+            return (
+              t.isClassProperty(bodyStatement) &&
+              bodyStatement.static &&
+              bodyStatement.key.name === 'propTypes'
+            )
+          })
+          // @TODO handle default props here too
+          if (!staticPropTypes) {
+            return
+          }
+          let {
+            opts: { formatComments = defaultFormatComments },
+          } = state
+          let { data } = this
+          // Foo
+          let componentName = path.node.left.object.name
+          // Setup the data we will return
+          let component = {
+            name: componentName,
+          }
+          let propData = []
+          // Iterate through the prop-types
+          // @TODO assumes an object expression definition
+          let props = path.node.right.properties
+          props.forEach(prop => {
+            // grab the prop name
+            // @TODO test for expressions here: {[foo]: PropTypes.string}
+            let propName = prop.key.name
+            let propObj = {
+              name: propName,
             }
-            let propData = []
-            // Iterate through the prop-types
-            // @TODO assumes an object expression definition
-            let props = path.node.right.properties
-            props.forEach(prop => {
-              // grab the prop name
-              // @TODO test for expressions here: {[foo]: PropTypes.string}
-              let propName = prop.key.name
-              let propObj = {
-                name: propName,
-              }
-              // If there are leading comments we want to process the prop
-              // @TODO we probably want to process every prop and then strip at runtime
-              if (Array.isArray(prop.leadingComments)) {
-                propObj.comments = formatComments(prop.leadingComments)
-              }
-              if (t.isMemberExpression(prop.value)) {
-                let propType = prop.value.object.name
-                // This is a bit weird, but if the prop is like PropTypes.string.isRequired
-                // its nested another layer
-                if (t.isMemberExpression(prop.value.object)) {
-                  propObj.type = {
-                    raw: generate(prop.value).code,
-                  }
-                } else {
-                  propObj.type = {
-                    raw: generate(prop.value).code,
-                  }
+            // If there are leading comments we want to process the prop
+            // @TODO we probably want to process every prop and then strip at runtime
+            if (Array.isArray(prop.leadingComments)) {
+              propObj.comments = formatComments(prop.leadingComments)
+            }
+            if (t.isMemberExpression(prop.value)) {
+              let propType = prop.value.object.name
+              // This is a bit weird, but if the prop is like PropTypes.string.isRequired
+              // its nested another layer
+              if (t.isMemberExpression(prop.value.object)) {
+                propObj.type = {
+                  raw: generate(prop.value).code,
                 }
               } else {
                 propObj.type = {
                   raw: generate(prop.value).code,
                 }
               }
-              propData.push(propObj)
-            })
-            component.props = propData
-            data.components = [...data.components, component]
-          }
+            } else {
+              propObj.type = {
+                raw: generate(prop.value).code,
+              }
+            }
+            propData.push(propObj)
+          })
+          component.props = propData
+          data.components = [...data.components, component]
         }
       },
     },

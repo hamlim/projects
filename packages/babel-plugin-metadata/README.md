@@ -32,3 +32,9 @@ module.exports = {
   ],
 }
 ```
+
+## TODO:
+
+- [ ] Handle `defaultProps`
+- [ ] Finish parsing propTypes for both assignments and statics
+- [ ] Implement external file tracking for imported values
