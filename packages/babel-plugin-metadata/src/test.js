@@ -1,5 +1,5 @@
 import pluginTester from 'babel-plugin-tester'
-import plugin, { defaultFormatComments } from './index.js'
+import plugin, { defaultFormatComments, isReactSuperClass } from './index.js'
 import path from 'path'
 
 pluginTester({

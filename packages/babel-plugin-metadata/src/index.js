@@ -8,6 +8,22 @@ export function defaultFormatComments(comments) {
     .join('\n')
 }
 
+function isReactSuperClass({
+  superClass,
+  t,
+  reactComponentImport = 'Component',
+  reactDefaultImport = 'React',
+}) {
+  if (t.isMemberExpression(superClass)) {
+    return (
+      superClass.object.name === reactDefaultImport &&
+      superClass.property.name === 'Component'
+    )
+  } else {
+    return superClass.name === reactComponentImport
+  }
+}
+
 // Flag to determine if an import is a nameespace import
 // We probably don't need this if we just collect the raw import declarations
 let namespaceImportSigil = {}
@@ -26,6 +42,30 @@ export default function babelPluginMetadata({ types: t }) {
     },
     visitor: {
       ImportDeclaration(path, state) {
+        // Collect import metadata about React and React.Component
+        let {
+          opts: {
+            reactSource = 'react',
+            reactComponentValue = 'Component',
+          } = {},
+        } = state
+        if (path.node.source.value === reactSource) {
+          for (let specifier of path.node.specifiers) {
+            // import * as React from 'react';
+            if (t.isImportNamespaceSpecifier(specifier)) {
+              this.reactDefaultImport = specifier.local.name
+              // import React from 'react';
+            } else if (t.isImportDefaultSpecifier(specifier)) {
+              this.reactDefaultImport = specifier.local.name
+              // import {Component} from 'react';
+            } else if (t.isImportSpecifier(specifier)) {
+              if (specifier.imported.name === reactComponentValue) {
+                this.reactComponentImport = specifier.local.name
+              }
+            }
+          }
+        }
+        // Push all imports into the imports metadata
         this.data.imports.push({
           specifiers: path.node.specifiers.map(specifier => {
             return {
@@ -44,6 +84,7 @@ export default function babelPluginMetadata({ types: t }) {
         })
       },
       // PropType visitor
+      // Classical componentName.propTypes handler
       AssignmentExpression(path, state) {
         let {
           opts: { formatComments = defaultFormatComments },
@@ -98,6 +139,72 @@ export default function babelPluginMetadata({ types: t }) {
           })
           component.props = propData
           data.components = [...data.components, component]
+        }
+      },
+      // Handle static propTypes = { ... } in a class
+      ClassDeclaration(path, state) {
+        let { reactComponentImport, reactDefaultImport } = this
+        if (
+          path.node.superClass &&
+          isReactSuperClass({
+            superClass: path.node.superClass,
+            t,
+            reactDefaultImport,
+            reactComponentImport,
+          })
+        ) {
+          // We know we are in a `class Foo extrends React.Component` here
+          // static propTypes
+          if (path.node.static && path.node.key.name === 'propTypes') {
+            let {
+              opts: { formatComments = defaultFormatComments },
+            } = state
+            let { data } = this
+            // Foo
+            let componentName = path.node.left.object.name
+            // Setup the data we will return
+            let component = {
+              name: componentName,
+            }
+            let propData = []
+            // Iterate through the prop-types
+            // @TODO assumes an object expression definition
+            let props = path.node.right.properties
+            props.forEach(prop => {
+              // grab the prop name
+              // @TODO test for expressions here: {[foo]: PropTypes.string}
+              let propName = prop.key.name
+              let propObj = {
+                name: propName,
+              }
+              // If there are leading comments we want to process the prop
+              // @TODO we probably want to process every prop and then strip at runtime
+              if (Array.isArray(prop.leadingComments)) {
+                propObj.comments = formatComments(prop.leadingComments)
+              }
+              if (t.isMemberExpression(prop.value)) {
+                let propType = prop.value.object.name
+                // This is a bit weird, but if the prop is like PropTypes.string.isRequired
+                // its nested another layer
+                if (t.isMemberExpression(prop.value.object)) {
+                  propObj.type = {
+                    raw: generate(prop.value).code,
+                  }
+                } else {
+                  propObj.type = {
+                    raw: generate(prop.value).code,
+                  }
+                }
+              } else {
+                propObj.type = {
+                  raw: generate(prop.value).code,
+                }
+              }
+              propData.push(propObj)
+            })
+            component.props = propData
+            data.components = [...data.components, component]
+          }
         }
       },
     },
