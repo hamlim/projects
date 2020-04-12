@@ -2,6 +2,11 @@ import { lazy } from 'react'
 
 export default [
   {
+    to: 'the-rabbit-hole',
+    title: 'The Rabbit Hole',
+    component: lazy(() => import('./posts/2020/april/the-rabbit-hole.mdx')),
+  },
+  {
     to: 'stateful-providers',
     title: 'Stateful Providers',
     component: lazy(() => import('./posts/2020/march/stateful-providers.mdx')),
