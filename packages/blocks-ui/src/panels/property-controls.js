@@ -2,7 +2,7 @@
 import React from 'react'
 import { jsx } from 'theme-ui'
 import { Label, Input, Select, Field } from '@theme-ui/components'
-import { ControlType } from 'property-controls'
+import { ControlType } from '@matthamlin/blocks-property-controls'
 
 import { FieldGroup } from '../field-group'
 import { Sx } from '../theme-editor'
@@ -13,14 +13,14 @@ export default ({
   elementData,
   onStyleChange,
   onPropChange,
-  onTextChange
+  onTextChange,
 }) => {
   const hasPropertyControls = Object.keys(propertyControls).length > 0
   const hasStyles = !!propertyControls.sx
   const { update, ...theme } = useThemeEditor()
 
   return (
-    <form onSubmit={e => e.preventDefault()}>
+    <form onSubmit={(e) => e.preventDefault()}>
       {hasPropertyControls ? (
         <FieldGroup title="props">
           {Object.entries(propertyControls).map(([key, value]) => {
@@ -45,7 +45,7 @@ export default ({
                   <Input
                     sx={{ backgroundColor: 'white' }}
                     value={fieldValue}
-                    onChange={e => onPropChange(key, e)}
+                    onChange={(e) => onPropChange(key, e)}
                   />
                 </div>
               )
@@ -57,7 +57,7 @@ export default ({
                     sx={{ backgroundColor: 'white' }}
                     type="number"
                     value={fieldValue}
-                    onChange={e => onPropChange(key, e)}
+                    onChange={(e) => onPropChange(key, e)}
                   />
                 </div>
               )
@@ -67,10 +67,10 @@ export default ({
                   key={key}
                   label={title}
                   value={fieldValue}
-                  onChange={e => onPropChange(key, e)}
+                  onChange={(e) => onPropChange(key, e)}
                   as={Select}
                 >
-                  {value.options.map(option => (
+                  {value.options.map((option) => (
                     <option key={option}>{option}</option>
                   ))}
                 </Field>

@@ -1,7 +1,10 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { Link } from '@theme-ui/components'
-import { ControlType, applyPropertyControls } from 'property-controls'
+import {
+  ControlType,
+  applyPropertyControls,
+} from '@matthamlin/blocks-property-controls'
 
 const FooterBasic = ({ justifyContent = 'space-between', ...props }) => {
   return (
@@ -10,7 +13,7 @@ const FooterBasic = ({ justifyContent = 'space-between', ...props }) => {
         variant: 'styles.footer',
         display: 'flex',
         alignItems: 'center',
-        justifyContent
+        justifyContent,
       }}
       {...props}
     />
@@ -23,7 +26,7 @@ FooterBasic.Logo = props => {
       sx={{
         variant: 'styles.navLink',
         p: 2,
-        mr: 3
+        mr: 3,
       }}
       {...props}
     />
@@ -37,7 +40,7 @@ FooterBasic.Link = props => {
     <Link
       sx={{
         variant: 'styles.navLink',
-        p: 2
+        p: 2,
       }}
       {...props}
     />
@@ -51,43 +54,43 @@ applyPropertyControls(FooterBasic, {
   justifyContent: {
     type: ControlType.Enum,
     defaultValue: 'right',
-    options: ['space-between', 'start', 'space-evenly']
+    options: ['space-between', 'start', 'space-evenly'],
   },
   sx: {
-    type: ControlType.Style
-  }
+    type: ControlType.Style,
+  },
 })
 
 applyPropertyControls(FooterBasic.Nav, {
   sx: {
-    type: ControlType.Style
-  }
+    type: ControlType.Style,
+  },
 })
 applyPropertyControls(FooterBasic.Copyright, {
   children: {
     title: 'Text',
-    type: ControlType.String
+    type: ControlType.String,
   },
   sx: {
-    type: ControlType.Style
-  }
+    type: ControlType.Style,
+  },
 })
 
 const linkControls = {
   children: {
     title: 'Text',
     type: ControlType.String,
-    required: true
+    required: true,
   },
   to: {
     title: 'URL',
     type: ControlType.String,
     defaultValue: '#!',
-    required: true
+    required: true,
   },
   sx: {
-    type: ControlType.Style
-  }
+    type: ControlType.Style,
+  },
 }
 
 applyPropertyControls(FooterBasic.Logo, linkControls)

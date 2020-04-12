@@ -1,7 +1,10 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { Link } from '@theme-ui/components'
-import { ControlType, applyPropertyControls } from 'property-controls'
+import {
+  ControlType,
+  applyPropertyControls,
+} from '@matthamlin/blocks-property-controls'
 
 const HeaderLogo = ({ justifyContent = 'space-between', ...props }) => {
   return (
@@ -10,7 +13,7 @@ const HeaderLogo = ({ justifyContent = 'space-between', ...props }) => {
         variant: 'styles.header',
         display: 'flex',
         alignItems: 'center',
-        justifyContent
+        justifyContent,
       }}
       {...props}
     />
@@ -22,7 +25,7 @@ HeaderLogo.Logo = ({ to, ...props }) => {
     <Link
       sx={{
         variant: 'styles.navLink',
-        p: 2
+        p: 2,
       }}
       to={to}
       {...props}
@@ -31,7 +34,7 @@ HeaderLogo.Logo = ({ to, ...props }) => {
         alt="Logo"
         src="https://contrast.now.sh/white/black?size=48&fontSize=2&baseline=2&fontWeight=900&radius=32&text=UI"
         sx={{
-          verticalAlign: 'middle'
+          verticalAlign: 'middle',
         }}
         {...props}
       />
@@ -41,7 +44,7 @@ HeaderLogo.Logo = ({ to, ...props }) => {
           width: 1,
           height: 1,
           overflow: 'hidden',
-          top: -9999
+          top: -9999,
         }}
       >
         Home
@@ -57,7 +60,7 @@ HeaderLogo.Link = props => {
     <Link
       sx={{
         variant: 'styles.navLink',
-        p: 2
+        p: 2,
       }}
       {...props}
     />
@@ -68,28 +71,28 @@ applyPropertyControls(HeaderLogo, {
   justifyContent: {
     type: ControlType.Enum,
     defaultValue: 'right',
-    options: ['space-between', 'start', 'space-evenly']
+    options: ['space-between', 'start', 'space-evenly'],
   },
   sx: {
-    type: ControlType.Style
-  }
+    type: ControlType.Style,
+  },
 })
 
 const linkControls = {
   children: {
     title: 'Text',
     type: ControlType.String,
-    required: true
+    required: true,
   },
   to: {
     title: 'URL',
     type: ControlType.String,
     defaultValue: '#!',
-    required: true
+    required: true,
   },
   sx: {
-    type: ControlType.Style
-  }
+    type: ControlType.Style,
+  },
 }
 
 applyPropertyControls(HeaderLogo.Logo, linkControls)

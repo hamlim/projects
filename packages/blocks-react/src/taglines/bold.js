@@ -1,6 +1,9 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { ControlType, applyPropertyControls } from 'property-controls'
+import {
+  ControlType,
+  applyPropertyControls,
+} from '@matthamlin/blocks-property-controls'
 
 const TaglineBold = props => (
   <section
@@ -8,7 +11,7 @@ const TaglineBold = props => (
       maxWidth: 'container',
       mx: 'auto',
       px: 2,
-      py: [3, 4, 5]
+      py: [3, 4, 5],
     }}
     {...props}
   />
@@ -22,8 +25,8 @@ TaglineBold.Content = props => (
       lineHeight: 'heading',
       fontWeight: 'heading',
       'span + span': {
-        ml: 1
-      }
+        ml: 1,
+      },
     }}
     {...props}
   />
@@ -32,7 +35,7 @@ TaglineBold.Content = props => (
 TaglineBold.Emphasis = props => (
   <span
     sx={{
-      color: 'primary'
+      color: 'primary',
     }}
     {...props}
   />
@@ -41,7 +44,7 @@ TaglineBold.Emphasis = props => (
 TaglineBold.Normal = props => (
   <span
     sx={{
-      color: 'text'
+      color: 'text',
     }}
     {...props}
   />
@@ -49,40 +52,40 @@ TaglineBold.Normal = props => (
 
 applyPropertyControls(TaglineBold, {
   sx: {
-    type: ControlType.Style
-  }
+    type: ControlType.Style,
+  },
 })
 
 applyPropertyControls(TaglineBold.Content, {
   as: {
     title: 'Element Type',
     type: ControlType.Enum,
-    options: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+    options: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
   },
   sx: {
-    type: ControlType.Style
-  }
+    type: ControlType.Style,
+  },
 })
 
 applyPropertyControls(TaglineBold.Emphasis, {
   children: {
     title: 'Text',
-    type: ControlType.String
+    type: ControlType.String,
   },
   sx: {
-    type: ControlType.Style
-  }
+    type: ControlType.Style,
+  },
 })
 
 applyPropertyControls(TaglineBold.Normal, {
   children: {
     title: 'Text',
     type: ControlType.String,
-    required: true
+    required: true,
   },
   sx: {
-    type: ControlType.Style
-  }
+    type: ControlType.Style,
+  },
 })
 
 TaglineBold.usage = `

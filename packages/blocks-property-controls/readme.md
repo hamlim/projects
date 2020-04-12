@@ -9,13 +9,16 @@ yarn add property-controls
 ## Usage
 
 ```js
-import { ControlType, applyPropertyControls } from 'property-controls'
+import {
+  ControlType,
+  applyPropertyControls,
+} from '@matthamlin/blocks-property-controls'
 
 export const Component = ({ isTomato, ...props }) => (
   <h1
     {...props}
     style={{
-      color: isTomato ? 'tomato' : 'inherit'
+      color: isTomato ? 'tomato' : 'inherit',
     }}
   />
 )
@@ -23,8 +26,8 @@ export const Component = ({ isTomato, ...props }) => (
 applyPropertyControls(Component, {
   isTomato: {
     type: ControlType.Boolean,
-    title: 'Tomato'
-  }
+    title: 'Tomato',
+  },
 })
 ```
 

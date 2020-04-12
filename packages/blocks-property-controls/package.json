@@ -2,8 +2,7 @@
   "name": "@matthamlin/blocks-property-controls",
   "version": "0.0.59",
   "description": "Expose dials and knobs for your components in design tools",
-  "main": "dist/property-controls.cjs.js",
-  "module": "dist/property-controls.esm.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "babel src --out-dir dist/"
   },

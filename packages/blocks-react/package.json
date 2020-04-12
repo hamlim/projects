@@ -2,8 +2,7 @@
   "name": "@matthamlin/blocks-react",
   "version": "0.0.63",
   "description": "The default, Theme UI-based for the Blocks editor",
-  "main": "dist/react.cjs.js",
-  "module": "dist/react.esm.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "babel src --out-dir dist/"
   },
