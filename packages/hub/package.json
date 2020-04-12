@@ -38,7 +38,8 @@
     "@testing-library/react": "^9.3.2",
     "jest": "24.9.0",
     "parcel": "latest",
-    "babel-plugin-styled-components": "1.10.7"
+    "babel-plugin-styled-components": "1.10.7",
+    "@matthamlin/babel-config": "0.0.0"
   },
   "publishConfig": {
     "access": "public",

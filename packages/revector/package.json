@@ -24,7 +24,8 @@
     "@testing-library/react": "^9.3.2",
     "jest": "24.9.0",
     "react": "*",
-    "react-dom": "*"
+    "react-dom": "*",
+    "@matthamlin/babel-config": "0.0.0"
   },
   "publishConfig": {
     "access": "public",

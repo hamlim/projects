@@ -56,13 +56,9 @@
       "devDependencies": {
         "@babel/cli": "7.5.0",
         "@babel/core": "7.5.0",
+        "@babel/plugin-proposal-export-namespace-from": "7.8.3",
         "@babel/preset-env": "7.5.0",
-        "@babel/preset-react": "^7.7.4",
-        "@testing-library/jest-dom": "^4.2.4",
-        "@testing-library/react": "^9.3.2",
-        "jest": "24.9.0",
-        "react": "*",
-        "react-dom": "*"
+        "@babel/preset-react": "^7.7.4"
       },
       "peerDependencies": {},
       "localDependencies": [],
@@ -77,10 +73,11 @@
         "@babel/plugin-syntax-class-properties": "7.8.3",
         "@babel/plugin-syntax-jsx": "7.8.3",
         "@babel/preset-env": "7.5.0",
-        "babel-plugin-tester": "9.0.0"
+        "babel-plugin-tester": "9.0.0",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": {},
-      "localDependencies": [],
+      "localDependencies": [["@matthamlin/babel-config", "0.0.0"]],
       "name": "@matthamlin/babel-plugin-metadata"
     },
     "packages/babel-plugin-property-controls": {
@@ -91,10 +88,11 @@
         "@babel/preset-env": "7.5.0",
         "@babel/preset-react": "7.9.4",
         "jest": "24.9.0",
-        "babel-plugin-tester": "9.0.0"
+        "babel-plugin-tester": "9.0.0",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": {},
-      "localDependencies": [],
+      "localDependencies": [["@matthamlin/babel-config", "0.0.0"]],
       "name": "@matthamlin/babel-plugin-property-controls"
     },
     "packages/base-styled": {
@@ -109,10 +107,11 @@
         "@babel/preset-react": "^7.7.4",
         "jest": "24.9.0",
         "react": "*",
-        "react-dom": "*"
+        "react-dom": "*",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": {},
-      "localDependencies": [],
+      "localDependencies": [["@matthamlin/babel-config", "0.0.0"]],
       "name": "@matthamlin/base-styled"
     },
     "packages/blocks-editor": {
@@ -147,11 +146,12 @@
         "slate-soft-break": "^0.9.0",
         "theme-ui": "^0.3.1"
       },
-      "devDependencies": {},
+      "devDependencies": { "@matthamlin/babel-config": "0.0.0" },
       "peerDependencies": {},
       "localDependencies": [
         ["@matthamlin/blocks-kit", "^0.0.28"],
-        ["@matthamlin/blocks-serializer", "^0.0.28"]
+        ["@matthamlin/blocks-serializer", "^0.0.28"],
+        ["@matthamlin/babel-config", "0.0.0"]
       ],
       "name": "@matthamlin/blocks-editor"
     },
@@ -172,10 +172,11 @@
         "@babel/cli": "7.8.4",
         "@babel/core": "7.9.0",
         "@babel/preset-env": "7.9.0",
-        "@babel/preset-react": "7.9.4"
+        "@babel/preset-react": "7.9.4",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": {},
-      "localDependencies": [],
+      "localDependencies": [["@matthamlin/babel-config", "0.0.0"]],
       "name": "@matthamlin/blocks-kit"
     },
     "packages/blocks-property-controls": {
@@ -184,10 +185,11 @@
         "@babel/cli": "7.8.4",
         "@babel/core": "7.9.0",
         "@babel/preset-env": "7.9.0",
-        "@babel/preset-react": "7.9.4"
+        "@babel/preset-react": "7.9.4",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": {},
-      "localDependencies": [],
+      "localDependencies": [["@matthamlin/babel-config", "0.0.0"]],
       "name": "@matthamlin/blocks-property-controls"
     },
     "packages/blocks-react": {
@@ -202,11 +204,13 @@
         "@babel/core": "7.9.0",
         "@babel/preset-env": "7.9.0",
         "@babel/preset-react": "7.9.4",
-        "react": "*"
+        "react": "*",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": { "react": "*" },
       "localDependencies": [
-        ["@matthamlin/blocks-property-controls", "^0.0.59"]
+        ["@matthamlin/blocks-property-controls", "^0.0.59"],
+        ["@matthamlin/babel-config", "0.0.0"]
       ],
       "name": "@matthamlin/blocks-react"
     },
@@ -224,9 +228,13 @@
         "unified": "^8.4.2",
         "unist-util-visit": "^2.0.1"
       },
-      "devDependencies": { "@babel/cli": "7.8.4", "jest": "25.1.0" },
+      "devDependencies": {
+        "@babel/cli": "7.8.4",
+        "jest": "25.1.0",
+        "@matthamlin/babel-config": "0.0.0"
+      },
       "peerDependencies": {},
-      "localDependencies": [],
+      "localDependencies": [["@matthamlin/babel-config", "0.0.0"]],
       "name": "@matthamlin/blocks-serializer"
     },
     "packages/blocks-ui": {
@@ -268,12 +276,14 @@
         "@babel/preset-react": "7.9.4",
         "jest": "25.1.0",
         "react": "*",
-        "react-dom": "*"
+        "react-dom": "*",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": { "react": "*", "react-dom": "*" },
       "localDependencies": [
         ["@matthamlin/blocks-react", "^0.0.63"],
-        ["@matthamlin/blocks-property-controls", "^0.0.59"]
+        ["@matthamlin/blocks-property-controls", "^0.0.59"],
+        ["@matthamlin/babel-config", "0.0.0"]
       ],
       "name": "@matthamlin/blocks-ui"
     },
@@ -300,7 +310,8 @@
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "jest": "24.9.0",
-        "parcel": "latest"
+        "parcel": "latest",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": {},
       "localDependencies": [
@@ -308,7 +319,8 @@
         ["@matthamlin/property-controls", "*"],
         ["@matthamlin/reroute-browser", "*"],
         ["@matthamlin/reroute-core", "*"],
-        ["@matthamlin/simple-cache", "*"]
+        ["@matthamlin/simple-cache", "*"],
+        ["@matthamlin/babel-config", "0.0.0"]
       ],
       "name": "@matthamlin/blog"
     },
@@ -332,10 +344,14 @@
         "babel-plugin-styled-components": "1.10.7",
         "jest": "24.9.0",
         "react": "*",
-        "react-dom": "*"
+        "react-dom": "*",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": { "react": "*", "react-dom": "*" },
-      "localDependencies": [["@matthamlin/base-styled", "1.1.0"]],
+      "localDependencies": [
+        ["@matthamlin/base-styled", "1.1.0"],
+        ["@matthamlin/babel-config", "0.0.0"]
+      ],
       "name": "@matthamlin/component-library"
     },
     "packages/error-boundary": {
@@ -344,10 +360,11 @@
         "@babel/cli": "7.5.0",
         "@babel/core": "7.5.0",
         "@babel/preset-env": "7.5.0",
-        "@babel/preset-react": "^7.7.4"
+        "@babel/preset-react": "^7.7.4",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": { "react": "*" },
-      "localDependencies": [],
+      "localDependencies": [["@matthamlin/babel-config", "0.0.0"]],
       "name": "@matthamlin/error-boundary"
     },
     "packages/hub": {
@@ -371,7 +388,8 @@
         "@testing-library/react": "^9.3.2",
         "jest": "24.9.0",
         "parcel": "latest",
-        "babel-plugin-styled-components": "1.10.7"
+        "babel-plugin-styled-components": "1.10.7",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": {},
       "localDependencies": [
@@ -380,7 +398,8 @@
         ["@matthamlin/property-controls", "*"],
         ["@matthamlin/reroute-browser", "*"],
         ["@matthamlin/reroute-core", "*"],
-        ["@matthamlin/simple-cache", "*"]
+        ["@matthamlin/simple-cache", "*"],
+        ["@matthamlin/babel-config", "0.0.0"]
       ],
       "name": "@matthamlin/hub"
     },
@@ -401,7 +420,8 @@
         "@babel/preset-react": "^7.7.4",
         "@parcel/resolver-default": "2.0.0-alpha.3",
         "jest": "24.9.0",
-        "parcel": "latest"
+        "parcel": "latest",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": {},
       "localDependencies": [
@@ -409,7 +429,8 @@
         ["@matthamlin/component-library", "*"],
         ["@matthamlin/reroute-browser", "*"],
         ["@matthamlin/reroute-core", "*"],
-        ["@matthamlin/simple-cache", "*"]
+        ["@matthamlin/simple-cache", "*"],
+        ["@matthamlin/babel-config", "0.0.0"]
       ],
       "name": "@matthamlin/kitchen-sink"
     },
@@ -418,10 +439,14 @@
       "devDependencies": {
         "@babel/cli": "7.0.0",
         "@babel/core": "^7.7.4",
-        "@babel/preset-env": "7.0.0"
+        "@babel/preset-env": "7.0.0",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": {},
-      "localDependencies": [["@matthamlin/native-bundler-core", "*"]],
+      "localDependencies": [
+        ["@matthamlin/native-bundler-core", "*"],
+        ["@matthamlin/babel-config", "0.0.0"]
+      ],
       "name": "@matthamlin/native-bundler-cli"
     },
     "packages/native-bundler-core": {
@@ -440,13 +465,15 @@
         "@babel/preset-react": "7.0.0",
         "babel-plugin-macros": "^2.7.1",
         "directory-tree": "2.1.0",
-        "preval.macro": "3.0.0"
+        "preval.macro": "3.0.0",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": {},
       "localDependencies": [
         ["@matthamlin/native-bundler-plugin-css", "*"],
         ["@matthamlin/native-bundler-plugin-js", "*"],
-        ["@matthamlin/native-bundler-plugin-mdx", "*"]
+        ["@matthamlin/native-bundler-plugin-mdx", "*"],
+        ["@matthamlin/babel-config", "0.0.0"]
       ],
       "name": "@matthamlin/native-bundler-core"
     },
@@ -458,10 +485,11 @@
       },
       "devDependencies": {
         "@babel/cli": "7.0.0",
-        "@babel/preset-env": "7.1.0"
+        "@babel/preset-env": "7.1.0",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": {},
-      "localDependencies": [],
+      "localDependencies": [["@matthamlin/babel-config", "0.0.0"]],
       "name": "@matthamlin/native-bundler-plugin-css"
     },
     "packages/native-bundler-plugin-js": {
@@ -474,10 +502,11 @@
       "devDependencies": {
         "@babel/cli": "7.0.0",
         "@babel/preset-env": "7.1.0",
-        "@babel/preset-react": "7.0.0"
+        "@babel/preset-react": "7.0.0",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": {},
-      "localDependencies": [],
+      "localDependencies": [["@matthamlin/babel-config", "0.0.0"]],
       "name": "@matthamlin/native-bundler-plugin-js"
     },
     "packages/native-bundler-plugin-mdx": {
@@ -491,10 +520,11 @@
       "devDependencies": {
         "@babel/cli": "7.0.0",
         "@babel/preset-env": "7.1.0",
-        "@babel/preset-react": "7.0.0"
+        "@babel/preset-react": "7.0.0",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": { "@mdx-js/tag": "0.15.0", "react": "*" },
-      "localDependencies": [],
+      "localDependencies": [["@matthamlin/babel-config", "0.0.0"]],
       "name": "@matthamlin/native-bundler-plugin-mdx"
     },
     "packages/property-controls": {
@@ -504,10 +534,11 @@
         "@babel/core": "7.5.0",
         "@babel/preset-env": "7.5.0",
         "jest": "24.9.0",
-        "microbundle": "0.11.0"
+        "microbundle": "0.11.0",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": { "react": "*" },
-      "localDependencies": [],
+      "localDependencies": [["@matthamlin/babel-config", "0.0.0"]],
       "name": "@matthamlin/property-controls"
     },
     "packages/react-code-editor": {
@@ -522,10 +553,11 @@
         "jest": "24.9.0",
         "react": "*",
         "react-dom": "*",
-        "react-simple-code-editor": "0.9.1"
+        "react-simple-code-editor": "0.9.1",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": { "react": "*", "react-simple-code-editor": "0.9.1" },
-      "localDependencies": [],
+      "localDependencies": [["@matthamlin/babel-config", "0.0.0"]],
       "name": "@matthamlin/react-code-editor"
     },
     "packages/redocer": {
@@ -537,10 +569,11 @@
         "@babel/preset-react": "^7.7.4",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
-        "jest": "24.9.0"
+        "jest": "24.9.0",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": {},
-      "localDependencies": [],
+      "localDependencies": [["@matthamlin/babel-config", "0.0.0"]],
       "name": "@matthamlin/redocer"
     },
     "packages/reroute-browser": {
@@ -558,10 +591,14 @@
         "jest": "24.9.0",
         "microbundle": "0.11.0",
         "react": "*",
-        "react-dom": "*"
+        "react-dom": "*",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": { "@matthamlin/reroute-core": "*", "react": "*" },
-      "localDependencies": [["@matthamlin/reroute-core", "*"]],
+      "localDependencies": [
+        ["@matthamlin/reroute-core", "*"],
+        ["@matthamlin/babel-config", "0.0.0"]
+      ],
       "name": "@matthamlin/reroute-browser"
     },
     "packages/reroute-core": {
@@ -578,10 +615,11 @@
         "jest": "24.9.0",
         "microbundle": "0.11.0",
         "react": "*",
-        "react-dom": "*"
+        "react-dom": "*",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": { "react": "*" },
-      "localDependencies": [],
+      "localDependencies": [["@matthamlin/babel-config", "0.0.0"]],
       "name": "@matthamlin/reroute-core"
     },
     "packages/revector": {
@@ -595,10 +633,11 @@
         "@testing-library/react": "^9.3.2",
         "jest": "24.9.0",
         "react": "*",
-        "react-dom": "*"
+        "react-dom": "*",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": {},
-      "localDependencies": [],
+      "localDependencies": [["@matthamlin/babel-config", "0.0.0"]],
       "name": "@matthamlin/revector"
     },
     "packages/simple-cache": {
@@ -607,10 +646,11 @@
         "@babel/cli": "7.5.0",
         "@babel/core": "7.5.0",
         "@babel/preset-env": "7.5.0",
-        "microbundle": "0.11.0"
+        "microbundle": "0.11.0",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": { "react": "*" },
-      "localDependencies": [],
+      "localDependencies": [["@matthamlin/babel-config", "0.0.0"]],
       "name": "@matthamlin/simple-cache"
     },
     "packages/slate-mdx-editor": {
@@ -638,7 +678,8 @@
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "jest": "24.9.0",
-        "parcel": "latest"
+        "parcel": "latest",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": {},
       "localDependencies": [
@@ -647,7 +688,8 @@
         ["@matthamlin/property-controls", "*"],
         ["@matthamlin/reroute-browser", "*"],
         ["@matthamlin/reroute-core", "*"],
-        ["@matthamlin/simple-cache", "*"]
+        ["@matthamlin/simple-cache", "*"],
+        ["@matthamlin/babel-config", "0.0.0"]
       ],
       "name": "@matthamlin/slate-mdx-editor"
     },
@@ -661,10 +703,11 @@
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "jest": "24.9.0",
-        "react": "*"
+        "react": "*",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": {},
-      "localDependencies": [],
+      "localDependencies": [["@matthamlin/babel-config", "0.0.0"]],
       "name": "@matthamlin/use-error"
     },
     "packages/zaps": {

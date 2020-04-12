@@ -9,9 +9,13 @@ package to manage running scripts throughout the repo.
 ## Projects:
 
 - [`@matthamlin/ast-gql`](./packages/ast-gql/README.md)
+- [`@matthamlin/babel-config`](./packages/babel-config/README.md)
 - [`@matthamlin/babel-plugin-metadata`](./packages/babel-plugin-metadata/README.md)
 - [`@matthamlin/babel-plugin-property-controls`](./packages/babel-plugin-property-controls/README.md)
 - [`@matthamlin/base-styled`](./packages/base-styled/README.md)
+- [`@matthamlin/blocks-editor`](./packages/blocks-editor/README.md)
+- [`@matthamlin/blocks-kit`](./packages/blocks-kit/README.md)
+- [`@matthamlin/blocks-property-controls`](./packages/blocks-property-controls/README.md)
 - [`@matthamlin/blog`](./packages/blog/README.md)
 - [`@matthamlin/component-library`](./packages/component-library/README.md)
 - [`@matthamlin/error-boundary`](./packages/error-boundary/README.md)

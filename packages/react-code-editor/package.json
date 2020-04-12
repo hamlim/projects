@@ -26,7 +26,8 @@
     "jest": "24.9.0",
     "react": "*",
     "react-dom": "*",
-    "react-simple-code-editor": "0.9.1"
+    "react-simple-code-editor": "0.9.1",
+    "@matthamlin/babel-config": "0.0.0"
   },
   "peerDependencies": {
     "react": "*",

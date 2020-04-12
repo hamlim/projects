@@ -44,7 +44,8 @@
     "@babel/preset-react": "7.9.4",
     "jest": "25.1.0",
     "react": "*",
-    "react-dom": "*"
+    "react-dom": "*",
+    "@matthamlin/babel-config": "0.0.0"
   },
   "peerDependencies": {
     "react": "*",

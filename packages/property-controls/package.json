@@ -26,7 +26,8 @@
     "@babel/core": "7.5.0",
     "@babel/preset-env": "7.5.0",
     "jest": "24.9.0",
-    "microbundle": "0.11.0"
+    "microbundle": "0.11.0",
+    "@matthamlin/babel-config": "0.0.0"
   },
   "publishConfig": {
     "access": "public",
