@@ -7,7 +7,6 @@
     "packages/babel-plugin-property-controls",
     "packages/base-styled",
     "packages/blocks-editor",
-    "packages/blocks-gatsby-plugin",
     "packages/blocks-kit",
     "packages/blocks-property-controls",
     "packages/blocks-react",
@@ -105,8 +104,8 @@
         "@babel/plugin-proposal-class-properties": "^7.7.0",
         "@babel/preset-env": "^7.7.1",
         "@babel/preset-react": "^7.7.0",
-        "@blocks/kit": "^0.0.28",
-        "@blocks/serializer": "^0.0.28",
+        "@matthamlin/blocks-kit": "^0.0.28",
+        "@matthamlin/blocks-serializer": "^0.0.28",
         "@convertkit/slate-lists": "^0.2.5",
         "@emotion/core": "^10.0.22",
         "@emotion/styled": "^10.0.23",
@@ -133,25 +132,10 @@
       "devDependencies": {},
       "peerDependencies": {},
       "localDependencies": [
-        ["@blocks/kit", "^0.0.28"],
-        ["@blocks/serializer", "^0.0.28"]
+        ["@matthamlin/blocks-kit", "^0.0.28"],
+        ["@matthamlin/blocks-serializer", "^0.0.28"]
       ],
-      "name": "@blocks/editor"
-    },
-    "packages/blocks-gatsby-plugin": {
-      "dependencies": {
-        "@blocks/react": "^0.0.63",
-        "blocks-ui": "^0.0.78",
-        "globby": "^11.0.0",
-        "mkdirp": "^1.0.3"
-      },
-      "devDependencies": {},
-      "peerDependencies": {},
-      "localDependencies": [
-        ["@blocks/react", "^0.0.63"],
-        ["blocks-ui", "^0.0.78"]
-      ],
-      "name": "gatsby-plugin-blocks"
+      "name": "@matthamlin/blocks-editor"
     },
     "packages/blocks-kit": {
       "dependencies": {
@@ -174,7 +158,7 @@
       },
       "peerDependencies": {},
       "localDependencies": [],
-      "name": "@blocks/kit"
+      "name": "@matthamlin/blocks-kit"
     },
     "packages/blocks-property-controls": {
       "dependencies": {},
@@ -186,13 +170,13 @@
       },
       "peerDependencies": {},
       "localDependencies": [],
-      "name": "property-controls"
+      "name": "@matthamlin/blocks-property-controls"
     },
     "packages/blocks-react": {
       "dependencies": {
         "@babel/helper-plugin-utils": "^7.8.3",
         "@theme-ui/components": "0.3.1",
-        "property-controls": "^0.0.59",
+        "@matthamlin/blocks-property-controls": "^0.0.59",
         "theme-ui": "0.3.1"
       },
       "devDependencies": {
@@ -200,11 +184,13 @@
         "@babel/core": "7.9.0",
         "@babel/preset-env": "7.9.0",
         "@babel/preset-react": "7.9.4",
-        "react": "16.13.1"
+        "react": "*"
       },
-      "peerDependencies": { "react": "^16.13.0" },
-      "localDependencies": [["property-controls", "^0.0.59"]],
-      "name": "@blocks/react"
+      "peerDependencies": { "react": "*" },
+      "localDependencies": [
+        ["@matthamlin/blocks-property-controls", "^0.0.59"]
+      ],
+      "name": "@matthamlin/blocks-react"
     },
     "packages/blocks-serializer": {
       "dependencies": {
@@ -223,7 +209,7 @@
       "devDependencies": { "@babel/cli": "7.8.4", "jest": "25.1.0" },
       "peerDependencies": {},
       "localDependencies": [],
-      "name": "@blocks/serializer"
+      "name": "@matthamlin/blocks-serializer"
     },
     "packages/blocks-ui": {
       "dependencies": {
@@ -234,7 +220,7 @@
         "@babel/template": "^7.8.6",
         "@babel/traverse": "^7.8.6",
         "@babel/types": "^7.8.7",
-        "@blocks/react": "^0.0.63",
+        "@matthamlin/blocks-react": "^0.0.63",
         "@blocks/react-beautiful-dnd": "^12.2.1",
         "@emotion/cache": "^10.0.29",
         "@emotion/core": "10.0.28",
@@ -248,7 +234,7 @@
         "interpolate-range": "^2.1.0",
         "lodash.merge": "^4.6.2",
         "prettier": "2.0.2",
-        "property-controls": "^0.0.59",
+        "@matthamlin/blocks-property-controls": "^0.0.59",
         "react-color": "^2.18.0",
         "react-feather": "^2.0.3",
         "react-loadable": "^5.5.0",
@@ -263,13 +249,13 @@
         "@babel/preset-env": "7.9.0",
         "@babel/preset-react": "7.9.4",
         "jest": "25.1.0",
-        "react": "16.13.1",
-        "react-dom": "16.13.1"
+        "react": "*",
+        "react-dom": "*"
       },
-      "peerDependencies": { "react": "^16.13.0", "react-dom": "^16.13.0" },
+      "peerDependencies": { "react": "*", "react-dom": "*" },
       "localDependencies": [
-        ["@blocks/react", "^0.0.63"],
-        ["property-controls", "^0.0.59"]
+        ["@matthamlin/blocks-react", "^0.0.63"],
+        ["@matthamlin/blocks-property-controls", "^0.0.59"]
       ],
       "name": "blocks-ui"
     },

@@ -1,5 +1,5 @@
 {
-  "name": "@blocks/serializer",
+  "name": "@matthamlin/blocks-serializer",
   "description": "Transform between MDX and Slate schema",
   "version": "0.0.28",
   "main": "dist/index.js",
@@ -14,9 +14,6 @@
     "remark",
     "serializer"
   ],
-  "author": "John Otander",
-  "repository": "blocks/blocks",
-  "license": "MIT",
   "devDependencies": {
     "@babel/cli": "7.8.4",
     "jest": "25.1.0"
@@ -34,5 +31,13 @@
     "unified": "^8.4.2",
     "unist-util-visit": "^2.0.1"
   },
-  "gitHead": "376b5da738c62a2be6d1dbcc6d284977529c8865"
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/hamlim/projects.git",
+    "directory": "packages/zaps"
+  }
 }

@@ -1,16 +1,23 @@
 {
-  "name": "property-controls",
+  "name": "@matthamlin/blocks-property-controls",
   "version": "0.0.59",
   "description": "Expose dials and knobs for your components in design tools",
-  "repository": "blocks/blocks",
   "main": "dist/property-controls.cjs.js",
   "module": "dist/property-controls.esm.js",
-  "license": "MIT",
   "scripts": {},
   "devDependencies": {
     "@babel/cli": "7.8.4",
     "@babel/core": "7.9.0",
     "@babel/preset-env": "7.9.0",
     "@babel/preset-react": "7.9.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/hamlim/projects.git",
+    "directory": "packages/zaps"
   }
 }
