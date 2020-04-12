@@ -3,16 +3,20 @@ import * as React from 'react'
 import { BrowserRouter } from '@matthamlin/reroute-browser'
 import * as Components from '@matthamlin/component-library'
 import { createRoot } from 'react-dom'
-import { createEditor, Node } from 'slate'
+import {
+  createEditor,
+  Node,
+  Transforms,
+  Text as SlateText,
+  Editor,
+} from 'slate'
 import { Slate, Editable, withReact } from 'slate-react'
 import Mdx from '@mdx-js/runtime'
 import ErrorBoundary from '@matthamlin/error-boundary'
 
 let { ThemeProvider, Box, H1 } = Components
 
-let { useState, useDeferredValue, useMemo, useRef } = React
-
-let editor = withReact(createEditor())
+let { useState, useDeferredValue, useMemo, useRef, useEffect } = React
 
 function serializeToMdx(nodes) {
   return nodes.map(n => Node.string(n)).join('\n')
@@ -44,12 +48,28 @@ function Header() {
   )
 }
 
-function useDebouncedValue(value, { timeoutMs = 200 }) {
-  let [localValue, setLocalValue] = useState(value)
-  let cbRef = useRef()
+function useInterval(callback, delay) {
+  const savedCallback = useRef()
+
+  // Remember the latest callback.
+  useEffect(() => {
+    savedCallback.current = callback
+  }, [callback])
+
+  // Set up the interval.
+  useEffect(() => {
+    function tick() {
+      savedCallback.current()
+    }
+    if (delay !== null) {
+      let id = setInterval(tick, delay)
+      return () => clearInterval(id)
+    }
+  }, [delay])
 }
 
 function MDXEditor() {
+  let editor = useMemo(() => withReact(createEditor()), [])
   let [value, setValue] = useState([
     {
       type: 'paragraph',
@@ -57,9 +77,11 @@ function MDXEditor() {
     },
   ])
 
-  let renderable = useMemo(() => serializeToMdx(value), [value])
+  let [mdx, setMdx] = useState('')
 
-  let mdx = useDeferredValue(renderable, { timeoutMs: 500 })
+  let updateMdx = useMemo(() => () => setMdx(serializeToMdx(value)), [value])
+
+  useInterval(updateMdx, 500)
 
   return (
     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
@@ -69,21 +91,50 @@ function MDXEditor() {
           borderColor="gray.2"
           minHeight="calc(100vh - var(--header-height, 10px))"
         >
-          <Editable />
+          <Editable
+            onKeyDown={event => {
+              console.log(event.metaKey)
+              if (!event.metaKey) {
+                return
+              }
+
+              switch (event.key) {
+                // When "`" is pressed, keep our existing code block logic.
+                case '`': {
+                  event.preventDefault()
+                  const [match] = Editor.nodes(editor, {
+                    match: n => n.type === 'code',
+                  })
+                  Transforms.setNodes(
+                    editor,
+                    { type: match ? 'paragraph' : 'code' },
+                    { match: n => Editor.isBlock(editor, n) },
+                  )
+                  break
+                }
+
+                // When "B" is pressed, bold the text in the selection.
+                case 'b': {
+                  event.preventDefault()
+                  Transforms.setNodes(
+                    editor,
+                    { bold: true },
+                    // Apply it to text nodes, and split the text node up if the
+                    // selection is overlapping only part of it.
+                    { match: n => SlateText.isText(n), split: true },
+                  )
+                  break
+                }
+              }
+            }}
+          />
         </Box>
         <Box
           border="solid 1px"
           borderColor="gray.2"
           minHeight="calc(100vh - var(--header-height, 10px))"
         >
-          <ErrorBoundary
-            Fallback={({ error }) => (
-              <pre style={{ whiteSpace: 'nowrap' }}>
-                {JSON.stringify(error, null, 2)}
-              </pre>
-            )}
-            key={mdx}
-          >
+          <ErrorBoundary Fallback={Fallback} key={mdx}>
             <Mdx components={styledComps}>{mdx}</Mdx>
           </ErrorBoundary>
         </Box>
