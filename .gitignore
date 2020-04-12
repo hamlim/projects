@@ -14,3 +14,5 @@ packages/hub/public/
 .env
 
 /coverage/
+packages/slate-mdx-editor/.cache/
+packages/slate-mdx-editor/public/

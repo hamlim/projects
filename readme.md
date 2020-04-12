@@ -29,6 +29,7 @@ package to manage running scripts throughout the repo.
 - [`@matthamlin/reroute-core`](./packages/reroute-core/README.md)
 - [`@matthamlin/revector`](./packages/revector/README.md)
 - [`@matthamlin/simple-cache`](./packages/simple-cache/README.md)
+- [`@matthamlin/slate-mdx-editor`](./packages/slate-mdx-editor/README.md)
 - [`@matthamlin/use-error`](./packages/use-error/README.md)
 - [`@matthamlin/zaps`](./packages/zaps/README.md)
 

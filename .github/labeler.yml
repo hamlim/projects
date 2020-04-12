@@ -54,3 +54,6 @@ Scripts:
 
 📦 Ast Gql:
   - packages/ast-gql/**/*
+
+📦 Slate Mdx Editor:
+  - packages/slate-mdx-editor/**/*

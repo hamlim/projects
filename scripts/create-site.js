@@ -89,12 +89,11 @@ function main() {
     path.join(packagePath, 'src', 'index.js'),
     `import React from 'react'
     import { BrowserRouter } from '@matthamlin/reroute-browser'
-    import { ThemeProvider, GlobalStyles } from '@matthamlin/component-library'
+    import { ThemeProvider } from '@matthamlin/component-library'
     import { createRoot } from 'react-dom'
     
     createRoot(document.querySelector('#root')).render(
       <ThemeProvider>
-        <GlobalStyles />
         <BrowserRouter>
           <div>TODO</div>
         </BrowserRouter>
@@ -112,7 +111,7 @@ function main() {
   
   ## Running
   
-  * yw watch
+  * yarn zaps run watch
   `,
     'markdown',
   )
@@ -148,15 +147,12 @@ function main() {
       }
     },
     "dependencies": {
-      "@emotion/core": "^10.0.22",
-      "@emotion/styled": "^10.0.23",
       "@matthamlin/property-controls": "*",
-      "@emotion/cache": "10.0.19",
       "@matthamlin/component-library": "*",
       "@matthamlin/reroute-browser": "*",
       "@matthamlin/reroute-core": "*",
       "@matthamlin/simple-cache": "*",
-      "emotion-theming": "10.0.19",
+      "@matthamlin/error-boundary": "*",
       "react": "experimental",
       "react-dom": "experimental"
     },
@@ -219,6 +215,9 @@ packages/${args.name}/.cache/
 packages/${args.name}/public/`,
     false,
   )
+
+  // Run zaps init after making the package
+  exec(`yarn zaps init`, { stdio: 'inherit' })
 }
 
 main()
