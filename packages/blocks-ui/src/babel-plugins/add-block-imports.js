@@ -3,9 +3,9 @@ import template from '@babel/template'
 import { uniq } from '../util'
 
 // TODO: Make this configurable for other "blocks packs"
-const BLOCKS_IMPORT_SOURCE = '@blocks/react'
+const BLOCKS_IMPORT_SOURCE = '@matthamlin/blocks-react'
 
-const isBlocksImport = node =>
+const isBlocksImport = (node) =>
   node.source && node.source.extra.rawValue === BLOCKS_IMPORT_SOURCE
 
 export default (_api, { blocks = [] }) => {
@@ -16,13 +16,13 @@ export default (_api, { blocks = [] }) => {
           return
         }
 
-        const importNames = blocks.map(block => block.name)
+        const importNames = blocks.map((block) => block.name)
         const allImports = uniq(['Blocks', ...importNames])
 
         if (blocks.length) {
           const imports = uniq(allImports).join(', ')
           const importAst = template.ast(
-            `import {${imports}} from "${BLOCKS_IMPORT_SOURCE}"`
+            `import {${imports}} from "${BLOCKS_IMPORT_SOURCE}"`,
           )
 
           path.replaceWith(importAst)
@@ -30,7 +30,7 @@ export default (_api, { blocks = [] }) => {
         } else {
           path.remove()
         }
-      }
-    }
+      },
+    },
   }
 }

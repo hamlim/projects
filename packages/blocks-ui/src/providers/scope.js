@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Droppable, Draggable } from '@blocks/react-beautiful-dnd'
-import { Blocks } from '@blocks/react'
+import { Blocks } from '@matthamlin/blocks-react'
 import * as themeComponents from '@theme-ui/components'
 import { Styled } from 'theme-ui'
 
@@ -10,7 +10,7 @@ import { useEditor } from './editor'
 import { useBlocks } from './blocks'
 import { useThemeEditor } from './theme-editor'
 
-const BLOCKS_Droppable = props => {
+const BLOCKS_Droppable = (props) => {
   const { mode } = useEditor()
 
   return <Droppable isDropDisabled={mode === 'viewports'} {...props} />
@@ -32,20 +32,20 @@ const BLOCKS_Draggable = ({ active, children, ...props }) => {
                 ':hover': { boxShadow: 'inset 0px 0px 0px 2px #bbbbbb' },
                 '&:focus': {
                   outline: 'none',
-                  boxShadow: 'inset 0px 0px 0px 1px #4d9ef7'
-                }
-              }
-            }
+                  boxShadow: 'inset 0px 0px 0px 1px #4d9ef7',
+                },
+              },
+            },
           },
-          snapshot
+          snapshot,
         )
       }
     </Draggable>
   )
 }
 
-const BLOCKS_DroppableInner = props => <div {...props} />
-const BLOCKS_DraggableInner = props => <div {...props} />
+const BLOCKS_DroppableInner = (props) => <div {...props} />
+const BLOCKS_DraggableInner = (props) => <div {...props} />
 
 const DEFAULT_SCOPE = {
   ...themeComponents,
@@ -56,7 +56,7 @@ const DEFAULT_SCOPE = {
   BLOCKS_Droppable,
   BLOCKS_Draggable,
   BLOCKS_DraggableInner,
-  BLOCKS_DroppableInner
+  BLOCKS_DroppableInner,
 }
 
 const ScopeContext = React.createContext({})
@@ -75,7 +75,7 @@ const ScopeProvider = ({ scope, children }) => {
     ...DEFAULT_SCOPE,
     ...scope,
     ...blocks,
-    theme
+    theme,
   }
 
   return (

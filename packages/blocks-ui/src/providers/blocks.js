@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import * as DEFAULT_BLOCKS from '@blocks/react'
+import * as DEFAULT_BLOCKS from '@matthamlin/blocks-react'
 
 const BlocksContext = React.createContext({})
 

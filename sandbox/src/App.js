@@ -97,7 +97,7 @@ function ComponentExamples() {
 function App() {
   return (
     <ThemeProvider>
-      <Editor jsx={JSX} />
+      <Editor src={JSX} />
       <ComponentExamples />
     </ThemeProvider>
   )

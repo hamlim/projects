@@ -2,5 +2,5 @@ export {
   ControlType,
   ControlMap,
   applyPropertyControls,
-  is
-} from 'property-controls'
+  is,
+} from '@matthamlin/blocks-property-controls'

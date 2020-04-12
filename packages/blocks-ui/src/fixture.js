@@ -1,7 +1,7 @@
 export default `
 /** @jsx jsx */
 import { Styled, jsx } from 'theme-ui'
-import { Blocks } from '@blocks/kit'
+import { Blocks } from '@matthamlin/blocks-kit'
 
 export default () => (
   <Blocks.Root>

@@ -1,3 +1,3 @@
-import * as Kit from '@blocks/kit'
+import * as Kit from '@matthamlin/blocks-kit'
 
 export default Kit

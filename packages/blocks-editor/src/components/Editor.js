@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Editor, getEventRange, getEventTransfer } from 'slate-react'
 import { ThemeProvider } from 'theme-ui'
 
-import { parseMDX, serializer } from '@blocks/serializer'
+import { parseMDX, serializer } from '@matthamlin/blocks-serializer'
 
 import schema from '../lib/schema'
 import { isUrl, isImageUrl } from '../lib/util'
@@ -23,7 +23,7 @@ const insertImage = (change, src, target) => {
 
   change.insertBlock({
     type: 'image',
-    data: { src }
+    data: { src },
   })
 }
 
@@ -34,7 +34,7 @@ const insertLink = (change, href, target) => {
 
   change.insertBlock({
     type: 'link',
-    data: { href }
+    data: { href },
   })
 }
 
@@ -44,8 +44,8 @@ class BlockEditor extends Component {
 
     this.state = {
       value: serializer.deserialize(
-        parseMDX(props.initialValue || initialValue)
-      )
+        parseMDX(props.initialValue || initialValue),
+      ),
     }
   }
 
@@ -108,10 +108,10 @@ class BlockEditor extends Component {
     const { plugins, theme, components } = this.props
     const allComponents = {
       ...defaultBlocks,
-      ...components
+      ...components,
     }
     const context = {
-      components: allComponents
+      components: allComponents,
     }
 
     return (
@@ -148,7 +148,7 @@ BlockEditor.defaultProps = {
         {children}
       </ThemeProvider>
     )
-  }
+  },
 }
 
 export default BlockEditor
