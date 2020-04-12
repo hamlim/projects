@@ -16,3 +16,10 @@ packages/hub/public/
 /coverage/
 packages/slate-mdx-editor/.cache/
 packages/slate-mdx-editor/public/
+node_modules
+dist
+.cache
+public
+gatsby
+*.swp
+yarn-error.log
