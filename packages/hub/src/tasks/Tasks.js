@@ -13,7 +13,7 @@ import {
   Button,
   Form,
   useForm,
-  UncontrolledCheckbox,
+  Checkbox,
   VisuallyHidden,
 } from '@matthamlin/component-library'
 import { Link as RouterLink, useRoute } from '@matthamlin/reroute-browser'
@@ -126,7 +126,7 @@ function All({ tasks, completeTask }) {
         {sortedTasks.map(task => (
           <ListItem key={task.fields.id}>
             <Label>
-              <UncontrolledCheckbox
+              <Checkbox
                 mr={3}
                 disabled={task.fields.status === 'done'}
                 checked={task.fields.status === 'done'}
