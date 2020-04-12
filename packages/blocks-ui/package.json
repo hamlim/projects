@@ -1,7 +1,6 @@
 {
   "name": "@matthamlin/blocks-ui",
-  "main": "dist/blocks-ui.cjs.js",
-  "module": "dist/blocks-ui.esm.js",
+  "main": "dist/index.js",
   "version": "0.0.78",
   "scripts": {
     "build": "babel src --out-dir dist/"
