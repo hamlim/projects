@@ -4,6 +4,9 @@
   "description": "The default, Theme UI-based for the Blocks editor",
   "main": "dist/react.cjs.js",
   "module": "dist/react.esm.js",
+  "scripts": {
+    "build": "babel src --out-dir dist/"
+  },
   "devDependencies": {
     "@babel/cli": "7.8.4",
     "@babel/core": "7.9.0",

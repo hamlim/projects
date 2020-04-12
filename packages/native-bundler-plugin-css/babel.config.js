@@ -1,15 +1,1 @@
-module.exports = function(api) {
-  api.cache.never()
-  return {
-    presets: [
-      [
-        '@babel/preset-env',
-        {
-          targets: {
-            node: 8,
-          },
-        },
-      ],
-    ],
-  }
-}
+module.exports = require('@matthamlin/babel-config')({ node: true })

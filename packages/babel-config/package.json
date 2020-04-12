@@ -1,0 +1,26 @@
+{
+  "name": "@matthamlin/babel-config",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
+  "license": "MIT",
+  "scripts": {
+    "prepub": "yarn build",
+    "pub": "yarn publish --access public --no-git-tag-version"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.5.0",
+    "@babel/core": "7.5.0",
+    "@babel/preset-env": "7.5.0",
+    "@babel/preset-react": "^7.7.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/hamlim/projects.git",
+    "directory": "packages/babel-config"
+  }
+}

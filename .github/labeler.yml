@@ -57,3 +57,6 @@ Scripts:
 
 📦 Slate Mdx Editor:
   - packages/slate-mdx-editor/**/*
+
+📦 Babel Config:
+  - packages/babel-config/**/*

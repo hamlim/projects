@@ -7,8 +7,8 @@
   ],
   "scripts": {
     "start": "echo \"no\"",
-    "test": "zaps lerna test",
-    "build": "zaps lerna build",
+    "test": "zaps run lerna test",
+    "build": "zaps run lerna build",
     "clean-dist": "yarn node scripts/clean-dist.js",
     "create-package": "yarn node scripts/create-package.js",
     "create-site": "yarn node scripts/create-site.js",

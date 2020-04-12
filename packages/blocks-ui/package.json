@@ -3,6 +3,9 @@
   "main": "dist/blocks-ui.cjs.js",
   "module": "dist/blocks-ui.esm.js",
   "version": "0.0.78",
+  "scripts": {
+    "build": "babel src --out-dir dist/"
+  },
   "dependencies": {
     "@babel/helper-plugin-utils": "^7.8.3",
     "@babel/plugin-syntax-jsx": "^7.8.3",
