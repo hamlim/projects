@@ -257,7 +257,7 @@
         ["@matthamlin/blocks-react", "^0.0.63"],
         ["@matthamlin/blocks-property-controls", "^0.0.59"]
       ],
-      "name": "blocks-ui"
+      "name": "@matthamlin/blocks-ui"
     },
     "packages/blog": {
       "dependencies": {
@@ -675,7 +675,10 @@
         "@matthamlin/component-library": "*",
         "@matthamlin/reroute-browser": "*",
         "@matthamlin/reroute-core": "*",
-        "@matthamlin/simple-cache": "*"
+        "@matthamlin/simple-cache": "*",
+        "@matthamlin/blocks-ui": "*",
+        "@mdx-js/react": "1.5.8",
+        "@matthamlin/blocks-react": "*"
       },
       "devDependencies": {},
       "peerDependencies": {},
@@ -684,7 +687,9 @@
         ["@matthamlin/component-library", "*"],
         ["@matthamlin/reroute-browser", "*"],
         ["@matthamlin/reroute-core", "*"],
-        ["@matthamlin/simple-cache", "*"]
+        ["@matthamlin/simple-cache", "*"],
+        ["@matthamlin/blocks-ui", "*"],
+        ["@matthamlin/blocks-react", "*"]
       ],
       "name": "sandbox"
     }

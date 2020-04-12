@@ -13,9 +13,13 @@
     "@matthamlin/component-library": "*",
     "@matthamlin/reroute-browser": "*",
     "@matthamlin/reroute-core": "*",
-    "@matthamlin/simple-cache": "*"
+    "@matthamlin/simple-cache": "*",
+    "@matthamlin/blocks-ui": "*",
+    "@mdx-js/react": "1.5.8",
+    "@matthamlin/blocks-react": "*"
   },
   "scripts": {
+    "watch": "yarn start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
