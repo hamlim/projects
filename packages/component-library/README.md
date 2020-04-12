@@ -79,9 +79,14 @@ stores its own state for the value and accepts a `defaultValue` and an
 `onChange`.
 
 ```jsx
-<Input onChange={handleChange} value={value} />
-
-<UncontrolledInput defaultValue="foo" onChange={setValue} />
+<Box>
+  <Label>
+    <Input onChange={handleChange} value={value} />
+  </Label>
+  <Label>
+    <UncontrolledInput defaultValue="foo" onChange={setValue} />
+  </Label>
+</Box>
 ```
 
 #### `HiddenCheckbox`
@@ -93,12 +98,11 @@ The UncontrolledHiddenCheckbox component does the same but supports an optional
 `defaultChecked` prop and does not support the `checked` prop.
 
 ```jsx
-<HiddenCheckbox onChange={handleChange} checked={checked} />
+<Box>
+  <HiddenCheckbox onChange={handleChange} checked={checked} />
 
-<UncontrolledInput
-  defaultChecked={defaultChecked}
-  onChange={handleChange}
-/>
+  <UncontrolledInput defaultChecked={defaultChecked} onChange={handleChange} />
+</Box>
 ```
 
 These intentionally render no default UI to let you compose selectable
@@ -109,10 +113,12 @@ experiences on top of them.
 The Banner component supports 4 variants:
 
 ```jsx
-<Banner variant="info">Info</Banner>
-<Banner variant="success">Success</Banner>
-<Banner variant="warning">Warning</Banner>
-<Banner variant="error">Error</Banner>
+<Box>
+  <Banner variant="info">Info</Banner>
+  <Banner variant="success">Success</Banner>
+  <Banner variant="warning">Warning</Banner>
+  <Banner variant="error">Error</Banner>
+</Box>
 ```
 
 #### `List` and `ListItem`
@@ -124,18 +130,20 @@ The List component supports 3 `variant` prop values:
 - `unordered`
 
 ```jsx
-<List variant="base" forwardedAs="ul">
-  <ListItem>Content</ListItem>
-  <ListItem>Content</ListItem>
-</List>
-<List variant="ordered" forwardedAs="ol">
-  <ListItem>1</ListItem>
-  <ListItem>2</ListItem>
-</List>
-<List variant="unordered" forwardedAs="ul">
-  <ListItem>content</ListItem>
-  <ListItem>content</ListItem>
-</List>
+<Box>
+  <List variant="base" forwardedAs="ul">
+    <ListItem>Content</ListItem>
+    <ListItem>Content</ListItem>
+  </List>
+  <List variant="ordered" forwardedAs="ol">
+    <ListItem>1</ListItem>
+    <ListItem>2</ListItem>
+  </List>
+  <List variant="unordered" forwardedAs="ul">
+    <ListItem>content</ListItem>
+    <ListItem>content</ListItem>
+  </List>
+</Box>
 ```
 
 #### `Link`
@@ -188,10 +196,12 @@ Additionally, you can use `useTheme` to read the theme within a function
 component.
 
 ```jsx
-<ThemeProvider theme={overrideTheme}>
-  <App />
-</ThemeProvider>
-...
+render(
+  <ThemeProvider theme={{ ...theme }}>
+    <App />
+  </ThemeProvider>,
+)
+// ...
 let theme = useTheme()
 ```
 
@@ -219,7 +229,7 @@ for a tuple of `[value, setValue]` values, and renders a `fieldset` html
 element. It is meant to wrap a set of options.
 
 ```jsx
-<Fieldset value={} onChange={}>
+<Fieldset value={val} onChange={handleChange}>
   ...
 </Fieldset>
 ```
@@ -235,16 +245,13 @@ components.
 ```jsx
 <UncontrolledFieldset defaultValue="a" name="foo">
   <Label>
-    <UncontrolledHiddenRadioButton value="a">
-    A
+    <UncontrolledHiddenRadioButton value="a" />A
   </Label>
   <Label>
-    <UncontrolledHiddenRadioButton value="b">
-    B
+    <UncontrolledHiddenRadioButton value="b" />B
   </Label>
   <Label>
-    <UncontrolledHiddenRadioButton value="c">
-    C
+    <UncontrolledHiddenRadioButton value="c" />C
   </Label>
 </UncontrolledFieldset>
 ```
@@ -279,13 +286,16 @@ The `Checkbox` component is a visual alternative to `HiddenCheckbox` that offers
 an opinionated checkbox UI.
 
 ```jsx
-<Label>
-  <Checkbox checked={checked} onChange={setChecked} /> Check
-</Label>
+<Box>
+  <Label>
+    <Checkbox checked={checked} onChange={setChecked} /> Check
+  </Label>
 
-<Label>
-  <UncontrolledCheckbox defaultChecked={false} onChange={handleChange} /> Check
-</Label>
+  <Label>
+    <UncontrolledCheckbox defaultChecked={false} onChange={handleChange} />{' '}
+    Check
+  </Label>
+</Box>
 ```
 
 #### `Stack`
