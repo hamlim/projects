@@ -6,6 +6,13 @@
     "packages/babel-plugin-metadata",
     "packages/babel-plugin-property-controls",
     "packages/base-styled",
+    "packages/blocks-editor",
+    "packages/blocks-gatsby-plugin",
+    "packages/blocks-kit",
+    "packages/blocks-property-controls",
+    "packages/blocks-react",
+    "packages/blocks-serializer",
+    "packages/blocks-ui",
     "packages/blog",
     "packages/component-library",
     "packages/error-boundary",
@@ -90,6 +97,181 @@
       "peerDependencies": {},
       "localDependencies": [],
       "name": "@matthamlin/base-styled"
+    },
+    "packages/blocks-editor": {
+      "dependencies": {
+        "@babel/cli": "^7.7.0",
+        "@babel/core": "^7.7.2",
+        "@babel/plugin-proposal-class-properties": "^7.7.0",
+        "@babel/preset-env": "^7.7.1",
+        "@babel/preset-react": "^7.7.0",
+        "@blocks/kit": "^0.0.28",
+        "@blocks/serializer": "^0.0.28",
+        "@convertkit/slate-lists": "^0.2.5",
+        "@emotion/core": "^10.0.22",
+        "@emotion/styled": "^10.0.23",
+        "@material-ui/core": "^4.6.1",
+        "@material-ui/icons": "^4.5.1",
+        "@reach/alert-dialog": "^0.9.0",
+        "@reach/menu-button": "^0.9.0",
+        "@slate-editor/utils": "^5.1.0",
+        "@styled-system/edit": "^5.0.21",
+        "emotion-theming": "^10.0.19",
+        "escape-string-regexp": "^2.0.0",
+        "image-extensions": "^1.1.0",
+        "immutable": "^4.0.0-rc.12",
+        "lodash.omit": "^4.5.0",
+        "raw-loader": "^4.0.0",
+        "react-live": "^2.2.1",
+        "react-simple-icons": "^1.0.0-beta.5",
+        "slate": "0.57.1",
+        "slate-deep-table": "^0.9.7",
+        "slate-react": "^0.57.0",
+        "slate-soft-break": "^0.9.0",
+        "theme-ui": "^0.3.1"
+      },
+      "devDependencies": {},
+      "peerDependencies": {},
+      "localDependencies": [
+        ["@blocks/kit", "^0.0.28"],
+        ["@blocks/serializer", "^0.0.28"]
+      ],
+      "name": "@blocks/editor"
+    },
+    "packages/blocks-gatsby-plugin": {
+      "dependencies": {
+        "@blocks/react": "^0.0.63",
+        "blocks-ui": "^0.0.78",
+        "globby": "^11.0.0",
+        "mkdirp": "^1.0.3"
+      },
+      "devDependencies": {},
+      "peerDependencies": {},
+      "localDependencies": [
+        ["@blocks/react", "^0.0.63"],
+        ["blocks-ui", "^0.0.78"]
+      ],
+      "name": "gatsby-plugin-blocks"
+    },
+    "packages/blocks-kit": {
+      "dependencies": {
+        "@emotion/core": "^10.0.22",
+        "adaptive-gradient": "^1.0.6",
+        "get-youtube-id": "^1.0.1",
+        "is-url": "^1.2.4",
+        "random-hex-color": "^1.0.1",
+        "react-gist": "^1.2.1",
+        "react-twitter-embed": "^3.0.3",
+        "react-youtube": "^7.9.0",
+        "theme-ui": "^0.3.1",
+        "url-parse": "^1.4.7"
+      },
+      "devDependencies": {
+        "@babel/cli": "7.8.4",
+        "@babel/core": "7.9.0",
+        "@babel/preset-env": "7.9.0",
+        "@babel/preset-react": "7.9.4"
+      },
+      "peerDependencies": {},
+      "localDependencies": [],
+      "name": "@blocks/kit"
+    },
+    "packages/blocks-property-controls": {
+      "dependencies": {},
+      "devDependencies": {
+        "@babel/cli": "7.8.4",
+        "@babel/core": "7.9.0",
+        "@babel/preset-env": "7.9.0",
+        "@babel/preset-react": "7.9.4"
+      },
+      "peerDependencies": {},
+      "localDependencies": [],
+      "name": "property-controls"
+    },
+    "packages/blocks-react": {
+      "dependencies": {
+        "@babel/helper-plugin-utils": "^7.8.3",
+        "@theme-ui/components": "0.3.1",
+        "property-controls": "^0.0.59",
+        "theme-ui": "0.3.1"
+      },
+      "devDependencies": {
+        "@babel/cli": "7.8.4",
+        "@babel/core": "7.9.0",
+        "@babel/preset-env": "7.9.0",
+        "@babel/preset-react": "7.9.4",
+        "react": "16.13.1"
+      },
+      "peerDependencies": { "react": "^16.13.0" },
+      "localDependencies": [["property-controls", "^0.0.59"]],
+      "name": "@blocks/react"
+    },
+    "packages/blocks-serializer": {
+      "dependencies": {
+        "@babel/core": "^7.7.2",
+        "@babel/helper-plugin-utils": "^7.0.0",
+        "@babel/plugin-syntax-jsx": "^7.2.0",
+        "remark-mdx": "^1.5.1",
+        "remark-parse": "^7.0.2",
+        "remark-squeeze-paragraphs": "^4.0.0",
+        "remark-stringify": "^7.0.4",
+        "slate": "^0.57.0",
+        "slate-mdast-serializer": "^3.0.0",
+        "unified": "^8.4.2",
+        "unist-util-visit": "^2.0.1"
+      },
+      "devDependencies": { "@babel/cli": "7.8.4", "jest": "25.1.0" },
+      "peerDependencies": {},
+      "localDependencies": [],
+      "name": "@blocks/serializer"
+    },
+    "packages/blocks-ui": {
+      "dependencies": {
+        "@babel/helper-plugin-utils": "^7.8.3",
+        "@babel/plugin-syntax-jsx": "^7.8.3",
+        "@babel/plugin-transform-react-jsx": "^7.8.3",
+        "@babel/standalone": "^7.8.7",
+        "@babel/template": "^7.8.6",
+        "@babel/traverse": "^7.8.6",
+        "@babel/types": "^7.8.7",
+        "@blocks/react": "^0.0.63",
+        "@blocks/react-beautiful-dnd": "^12.2.1",
+        "@emotion/cache": "^10.0.29",
+        "@emotion/core": "10.0.28",
+        "@mdx-js/react": "1.5.7",
+        "@monaco-editor/react": "^3.1.1",
+        "@reach/tabs": "^0.9.0",
+        "@theme-ui/components": "0.3.1",
+        "@theme-ui/presets": "0.3.0",
+        "@theme-ui/style-guide": "^0.3.0",
+        "chroma-js": "^2.1.0",
+        "interpolate-range": "^2.1.0",
+        "lodash.merge": "^4.6.2",
+        "prettier": "2.0.2",
+        "property-controls": "^0.0.59",
+        "react-color": "^2.18.0",
+        "react-feather": "^2.0.3",
+        "react-loadable": "^5.5.0",
+        "react-merge-refs": "^1.0.0",
+        "reakit": "^1.0.0-beta.14",
+        "theme-ui": "0.3.1",
+        "tinycolor2": "^1.4.1"
+      },
+      "devDependencies": {
+        "@babel/cli": "7.8.4",
+        "@babel/core": "7.9.0",
+        "@babel/preset-env": "7.9.0",
+        "@babel/preset-react": "7.9.4",
+        "jest": "25.1.0",
+        "react": "16.13.1",
+        "react-dom": "16.13.1"
+      },
+      "peerDependencies": { "react": "^16.13.0", "react-dom": "^16.13.0" },
+      "localDependencies": [
+        ["@blocks/react", "^0.0.63"],
+        ["property-controls", "^0.0.59"]
+      ],
+      "name": "blocks-ui"
     },
     "packages/blog": {
       "dependencies": {
@@ -429,21 +611,24 @@
     },
     "packages/slate-mdx-editor": {
       "dependencies": {
-        "@emotion/core": "^10.0.22",
-        "@emotion/styled": "^10.0.23",
-        "@matthamlin/property-controls": "*",
-        "@emotion/cache": "10.0.19",
+        "@babel/runtime": "7.9.2",
         "@matthamlin/component-library": "*",
+        "@matthamlin/error-boundary": "*",
+        "@matthamlin/property-controls": "*",
         "@matthamlin/reroute-browser": "*",
         "@matthamlin/reroute-core": "*",
         "@matthamlin/simple-cache": "*",
-        "emotion-theming": "10.0.19",
+        "@mdx-js/runtime": "1.5.8",
         "react": "experimental",
-        "react-dom": "experimental"
+        "react-dom": "experimental",
+        "regenerator-runtime": "0.13.5",
+        "slate": "0.57.1",
+        "slate-react": "0.57.1"
       },
       "devDependencies": {
         "@babel/cli": "7.5.0",
         "@babel/core": "7.5.0",
+        "@babel/plugin-transform-runtime": "7.9.0",
         "@babel/preset-env": "7.5.0",
         "@babel/preset-react": "^7.7.4",
         "@testing-library/jest-dom": "^4.2.4",
@@ -453,8 +638,9 @@
       },
       "peerDependencies": {},
       "localDependencies": [
-        ["@matthamlin/property-controls", "*"],
         ["@matthamlin/component-library", "*"],
+        ["@matthamlin/error-boundary", "*"],
+        ["@matthamlin/property-controls", "*"],
         ["@matthamlin/reroute-browser", "*"],
         ["@matthamlin/reroute-core", "*"],
         ["@matthamlin/simple-cache", "*"]
