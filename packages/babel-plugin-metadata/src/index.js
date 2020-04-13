@@ -287,7 +287,6 @@ export default function babelPluginMetadata({ types: t }) {
               bodyStatement.key.name === 'defaultProps'
             )
           })
-          // @TODO handle default props here too
           if (!staticPropTypes || !staticDefaultProps) {
             return
           }
