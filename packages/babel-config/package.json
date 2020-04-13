@@ -5,7 +5,6 @@
   "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
   "license": "MIT",
   "scripts": {
-    "prepub": "yarn build",
     "pub": "yarn publish --access public --no-git-tag-version"
   },
   "devDependencies": {
