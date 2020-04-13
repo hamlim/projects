@@ -114,56 +114,144 @@ export default function babelPluginMetadata({ types: t }) {
         let {
           opts: { formatComments = defaultFormatComments },
         } = state
-        let { data } = this
+        let didEncounterProps = false
+        // Foo
+        let componentName = path.node.left.object.name
+        // Setup the data we will return
+        let component = {
+          name: componentName,
+        }
+        let propData =
+          (this.data.components.find(comp => comp.name === componentName) || {})
+            .props || []
         if (
           // Foo.propTypes
           t.isMemberExpression(path.node.left) &&
           path.node.left.property.name === 'propTypes'
         ) {
-          // Foo
-          let componentName = path.node.left.object.name
-          // Setup the data we will return
-          let component = {
-            name: componentName,
-          }
-          let propData = []
+          didEncounterProps = true
           // Iterate through the prop-types
           // @TODO assumes an object expression definition
           let props = path.node.right.properties
           props.forEach(prop => {
             // If there are leading comments we want to process the prop
             // @TODO we probably want to process every prop and then strip at runtime
+            // grab the prop name
+            // @TODO test for expressions here: {[foo]: PropTypes.string}
+            let propName = prop.key.name
+            let propObj = {
+              ...(propData.find(propDatum => propDatum.name === propName) ||
+                {}),
+              name: propName,
+              type: {},
+            }
             if (Array.isArray(prop.leadingComments)) {
-              // grab the prop name
-              // @TODO test for expressions here: {[foo]: PropTypes.string}
-              let propName = prop.key.name
-              let propObj = {
-                name: propName,
-                comments: formatComments(prop.leadingComments),
-              }
-              // This is a bit weird, but if the prop is like PropTypes.string.isRequired
-              // its nested another layer
-              if (t.isMemberExpression(prop.value)) {
-                let propType = prop.value.object.name
-                if (t.isMemberExpression(prop.value.object)) {
-                  propObj.type = {
-                    raw: generate(prop.value).code,
-                  }
-                } else {
-                  propObj.type = {
-                    raw: generate(prop.value).code,
-                  }
-                }
+              propObj.type.comments = formatComments(prop.leadingComments)
+            }
+            // This is a bit weird, but if the prop is like PropTypes.string.isRequired
+            // its nested another layer
+            if (t.isMemberExpression(prop.value)) {
+              let propType = prop.value.object.name
+              if (t.isMemberExpression(prop.value.object)) {
+                propObj.type.raw = generate(prop.value).code
               } else {
-                propObj.type = {
-                  raw: generate(prop.value).code,
-                }
+                propObj.type.raw = generate(prop.value).code
               }
-              propData.push(propObj)
+            } else {
+              propObj.type.raw = generate(prop.value).code
+            }
+            if (propData.find(prop => prop.name === propName)) {
+              propData = propData.map(propDatum => {
+                if (propDatum.name === propObj.name) {
+                  return propObj
+                }
+                return propDatum
+              })
+            } else {
+              propData = [propObj]
             }
           })
+        } else if (
+          // Foo.defaultProps
+          t.isMemberExpression(path.node.left) &&
+          path.node.left.property.name === 'defaultProps'
+        ) {
+          didEncounterProps = true
+          // Iterate through the prop-types
+          // @TODO assumes an object expression definition
+          let defaultProps = path.node.right.properties
+          defaultProps.forEach(prop => {
+            // If there are leading comments we want to process the prop
+            // @TODO we probably want to process every prop and then strip at runtime
+            // grab the prop name
+            // @TODO test for expressions here: {[foo]: PropTypes.string}
+            let propName = prop.key.name
+            let propObj = {
+              ...(propData.find(propDatum => propDatum.name === propName) ||
+                {}),
+              name: propName,
+              default: {},
+            }
+            if (Array.isArray(prop.leadingComments)) {
+              propObj.default.comments = formatComments(prop.leadingComments)
+            }
+            // This is a bit weird, but if the prop is like PropTypes.string.isRequired
+            // its nested another layer
+            if (t.isMemberExpression(prop.value)) {
+              let propType = prop.value.object.name
+              if (t.isMemberExpression(prop.value.object)) {
+                propObj.default.raw = generate(prop.value).code
+              } else {
+                propObj.default.raw = generate(prop.value).code
+              }
+            } else {
+              propObj.default.raw = generate(prop.value).code
+            }
+            if (propData.find(prop => prop.name === propName)) {
+              propData = propData.map(propDatum => {
+                if (propDatum.name === propObj.name) {
+                  return propObj
+                }
+                return propDatum
+              })
+            } else {
+              propData = [propObj]
+            }
+          })
+        }
+
+        if (didEncounterProps) {
           component.props = propData
-          data.components = [...data.components, component]
+          if (this.data.components.find(comp => comp.name === componentName)) {
+            this.data.components = this.data.components.map(comp => {
+              if (comp.name === componentName) {
+                return {
+                  ...comp,
+                  ...component,
+                  props: [...comp.props, ...component.props].reduce(
+                    (acc, prop) => {
+                      if (acc.find(p => p.name === prop.name)) {
+                        return acc.map(p => {
+                          if (p.name === prop.name) {
+                            return {
+                              ...p,
+                              ...prop,
+                            }
+                          }
+                          return p
+                        })
+                      }
+                      return [...acc, prop]
+                    },
+                    [],
+                  ),
+                }
+              }
+              return comp
+            })
+          } else {
+            this.data.components = [component]
+          }
         }
       },
       // Handle static propTypes = { ... } in a class

@@ -18,3 +18,8 @@ Foo.propTypes = {
    */
   test,
 }
+Foo.defaultProps = {
+  bar: 'foo',
+  foo: false,
+  test: 'anotherTest',
+}

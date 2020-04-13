@@ -7,8 +7,8 @@ module.exports = {
       "props": [
         {
           "name": "bar",
-          "comments": "some comment here",
           "type": {
+            "comments": "some comment here",
             "raw": "PropTypes.string.isRequired"
           }
         }
