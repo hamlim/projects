@@ -6,6 +6,26 @@ module.exports = {
       "name": "Foo",
       "props": [
         {
+          "name": "bar",
+          "type": {
+            "comments": "some comment here",
+            "raw": "PropTypes.string.isRequired"
+          },
+          "default": {
+            "raw": "'foo'"
+          }
+        },
+        {
+          "name": "foo",
+          "type": {
+            "comments": "another comment here\nmulti-line this time",
+            "raw": "PropTypes.bool"
+          },
+          "default": {
+            "raw": "false"
+          }
+        },
+        {
           "name": "test",
           "type": {
             "comments": "Block comment here\n      With multiple lines",

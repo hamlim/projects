@@ -118,12 +118,15 @@ export default function babelPluginMetadata({ types: t }) {
         // Foo
         let componentName = path.node.left.object.name
         // Setup the data we will return
-        let component = {
-          name: componentName,
+        let component = this.data.components.find(
+          comp => comp.name === componentName,
+        )
+        if (!component) {
+          component = {
+            name: componentName,
+          }
         }
-        let propData =
-          (this.data.components.find(comp => comp.name === componentName) || {})
-            .props || []
+        let propData = component.props || []
         if (
           // Foo.propTypes
           t.isMemberExpression(path.node.left) &&
@@ -140,8 +143,6 @@ export default function babelPluginMetadata({ types: t }) {
             // @TODO test for expressions here: {[foo]: PropTypes.string}
             let propName = prop.key.name
             let propObj = {
-              ...(propData.find(propDatum => propDatum.name === propName) ||
-                {}),
               name: propName,
               type: {},
             }
@@ -163,12 +164,15 @@ export default function babelPluginMetadata({ types: t }) {
             if (propData.find(prop => prop.name === propName)) {
               propData = propData.map(propDatum => {
                 if (propDatum.name === propObj.name) {
-                  return propObj
+                  return {
+                    ...propDatum,
+                    ...propObj,
+                  }
                 }
                 return propDatum
               })
             } else {
-              propData = [propObj]
+              propData = [...propData, propObj]
             }
           })
         } else if (
@@ -210,12 +214,15 @@ export default function babelPluginMetadata({ types: t }) {
             if (propData.find(prop => prop.name === propName)) {
               propData = propData.map(propDatum => {
                 if (propDatum.name === propObj.name) {
-                  return propObj
+                  return {
+                    ...propDatum,
+                    ...propObj,
+                  }
                 }
                 return propDatum
               })
             } else {
-              propData = [propObj]
+              propData = [...propData, propObj]
             }
           })
         }
