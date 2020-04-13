@@ -4,6 +4,9 @@ export default class Foo extends React.Component {
     // Some comment here
     bar: PropTypes.string,
   }
+  static defaultProps = {
+    bar: 'foo',
+  }
   static _propTypes = 'something internal'
 
   render() {

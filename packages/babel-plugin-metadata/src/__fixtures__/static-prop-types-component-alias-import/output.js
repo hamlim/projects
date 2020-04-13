@@ -4,6 +4,9 @@ export default class Foo extends Comp {
     // Some comment here
     bar: PropTypes.string,
   }
+  static defaultProps = {
+    bar: 'foo',
+  }
   static _propTypes = 'something internal'
 
   render() {
