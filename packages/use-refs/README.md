@@ -85,3 +85,9 @@ It returns:
 
 - `handleRef` - A function that accepts a `reference` to be passed to each of
   the refs it was called with
+
+## Credit and Thanks
+
+Shoutout to [@Jayphen](https://twitter.com/Jayphen) on Twitter for sharing this
+implementation of `useRefs`:
+https://twitter.com/Jayphen/status/1245335960277172224
