@@ -7,7 +7,7 @@ A small package that offers a few shared functions to interact with React `ref`s
 ## API
 
 ```jsx
-import { useRefs, useSharedRefs, mergeRefs } from '@matthamlin/use-refs'
+import { useRefs, useSharedRef, mergeRefs } from '@matthamlin/use-refs'
 
 // useRefs
 function Component() {
@@ -28,9 +28,9 @@ function Component() {
   )
 }
 
-// useSharedRefs
+// useSharedRef
 function AnotherComponent({ innerRef }) {
-  let localRef = useSharedRefs(innerRef)
+  let localRef = useSharedRef(innerRef)
 
   useEffect(() => {
     console.log(localRef.current)
@@ -60,11 +60,14 @@ It returns:
   returning `null` if no `key` is found in the refs map
 - `refs` - a `Map` instance mapping each `key` to the reference
 
-### `useSharedRefs`
+### `useSharedRef`
 
 This hook is a small helper hook for both applying a ref being passed in via
 props as well as a local ref. This is useful for when both the parent and the
 component need to store and read from a single ref.
+
+It can be called with as many refs as you would like (either functions or ref
+object).
 
 It returns:
 
@@ -78,7 +81,7 @@ reference. It is what implements the above `useSharedRef` helper.
 It can be called with as many refs as you would like (either functions or ref
 objects).
 
-It reeturns:
+It returns:
 
 - `handleRef` - A function that accepts a `reference` to be passed to each of
   the refs it was called with
