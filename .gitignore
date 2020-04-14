@@ -23,3 +23,6 @@ public
 gatsby
 *.swp
 yarn-error.log
+
+packages/astexplorer-modern/.cache/
+packages/astexplorer-modern/public/

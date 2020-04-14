@@ -2,6 +2,7 @@ let fs = require('fs')
 let path = require('path')
 let prettier = require('prettier')
 let prettierConfig = require('../.prettierrc.js')
+let { exec } = require('child_process')
 
 let args = process.argv.slice(2).reduce((acc, arg) => {
   if (arg.includes('=')) {

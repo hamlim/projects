@@ -60,3 +60,6 @@ Scripts:
 
 📦 Babel Config:
   - packages/babel-config/**/*
+
+📦 Astexplorer Modern:
+  - packages/astexplorer-modern/**/*

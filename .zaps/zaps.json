@@ -3,6 +3,7 @@
   "workspaces": ["packages/*", "sandbox"],
   "packages": [
     "packages/ast-gql",
+    "packages/astexplorer-modern",
     "packages/babel-config",
     "packages/babel-plugin-metadata",
     "packages/babel-plugin-property-controls",
@@ -45,11 +46,44 @@
         "@babel/preset-react": "^7.7.4",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
-        "jest": "24.9.0"
+        "jest": "24.9.0",
+        "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": {},
-      "localDependencies": [],
+      "localDependencies": [["@matthamlin/babel-config", "0.0.0"]],
       "name": "@matthamlin/ast-gql"
+    },
+    "packages/astexplorer-modern": {
+      "dependencies": {
+        "@matthamlin/property-controls": "*",
+        "@matthamlin/component-library": "*",
+        "@matthamlin/reroute-browser": "*",
+        "@matthamlin/reroute-core": "*",
+        "@matthamlin/simple-cache": "*",
+        "@matthamlin/error-boundary": "*",
+        "react": "experimental",
+        "react-dom": "experimental"
+      },
+      "devDependencies": {
+        "@babel/cli": "7.5.0",
+        "@babel/core": "7.5.0",
+        "@babel/preset-env": "7.5.0",
+        "@babel/preset-react": "^7.7.4",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "jest": "24.9.0",
+        "parcel": "latest"
+      },
+      "peerDependencies": {},
+      "localDependencies": [
+        ["@matthamlin/property-controls", "*"],
+        ["@matthamlin/component-library", "*"],
+        ["@matthamlin/reroute-browser", "*"],
+        ["@matthamlin/reroute-core", "*"],
+        ["@matthamlin/simple-cache", "*"],
+        ["@matthamlin/error-boundary", "*"]
+      ],
+      "name": "@matthamlin/astexplorer-modern"
     },
     "packages/babel-config": {
       "dependencies": {},
@@ -305,13 +339,14 @@
         "@babel/core": "7.5.0",
         "@babel/preset-env": "7.5.0",
         "@babel/preset-react": "^7.7.4",
+        "@matthamlin/babel-config": "0.0.0",
         "@mdx-js/parcel-plugin-mdx": "1.5.3",
         "@mdx-js/react": "1.0.0-rc.5",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "jest": "24.9.0",
-        "parcel": "latest",
-        "@matthamlin/babel-config": "0.0.0"
+        "now": "17.1.1",
+        "parcel": "latest"
       },
       "peerDependencies": {},
       "localDependencies": [
