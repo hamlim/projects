@@ -73,12 +73,7 @@ function main() {
   // make babel.config.js
   writeOrConsole(
     path.join(packagePath, 'babel.config.js'),
-    `module.exports = function(api) {
-    api.cache.never()
-    return {
-      presets: ['@babel/preset-env', '@babel/preset-react'],
-    }
-  }`,
+    `module.exports = require('@matthamlin/babel-config')()`,
   )
 
   // make package.json
@@ -104,9 +99,7 @@ function main() {
     },
     "devDependencies": {
       "@babel/cli": "7.5.0",
-      "@babel/core": "7.5.0",
-      "@babel/preset-env": "7.5.0",
-      "@babel/preset-react": "^7.7.4",
+      "@matthamlin/babel-config": "*",
       "@testing-library/jest-dom": "^4.2.4",
       "@testing-library/react": "^9.3.2",
       "jest": "24.9.0",

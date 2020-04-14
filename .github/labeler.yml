@@ -63,3 +63,6 @@ Scripts:
 
 📦 Astexplorer Modern:
   - packages/astexplorer-modern/**/*
+
+📦 Use Refs:
+  - packages/use-refs/**/*

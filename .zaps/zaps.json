@@ -33,6 +33,7 @@
     "packages/simple-cache",
     "packages/slate-mdx-editor",
     "packages/use-error",
+    "packages/use-refs",
     "packages/zaps",
     "sandbox"
   ],
@@ -55,12 +56,13 @@
     },
     "packages/astexplorer-modern": {
       "dependencies": {
-        "@matthamlin/property-controls": "*",
         "@matthamlin/component-library": "*",
+        "@matthamlin/error-boundary": "*",
+        "@matthamlin/property-controls": "*",
         "@matthamlin/reroute-browser": "*",
         "@matthamlin/reroute-core": "*",
         "@matthamlin/simple-cache": "*",
-        "@matthamlin/error-boundary": "*",
+        "monaco-editor": "0.20.0",
         "react": "experimental",
         "react-dom": "experimental"
       },
@@ -76,12 +78,12 @@
       },
       "peerDependencies": {},
       "localDependencies": [
-        ["@matthamlin/property-controls", "*"],
         ["@matthamlin/component-library", "*"],
+        ["@matthamlin/error-boundary", "*"],
+        ["@matthamlin/property-controls", "*"],
         ["@matthamlin/reroute-browser", "*"],
         ["@matthamlin/reroute-core", "*"],
-        ["@matthamlin/simple-cache", "*"],
-        ["@matthamlin/error-boundary", "*"]
+        ["@matthamlin/simple-cache", "*"]
       ],
       "name": "@matthamlin/astexplorer-modern"
     },
@@ -744,6 +746,21 @@
       "peerDependencies": {},
       "localDependencies": [["@matthamlin/babel-config", "0.0.0"]],
       "name": "@matthamlin/use-error"
+    },
+    "packages/use-refs": {
+      "dependencies": {},
+      "devDependencies": {
+        "@babel/cli": "7.5.0",
+        "@matthamlin/babel-config": "*",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "jest": "24.9.0",
+        "react": "*",
+        "react-dom": "*"
+      },
+      "peerDependencies": {},
+      "localDependencies": [["@matthamlin/babel-config", "*"]],
+      "name": "@matthamlin/use-refs"
     },
     "packages/zaps": {
       "dependencies": {
