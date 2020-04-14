@@ -1,6 +1,6 @@
 {
   "name": "@matthamlin/use-refs",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
   "license": "MIT",
