@@ -137,8 +137,6 @@ export default function babelPluginMetadata({ types: t }) {
           // @TODO assumes an object expression definition
           let props = path.node.right.properties
           props.forEach(prop => {
-            // If there are leading comments we want to process the prop
-            // @TODO we probably want to process every prop and then strip at runtime
             // grab the prop name
             // @TODO test for expressions here: {[foo]: PropTypes.string}
             let propName = prop.key.name
@@ -161,6 +159,8 @@ export default function babelPluginMetadata({ types: t }) {
             } else {
               propObj.type.raw = generate(prop.value).code
             }
+
+            // Merge the prop into existing propData
             if (propData.find(prop => prop.name === propName)) {
               propData = propData.map(propDatum => {
                 if (propDatum.name === propObj.name) {
@@ -185,8 +185,6 @@ export default function babelPluginMetadata({ types: t }) {
           // @TODO assumes an object expression definition
           let defaultProps = path.node.right.properties
           defaultProps.forEach(prop => {
-            // If there are leading comments we want to process the prop
-            // @TODO we probably want to process every prop and then strip at runtime
             // grab the prop name
             // @TODO test for expressions here: {[foo]: PropTypes.string}
             let propName = prop.key.name
@@ -209,6 +207,8 @@ export default function babelPluginMetadata({ types: t }) {
             } else {
               propObj.default.raw = generate(prop.value).code
             }
+
+            // Merge the prop into existing propData
             if (propData.find(prop => prop.name === propName)) {
               propData = propData.map(propDatum => {
                 if (propDatum.name === propObj.name) {
@@ -312,8 +312,6 @@ export default function babelPluginMetadata({ types: t }) {
             // @TODO assumes an object expression definition
             let props = staticPropTypes.value.properties
             props.forEach(prop => {
-              // If there are leading comments we want to process the prop
-              // @TODO we probably want to process every prop and then strip at runtime
               // grab the prop name
               // @TODO test for expressions here: {[foo]: PropTypes.string}
               let propName = prop.key.name
@@ -336,6 +334,8 @@ export default function babelPluginMetadata({ types: t }) {
               } else {
                 propObj.type.raw = generate(prop.value).code
               }
+
+              // Merge the prop into existing propData
               if (propData.find(prop => prop.name === propName)) {
                 propData = propData.map(propDatum => {
                   if (propDatum.name === propObj.name) {
@@ -357,8 +357,6 @@ export default function babelPluginMetadata({ types: t }) {
             // @TODO assumes an object expression definition
             let defaultProps = staticDefaultProps.value.properties
             defaultProps.forEach(prop => {
-              // If there are leading comments we want to process the prop
-              // @TODO we probably want to process every prop and then strip at runtime
               // grab the prop name
               // @TODO test for expressions here: {[foo]: PropTypes.string}
               let propName = prop.key.name
@@ -381,6 +379,8 @@ export default function babelPluginMetadata({ types: t }) {
               } else {
                 propObj.default.raw = generate(prop.value).code
               }
+
+              // Merge the prop into existing propData
               if (propData.find(prop => prop.name === propName)) {
                 propData = propData.map(propDatum => {
                   if (propDatum.name === propObj.name) {
