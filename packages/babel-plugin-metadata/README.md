@@ -35,10 +35,3 @@ module.exports = {
   formatted and returned as a string (defaults to `defaultFormatComments`)
 - `propTypesSource` - the source module that should be treated like `prop-types`
   (defaults to `'prop-types'`)
-
-## TODO:
-
-- [ ] Handle `defaultProps`
-- [ ] Finish parsing propTypes for both assignments and statics
-- [ ] Implement external file tracking for imported values
-- [ ] Handle accessing Component from React import later in the file
