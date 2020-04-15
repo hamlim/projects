@@ -11,6 +11,9 @@
       babel-plugin-metadata
 - [ ] Handle accessing Component from React import later in the file -
       babel-plugin-metadata
+- [ ] Transform plugin code - astexplorer-modern
+- [ ] Apply plugin code against the source - astexplorer-modern
+- [ ] Sync code to local storage - astexplorer-modern
 
 ### Done
 
