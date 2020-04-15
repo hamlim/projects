@@ -14,6 +14,7 @@
 - [ ] Transform plugin code - astexplorer-modern
 - [ ] Apply plugin code against the source - astexplorer-modern
 - [ ] Sync code to local storage - astexplorer-modern
+- [ ] Figure out themes on monaco - astexplorer-modern
 
 ### Done
 
