@@ -7,6 +7,7 @@ import ErrorBoundary from '@matthamlin/error-boundary'
 import * as monaco from 'monaco-editor'
 
 import * as parser from '@babel/parser'
+import * as babel from '@babel/standalone'
 
 // handle loading workers
 self.MonacoEnvironment = {
@@ -54,8 +55,8 @@ function Editor({
 
 let parserOpts = {
   sourceType: 'module',
-  allowImportExportEverywhere: false,
-  allowReturnOutsideFunction: false,
+  allowImportExportEverywhere: true,
+  allowReturnOutsideFunction: true,
   ranges: false,
   tokens: false,
   plugins: [
@@ -77,17 +78,122 @@ let parserOpts = {
   ],
 }
 
-function ASTPreview({ value }) {
+let transformOpts = {
+  sourceType: 'module',
+  presets: [['stage-0', { decoratorsBeforeExport: false }]],
+  plugins: ['syntax-jsx'],
+}
+
+function ASTPreview({ source }) {
   return (
     <Editor
-      value={JSON.stringify(parser.parse(value, parserOpts), null, 2)}
+      value={JSON.stringify(parser.parse(source, parserOpts), null, 2)}
       language="json"
+      minHeight="50vh"
+    />
+  )
+}
+
+/*
+
+ transform looks like:
+
+  `export default function createAPI(babel) {
+    return {}
+  }`
+
+  We can swap export default for return
+
+  `return function createAPI(babel) {}`
+
+  Then we need to pass that to `babel.transform(source, {
+    ...parserOpts,
+    plugins: [...parserOpts.plugins, the returned result above]
+  })`
+
+  return that
+
+*/
+
+function swapExportForReturn({ types }) {
+  return {
+    visitor: {
+      ExportDefaultDeclaration(path) {
+        const value = path.node.declaration
+        // export default Demo
+        if (types.isIdentifier(value)) {
+          path.replaceWith(types.ReturnStatement(value))
+        } else if (types.isArrowFunctionExpression(value)) {
+          // export default () => {}
+          const uuid = path.scope.generateUidIdentifier('export')
+          const name = uuid.name
+          // export default function Demo() {}
+          path.replaceWithMultiple([
+            // move the body of the export to be above the return
+            types.VariableDeclaration('var', [
+              types.VariableDeclarator(uuid, value),
+            ]),
+            // return the exported value
+            types.ReturnStatement(types.Identifier(name)),
+          ])
+        } else {
+          // Account for anonymous exports
+          // e.g. export default function() {}
+          let name, funcBody
+          if (!value.id) {
+            const uuid = path.scope.generateUidIdentifier('export')
+            name = uuid.name
+            path.node.declaration.id = uuid
+            funcBody = path.node.declaration
+          } else {
+            name = value.id.name
+            funcBody = path.node.declaration
+          }
+          // export default function Demo() {}
+          path.replaceWithMultiple([
+            // move the body of the export to be above the return
+            funcBody,
+            // return the exported value
+            types.ReturnStatement(types.Identifier(name)),
+          ])
+        }
+      },
+    },
+  }
+}
+
+function doTransform({ source, transform }) {
+  let withoutExportDefault = babel.transform(transform, {
+    ...transformOpts,
+    plugins: [...transformOpts.plugins, swapExportForReturn],
+  })
+
+  let createPlugin = new Function(withoutExportDefault.code)
+
+  return babel.transform(source, {
+    ...transformOpts,
+    plugins: [...transformOpts.plugins, createPlugin()],
+  }).code
+}
+
+function Transformed({ source, transform }) {
+  let transformed = doTransform({ source, transform })
+
+  return <Editor value={transformed} minHeight="50vh" />
+}
+
+function ErrorEditor({ error }) {
+  return (
+    <Editor
+      value={`${error.message}\n${error.stack}`}
+      language=""
+      minHeight="50vh"
     />
   )
 }
 
 function App() {
-  let [value, setValue] = useState(`console.log('foo');
+  let [source, setSource] = useState(`console.log('foo');
       
 export default function Foo() {
   return <div />
@@ -111,7 +217,7 @@ export default function Foo() {
       <BrowserRouter>
         <Box display="grid" flexGrow={1} gridTemplateColumns="1fr 1fr">
           <Box style={{ resize: 'both' }} border="solid 1px">
-            <Editor value={value} onChange={setValue} minHeight="50vh" />
+            <Editor value={source} onChange={setSource} minHeight="50vh" />
             <Editor
               value={transform}
               onChange={setTransform}
@@ -119,16 +225,11 @@ export default function Foo() {
             />
           </Box>
           <Box style={{ resize: 'both' }} border="solid 1px">
-            <ErrorBoundary
-              key={value}
-              Fallback={({ error }) => (
-                <Editor
-                  value={`${error.message}\n${error.stack}`}
-                  language=""
-                />
-              )}
-            >
-              <ASTPreview value={value} />
+            <ErrorBoundary key={source} Fallback={ErrorEditor}>
+              <ASTPreview source={source} />
+            </ErrorBoundary>
+            <ErrorBoundary key={source + transform} Fallback={ErrorEditor}>
+              <Transformed source={source} transform={transform} />
             </ErrorBoundary>
           </Box>
         </Box>
