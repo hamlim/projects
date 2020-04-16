@@ -201,14 +201,50 @@ export default function Foo() {
   let [
     transform,
     setTransform,
-  ] = useState(`export default function createPlugin(babel) {
-  let {types: t} = babel;
+  ] = useState(`export default function swapExportForReturn({ types }) {
   return {
     visitor: {
-      CallExpression(path) {
-        console.log(path);
-      }
-    }
+      ExportDefaultDeclaration(path) {
+        const value = path.node.declaration
+        // export default Demo
+        if (types.isIdentifier(value)) {
+          path.replaceWith(types.ReturnStatement(value))
+        } else if (types.isArrowFunctionExpression(value)) {
+          // export default () => {}
+          const uuid = path.scope.generateUidIdentifier('export')
+          const name = uuid.name
+          // export default function Demo() {}
+          path.replaceWithMultiple([
+            // move the body of the export to be above the return
+            types.VariableDeclaration('var', [
+              types.VariableDeclarator(uuid, value),
+            ]),
+            // return the exported value
+            types.ReturnStatement(types.Identifier(name)),
+          ])
+        } else {
+          // Account for anonymous exports
+          // e.g. export default function() {}
+          let name, funcBody
+          if (!value.id) {
+            const uuid = path.scope.generateUidIdentifier('export')
+            name = uuid.name
+            path.node.declaration.id = uuid
+            funcBody = path.node.declaration
+          } else {
+            name = value.id.name
+            funcBody = path.node.declaration
+          }
+          // export default function Demo() {}
+          path.replaceWithMultiple([
+            // move the body of the export to be above the return
+            funcBody,
+            // return the exported value
+            types.ReturnStatement(types.Identifier(name)),
+          ])
+        }
+      },
+    },
   }
 }`)
 
