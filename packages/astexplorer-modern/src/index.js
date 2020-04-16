@@ -35,7 +35,7 @@ function Editor({
   onChange,
   language = 'javascript',
   minHeight = '100vh',
-  theme,
+  theme = 'vs-dark',
 }) {
   let editorEl = useRef()
   useEffect(() => {
@@ -43,7 +43,7 @@ function Editor({
       let editor = monaco.editor.create(editorEl.current, {
         value,
         language,
-        theme: 'vs-dark',
+        theme,
       })
 
       editor.onDidChangeModelContent(evt => {
