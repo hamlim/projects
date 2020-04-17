@@ -29,7 +29,7 @@ self.MonacoEnvironment = {
   },
 }
 
-let { useRef, useEffect, useState } = React
+let { useRef, useEffect, useState, useDeferredValue } = React
 
 function Editor({
   value,
@@ -56,6 +56,15 @@ function Editor({
       })
 
       monacoRef.current = editor
+
+      function handleResize() {
+        console.log('Here???')
+        editor.layout()
+      }
+
+      window.addEventListener('resize', handleResize)
+
+      return () => window.removeEventListener('resize', handleResize)
     }
   }, [])
 
@@ -275,7 +284,8 @@ export default function Foo() {
     { key: 'transform' },
   )
 
-  console.log(window.localStorage)
+  let deferredSource = useDeferredValue(source, { timeoutMs: 200 })
+  let deferredTransform = useDeferredValue(transform, { timeoutMs: 200 })
 
   return (
     <ThemeProvider>
@@ -290,11 +300,17 @@ export default function Foo() {
             />
           </Box>
           <Box style={{ resize: 'both' }} border="solid 1px">
-            <ErrorBoundary key={source} Fallback={ErrorEditor}>
-              <ASTPreview source={source} />
+            <ErrorBoundary key={deferredSource} Fallback={ErrorEditor}>
+              <ASTPreview source={deferredSource} />
             </ErrorBoundary>
-            <ErrorBoundary key={source + transform} Fallback={ErrorEditor}>
-              <Transformed source={source} transform={transform} />
+            <ErrorBoundary
+              key={deferredSource + deferredTransform}
+              Fallback={ErrorEditor}
+            >
+              <Transformed
+                source={deferredSource}
+                transform={deferredTransform}
+              />
             </ErrorBoundary>
           </Box>
         </Box>
