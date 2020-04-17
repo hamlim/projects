@@ -106,11 +106,14 @@ function ASTPreview({ source }) {
 
   We can swap export default for return
 
-  `return function createAPI(babel) {}`
+  `
+  function createAPI(babel) {};
+  return createAPI
+  `
 
   Then we need to pass that to `babel.transform(source, {
     ...parserOpts,
-    plugins: [...parserOpts.plugins, the returned result above]
+    plugins: [...parserOpts.plugins, call a function that returns the above]
   })`
 
   return that
