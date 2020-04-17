@@ -2,6 +2,18 @@ import { lazy } from 'react'
 
 export default [
   {
+    to: 'a-note-on-anti-patterns',
+    title: 'A Note On Anti-Patterns',
+    component: lazy(() =>
+      import('./posts/2020/april/a-note-on-anti-patterns.mdx'),
+    ),
+  },
+  {
+    to: 'a-note-on-meetings',
+    title: 'A Note On Meetings',
+    component: lazy(() => import('./posts/2020/april/a-note-on-meetings.mdx')),
+  },
+  {
     to: 'the-rabbit-hole',
     title: 'The Rabbit Hole',
     component: lazy(() => import('./posts/2020/april/the-rabbit-hole.mdx')),
