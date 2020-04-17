@@ -9,6 +9,7 @@ package to manage running scripts throughout the repo.
 ## Projects:
 
 - [`@matthamlin/ast-gql`](./packages/ast-gql/README.md)
+- [`@matthamlin/astexplorer-modern`](./packages/astexplorer-modern/README.md)
 - [`@matthamlin/babel-config`](./packages/babel-config/README.md)
 - [`@matthamlin/babel-plugin-metadata`](./packages/babel-plugin-metadata/README.md)
 - [`@matthamlin/babel-plugin-property-controls`](./packages/babel-plugin-property-controls/README.md)
@@ -16,6 +17,7 @@ package to manage running scripts throughout the repo.
 - [`@matthamlin/blocks-editor`](./packages/blocks-editor/README.md)
 - [`@matthamlin/blocks-kit`](./packages/blocks-kit/README.md)
 - [`@matthamlin/blocks-property-controls`](./packages/blocks-property-controls/README.md)
+- [`@matthamlin/blocks-react`](./packages/blocks-react/README.md)
 - [`@matthamlin/blog`](./packages/blog/README.md)
 - [`@matthamlin/component-library`](./packages/component-library/README.md)
 - [`@matthamlin/error-boundary`](./packages/error-boundary/README.md)
@@ -35,6 +37,8 @@ package to manage running scripts throughout the repo.
 - [`@matthamlin/simple-cache`](./packages/simple-cache/README.md)
 - [`@matthamlin/slate-mdx-editor`](./packages/slate-mdx-editor/README.md)
 - [`@matthamlin/use-error`](./packages/use-error/README.md)
+- [`@matthamlin/use-local-storage`](./packages/use-local-storage/README.md)
+- [`@matthamlin/use-refs`](./packages/use-refs/README.md)
 - [`@matthamlin/zaps`](./packages/zaps/README.md)
 
 ## Scripts
