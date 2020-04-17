@@ -291,7 +291,7 @@ export default function Foo() {
     <ThemeProvider>
       <BrowserRouter>
         <Box display="grid" flexGrow={1} gridTemplateColumns="1fr 1fr">
-          <Box style={{ resize: 'both' }} border="solid 1px">
+          <Box border="solid 1px">
             <Editor value={source} onChange={setSource} minHeight="50vh" />
             <Editor
               value={transform}
@@ -299,7 +299,7 @@ export default function Foo() {
               minHeight="50vh"
             />
           </Box>
-          <Box style={{ resize: 'both' }} border="solid 1px">
+          <Box border="solid 1px">
             <ErrorBoundary key={deferredSource} Fallback={ErrorEditor}>
               <ASTPreview source={deferredSource} />
             </ErrorBoundary>
