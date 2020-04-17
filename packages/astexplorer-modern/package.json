@@ -25,7 +25,8 @@
     "@matthamlin/simple-cache": "*",
     "monaco-editor": "0.20.0",
     "react": "experimental",
-    "react-dom": "experimental"
+    "react-dom": "experimental",
+    "@matthamlin/use-local-storage": "*"
   },
   "alias": {
     "react": "./node_modules/react",

@@ -3,6 +3,7 @@ import { BrowserRouter } from '@matthamlin/reroute-browser'
 import { ThemeProvider, Box } from '@matthamlin/component-library'
 import { createRoot } from 'react-dom'
 import ErrorBoundary from '@matthamlin/error-boundary'
+import useLocalStorage from '@matthamlin/use-local-storage'
 
 import * as monaco from 'monaco-editor'
 
@@ -38,6 +39,10 @@ function Editor({
   theme = 'vs-dark',
 }) {
   let editorEl = useRef()
+  let monacoRef = useRef()
+
+  let hasSetValue = useRef(false)
+
   useEffect(() => {
     if (editorEl.current) {
       let editor = monaco.editor.create(editorEl.current, {
@@ -49,8 +54,22 @@ function Editor({
       editor.onDidChangeModelContent(evt => {
         onChange(editor.getValue())
       })
+
+      monacoRef.current = editor
     }
   }, [])
+
+  useEffect(() => {
+    // account for hydration from local storage, on mount if the value is different then set it
+    if (
+      monacoRef.current &&
+      monacoRef.current.getValue() !== value &&
+      hasSetValue.current === false
+    ) {
+      monacoRef.current.setValue(value)
+      hasSetValue.current = true
+    }
+  }, [value])
 
   return <div ref={editorEl} style={{ minHeight }} />
 }
@@ -198,15 +217,16 @@ function ErrorEditor({ error }) {
 }
 
 function App() {
-  let [source, setSource] = useState(`console.log('foo');
+  let [source, setSource] = useLocalStorage(
+    useState(`console.log('foo');
       
 export default function Foo() {
   return <div />
-}`)
-  let [
-    transform,
-    setTransform,
-  ] = useState(`export default function swapExportForReturn({ types }) {
+}`),
+    { key: 'source', hydrate: true },
+  )
+  let [transform, setTransform] = useLocalStorage(
+    useState(`export default function swapExportForReturn({ types }) {
   return {
     visitor: {
       ExportDefaultDeclaration(path) {
@@ -251,7 +271,11 @@ export default function Foo() {
       },
     },
   }
-}`)
+}`),
+    { key: 'transform' },
+  )
+
+  console.log(window.localStorage)
 
   return (
     <ThemeProvider>
