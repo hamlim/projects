@@ -58,7 +58,6 @@ function Editor({
       monacoRef.current = editor
 
       function handleResize() {
-        console.log('Here???')
         editor.layout()
       }
 
