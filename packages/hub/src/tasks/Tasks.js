@@ -180,7 +180,7 @@ function SubmitButton(props) {
 function Add() {
   let [state, dispatch] = useReducer(addReducer, {
     text: '',
-    dateDue: null,
+    dateDue: '',
     status: 'pending',
     notes: '',
     tasks: '[]',
