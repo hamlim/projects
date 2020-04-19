@@ -1,6 +1,6 @@
 {
   "name": "@matthamlin/component-library",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
   "license": "MIT",
   "main": "dist/index.js",
@@ -27,13 +27,13 @@
     "@babel/preset-env": "7.5.0",
     "@babel/preset-react": "7.0.0",
     "@babel/runtime": "^7.7.6",
+    "@matthamlin/babel-config": "0.0.0",
     "@testing-library/jest-dom": "4.1.0",
     "@testing-library/react": "8.0.4",
     "babel-plugin-styled-components": "1.10.7",
     "jest": "24.9.0",
     "react": "*",
-    "react-dom": "*",
-    "@matthamlin/babel-config": "0.0.0"
+    "react-dom": "*"
   },
   "peerDependencies": {
     "react": "*",
