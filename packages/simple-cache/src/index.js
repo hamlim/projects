@@ -90,10 +90,3 @@ function readCache(cache, key, miss) {
 function evictCache(cache, key) {
   cache.delete(key)
 }
-
-export function experimental_writeCache(cache, key, value) {
-  cache.set(key, {
-    status: RESOLVED,
-    value,
-  })
-}

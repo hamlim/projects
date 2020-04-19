@@ -17,7 +17,7 @@ import {
   VisuallyHidden,
 } from '@matthamlin/component-library'
 import { Link as RouterLink, useRoute } from '@matthamlin/reroute-browser'
-import useAirtable from '../useAirtable'
+import useAirtable, { getCache } from '../useAirtable'
 import { useHistory } from '@matthamlin/reroute-core'
 
 let {
