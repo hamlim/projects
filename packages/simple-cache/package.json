@@ -1,6 +1,6 @@
 {
   "name": "@matthamlin/simple-cache",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "dist/index.js",
   "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
   "license": "MIT",
