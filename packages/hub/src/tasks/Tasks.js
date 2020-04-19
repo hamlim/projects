@@ -98,7 +98,7 @@ function Task({ fields }) {
         position="absolute"
         top={0}
         right={0}
-        as={RouterLink}
+        forwardedAs={RouterLink}
         to="/tasks"
         autoFocus
       >
