@@ -9,13 +9,13 @@
       babel-plugin-metadata
 - [ ] Implement external file tracking for imported values -
       babel-plugin-metadata
-- [ ] Handle accessing Component from React import later in the file -
-      babel-plugin-metadata
-- [ ] Transform plugin code - astexplorer-modern
-- [ ] Apply plugin code against the source - astexplorer-modern
-- [ ] Sync code to local storage - astexplorer-modern
-- [ ] Figure out themes on monaco - astexplorer-modern
 
 ### Done
 
 - [x] Handle `defaultProps` - babel-plugin-metadata
+- [x] Transform plugin code - astexplorer-modern
+- [x] Apply plugin code against the source - astexplorer-modern
+- [x] Sync code to local storage - astexplorer-modern
+- [x] Figure out themes on monaco - astexplorer-modern
+- [x] Handle accessing Component from React import later in the file -
+      babel-plugin-metadata
