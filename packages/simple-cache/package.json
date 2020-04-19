@@ -1,16 +1,13 @@
 {
   "name": "@matthamlin/simple-cache",
-  "version": "1.1.0",
-  "module": "dist/index.mjs",
+  "version": "1.2.0",
   "main": "dist/index.js",
-  "umd:main": "dist/index.umd.js",
   "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
   "license": "MIT",
   "source": "./src/index.js",
   "scripts": {
-    "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'",
-    "bundle": "microbundle",
-    "prepub": "yarn bundle",
+    "build": "babel src/ --out-dir dist/",
+    "prepub": "yarn build",
     "pub": "yarn publish --access public --no-git-tag-version"
   },
   "peerDependencies": {
@@ -20,7 +17,6 @@
     "@babel/cli": "7.5.0",
     "@babel/core": "7.5.0",
     "@babel/preset-env": "7.5.0",
-    "microbundle": "0.11.0",
     "@matthamlin/babel-config": "0.0.0"
   },
   "publishConfig": {
