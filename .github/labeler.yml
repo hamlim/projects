@@ -69,3 +69,6 @@ Scripts:
 
 📦 Use Local Storage:
   - packages/use-local-storage/**/*
+
+📦 Jsdoc Comment Parser:
+  - packages/jsdoc-comment-parser/**/*

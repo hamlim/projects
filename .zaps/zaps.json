@@ -18,6 +18,7 @@
     "packages/component-library",
     "packages/error-boundary",
     "packages/hub",
+    "packages/jsdoc-comment-parser",
     "packages/kitchen-sink",
     "packages/native-bundler-cli",
     "packages/native-bundler-core",
@@ -65,16 +66,14 @@
         "@matthamlin/simple-cache": "*",
         "monaco-editor": "0.20.0",
         "react": "experimental",
-        "react-dom": "experimental"
+        "react-dom": "experimental",
+        "@matthamlin/use-local-storage": "*"
       },
       "devDependencies": {
         "@babel/cli": "7.5.0",
         "@babel/core": "7.5.0",
         "@babel/preset-env": "7.5.0",
         "@babel/preset-react": "^7.7.4",
-        "@testing-library/jest-dom": "^4.2.4",
-        "@testing-library/react": "^9.3.2",
-        "jest": "24.9.0",
         "parcel": "latest"
       },
       "peerDependencies": {},
@@ -84,7 +83,8 @@
         ["@matthamlin/property-controls", "*"],
         ["@matthamlin/reroute-browser", "*"],
         ["@matthamlin/reroute-core", "*"],
-        ["@matthamlin/simple-cache", "*"]
+        ["@matthamlin/simple-cache", "*"],
+        ["@matthamlin/use-local-storage", "*"]
       ],
       "name": "@matthamlin/astexplorer-modern"
     },
@@ -377,13 +377,13 @@
         "@babel/preset-env": "7.5.0",
         "@babel/preset-react": "7.0.0",
         "@babel/runtime": "^7.7.6",
+        "@matthamlin/babel-config": "0.0.0",
         "@testing-library/jest-dom": "4.1.0",
         "@testing-library/react": "8.0.4",
         "babel-plugin-styled-components": "1.10.7",
         "jest": "24.9.0",
         "react": "*",
-        "react-dom": "*",
-        "@matthamlin/babel-config": "0.0.0"
+        "react-dom": "*"
       },
       "peerDependencies": { "react": "*", "react-dom": "*" },
       "localDependencies": [
@@ -440,6 +440,21 @@
         ["@matthamlin/babel-config", "0.0.0"]
       ],
       "name": "@matthamlin/hub"
+    },
+    "packages/jsdoc-comment-parser": {
+      "dependencies": {},
+      "devDependencies": {
+        "@babel/cli": "7.5.0",
+        "@matthamlin/babel-config": "*",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "jest": "24.9.0",
+        "react": "*",
+        "react-dom": "*"
+      },
+      "peerDependencies": {},
+      "localDependencies": [["@matthamlin/babel-config", "*"]],
+      "name": "@matthamlin/jsdoc-comment-parser"
     },
     "packages/kitchen-sink": {
       "dependencies": {
@@ -622,6 +637,7 @@
         "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
         "@babel/preset-env": "7.5.0",
         "@babel/preset-react": "7.0.0",
+        "@matthamlin/babel-config": "0.0.0",
         "@matthamlin/reroute-core": "*",
         "@testing-library/jest-dom": "4.1.0",
         "@testing-library/react": "8.0.4",
@@ -629,13 +645,12 @@
         "jest": "24.9.0",
         "microbundle": "0.11.0",
         "react": "*",
-        "react-dom": "*",
-        "@matthamlin/babel-config": "0.0.0"
+        "react-dom": "*"
       },
       "peerDependencies": { "@matthamlin/reroute-core": "*", "react": "*" },
       "localDependencies": [
-        ["@matthamlin/reroute-core", "*"],
-        ["@matthamlin/babel-config", "0.0.0"]
+        ["@matthamlin/babel-config", "0.0.0"],
+        ["@matthamlin/reroute-core", "*"]
       ],
       "name": "@matthamlin/reroute-browser"
     },
@@ -684,7 +699,6 @@
         "@babel/cli": "7.5.0",
         "@babel/core": "7.5.0",
         "@babel/preset-env": "7.5.0",
-        "microbundle": "0.11.0",
         "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": { "react": "*" },

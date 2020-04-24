@@ -1,0 +1,33 @@
+{
+  "name": "@matthamlin/jsdoc-comment-parser",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src/ --out-dir dist/",
+    "test": "jest",
+    "test-watch": "jest --watch",
+    "prepub": "yarn build",
+    "pub": "yarn publish --access public --no-git-tag-version"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
+  "devDependencies": {
+    "@babel/cli": "7.5.0",
+    "@matthamlin/babel-config": "*",
+    "jest": "24.9.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/hamlim/projects.git",
+    "directory": "packages/jsdoc-comment-parser"
+  }
+}
