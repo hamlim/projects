@@ -9,7 +9,6 @@
       babel-plugin-metadata
 - [ ] Implement external file tracking for imported values -
       babel-plugin-metadata
-- [ ] Support for documenting hooks / functions - babel-plugin-metadata
 
 ### Done
 
@@ -20,3 +19,4 @@
 - [x] Figure out themes on monaco - astexplorer-modern
 - [x] Handle accessing Component from React import later in the file -
       babel-plugin-metadata
+- [x] Support for documenting hooks / functions - babel-plugin-metadata
