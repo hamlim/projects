@@ -15,5 +15,6 @@ module.exports = {
       ]
     }
   ],
-  "imports": []
+  "imports": [],
+  "hooks": []
 }

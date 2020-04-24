@@ -7,8 +7,10 @@ import useLocalStorage from '@matthamlin/use-local-storage'
 
 import * as monaco from 'monaco-editor'
 
-import * as parser from '@babel/parser'
+import { parse } from '@babel/parser'
 import * as babel from '@babel/standalone'
+import generate from '@babel/generator'
+import template from '@babel/template'
 
 // handle loading workers
 self.MonacoEnvironment = {
@@ -116,7 +118,7 @@ let transformOpts = {
 function ASTPreview({ source }) {
   return (
     <Editor
-      value={JSON.stringify(parser.parse(source, parserOpts), null, 2)}
+      value={JSON.stringify(parse(source, parserOpts), null, 2)}
       language="json"
       minHeight="50vh"
     />
@@ -150,6 +152,23 @@ function ASTPreview({ source }) {
 function swapExportForReturn({ types }) {
   return {
     visitor: {
+      // replace imports with quotes
+      ImportDeclaration(path) {
+        let importCode = generate(path.node).code
+        path.replaceWith(template.statement(`"${importCode}"`)())
+      },
+      // reemove or replace other `export`s in the snippet
+      ExportNamedDeclaration(path) {
+        const value = path.node.declaration
+        if (
+          types.isVariableDeclaration(value) ||
+          types.isFunctionDeclaration(value)
+        ) {
+          path.replaceWith(value)
+        } else {
+          path.remove()
+        }
+      },
       ExportDefaultDeclaration(path) {
         const value = path.node.declaration
         // export default Demo
@@ -202,10 +221,26 @@ function doTransform({ source, transform }) {
 
   let createPlugin = new Function(withoutExportDefault.code)
 
-  return babel.transform(source, {
-    ...transformOpts,
-    plugins: [...transformOpts.plugins, createPlugin()],
-  }).code
+  let plugin = createPlugin()
+
+  if (typeof plugin !== 'function') {
+    throw new Error('No plugin was exported by default!')
+  }
+
+  try {
+    return babel.transform(source, {
+      ...transformOpts,
+      plugins: [...transformOpts.plugins, createPlugin()],
+    }).code
+  } catch (err) {
+    throw new Error(
+      `${err.message}\n${JSON.stringify(
+        err,
+        null,
+        2,
+      )}\nSource:\n${createPlugin.toString()}`,
+    )
+  }
 }
 
 function Transformed({ source, transform }) {

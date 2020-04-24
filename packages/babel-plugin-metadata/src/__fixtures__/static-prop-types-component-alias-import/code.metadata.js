@@ -31,5 +31,6 @@ module.exports = {
       ],
       "source": "react"
     }
-  ]
+  ],
+  "hooks": []
 }

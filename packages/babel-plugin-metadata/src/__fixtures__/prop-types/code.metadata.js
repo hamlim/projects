@@ -28,7 +28,7 @@ module.exports = {
         {
           "name": "test",
           "type": {
-            "comments": "Block comment here\n      With multiple lines",
+            "comments": "* Block comment here\n   *\n   * With multiple lines",
             "raw": "test"
           },
           "default": {
@@ -38,5 +38,6 @@ module.exports = {
       ]
     }
   ],
-  "imports": []
+  "imports": [],
+  "hooks": []
 }
