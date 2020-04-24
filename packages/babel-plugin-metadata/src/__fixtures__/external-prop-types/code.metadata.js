@@ -8,7 +8,7 @@ module.exports = {
         {
           "name": "bar",
           "type": {
-            "comments": "some comment here",
+            "comments": " some comment here",
             "raw": "PropTypes.string.isRequired"
           },
           "default": {
@@ -18,7 +18,7 @@ module.exports = {
         {
           "name": "foo",
           "type": {
-            "comments": "another comment here\nmulti-line this time",
+            "comments": " another comment here\n multi-line this time",
             "raw": "PropTypes.bool"
           },
           "default": {
@@ -28,7 +28,7 @@ module.exports = {
         {
           "name": "test",
           "type": {
-            "comments": "* Block comment here\n   *\n   * With multiple lines",
+            "comments": "/**\n   * Block comment here\n   *\n   * With multiple lines\n   \n*/",
             "raw": "propType"
           },
           "default": {

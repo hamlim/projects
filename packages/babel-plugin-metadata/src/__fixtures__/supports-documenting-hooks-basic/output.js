@@ -1,12 +1,13 @@
 /**
  * useFoo
  *
- * @usage
+ * Example Usage:
+ * ```jsx
  * const val = useFoo(initialState);
+ * ```
  *
- * @param initialState {number} - The initial state of the useFoo hook
- *
- * @returns state {number} - The current value
+ * @param {number} initialState The initial state of the useFoo hook
+ * @returns {number} The current value
  */
 export default function useFoo() {
   return []

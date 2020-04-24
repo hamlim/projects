@@ -8,7 +8,7 @@ module.exports = {
         {
           "name": "bar",
           "type": {
-            "comments": "some comment here",
+            "comments": " some comment here",
             "raw": "PropTypes.string.isRequired"
           }
         }

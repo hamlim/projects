@@ -36,6 +36,7 @@
     "directory": "packages/babel-plugin-metadata"
   },
   "dependencies": {
-    "@babel/generator": "7.9.4"
+    "@babel/generator": "7.9.4",
+    "@matthamlin/jsdoc-comment-parser": "1.0.0"
   }
 }

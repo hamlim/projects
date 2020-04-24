@@ -8,7 +8,7 @@ module.exports = {
         {
           "name": "bar",
           "type": {
-            "comments": "Some comment here",
+            "comments": " Some comment here",
             "raw": "PropTypes.string"
           },
           "default": {

@@ -1,76 +1,17 @@
 import path from 'path'
 import fs from 'fs'
 import generate from '@babel/generator'
-
-export function removeAsterisks(line) {
-  return line
-    .replace('/*\n', '')
-    .replace(/^\*[ \n]/g, '\n')
-    .replace('*/', '')
-    .trim()
-}
+import defaultJSDocCommentParser from '@matthamlin/jsdoc-comment-parser'
 
 export function defaultFormatComments(comments) {
-  return comments.map(comment => removeAsterisks(comment.value)).join('\n')
-}
-
-export function defaultParseJSDocComments(comment) {
-  let lines = comment.split('\n')
-  let usage = null
-  let params = []
-  let returns = null
-
-  let currentParam = false
-
-  for (let line of lines) {
-    let trimedLine = line.trim()
-
-    // begin params
-    if (!currentParam && trimedLine.startsWith('@param')) {
-      currentParam = line
-      continue
-    }
-    // Next param
-    if (currentParam && !trimedLine.startsWith('@param')) {
-      currentParam += line
-      continue
-    }
-    // continued param docs
-    if (currentParam && trimedLine.startsWith('@param')) {
-      params.push(currentParam)
-      currentParam = line
-      continue
-    }
-
-    // Begin usage
-    if (!usage && trimedLine.startsWith('@usage')) {
-      usage = line
-      continue
-    }
-    // continued usage
-    if (
-      usage &&
-      !(trimedLine.startsWith('@param') || trimedLine.startsWith('@return'))
-    ) {
-      usage += line
-      continue
-    }
-
-    // begin returns
-    if (!returns && trimedLine.startsWith('@returns')) {
-      returns = line
-      continue
-    }
-    // continued returns
-    if (
-      returns &&
-      !(trimedLine.startsWith('@param') || trimedLine.startsWith('@usage'))
-    ) {
-      returns += line
-      continue
-    }
-  }
-  return { params, usage, returns }
+  return comments
+    .map(comment => {
+      if (comment.type === 'CommentBlock') {
+        return `/*${comment.value}\n*/`
+      }
+      return comment.value
+    })
+    .join('\n')
 }
 
 function isReactSuperClass({
@@ -504,23 +445,23 @@ export default function babelPluginMetadata({ types: t }) {
         let {
           opts: {
             formatComments = defaultFormatComments,
-            parseJSDocComments = defaultParseJSDocComments,
+            parseJSDocComments = defaultJSDocCommentParser,
           },
         } = state
+        // handle `function use*`
         if (path.node.id.name.startsWith('use')) {
           let leadingComments =
             path.node.leadingComments || path.parentPath.node.leadingComments
           let formattedComments = formatComments(leadingComments)
-          let splitComments = formattedComments.split('\n')
+          let jsDoc = parseJSDocComments(formattedComments)
 
           this.data.hooks.push({
             name: path.node.id.name,
-            leadingComments: formattedComments,
-            arguments: splitComments.filter(line =>
-              line.trim().startsWith('@param'),
-            ),
+            rawLeadingComments: formattedComments,
+            jsDoc: jsDoc,
           })
         }
+        // @todo handle `{ useFoo() {} }` (aka object methods)
       },
     },
     post(state) {

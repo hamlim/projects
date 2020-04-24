@@ -281,36 +281,36 @@ function parseBlock(source, opts) {
     tagNode.line = tag.line
     tagNode.source = tag.source
 
-    if (opts.dotted_names && tagNode.name.includes('.')) {
-      let parent_name
-      let parent_tag
-      let parent_tags = tags
+    if (opts.dottedNames && tagNode.name.includes('.')) {
+      let parentName
+      let parentTag
+      let parentTags = tags
       let parts = tagNode.name.split('.')
 
       while (parts.length > 1) {
-        parent_name = parts.shift()
-        parent_tag = find(parent_tags, {
+        parentName = parts.shift()
+        parentTag = find(parentTags, {
           tag: tagNode.tag,
-          name: parent_name,
+          name: parentName,
         })
 
-        if (!parent_tag) {
-          parent_tag = {
+        if (!parentTag) {
+          parentTag = {
             tag: tagNode.tag,
             line: Number(tagNode.line),
-            name: parent_name,
+            name: parentName,
             type: '',
             description: '',
           }
-          parent_tags.push(parent_tag)
+          parentTags.push(parentTag)
         }
 
-        parent_tag.tags = parent_tag.tags || []
-        parent_tags = parent_tag.tags
+        parentTag.tags = parentTag.tags || []
+        parentTags = parentTag.tags
       }
 
       tagNode.name = parts[0]
-      parent_tags.push(tagNode)
+      parentTags.push(tagNode)
       return tags
     }
 
@@ -335,7 +335,7 @@ function makeExtract() {
 
   let opts = {
     trim: true,
-    dotted_names: false,
+    dottedNames: true,
     fence: '```',
     parsers: [parseTagImpl, parseType, parseName, parseDescription],
   }
@@ -386,7 +386,7 @@ function makeExtract() {
 
       // finalize block if end marker detected
       if (endPos !== -1) {
-        result = parse_block(chunk, opts)
+        result = parseBlock(chunk, opts)
         chunk = null
         indent = 0
       }
