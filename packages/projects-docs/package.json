@@ -7,15 +7,19 @@
     "build": "next build",
     "start": "next start"
   },
+  "devDependencies": {
+    "@mdx-js/loader": "1.5.9",
+    "@next/mdx": "9.3.5"
+  },
   "dependencies": {
-    "next": "9.3.5",
-    "react": "0.0.0-experimental-e5d06e34b",
-    "react-dom": "0.0.0-experimental-e5d06e34b",
     "@matthamlin/component-library": "*",
     "@matthamlin/error-boundary": "*",
-    "@matthamlin/reroute-core": "*",
     "@matthamlin/reroute-browser": "*",
+    "@matthamlin/reroute-core": "*",
     "@matthamlin/simple-cache": "*",
-    "@matthamlin/use-error": "*"
+    "@matthamlin/use-error": "*",
+    "next": "9.3.5",
+    "react": "0.0.0-experimental-e5d06e34b",
+    "react-dom": "0.0.0-experimental-e5d06e34b"
   }
 }
