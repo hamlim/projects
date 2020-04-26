@@ -5,9 +5,11 @@
   "license": "MIT",
   "scripts": {
     "prewatch": "sh ./build-workers.sh",
-    "watch": "parcel src/index.html",
+    "watch": "parcel ./src/index.html",
     "prebuild": "sh ./build-workers.sh",
-    "build": "parcel build src/index.html --out-dir public"
+    "build": "parcel build ./src/index.html --out-dir public",
+    "deploy": "now --regions all",
+    "deploy-prod": "now --regions all --prod"
   },
   "dependencies": {
     "@matthamlin/component-library": "*",
@@ -22,15 +24,16 @@
     "@matthamlin/use-local-storage": "*"
   },
   "alias": {
-    "react": "./node_modules/react",
-    "react-dom": "./node_modules/react-dom"
+    "react": "../../node_modules/react",
+    "react-dom": "../../node_modules/react-dom"
   },
   "devDependencies": {
     "@babel/cli": "7.5.0",
     "@babel/core": "7.5.0",
     "@babel/preset-env": "7.5.0",
     "@babel/preset-react": "^7.7.4",
-    "parcel": "latest"
+    "parcel": "latest",
+    "now": "17.1.1"
   },
   "publishConfig": {
     "access": "public",
