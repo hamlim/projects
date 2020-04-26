@@ -20,7 +20,7 @@
     "prettier": "1.19.1"
   },
   "resolutions": {
-    "react": "experimental",
-    "react-dom": "experimental"
+    "react": "0.0.0-experimental-e5d06e34b",
+    "react-dom": "0.0.0-experimental-e5d06e34b"
   }
 }
