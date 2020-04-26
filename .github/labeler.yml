@@ -75,3 +75,6 @@ Scripts:
 
 📦 Projects Docs:
   - packages/projects-docs/**/*
+
+📦 Ast Sandbox:
+  - packages/ast-sandbox/**/*

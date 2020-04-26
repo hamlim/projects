@@ -3,6 +3,7 @@
   "workspaces": ["packages/*", "sandbox"],
   "packages": [
     "packages/ast-gql",
+    "packages/ast-sandbox",
     "packages/astexplorer-modern",
     "packages/babel-config",
     "packages/babel-plugin-metadata",
@@ -57,6 +58,38 @@
       "localDependencies": [["@matthamlin/babel-config", "0.0.0"]],
       "name": "@matthamlin/ast-gql"
     },
+    "packages/ast-sandbox": {
+      "dependencies": {
+        "@matthamlin/property-controls": "*",
+        "@matthamlin/component-library": "*",
+        "@matthamlin/reroute-browser": "*",
+        "@matthamlin/reroute-core": "*",
+        "@matthamlin/simple-cache": "*",
+        "@matthamlin/error-boundary": "*",
+        "react": "experimental",
+        "react-dom": "experimental"
+      },
+      "devDependencies": {
+        "@babel/cli": "7.5.0",
+        "@babel/core": "7.5.0",
+        "@babel/preset-env": "7.5.0",
+        "@babel/preset-react": "^7.7.4",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "jest": "24.9.0",
+        "parcel": "latest"
+      },
+      "peerDependencies": {},
+      "localDependencies": [
+        ["@matthamlin/property-controls", "*"],
+        ["@matthamlin/component-library", "*"],
+        ["@matthamlin/reroute-browser", "*"],
+        ["@matthamlin/reroute-core", "*"],
+        ["@matthamlin/simple-cache", "*"],
+        ["@matthamlin/error-boundary", "*"]
+      ],
+      "name": "@matthamlin/ast-sandbox"
+    },
     "packages/astexplorer-modern": {
       "dependencies": {
         "@matthamlin/component-library": "*",
@@ -75,7 +108,8 @@
         "@babel/core": "7.5.0",
         "@babel/preset-env": "7.5.0",
         "@babel/preset-react": "^7.7.4",
-        "parcel": "latest"
+        "parcel": "latest",
+        "now": "17.1.1"
       },
       "peerDependencies": {},
       "localDependencies": [
@@ -585,23 +619,23 @@
     },
     "packages/projects-docs": {
       "dependencies": {
-        "next": "9.3.5",
-        "react": "0.0.0-experimental-e5d06e34b",
-        "react-dom": "0.0.0-experimental-e5d06e34b",
         "@matthamlin/component-library": "*",
         "@matthamlin/error-boundary": "*",
-        "@matthamlin/reroute-core": "*",
         "@matthamlin/reroute-browser": "*",
+        "@matthamlin/reroute-core": "*",
         "@matthamlin/simple-cache": "*",
-        "@matthamlin/use-error": "*"
+        "@matthamlin/use-error": "*",
+        "next": "9.3.5",
+        "react": "0.0.0-experimental-e5d06e34b",
+        "react-dom": "0.0.0-experimental-e5d06e34b"
       },
-      "devDependencies": {},
+      "devDependencies": { "@mdx-js/loader": "1.5.9", "@next/mdx": "9.3.5" },
       "peerDependencies": {},
       "localDependencies": [
         ["@matthamlin/component-library", "*"],
         ["@matthamlin/error-boundary", "*"],
-        ["@matthamlin/reroute-core", "*"],
         ["@matthamlin/reroute-browser", "*"],
+        ["@matthamlin/reroute-core", "*"],
         ["@matthamlin/simple-cache", "*"],
         ["@matthamlin/use-error", "*"]
       ],

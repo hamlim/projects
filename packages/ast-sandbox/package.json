@@ -1,0 +1,57 @@
+{
+  "name": "@matthamlin/ast-sandbox",
+  "version": "0.0.0",
+  "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
+  "license": "MIT",
+  "scripts": {
+    "prewatch": "sh ./build-workers-local.sh",
+    "watch": "parcel src/index.html",
+    "prebuild": "sh ./build-workers-local.sh",
+    "build": "parcel build src/index.html --out-dir public",
+    "prenow-build": "sh ./build-workers-deploy.sh",
+    "now-build": "parcel build src/index.html --out-dir public",
+    "deploy": "now --regions all",
+    "test": "echo skip",
+    "test-watch": "jest --watch"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
+  "dependencies": {
+    "@matthamlin/property-controls": "*",
+    "@matthamlin/component-library": "*",
+    "@matthamlin/reroute-browser": "*",
+    "@matthamlin/reroute-core": "*",
+    "@matthamlin/simple-cache": "*",
+    "@matthamlin/error-boundary": "*",
+    "monaco-editor": "0.20.0",
+    "@matthamlin/use-local-storage": "*",
+    "react": "experimental",
+    "react-dom": "experimental"
+  },
+  "alias": {
+    "react": "../../node_modules/react",
+    "react-dom": "../../node_modules/react-dom"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.5.0",
+    "@babel/core": "7.5.0",
+    "@babel/preset-env": "7.5.0",
+    "@babel/preset-react": "^7.7.4",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "jest": "24.9.0",
+    "parcel": "latest"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/hamlim/projects.git",
+    "directory": "packages/ast-sandbox"
+  }
+}

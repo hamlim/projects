@@ -28,3 +28,5 @@ packages/astexplorer-modern/.cache/
 packages/astexplorer-modern/public/
 packages/projects-docs/.cache/
 packages/projects-docs/public/
+packages/ast-sandbox/.cache/
+packages/ast-sandbox/public/
