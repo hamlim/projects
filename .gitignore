@@ -26,3 +26,5 @@ yarn-error.log
 
 packages/astexplorer-modern/.cache/
 packages/astexplorer-modern/public/
+packages/projects-docs/.cache/
+packages/projects-docs/public/

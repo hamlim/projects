@@ -72,3 +72,6 @@ Scripts:
 
 📦 Jsdoc Comment Parser:
   - packages/jsdoc-comment-parser/**/*
+
+📦 Projects Docs:
+  - packages/projects-docs/**/*

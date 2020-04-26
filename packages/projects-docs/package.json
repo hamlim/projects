@@ -1,0 +1,21 @@
+{
+  "name": "@matthamlin/projects-docs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "9.3.5",
+    "react": "0.0.0-experimental-e5d06e34b",
+    "react-dom": "0.0.0-experimental-e5d06e34b",
+    "@matthamlin/component-library": "*",
+    "@matthamlin/error-boundary": "*",
+    "@matthamlin/reroute-core": "*",
+    "@matthamlin/reroute-browser": "*",
+    "@matthamlin/simple-cache": "*",
+    "@matthamlin/use-error": "*"
+  }
+}
