@@ -78,3 +78,6 @@ Scripts:
 
 📦 Ast Sandbox:
   - packages/ast-sandbox/**/*
+
+📦 Babel Parse:
+  - packages/babel-parse/**/*
