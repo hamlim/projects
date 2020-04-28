@@ -34,6 +34,23 @@ function isReactSuperClass({
 // We probably don't need this if we just collect the raw import declarations
 let namespaceImportSigil = {}
 
+function lookupImportedReferences({ prop, propObj, imports }) {
+  console.log(imports)
+  let foundReference = imports.find(importObject => {
+    return importObject.specifiers.find(importSpecifier => {
+      // imported -> value exported from other file
+      // local -> local reference to that value
+      if (importSpecifier.value.local === prop.name) {
+        return true
+      }
+    })
+  })
+  if (foundReference) {
+    // time to go look at that file
+    // Need to track down the specifier that it matched
+  }
+}
+
 export default function babelPluginMetadata({ types: t }) {
   return {
     name: 'babel-plugin-metadata',
@@ -154,16 +171,24 @@ export default function babelPluginMetadata({ types: t }) {
             if (Array.isArray(prop.leadingComments)) {
               propObj.type.comments = formatComments(prop.leadingComments)
             }
-            // This is a bit weird, but if the prop is like PropTypes.string.isRequired
-            // its nested another layer
-            if (t.isMemberExpression(prop.value)) {
+            // Foo.propTypes = { bar: value }
+            if (t.isIdentifier(prop.value)) {
+              lookupImportedReferences({
+                prop: prop.value,
+                imports: this.data.imports,
+                propObj,
+              })
+            } else if (t.isMemberExpression(prop.value)) {
+              // Foo.propTypes = {bar: PropTypes.value }
               let propType = prop.value.object.name
+              // Again here handles nested calls, e.g. `Foo.propTypes = { bar: PropTypes.string.isRequired }`
               if (t.isMemberExpression(prop.value.object)) {
                 propObj.type.raw = generate(prop.value).code
               } else {
                 propObj.type.raw = generate(prop.value).code
               }
             } else {
+              // Otherwise give up and try to parse the code
               propObj.type.raw = generate(prop.value).code
             }
 
