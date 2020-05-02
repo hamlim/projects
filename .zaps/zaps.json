@@ -80,7 +80,7 @@
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "jest": "24.9.0",
-        "parcel": "latest"
+        "parcel": "1.12.4"
       },
       "peerDependencies": {},
       "localDependencies": [
@@ -112,7 +112,7 @@
         "@babel/core": "7.5.0",
         "@babel/preset-env": "7.5.0",
         "@babel/preset-react": "^7.7.4",
-        "parcel": "latest",
+        "parcel": "1.12.4",
         "now": "17.1.1"
       },
       "peerDependencies": {},
@@ -406,7 +406,7 @@
         "@testing-library/react": "^9.3.2",
         "jest": "24.9.0",
         "now": "17.1.1",
-        "parcel": "latest"
+        "parcel": "1.12.4"
       },
       "peerDependencies": {},
       "localDependencies": [
@@ -482,7 +482,7 @@
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "jest": "24.9.0",
-        "parcel": "latest",
+        "parcel": "1.12.4",
         "babel-plugin-styled-components": "1.10.7",
         "@matthamlin/babel-config": "0.0.0"
       },
@@ -526,7 +526,7 @@
         "@babel/preset-react": "^7.7.4",
         "@parcel/resolver-default": "2.0.0-alpha.3",
         "jest": "24.9.0",
-        "parcel": "latest",
+        "parcel": "1.12.4",
         "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": {},
@@ -807,7 +807,7 @@
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "jest": "24.9.0",
-        "parcel": "latest",
+        "parcel": "1.12.4",
         "@matthamlin/babel-config": "0.0.0"
       },
       "peerDependencies": {},

@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 const { useState, useEffect } = React
 
@@ -31,7 +31,12 @@ export function useCache(
     }
   }, [cache, key, shouldEvictCache])
 
-  return value
+  function updateCache(key, value) {
+    cache.set(key, value)
+    setValue(value)
+  }
+
+  return [value, updateCache]
 }
 
 // This rest is a basic Suspense cache implementation.

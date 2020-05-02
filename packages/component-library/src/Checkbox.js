@@ -1,4 +1,5 @@
 import React, { useState, forwardRef } from 'react'
+import ReactDOM from 'react-dom'
 import { HiddenCheckbox, UncontrolledHiddenCheckbox } from './HiddenCheckbox.js'
 import { useTheme } from './ThemeProvider.js'
 import { Box } from './Box.js'
@@ -31,12 +32,20 @@ function _Checkbox({
 
   function handleFocus() {
     call(onFocus)
-    setHasFocus(true)
+    // @NOTE: There is a bug in React which forces us to flush this event syncronously to ensure onChange is called
+    // @SEE: https://github.com/facebook/react/issues/18591
+    ReactDOM.flushSync(() => {
+      setHasFocus(true)
+    })
   }
 
   function handleBlur() {
     call(onBlur)
-    setHasFocus(false)
+    // @NOTE: There is a bug in React which forces us to flush this event syncronously to ensure onChange is called
+    // @SEE: https://github.com/facebook/react/issues/18591
+    ReactDOM.flushSync(() => {
+      setHasFocus(false)
+    })
   }
 
   let showFocusOutline = !disabled && (unstable_Focused || hasFocus)

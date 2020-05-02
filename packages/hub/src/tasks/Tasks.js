@@ -19,6 +19,7 @@ import {
 import { Link as RouterLink, useRoute } from '@matthamlin/reroute-browser'
 import useAirtable, { getCache } from '../useAirtable'
 import { useHistory } from '@matthamlin/reroute-core'
+import { useCache } from '@matthamlin/simple-cache'
 
 let {
   Suspense,
@@ -44,120 +45,6 @@ function Route({ children, path }) {
   return null
 }
 
-function todaysTasks(records) {
-  return records.filter(record => {
-    return new Date(record.fields.dueDate).getDate() === today
-  })
-}
-
-function Daily({ tasks }) {
-  let tasksForToday = useMemo(
-    function() {
-      return todaysTasks(tasks)
-    },
-    [tasks],
-  )
-
-  if (tasksForToday.length === 0) {
-    return <Text>No tasks for today! ☕</Text>
-  }
-
-  return (
-    <>
-      <Text>Todays Tasks: </Text>
-      <List forwardedAs="ul">
-        {tasksForToday.map(task => (
-          <ListItem key={task.fields.id}>{task.fields.text}</ListItem>
-        ))}
-      </List>
-    </>
-  )
-}
-
-function Task({ fields }) {
-  let {
-    text,
-    dateCreated,
-    dateDue,
-    status,
-    notes = '',
-    tasks = '[]',
-    tags = '[]',
-  } = fields
-
-  tags = JSON.parse(tags)
-  tasks = JSON.parse(tasks)
-  return (
-    <Box position="relative">
-      <Text maxWidth="70%">
-        {text} - {new Date(dateCreated).toLocaleDateString()}
-      </Text>
-      <Text>Due Date: {new Date(dateDue).toLocaleDateString()}</Text>
-      <Text>{notes}</Text>
-      <Link
-        position="absolute"
-        top={0}
-        right={0}
-        forwardedAs={RouterLink}
-        to="/tasks"
-        autoFocus
-      >
-        Close
-      </Link>
-    </Box>
-  )
-}
-
-function sortTasks(taskA, taskB) {
-  if (Date(taskA.fields.dateCreated) < Date(taskB.fields.dateCreated)) {
-    return -1
-  } else if (Date(taskA.fields.dateCreated) > Date(taskB.fields.dateCreated)) {
-    return 1
-  }
-  return 0
-}
-
-function All({ tasks, completeTask }) {
-  let sortedTasks = tasks.sort(sortTasks).filter(task => !!task.fields.text)
-  return (
-    <>
-      <Text>All Tasks: </Text>
-      <List forwardedAs="ul">
-        {sortedTasks.map(task => (
-          <ListItem key={task.fields.id}>
-            <Label>
-              <Checkbox
-                mr={3}
-                disabled={task.fields.status === 'done'}
-                checked={task.fields.status === 'done'}
-                onChange={completeTask(task)}
-              />
-              <VisuallyHidden>Mark task as completed</VisuallyHidden>
-              <Link as={RouterLink} to={`/tasks/${task.id}`}>
-                {task.fields.text}
-              </Link>
-            </Label>
-          </ListItem>
-        ))}
-      </List>
-      <Box mt={6}>
-        {sortedTasks.map(task => (
-          <Route key={task.id} path={`/tasks/${task.id}`}>
-            <Task {...task} />
-          </Route>
-        ))}
-      </Box>
-    </>
-  )
-}
-
-function addReducer(state, action) {
-  return {
-    ...state,
-    [action.type]: action.value,
-  }
-}
-
 function noop() {}
 
 function Row({ gridTemplateColumns = '1fr 1fr', ...props }) {
@@ -177,15 +64,160 @@ function SubmitButton(props) {
   return <Button onTap={submit} {...props} />
 }
 
-function Add() {
-  let [state, dispatch] = useReducer(addReducer, {
-    text: '',
-    dateDue: '',
-    status: 'pending',
-    notes: '',
-    tasks: '[]',
-    tags: '[]',
+export default function Tasks() {
+  return (
+    <Box>
+      <H1>Tasks</H1>
+      <Suspense fallback={<Text>Loading tasks ...</Text>}>
+        <LocalTasks />
+      </Suspense>
+    </Box>
+  )
+}
+
+function tasksReducer(tasks, action) {
+  switch (action.type) {
+    case 'check':
+      return tasks.map(task => {
+        if (task.id === action.id) {
+          return {
+            ...task,
+            status: 'done',
+          }
+        }
+        return task
+      })
+    case 'pending':
+      return tasks.map(task => {
+        if (task.id === action.id) {
+          return { ...task, status: 'pending' }
+        }
+        return task
+      })
+    case 'in-progress':
+      return tasks.map(task => {
+        if (task.id === action.id) {
+          return { ...task, status: 'in progress' }
+        }
+        return task
+      })
+    case 'cycle-status':
+      return tasks.map(task => {
+        if (task.id === action.id) {
+          return {
+            ...task,
+            status:
+              task.status === 'pending'
+                ? 'in progress'
+                : task.status === 'in progress'
+                ? 'done'
+                : 'pending',
+          }
+        }
+        return task
+      })
+    case 'add':
+      return [...tasks, { ...action.task, id: tasks.length }]
+    case 'update-text':
+      return tasks.map(task => {
+        if (task.id === action.id) {
+          return { ...task, text: action.text }
+        }
+        return task
+      })
+    case 'update-notes':
+      return tasks.map(task => {
+        if (task.id === action.id) {
+          return { ...task, notes: action.notes }
+        }
+        return task
+      })
+    case 'update-due-date':
+      return tasks.map(task => {
+        if (task.id === action.id) {
+          return { ...task, dueData: action.dueDate }
+        }
+        return task
+      })
+    case 'add-tags':
+      return tasks.map(task => {
+        if (task.id === action.id) {
+          return { ...task, tags: [...(task.tags || []), action.tags] }
+        }
+        return task
+      })
+    case 'update-tags':
+      return tasks.map(task => {
+        if (task.id === action.id) {
+          return { ...task, tags: action.tags }
+        }
+        return task
+      })
+    case 'delete-task':
+      return tasks.filter(task => task.id !== action.id)
+  }
+}
+
+let initialTask = {
+  text: '',
+  dueDate: '',
+  status: 'pending',
+  notes: '',
+  tasks: [],
+  tags: [],
+  id: 0,
+  __local__: true,
+}
+
+function addReducer(state, action) {
+  switch (action) {
+    case 'reset':
+      return initialTask
+    default:
+      return {
+        ...state,
+        [action.type]: action.value,
+      }
+  }
+}
+
+function sortTasks(taskA, taskB) {
+  if (Date(taskA.createdData) < Date(taskB.createdData)) {
+    return -1
+  } else if (Date(taskA.createdData) > Date(taskB.createdData)) {
+    return 1
+  }
+  return 0
+}
+
+function LocalTasks() {
+  let [tasks, dispatch] = useReducer(tasksReducer, null, () => {
+    let tasks
+    try {
+      tasks = window.localStorage.getItem('hub.tasks.local.v1')
+      if (tasks) {
+        tasks = JSON.parse(tasks)
+      }
+    } catch (e) {
+      // noop
+    } finally {
+      if (!tasks) {
+        return []
+      }
+      return tasks
+    }
   })
+
+  console.log(tasks)
+
+  useEffect(() => {
+    window.localStorage.setItem('hub.tasks.local.v1.key', new Date())
+    window.localStorage.setItem('hub.tasks.local.v1', JSON.stringify(tasks))
+  }, [tasks])
+
+  // #region Add logic
+  // add task
+  let [task, taskDispatch] = useReducer(addReducer, initialTask)
 
   let [pendingUpload, setUpload] = useState(null)
   let [uploadStatus, setUploadStatus] = useState(null)
@@ -231,20 +263,25 @@ function Add() {
 
   function dispatcher(type) {
     return function(value) {
-      dispatch({ type, value })
+      taskDispatch({ type, value })
     }
   }
 
   function handleSubmit(e) {
     e.preventDefault()
     let upload = {
-      ...state,
-      dateCreated: new Date(),
+      ...task,
+      createdDate: new Date(),
     }
-    setUploadStatus('pending')
-    startTransition(() => {
-      setUpload(upload)
+    dispatch({
+      type: 'add',
+      task: upload,
     })
+    taskDispatch('reset')
+    // setUploadStatus('pending')
+    // startTransition(() => {
+    //   setUpload(upload)
+    // })
   }
 
   function toggleShowMore() {
@@ -255,67 +292,94 @@ function Add() {
     setUploadStatus(null)
   }
 
-  return (
-    <Form forwardedAs={Row} onSubmit={handleSubmit} mb={4}>
-      <Label flexWrap="wrap">
-        <Box>Add a new task:</Box>
-        <Input
-          placeholder="Get groceries..."
-          value={state.text}
-          onChange={dispatcher('text')}
-        />
-      </Label>
-      <Box display="flex" alignSelf="flex-end">
-        <SubmitButton isFullWidth disabled={uploadStatus === 'pending'}>
-          Create
-        </SubmitButton>
-      </Box>
-      {uploadStatus === 'success' && (
-        <Banner
-          variant="success"
-          display="flex"
-          justifyContent="space-between"
-          alignItems="center"
-        >
-          <Text forwardedAs="span">Added todo ✅</Text>
-          <Button onTap={clearUpload}>Dismiss</Button>
-        </Banner>
-      )}
-      {uploadStatus === 'failed' && (
-        <Banner variant="error">Unable to add todo</Banner>
-      )}
-    </Form>
-  )
-}
+  // end add
+  //#endregion
 
-function View() {
-  let { records: tasks } = useAirtable({ base, table })
-  function completeTask(task) {
-    return function(checked) {
-      // task.fields.status = 'done';
-      // TODO
-    }
-  }
-  return (
-    <>
-      <Box mb={4}>
-        <Daily tasks={tasks} />
-      </Box>
-      <Box mb={4}>
-        <Add />
-      </Box>
-      <All completeTask={completeTask} tasks={tasks} />
-    </>
-  )
-}
+  //#region All tasks
+  let sortedTasks = tasks.sort(sortTasks).filter(task => !!task.text)
 
-export default function Tasks() {
+  //#endregion
+
   return (
     <Box>
-      <H1>Tasks</H1>
-      <Suspense fallback={<Text>Loading tasks...</Text>}>
-        <View />
-      </Suspense>
+      <Form forwardedAs={Row} onSubmit={handleSubmit} mb={4}>
+        <Label flexWrap="wrap">
+          <Box>Add a new task:</Box>
+          <Input
+            placeholder="Get groceries..."
+            value={task.text}
+            onChange={dispatcher('text')}
+          />
+        </Label>
+        <Box display="flex" alignSelf="flex-end">
+          <SubmitButton isFullWidth disabled={uploadStatus === 'pending'}>
+            Create
+          </SubmitButton>
+        </Box>
+        {uploadStatus === 'success' && (
+          <Banner
+            variant="success"
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <Text forwardedAs="span">Added task ✅</Text>
+            <Button onTap={clearUpload}>Dismiss</Button>
+          </Banner>
+        )}
+        {uploadStatus === 'failed' && (
+          <Banner variant="error">Unable to add task</Banner>
+        )}
+      </Form>
+      <Text>All Tasks: </Text>
+      <List forwardedAs="ul">
+        {sortedTasks.map(task => (
+          <ListItem key={task.id}>
+            <Label>
+              <Checkbox
+                mr={3}
+                disabled={task.status === 'done'}
+                checked={task.status === 'done'}
+                onChange={() => dispatch({ type: 'cycle-status', id: task.id })}
+              />
+              <VisuallyHidden>Mark task as completed</VisuallyHidden>
+              <Link as={RouterLink} to={`/tasks/${task.id}`}>
+                {task.text}
+              </Link>
+            </Label>
+          </ListItem>
+        ))}
+      </List>
+      <Box mt={6}>
+        {sortedTasks.map(task => (
+          <Route key={task.id} path={`/tasks/${task.id}`}>
+            <Box position="relative">
+              <Text maxWidth="70%">
+                {task.text} - {new Date(task.createdDate).toLocaleDateString()}
+              </Text>
+              <Text>
+                Due Date: {new Date(task.dueDate).toLocaleDateString()}
+              </Text>
+              <Text>{task.notes}</Text>
+              <Button
+                onTap={() => dispatch({ type: 'delete-task', id: task.id })}
+              >
+                Delete
+              </Button>
+              <Link
+                position="absolute"
+                top={0}
+                right={0}
+                forwardedAs={RouterLink}
+                to="/tasks"
+                autoFocus
+              >
+                Close
+              </Link>
+            </Box>
+          </Route>
+        ))}
+      </Box>
     </Box>
   )
 }
