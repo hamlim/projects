@@ -1,8 +1,8 @@
 import * as React from 'react'
-import Head from 'next/head'
-import { ThemeProvider, Link } from '@matthamlin/component-library'
 import ErrorBoundary from '@matthamlin/error-boundary'
-import NextLink from 'next/link'
+import Head from 'next/head'
+import Page from '../components/Page'
+import Header from '../components/Header'
 
 function Fallback() {
   return <p>Error Encountered</p>
@@ -10,16 +10,18 @@ function Fallback() {
 
 export default function Home() {
   return (
-    <ThemeProvider>
+    <Page>
       <ErrorBoundary Fallback={Fallback}>
-        <Head>
-          <title>Projects Monorepo</title>
-        </Head>
-
-        <NextLink href="/component-library">
-          <Link>@matthamlin/component-library</Link>
-        </NextLink>
+        <Header>
+          <Head>
+            <title>Projects Monorepo</title>
+          </Head>
+          <Header.Link href="/">Home</Header.Link>
+          <Header.Link href="/component-library">
+            @matthamlin/component-library
+          </Header.Link>
+        </Header>
       </ErrorBoundary>
-    </ThemeProvider>
+    </Page>
   )
 }
