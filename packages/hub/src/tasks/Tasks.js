@@ -35,7 +35,7 @@ let table = 'tasks'
 
 let ENDPOINT = `https://api.airtable.com/v0/${base}/${table}`
 
-let today = new Date().getDate()
+let today = new Date()
 
 function Route({ children, path }) {
   let { match } = useRoute(path)
@@ -48,12 +48,11 @@ function Route({ children, path }) {
 function noop() {}
 
 function Row({ gridTemplateColumns = '1fr 1fr', ...props }) {
-  let theme = useTheme()
   return (
     <Box
       display="grid"
       gridTemplateColumns={gridTemplateColumns}
-      gridGap={`${theme.space[4]}px`}
+      gridGap={4}
       {...props}
     />
   )
@@ -62,17 +61,6 @@ function Row({ gridTemplateColumns = '1fr 1fr', ...props }) {
 function SubmitButton(props) {
   let submit = useForm()
   return <Button onTap={submit} {...props} />
-}
-
-export default function Tasks() {
-  return (
-    <Box>
-      <H1>Tasks</H1>
-      <Suspense fallback={<Text>Loading tasks ...</Text>}>
-        <LocalTasks />
-      </Suspense>
-    </Box>
-  )
 }
 
 function tasksReducer(tasks, action) {
@@ -158,9 +146,11 @@ function tasksReducer(tasks, action) {
   }
 }
 
+let oneDay = 60 * 60 * 24 * 1000
+
 let initialTask = {
   text: '',
-  dueDate: '',
+  dueDate: Date.now() + oneDay,
   status: 'pending',
   notes: '',
   tasks: [],
@@ -181,43 +171,12 @@ function addReducer(state, action) {
   }
 }
 
-function sortTasks(taskA, taskB) {
-  if (Date(taskA.createdData) < Date(taskB.createdData)) {
-    return -1
-  } else if (Date(taskA.createdData) > Date(taskB.createdData)) {
-    return 1
-  }
-  return 0
-}
-
-function LocalTasks() {
-  let [tasks, dispatch] = useReducer(tasksReducer, null, () => {
-    let tasks
-    try {
-      tasks = window.localStorage.getItem('hub.tasks.local.v1')
-      if (tasks) {
-        tasks = JSON.parse(tasks)
-      }
-    } catch (e) {
-      // noop
-    } finally {
-      if (!tasks) {
-        return []
-      }
-      return tasks
-    }
-  })
-
-  console.log(tasks)
-
-  useEffect(() => {
-    window.localStorage.setItem('hub.tasks.local.v1.key', new Date())
-    window.localStorage.setItem('hub.tasks.local.v1', JSON.stringify(tasks))
-  }, [tasks])
-
+function AddTodo({ dispatch }) {
   // #region Add logic
   // add task
   let [task, taskDispatch] = useReducer(addReducer, initialTask)
+
+  console.log(new Date(task.dueDate))
 
   let [pendingUpload, setUpload] = useState(null)
   let [uploadStatus, setUploadStatus] = useState(null)
@@ -267,6 +226,12 @@ function LocalTasks() {
     }
   }
 
+  function handleKeyDown(event) {
+    if (event.key === 'Enter' && task.text !== '') {
+      handleSubmit(event)
+    }
+  }
+
   function handleSubmit(e) {
     e.preventDefault()
     let upload = {
@@ -295,6 +260,69 @@ function LocalTasks() {
   // end add
   //#endregion
 
+  return (
+    <Form onSubmit={handleSubmit}>
+      <Label flexWrap="wrap">
+        <Box>Add a new task:</Box>
+        <Input
+          placeholder="Get groceries..."
+          value={task.text}
+          onChange={dispatcher('text')}
+          onKeyDown={handleKeyDown}
+        />
+      </Label>
+      {uploadStatus === 'success' && (
+        <Banner
+          variant="success"
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <Text forwardedAs="span">Added task ✅</Text>
+          <Button onTap={clearUpload}>Dismiss</Button>
+        </Banner>
+      )}
+      {uploadStatus === 'failed' && (
+        <Banner variant="error">Unable to add task</Banner>
+      )}
+    </Form>
+  )
+}
+
+function sortTasks(taskA, taskB) {
+  if (Date(taskA.createdData) < Date(taskB.createdData)) {
+    return -1
+  } else if (Date(taskA.createdData) > Date(taskB.createdData)) {
+    return 1
+  }
+  return 0
+}
+
+function LocalTasks() {
+  let [tasks, dispatch] = useReducer(tasksReducer, null, () => {
+    let tasks
+    try {
+      tasks = window.localStorage.getItem('hub.tasks.local.v1')
+      if (tasks) {
+        tasks = JSON.parse(tasks)
+      }
+    } catch (e) {
+      // noop
+    } finally {
+      if (!tasks) {
+        return []
+      }
+      return tasks
+    }
+  })
+
+  console.log(tasks)
+
+  useEffect(() => {
+    window.localStorage.setItem('hub.tasks.local.v1.key', new Date())
+    window.localStorage.setItem('hub.tasks.local.v1', JSON.stringify(tasks))
+  }, [tasks])
+
   //#region All tasks
   let sortedTasks = tasks.sort(sortTasks).filter(task => !!task.text)
 
@@ -302,35 +330,6 @@ function LocalTasks() {
 
   return (
     <Box>
-      <Form forwardedAs={Row} onSubmit={handleSubmit} mb={4}>
-        <Label flexWrap="wrap">
-          <Box>Add a new task:</Box>
-          <Input
-            placeholder="Get groceries..."
-            value={task.text}
-            onChange={dispatcher('text')}
-          />
-        </Label>
-        <Box display="flex" alignSelf="flex-end">
-          <SubmitButton isFullWidth disabled={uploadStatus === 'pending'}>
-            Create
-          </SubmitButton>
-        </Box>
-        {uploadStatus === 'success' && (
-          <Banner
-            variant="success"
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-          >
-            <Text forwardedAs="span">Added task ✅</Text>
-            <Button onTap={clearUpload}>Dismiss</Button>
-          </Banner>
-        )}
-        {uploadStatus === 'failed' && (
-          <Banner variant="error">Unable to add task</Banner>
-        )}
-      </Form>
       <Text>All Tasks: </Text>
       <List forwardedAs="ul">
         {sortedTasks.map(task => (
@@ -350,6 +349,9 @@ function LocalTasks() {
           </ListItem>
         ))}
       </List>
+      <Box my={2}>
+        <AddTodo dispatch={dispatch} />
+      </Box>
       <Box mt={6}>
         {sortedTasks.map(task => (
           <Route key={task.id} path={`/tasks/${task.id}`}>
@@ -380,6 +382,17 @@ function LocalTasks() {
           </Route>
         ))}
       </Box>
+    </Box>
+  )
+}
+
+export default function Tasks() {
+  return (
+    <Box>
+      <H1>Tasks</H1>
+      <Suspense fallback={<Text>Loading tasks ...</Text>}>
+        <LocalTasks />
+      </Suspense>
     </Box>
   )
 }
