@@ -12,7 +12,7 @@ export default function Header({ children }) {
 Header.Link = function HeaderLink({ href, children }) {
   return (
     <NextLink href={href}>
-      <Link>{children}</Link>
+      <Link forwardedAs="a">{children}</Link>
     </NextLink>
   )
 }
