@@ -10,6 +10,7 @@
     "build": "parcel build src/index.html --out-dir public",
     "prenow-build": "sh ./build-workers-deploy.sh",
     "now-build": "parcel build src/index.html --out-dir public",
+    "predeploy": "node predeploy.js",
     "deploy": "now --regions all",
     "test": "echo skip",
     "test-watch": "jest --watch"
@@ -20,20 +21,17 @@
     }
   },
   "dependencies": {
-    "@matthamlin/property-controls": "*",
     "@matthamlin/component-library": "*",
+    "@matthamlin/error-boundary": "*",
+    "@matthamlin/property-controls": "*",
     "@matthamlin/reroute-browser": "*",
     "@matthamlin/reroute-core": "*",
     "@matthamlin/simple-cache": "*",
-    "@matthamlin/error-boundary": "*",
-    "monaco-editor": "0.20.0",
     "@matthamlin/use-local-storage": "*",
+    "history": "4.10.1",
+    "monaco-editor": "0.20.0",
     "react": "experimental",
     "react-dom": "experimental"
-  },
-  "alias": {
-    "react": "../../node_modules/react",
-    "react-dom": "../../node_modules/react-dom"
   },
   "devDependencies": {
     "@babel/cli": "7.5.0",
