@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react'
 import { BrowserRouter, Route as BaseRoute } from '@matthamlin/reroute-browser'
 import * as comps from '@matthamlin/component-library'
-import { createRoot } from 'react-dom'
+import { createRoot, unstable_createRoot, render } from 'react-dom'
 import posts from './posts'
 import { MDXProvider } from '@mdx-js/react'
 import { Breadcrumbs, Crumb, Spacer } from './Breadcrumbs'
@@ -59,6 +59,19 @@ let components = {
       {...props}
     />
   ),
+}
+
+let cr
+if (typeof createRoot === 'function') {
+  cr = createRoot
+} else if (typeof unstable_createRoot === 'function') {
+  cr = unstable_createRoot
+} else {
+  cr = el => ({
+    render(app) {
+      render(app, ell)
+    },
+  })
 }
 
 createRoot(document.querySelector('#root')).render(

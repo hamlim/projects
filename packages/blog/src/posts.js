@@ -2,6 +2,11 @@ import { lazy } from 'react'
 
 export default [
   {
+    to: 'a-note-on-consistency',
+    title: 'A Note On Consistency',
+    component: lazy(() => import('./posts/2020/may/a-note-on-consistency.mdx')),
+  },
+  {
     to: 'a-note-on-anti-patterns',
     title: 'A Note On Anti-Patterns',
     component: lazy(() =>
