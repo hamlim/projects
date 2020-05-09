@@ -11,7 +11,7 @@ import {
   Text,
   Link,
 } from '@matthamlin/component-library'
-import { createRoot } from 'react-dom'
+import { unstable_createRoot as createRoot } from 'react-dom'
 
 let { lazy, Suspense } = React
 

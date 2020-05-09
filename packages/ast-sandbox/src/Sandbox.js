@@ -29,7 +29,13 @@ self.MonacoEnvironment = {
   },
 }
 
-let { useRef, useEffect, useState, useDeferredValue, useLayoutEffect } = React
+let {
+  useRef,
+  useEffect,
+  useState,
+  unstable_useDeferredValue: useDeferredValue,
+  useLayoutEffect,
+} = React
 
 function Editor({
   value,
@@ -313,7 +319,7 @@ export default function Foo() {
     },
   }
 }`),
-    { key: 'transform' },
+    { key: 'transform', hydrate: true },
   )
 
   useLayoutEffect(() => {
