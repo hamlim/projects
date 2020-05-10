@@ -1,6 +1,6 @@
 {
   "name": "@matthamlin/package-scripts",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "main": "index.js",
   "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
   "license": "MIT",
@@ -8,7 +8,7 @@
     "pub": "yarn publish --access public --no-git-tag-version"
   },
   "dependencies": {
-    "@matthamlin/babel-config": "*"
+    "@matthamlin/babel-config": "^1"
   },
   "publishConfig": {
     "access": "public",

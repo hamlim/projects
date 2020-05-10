@@ -1,18 +1,24 @@
 {
   "name": "@matthamlin/babel-config",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "index.js",
   "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
   "license": "MIT",
   "scripts": {
     "pub": "yarn publish --access public --no-git-tag-version"
   },
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "7.8.3",
+    "@babel/plugin-proposal-export-namespace": "7.0.0-beta.32",
+    "@babel/plugin-proposal-object-rest-spread": "7.9.6",
+    "@babel/plugin-transform-runtime": "7.9.6",
+    "@babel/preset-env": "7.9.6",
+    "@babel/preset-react": "7.9.4",
+    "babel-plugin-styled-components": "1.10.6"
+  },
   "devDependencies": {
     "@babel/cli": "7.5.0",
-    "@babel/core": "7.5.0",
-    "@babel/plugin-proposal-export-namespace-from": "7.8.3",
-    "@babel/preset-env": "7.5.0",
-    "@babel/preset-react": "^7.7.4"
+    "@babel/core": "7.5.0"
   },
   "publishConfig": {
     "access": "public",
