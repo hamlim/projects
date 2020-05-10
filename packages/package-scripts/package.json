@@ -1,0 +1,22 @@
+{
+  "name": "@matthamlin/package-scripts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
+  "license": "MIT",
+  "scripts": {
+    "pub": "yarn publish --access public --no-git-tag-version"
+  },
+  "dependencies": {
+    "@matthamlin/babel-config": "*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/hamlim/projects.git",
+    "directory": "packages/package-scripts"
+  }
+}

@@ -81,3 +81,6 @@ Scripts:
 
 📦 Babel Parse:
   - packages/babel-parse/**/*
+
+📦 Package Scripts:
+  - packages/package-scripts/**/*
