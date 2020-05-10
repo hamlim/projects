@@ -27,7 +27,7 @@
     "react": "*",
     "react-dom": "*",
     "react-simple-code-editor": "0.9.1",
-    "@matthamlin/babel-config": "0.0.0"
+    "@matthamlin/babel-config": "*"
   },
   "peerDependencies": {
     "react": "*",

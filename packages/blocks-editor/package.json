@@ -38,7 +38,7 @@
     "theme-ui": "^0.3.1"
   },
   "devDependencies": {
-    "@matthamlin/babel-config": "0.0.0"
+    "@matthamlin/babel-config": "*"
   },
   "publishConfig": {
     "access": "public",

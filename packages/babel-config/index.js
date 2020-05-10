@@ -1,8 +1,4 @@
-module.exports = function({
-  node = undefined,
-  esmodules = undefined,
-  bugfixes = undefined,
-} = {}) {
+module.exports = function({ node = undefined, esmodules = undefined } = {}) {
   return function(api) {
     api.cache.never()
 
@@ -13,7 +9,7 @@ module.exports = function({
       targets = { esmodules }
     }
 
-    let cfg = ['@babel/preset-env', { targets, bugfixes }]
+    let cfg = ['@babel/preset-env', { targets }]
     if (process.env.NODE_ENV === 'test') {
       cfg = [
         '@babel/preset-env',

@@ -35,7 +35,7 @@
     "jest": "24.9.0",
     "parcel": "1.12.4",
     "babel-plugin-styled-components": "1.10.7",
-    "@matthamlin/babel-config": "0.0.0"
+    "@matthamlin/babel-config": "*"
   },
   "publishConfig": {
     "access": "public",

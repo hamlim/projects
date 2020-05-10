@@ -24,7 +24,7 @@
     "@babel/cli": "7.0.0",
     "@babel/preset-env": "7.1.0",
     "@babel/preset-react": "7.0.0",
-    "@matthamlin/babel-config": "0.0.0"
+    "@matthamlin/babel-config": "*"
   },
   "peerDependencies": {
     "@mdx-js/tag": "0.15.0",

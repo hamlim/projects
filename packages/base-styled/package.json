@@ -1,22 +1,25 @@
 {
   "name": "@matthamlin/base-styled",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "main": "dist/index.js",
   "source": "src/index.js",
   "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
   "license": "MIT",
   "scripts": {
-    "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'"
+    "build": "babel src/ --out-dir dist/ --ignore '**/*.test.js'",
+    "prepub": "yarn build",
+    "pub": "yarn publish --access public --no-git-tag-version"
   },
   "devDependencies": {
     "@babel/cli": "7.5.0",
     "@babel/core": "7.5.0",
+    "@babel/plugin-proposal-export-namespace-from": "7.8.3",
     "@babel/preset-env": "7.5.0",
     "@babel/preset-react": "^7.7.4",
+    "@matthamlin/babel-config": "*",
     "jest": "24.9.0",
     "react": "*",
-    "react-dom": "*",
-    "@matthamlin/babel-config": "0.0.0"
+    "react-dom": "*"
   },
   "publishConfig": {
     "access": "public",
@@ -27,8 +30,10 @@
     "url": "ssh://git@github.com/hamlim/projects.git",
     "directory": "packages/base-styled"
   },
+  "peerDependencies": {
+    "styled-components": "^5"
+  },
   "dependencies": {
-    "@styled-system/props": "5.1.4",
-    "styled-components": "5.0.0"
+    "@styled-system/props": "5.1.4"
   }
 }

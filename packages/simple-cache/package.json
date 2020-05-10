@@ -17,7 +17,7 @@
     "@babel/cli": "7.5.0",
     "@babel/core": "7.5.0",
     "@babel/preset-env": "7.5.0",
-    "@matthamlin/babel-config": "0.0.0"
+    "@matthamlin/babel-config": "*"
   },
   "publishConfig": {
     "access": "public",

@@ -36,7 +36,7 @@
     "@parcel/resolver-default": "2.0.0-alpha.3",
     "jest": "24.9.0",
     "parcel": "1.12.4",
-    "@matthamlin/babel-config": "0.0.0"
+    "@matthamlin/babel-config": "*"
   },
   "publishConfig": {
     "access": "public",

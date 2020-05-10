@@ -11,7 +11,7 @@
     "@babel/core": "7.9.0",
     "@babel/preset-env": "7.9.0",
     "@babel/preset-react": "7.9.4",
-    "@matthamlin/babel-config": "0.0.0"
+    "@matthamlin/babel-config": "*"
   },
   "dependencies": {
     "@emotion/core": "^10.0.22",

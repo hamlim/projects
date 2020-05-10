@@ -28,7 +28,7 @@
     "babel-plugin-macros": "^2.7.1",
     "directory-tree": "2.1.0",
     "preval.macro": "3.0.0",
-    "@matthamlin/babel-config": "0.0.0"
+    "@matthamlin/babel-config": "*"
   },
   "scripts": {
     "test": "node ./test-runner/index.js",

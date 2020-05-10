@@ -1,6 +1,6 @@
 {
   "name": "@matthamlin/component-library",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "author": "Matthew Hamlin <matthewjameshamlin@gmail.com> (https://matthamlin.me/)",
   "license": "MIT",
   "main": "dist/index.js",
@@ -14,9 +14,8 @@
     "directory": "packages/component-library"
   },
   "dependencies": {
-    "@matthamlin/base-styled": "1.1.0",
+    "@matthamlin/base-styled": "1.2.0",
     "@styled-system/props": "5.1.4",
-    "styled-components": "5.0.0",
     "styled-system": "5.0.12"
   },
   "devDependencies": {
@@ -27,7 +26,7 @@
     "@babel/preset-env": "7.5.0",
     "@babel/preset-react": "7.0.0",
     "@babel/runtime": "^7.7.6",
-    "@matthamlin/babel-config": "0.0.0",
+    "@matthamlin/babel-config": "*",
     "@testing-library/jest-dom": "4.1.0",
     "@testing-library/react": "8.0.4",
     "babel-plugin-styled-components": "1.10.7",
@@ -37,7 +36,8 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-dom": "*"
+    "react-dom": "*",
+    "styled-components": "^5"
   },
   "jest": {
     "transform": {
