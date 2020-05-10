@@ -1,3 +1,5 @@
+# Note: This site has moved to https://github.com/hamlim/blog
+
 # `@matthamlin/blog`
 
 A personal site and blog
