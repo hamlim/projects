@@ -9,6 +9,7 @@
       babel-plugin-metadata
 - [ ] Implement external file tracking for imported values -
       babel-plugin-metadata
+- [ ] `<InlineCode/>` component - component-library
 
 ### Done
 
