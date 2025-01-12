@@ -19,7 +19,7 @@
     "@matthamlin/native-bundler-plugin-js": "*",
     "@matthamlin/native-bundler-plugin-mdx": "*",
     "babylon": "6.18.0",
-    "node-fetch": "2.2.0"
+    "node-fetch": "2.6.7"
   },
   "devDependencies": {
     "@babel/cli": "7.0.0",
