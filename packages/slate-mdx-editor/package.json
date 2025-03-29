@@ -15,7 +15,7 @@
     }
   },
   "dependencies": {
-    "@babel/runtime": "7.9.2",
+    "@babel/runtime": "7.26.10",
     "@matthamlin/component-library": "*",
     "@matthamlin/error-boundary": "*",
     "@matthamlin/property-controls": "*",
